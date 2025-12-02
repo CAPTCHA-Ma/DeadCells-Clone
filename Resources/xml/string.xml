@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+    <key>start_game_text</key>
+    <string>开始游戏</string>
+
+    <key>loading_text</key>
+    <string>加载中...</string>
+
+    <key>exit_text</key>
+    <string>退出游戏</string>
+</dict>
+</plist>

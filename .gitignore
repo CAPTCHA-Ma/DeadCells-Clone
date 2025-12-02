@@ -1,0 +1,29 @@
+# 忽略 Visual Studio 的临时文件
+.vs/
+*.sdf
+*.opensdf
+*.suo
+*.user
+Debug/
+Release/
+x64/
+ipch/
+
+# 忽略 Cocos 编译产生的临时文件夹
+proj.win32/Debug.win32/
+proj.win32/Release.win32/
+bin/
+obj/
+temp/
+library/
+local/
+
+# 忽略系统文件
+Thumbs.db
+.DS_Store
+
+cocos2d/
+proj.android/
+proj.ios_mac/
+proj.linux/
+proj.win32/
