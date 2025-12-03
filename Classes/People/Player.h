@@ -21,7 +21,7 @@ public:
     void equipWeapon(Weapon* weapon);
     Weapon* getEquippedWeapon() const 
     { 
-        return _equippedWeapon;
+        return _currentWeapon;
     }
     int getFinalAttackPower() const;
     int getFinalDefensePower() const;
@@ -35,13 +35,14 @@ public:
     void roll();//翻滚
     void attack();    // 攻击
     void defend();    // 防御
-    void takeDamage(int damage);
-
+    void moveFromKeyBoard(char input);//键盘控制移动
 private:
     Player();
     virtual ~Player();
 
-    Weapon* _equippedWeapon;
+	Weapon* _mainWeapon;// 主武器
+	Weapon* _subWeapon;// 副武器
+	Weapon* _currentWeapon;// 当前装备的武器
 	cocos2d::Node* _handNode; // 用于挂载武器的节点
 };
 

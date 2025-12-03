@@ -14,21 +14,21 @@ public:
         Shield,
         Bow
     };
-    // 剑类
+    // 近战武器
     enum class SwordType 
     {
         LongSword,
         ShortSword,
         GreatSword
     };
-	// 盾类
+	// 盾
     enum class ShieldType 
     {
         SmallShield,
         IronShield,
         MagicShield
     };
-	// 弓类
+	// 远程武器
     enum class BowType 
     {
         ShortBow,

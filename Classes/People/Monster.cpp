@@ -75,7 +75,3 @@ void Monster::moveTowards(const cocos2d::Vec2& targetPosition)
   返 回 值：
   说    明：
 ***************************************************************************/
-void Monster::attack(int monsterType, Player* target)
-{
-
-}

@@ -2,6 +2,15 @@
 #include "Player.h"
 
 USING_NS_CC;
+
+Player::Player()
+{
+
+}
+Player::~Player()
+{
+
+}
 /***************************************************************************
   函数名称：init
   功    能：初始化主角
@@ -54,19 +63,35 @@ Player* Player::createPlayer()
 void Player::equipWeapon(Weapon* weapon)
 {
 	//已经装备了武器，卸下当前武器
-	if (_equippedWeapon)
+	if (_currentWeapon)
 	{
-		_equippedWeapon->removeFromParent();
-		_equippedWeapon = nullptr;
+		if (_mainWeapon && _subWeapon)//有主武器和副武器，把当前武器替换为新武器
+		{
+			_currentWeapon->removeFromParent();
+			_currentWeapon = weapon;
+		}
+		else if (_mainWeapon)//只有主武器，那么新武器添加到副武器,当前武器切换为副武器
+		{
+			_subWeapon = weapon;
+			_currentWeapon = _subWeapon;
+		}
+		else//只有副武器，那么新武器添加到主武器,当前武器切换为主武器
+		{
+			_mainWeapon = weapon;
+			_currentWeapon = _mainWeapon;
+		}
 	}
-	//装备新武器
-	_equippedWeapon = weapon;
-	if (_equippedWeapon)
+	else//没有装备武器，直接装备新武器
 	{
-		_handNode->addChild(_equippedWeapon);
-		_equippedWeapon->setPosition(Vec2::ZERO);
-		_equippedWeapon->setRotation(0);
-		_equippedWeapon->setLocalZOrder(1);
+		_currentWeapon = weapon;
+		_mainWeapon = weapon;//默认装备为主武器
+	}
+	if (_currentWeapon)
+	{
+		_handNode->addChild(_currentWeapon);
+		_currentWeapon->setPosition(Vec2::ZERO);
+		_currentWeapon->setRotation(0);
+		_currentWeapon->setLocalZOrder(1);
 	}
 }
 /***************************************************************************
@@ -120,4 +145,43 @@ void Player::moveLeft()
 	Vec2 targetPosition = currentPosition + directionVector;
 	this->moveTowards(targetPosition);
 	return;
+}
+void Player::jump()//跳跃
+{
+
+}
+void Player::crouch()//下蹲
+{
+
+}
+void Player::roll()//翻滚
+{
+
+}
+void Player::attack()    // 攻击
+{
+
+}
+void Player::defend()   // 防御
+{
+
+}
+void Player::moveFromKeyBoard(char input)//键盘控制移动
+{
+	switch (input)
+	{
+		case 'A':moveLeft(); break;
+		case 'D':moveRight(); break;
+		case 'K':jump(); break;
+		case 'J':attack(); break;
+		default:break;
+	}
+}
+int Player::getFinalAttackPower() const
+{
+	return _attack + (_currentWeapon ? _currentWeapon->getAttackPower() : 0);
+}
+int Player::getFinalDefensePower() const
+{
+	return _defense + (_currentWeapon ? _currentWeapon->getDefensePower() : 0);
 }

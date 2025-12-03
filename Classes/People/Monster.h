@@ -10,8 +10,6 @@ public:
     // 1. 创建
     static Monster* createMonster(int monsterType);
 
-    // 2. 初始化
-    virtual bool init() override;
 
     // 3. 怪物属性
     CC_SYNTHESIZE(int, _health, Health);     // 生命值
@@ -19,8 +17,7 @@ public:
 
     // 4. 行为
     void moveTowards(const cocos2d::Vec2& targetPosition);
-    void takeDamage(int damage);
-    void attack(int monsterType, Player* target);
+
 
 private:
     
