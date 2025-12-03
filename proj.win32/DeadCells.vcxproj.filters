@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.cpp">
+      <Filter>Source Files\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\StartMenu.cpp">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Loading.cpp">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.cpp">
+      <Filter>Source Files\Classes\Res</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.cpp">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\cocos2d\cocos\precheader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\Monster.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\Player.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\Weapon.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.h">
+      <Filter>Source Files\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\StartMenu.h">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Loading.h">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.h">
+      <Filter>Source Files\Classes\Res</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.h">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\resource.h">
+      <Filter>Source Files\proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_0.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_1.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_10.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_11.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_12.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_13.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_14.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_15.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_16.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_17.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_18.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_19.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_2.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_3.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_4.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_5.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_6.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_7.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_8.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_9.png">
+      <Filter>Resources\Graph\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\StartMenu\Logo.png">
+      <Filter>Resources\Graph\StartMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\StartMenu\StartButtonSelected.png">
+      <Filter>Resources\Graph\StartMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\StartMenu\StartMenuBackGround.jpg">
+      <Filter>Resources\Graph\StartMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\fonts\arial.ttf">
+      <Filter>Resources\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\fonts\fusion-pixel.ttf">
+      <Filter>Resources\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\music\prisonstart_intro.ogg">
+      <Filter>Resources\music</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\res\.gitkeep">
+      <Filter>Resources\res</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\xml\string.xml">
+      <Filter>Resources\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\Monster.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\Player.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\Weapon.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Code\Cocos2dx\DeadCells\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\Code\Cocos2dx\DeadCells\proj.win32\game.rc">
+      <Filter>Source Files\proj.win32</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{5A9A7735-5333-365C-AF2A-3461F3C01E2A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Graph">
+      <UniqueIdentifier>{2FBDA5A6-AAD2-3806-A522-7BCF8FC95FF3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Graph\Loading">
+      <UniqueIdentifier>{A0151D25-AB65-3B4B-A03C-7B42AA3AAFC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Graph\StartMenu">
+      <UniqueIdentifier>{795DABA1-3752-34BD-A4B3-D78040DCA6D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\fonts">
+      <UniqueIdentifier>{C3EB66CC-0EDF-31DB-B09B-D7AB9C83B4FE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\music">
+      <UniqueIdentifier>{76020580-5A32-397E-B45F-15CC178753DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\res">
+      <UniqueIdentifier>{395FBFF1-012C-3E1D-833A-A1D0F0F1B395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\xml">
+      <UniqueIdentifier>{0EADD752-CE58-3686-A377-83945C7694C6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E45B0350-58CD-3C29-83FB-A47174B52D91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes">
+      <UniqueIdentifier>{15F5CEEA-3DAE-3D4D-911F-76F2D6060CAD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Res">
+      <UniqueIdentifier>{1DE6140D-BE86-3241-A83A-82A59A8E69AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Scene">
+      <UniqueIdentifier>{41F145FE-219E-3A01-98AA-046E4F26351C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\proj.win32">
+      <UniqueIdentifier>{AE5756C4-4DAB-3954-9C92-D5F573D7971A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Repackaging">
+      <UniqueIdentifier>{38f0dbba-7d2d-4673-9a09-89349f73e711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Shaders">
+      <UniqueIdentifier>{6a39d51f-24d3-4a22-9a9a-6f8b25ef646c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\People">
+      <UniqueIdentifier>{60d144a4-79d3-4559-b85d-f2362adc9f23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
