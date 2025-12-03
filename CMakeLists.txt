@@ -60,12 +60,20 @@ list(APPEND GAME_SOURCE
      Classes/Scene/StartMenu.cpp
      Classes/Scene/Loading.cpp
      Classes/Res/strings.cpp
+     Classes/Resprite/Resprite.cpp
+     Classes/People/Player.cpp
+     Classes/People/Monster.cpp
+     Classes/People/Weapon.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/Scene/StartMenu.h
      Classes/Scene/Loading.h
      Classes/Res/strings.h
+     Classes/Resprite/Resprite.h
+     Classes/People/Player.cpp
+     Classes/People/Monster.cpp
+     Classes/People/Weapon.cpp
      )
 
 if(ANDROID)

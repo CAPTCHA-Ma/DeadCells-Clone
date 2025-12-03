@@ -1,5 +1,7 @@
 #include "Loading.h"
 #include "Res/strings.h"
+#include "Resprite/Resprite.h"
+
 USING_NS_CC;
 
 bool Loading::init()
@@ -36,6 +38,11 @@ bool Loading::init()
 	auto loadingLabel = Label::createWithTTF(GetText("loading_text"), "fonts/fusion-pixel.ttf", 50);
 	loadingLabel->setPosition(Vec2(origin.x + visibleSize.width - 190, origin.y + visibleSize.height / 4 - 150));
 	this->addChild(loadingLabel);
+
+	auto characterSprite = Resprite::create("Graph/Loading/Character.png", "Graph/Loading/CharacterPalette.png", "Graph/Loading/CharacterNormal.png");
+	characterSprite->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
+	characterSprite->setScale(10.0f);
+	this->addChild(characterSprite);
 
 	return true;
 

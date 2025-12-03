@@ -915,6 +915,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\People\Monster.h" />
     <ClInclude Include="..\Classes\People\Player.h" />
     <ClInclude Include="..\Classes\People\Weapon.h" />
+    <ClInclude Include="..\Classes\Resprite\Resprite.h" />
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.h" />
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\StartMenu.h" />
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Loading.h" />
@@ -924,6 +925,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\People\Monster.cpp" />
     <ClCompile Include="..\Classes\People\Player.cpp" />
     <ClCompile Include="..\Classes\People\Weapon.cpp" />
+    <ClCompile Include="..\Classes\Resprite\Resprite.cpp" />
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.cpp" />
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\StartMenu.cpp" />
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Loading.cpp" />
@@ -1021,6 +1023,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{B69BAABE-F127-3045-8CCA-D4D95F4CA633}</Project>
       <Name>external</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\Shaders\DeadCells.frag" />
+    <None Include="..\Resources\Shaders\DeadCells.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\Graph\Loading\Character.png" />
+    <Image Include="..\Resources\Graph\Loading\CharacterPalette.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
