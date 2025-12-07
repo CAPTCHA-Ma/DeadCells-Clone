@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="19" height="20" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="8" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="19" height="20" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYBzFFGF8gFrmkGIuOWCwmsVARXNoZdYoGDgwWv6QhgF7ogDG
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="19" height="20"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNpjYBgFo2AUUAI4qWjOqFn0D/eRBAC0UABb
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="CustomDeco" type="CustomDeco" x="216" y="72" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="DisableDecorator" type="DisableDecorator" x="24" y="96" width="384" height="264">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="Light" type="Light" x="192" y="96" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoor"/>
+   </properties>
+  </object>
+  <object id="4" name="CustomDeco" type="CustomDeco" x="96" y="168" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="torch"/>
+   </properties>
+  </object>
+  <object id="5" name="CustomDeco" type="CustomDeco" x="360" y="168" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="torch"/>
+   </properties>
+  </object>
+  <object id="6" name="ZDoor" type="ZDoor" x="144" y="264" width="144" height="120">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="7" name="DisableDecorator" type="DisableDecorator" x="72" y="336" width="72" height="48">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="8" name="DisableDecorator" type="DisableDecorator" x="336" y="336" width="72" height="48">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="9" name="Light" type="Light" x="48" y="360" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoor3"/>
+   </properties>
+  </object>
+  <object id="10" name="CustomDeco" type="CustomDeco" x="72" y="360" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="candle"/>
+   </properties>
+  </object>
+  <object id="11" name="DisableDecorator" type="DisableDecorator" x="144" y="360" width="192" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="12" name="Light" type="Light" x="192" y="360" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoorBot"/>
+   </properties>
+  </object>
+  <object id="13" name="Light" type="Light" x="360" y="360" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoor3"/>
+   </properties>
+  </object>
+  <object id="14" name="CustomDeco" type="CustomDeco" x="384" y="360" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="candle"/>
+   </properties>
+  </object>
+  <object id="15" name="GenericEventTrigger" type="GenericEventTrigger" x="336" y="0" width="96" height="480">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="DLCPUnlock"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

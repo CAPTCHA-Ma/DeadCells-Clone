@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="50" height="28" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="8" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="50" height="28" >
+  <data encoding="base64" compression="zlib">  
+   eNrt1kENAAAIA7Hh3zQmgAfpJRWw3ypJAQDAoMvssMMOO77skPQ/P5ENDSbTA8I=
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="50" height="28"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNrt07ENAAAIw7Cu/P8wZ4Aq+4MMSQAAAIBrU9KgQ4eO3sf5aQGZWwBb
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="CustomSpot" type="CustomSpot" x="360" y="264" width="648" height="336">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="battleZone"/>
+   </properties>
+  </object>
+  <object id="2" name="DisableDecorator" type="DisableDecorator" x="360" y="264" width="648" height="336">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="GenericEventTrigger" type="GenericEventTrigger" x="360" y="312" width="24" height="168">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="roomBerserk"/>
+   </properties>
+  </object>
+  <object id="4" name="GenericEventTrigger" type="GenericEventTrigger" x="384" y="312" width="600" height="288">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="roomBerserk"/>
+   </properties>
+  </object>
+  <object id="5" name="GenericEventTrigger" type="GenericEventTrigger" x="984" y="312" width="24" height="168">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="roomBerserk"/>
+   </properties>
+  </object>
+  <object id="6" name="BossDoor" type="BossDoor" x="336" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="7" name="CustomDeco" type="CustomDeco" x="360" y="576" width="648" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="clockRock"/>
+   </properties>
+  </object>
+  <object id="8" name="CustomDeco" type="CustomDeco" x="672" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="clock"/>
+   </properties>
+  </object>
+  <object id="9" name="BossSpot" type="BossSpot" x="792" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="mob" value="TimeKeeper"/>
+   </properties>
+  </object>
+  <object id="10" name="DarknessRemover" type="DarknessRemover" x="792" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="-1"/>
+   </properties>
+  </object>
+  <object id="11" name="CustomSpot" type="CustomSpot" x="888" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="mobSpawnSpot"/>
+   </properties>
+  </object>
+  <object id="12" name="BossDoor" type="BossDoor" x="1008" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="13" name="Npc" type="Npc" x="120" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="trainingKnightBoss"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

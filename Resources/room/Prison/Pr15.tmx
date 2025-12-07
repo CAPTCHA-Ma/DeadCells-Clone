@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="40" height="16" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="40" height="16" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYBzEmBgw0PZT6r6BBqPuG7ruI8ZOUt2HTy0TEh6ofEXIXGYqlAuj7qNfGc9EQroaCPeRCpipVG6Mum/UfdT2F7oaAM4qAXI=
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="40" height="16"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNpjYBjcgB2KB9p+QniwumvUfcPbfQPprsFcXoy6b9R9Aw04COBR9426j97uQwcArWEDKA==
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="Door" type="Door" x="528" y="120" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

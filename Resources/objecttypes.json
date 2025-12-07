@@ -1,0 +1,2856 @@
+[
+	{
+		"name": "ATDoorBlue",
+		"color": "#ff009aff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "ATDoorFinal",
+		"color": "#ffff7c00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "ATDoorOrange",
+		"color": "#ffff7c00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "ATMDoor",
+		"color": "#ffffd600",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "ATMMachine",
+		"color": "#ffffd600",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "ATSwitch",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "AmbientAudio",
+		"color": "#ffffab00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "AutoRetractableSpikes",
+		"color": "#ffd8c064",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BankEntrance",
+		"color": "#ffffaf00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BankNpcDoor",
+		"color": "#ffffbd00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BankSubTeleport",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "Barrel",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BarrelSpawner",
+		"color": "#ffffe0ab",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BgWall",
+		"color": "#ff7352fd",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BlueGate",
+		"color": "#ff1cafff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BossDoor",
+		"color": "#ffff24b5",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "layer",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BossRushDoor",
+		"color": "#ffff24b5",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BossSpot",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "mob",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BossTrainingDoor",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BreakableGround",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BreakableGroundConditional",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BreakableOneWay",
+		"color": "#ffffe300",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "BreakableTile",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BreakableWall",
+		"color": "#ff947e54",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "BulletBomb",
+		"color": "#ffe71313",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "CardLockedDoor",
+		"color": "#ffc1c1c1",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "CarnivorousPlant",
+		"color": "#ff64d8af",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "CellShrine",
+		"color": "#ff44ffe6",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "Critters",
+		"color": "#ff29ff5f",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "CustomDeco",
+		"color": "#ffffa900",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "light",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "layer",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "offset",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "CustomEntity",
+		"color": "#ffff8700",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "CustomSpot",
+		"color": "#ffe30000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "DarknessRemover",
+		"color": "#ffff7c00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "DisableDecorator",
+		"color": "#ffd4d4d4",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "DisableMobGen",
+		"color": "#ff900040",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "DisableWallGrab",
+		"color": "#ff624ed4",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "DookuBreakableFloor",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "Door",
+		"color": "#ffd88a57",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "Elevator",
+		"color": "#ffffdc24",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "ElevatorDoor",
+		"color": "#ffffbd00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "EliteShrine",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "mob",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "Examinable",
+		"color": "#ff0b89ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "ExplosiveBarrel",
+		"color": "#ffd45252",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "FakeBlackWall",
+		"color": "#ff780074",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "FakeSpawnCeiling",
+		"color": "#ffff5050",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "FatalFall",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "FireAreaEmitter",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "FireDeco",
+		"color": "#ff5adcff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "light",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "layer",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "offset",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playMode",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playSpeed",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "blendMode",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "color",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "color2",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "FixedBlueprint",
+		"color": "#ff001eff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "FixedLoot",
+		"color": "#ffffb400",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "FixedWallLoot",
+		"color": "#ffb800ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "FlaskAlcove",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "Flasks",
+		"color": "#ffc5e2e5",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "FlipPF",
+		"color": "#ff9600ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "FocusCamera",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "ForceField",
+		"color": "#ff00f4ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "ForcedMob",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "mob",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "GenericEventTrigger",
+		"color": "#ff53ff00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "GodRayDeco",
+		"color": "#ff00ffe8",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "layer",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "offset",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playMode",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playSpeed",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "blendMode",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "color",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "color2",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "HiddenTrigger",
+		"color": "#ff53ff00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "HorizontalStructure",
+		"color": "#ffff6500",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "Invisible",
+		"color": "#ff64fff8",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "InvisibleSlopes",
+		"color": "#ff00ff20",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "KeyLockedDoor",
+		"color": "#ffc1c1c1",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "Lava",
+		"color": "#ffff4f00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "LavaGiant",
+		"color": "#ffff4300",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "LevelTeleport",
+		"color": "#ffe8d915",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "Light",
+		"color": "#ffff6500",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "light",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "layer",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "LightningWall",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "LightningWallChallenge",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playMode",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "LocalViewportLimit",
+		"color": "#ffe189cb",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "LoreDeco",
+		"color": "#ff00b929",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "layer",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "offset",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playMode",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playSpeed",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "blendMode",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "color",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "ignoreTwitch",
+				"type": "bool",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "MoneyDoor",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "item",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "MultiFloorElevator",
+		"color": "#ffffdc24",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "MultiPressurePlate",
+		"color": "#fffff700",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "NoBgWall",
+		"color": "#ff00e9ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "NoLoot",
+		"color": "#ffff8989",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "NoMinimap",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "Npc",
+		"color": "#ff25dd6c",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "OverStructure",
+		"color": "#ff9eb9e5",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "OverStructure2",
+		"color": "#ff9eb9e5",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "OverrideColOutside",
+		"color": "#ffb2b2b2",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "PreviousMoney",
+		"color": "#ffffca00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "PullBomb",
+		"color": "#ffe71313",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "Pulley",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RandomActivable",
+		"color": "#ffffb400",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RandomActivableSpawner",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RandomBowSpawner",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RandomCCSpawner",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RandomHeal",
+		"color": "#ffa1ff00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RandomLevelSpecificTrap",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RandomLoot",
+		"color": "#ffffb400",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RandomMinorGem",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RandomMinorLoot",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RandomShieldSpawner",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RedTeleporter",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "ReflectWater",
+		"color": "#ff00b0ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RetractableLightningWallChallenge",
+		"color": "#ff003bff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "offset",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playMode",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RetractablePF",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RetractableSpikes",
+		"color": "#ffd8a164",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RetractableSpikesChallenge",
+		"color": "#ffd8a164",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RotatingAxes",
+		"color": "#ffff0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "RotatingBall",
+		"color": "#ffcc0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "RotatingBallChallenge",
+		"color": "#ffcc0000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "offset",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playMode",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "playSpeed",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "ScoringTreasure",
+		"color": "#ff1988d2",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "SecretArea",
+		"color": "#ff5e00ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "SecretBlackWall",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "Shooter",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "SinglePressurePlate",
+		"color": "#ff53ff00",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "SpawnSpot",
+		"color": "#ff2f48ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "SpecialEquipment",
+		"color": "#ffc816ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "dir",
+				"type": "int",
+				"value": 0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "level",
+				"type": "string",
+				"value": ""
+			},
+			{
+				"name": "ignoreTwitch",
+				"type": "bool",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "Spikes",
+		"color": "#ffd86464",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "StartAmulet",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "StartBow",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "StartCC",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "StartShield",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "SubTeleport",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "SubTeleportTarget",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "TimedDoor",
+		"color": "#ff0083ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "TimedItem",
+		"color": "#ffa356ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "TimedShooter",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "TrainingScarecrow",
+		"color": "#ffa76846",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "TriggerTrap",
+		"color": "#ffff9400",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "TriggeredCellDoor",
+		"color": "#ffae6c40",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "TriggeredDoor",
+		"color": "#ffae6c40",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "TriggeredPF",
+		"color": "#ff54a524",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "TriggeredSpikes",
+		"color": "#ffcaa71f",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "TubeSpawn",
+		"color": "#ff67c717",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "TumulusTimedShooter",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "TwitchDoor",
+		"color": "#ff6b3eff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "UnderStructure",
+		"color": "#ff5f6f89",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "UnstableGround",
+		"color": "#ffffb400",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "UnstablePF",
+		"color": "#ffd3d600",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "UsableBody",
+		"color": "#ff000000",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "ViewportLimit",
+		"color": "#ffc562ac",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "customId",
+				"type": "string",
+				"value": ""
+			}
+		]
+	},
+	{
+		"name": "VineLadderDown",
+		"color": "#ff894831",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "VineLadderUp",
+		"color": "#ff8ece7f",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "Water",
+		"color": "#ff2578ff",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	},
+	{
+		"name": "ZDoor",
+		"color": "#ffe8c49c",
+		"properties": [
+			{
+				"name": "xr",
+				"type": "float",
+				"value": 0.0
+			},
+			{
+				"name": "yr",
+				"type": "float",
+				"value": 0.0
+			}
+		]
+	}
+]

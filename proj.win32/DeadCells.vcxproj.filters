@@ -28,8 +28,14 @@
     <ClCompile Include="..\Classes\People\Weapon.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Resprite\Resprite.cpp">
-      <Filter>Source Files\Classes\Resprite</Filter>
+    <ClCompile Include="..\Classes\Map\MapUnit.cpp">
+      <Filter>Source Files\Classes\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Map\SceneMap.cpp">
+      <Filter>Source Files\Classes\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\Prison.cpp">
+      <Filter>Source Files\Classes\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +126,6 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\StartMenu\StartMenuBackGround.jpg">
       <Filter>Resources\Graph\StartMenu</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\fonts\arial.ttf">
-      <Filter>Resources\fonts</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\fonts\fusion-pixel.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
@@ -144,8 +147,14 @@
     <ClInclude Include="..\Classes\People\Weapon.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Resprite\Resprite.h">
-      <Filter>Source Files\Classes\Resprite</Filter>
+    <ClInclude Include="..\Classes\Map\MapUnit.h">
+      <Filter>Source Files\Classes\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Map\SceneMap.h">
+      <Filter>Source Files\Classes\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\Prison.h">
+      <Filter>Source Files\Classes\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -196,22 +205,277 @@
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{AE5756C4-4DAB-3954-9C92-D5F573D7971A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\Shaders">
-      <UniqueIdentifier>{6a39d51f-24d3-4a22-9a9a-6f8b25ef646c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Classes\People">
       <UniqueIdentifier>{60d144a4-79d3-4559-b85d-f2362adc9f23}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Classes\Resprite">
-      <UniqueIdentifier>{38f0dbba-7d2d-4673-9a09-89349f73e711}</UniqueIdentifier>
+    <Filter Include="Source Files\Classes\Map">
+      <UniqueIdentifier>{584ddd1e-f00d-4205-bc06-97b6aed356e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\room">
+      <UniqueIdentifier>{6a106bc0-4522-4177-91b5-7b54561fea36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\room\Prison">
+      <UniqueIdentifier>{66482566-3703-4765-9173-826353968410}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\Shaders\DeadCells.frag">
-      <Filter>Resources\Shaders</Filter>
+    <None Include="..\Resources\room\Prison\BossBehemot.tmx">
+      <Filter>Resources\room\Prison</Filter>
     </None>
-    <None Include="..\Resources\Shaders\DeadCells.vert">
-      <Filter>Resources\Shaders</Filter>
+    <None Include="..\Resources\room\Prison\BossBeholder.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\BossBeholderExit.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\BossTimeKeeper.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\CursedDoor.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\GardenerCorridor.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\GiantEscaped.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\GiantEscapedEmpty.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\GreenhouseEntrance.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\GreenhouseEntranceOpen.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr1.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr2.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr3.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr4.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr5.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr6.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr7.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr8.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr9.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr10.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr11.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr12.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr13.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr14.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr15.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr16.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr17.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr18.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr19.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr20.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr21.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr22.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr23.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr24.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr25.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr26.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr27.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr28.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr29.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr30.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr31.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr32.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr33.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr34.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr35.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr36.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr37.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr38.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr39.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr40.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr41.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr42.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr43.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr44.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr45.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr46.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr47.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr48.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr49.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr50.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr51.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr52.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr53.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr54.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr55.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr56.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr57.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr58.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr59.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\Pr60.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonArmory.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonCorruptEntrance.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonDepthsEndScroll.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonDepthsEndTreasure.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonDepthsEntrance.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonDLCPTriggerBeforeGiantDoor.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonFlaskRoom.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonHubEntrance.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonMonsterDoor.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonStartExit.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonTube1.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonTube2.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PrisonTube2NoSkel.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\PurpleCorridor.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\col.tsx">
+      <Filter>Resources\room\Prison</Filter>
+    </None>
+    <None Include="..\Resources\room\Prison\lnk.tsx">
+      <Filter>Resources\room\Prison</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +484,12 @@
     </Image>
     <Image Include="..\Resources\Graph\Loading\CharacterPalette.png">
       <Filter>Resources\Graph\Loading</Filter>
+    </Image>
+    <Image Include="..\Resources\room\Prison\col.png">
+      <Filter>Resources\room\Prison</Filter>
+    </Image>
+    <Image Include="..\Resources\room\Prison\lnk.png">
+      <Filter>Resources\room\Prison</Filter>
     </Image>
   </ItemGroup>
 </Project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="15" height="34" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="15" height="34" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYKQyRgbEiGOTxweGo15qhfGo3lG9Q0kvrfIbNrMGk15i/ESpXlIwExImJ96ZKUgz6HpJASNdL7kYAAULATQ=
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="15" height="34"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNpjYKA/YB/VOwpGwSgYzf801TsKRgEuAABhGwBH
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="SpecialEquipment" type="SpecialEquipment" x="24" y="672" width="240" height="120">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
