@@ -13,38 +13,23 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.cpp">
       <Filter>Source Files\Classes\Res</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\MapUnit.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\SceneMap.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\People\Monster.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\People\Player.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\People\Shield.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\People\Sword.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\People\Weapon.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\People\Monster.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\People\Bow.cpp">
-      <Filter>Source Files\Classes\People</Filter>
+    <ClCompile Include="..\Classes\Resprite\Resprite.cpp">
+      <Filter>Source Files\Classes\Resprite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,29 +45,11 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.h">
       <Filter>Source Files\Classes\Res</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\MapUnit.h">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\SceneMap.h">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\resource.h">
       <Filter>Source Files\proj.win32</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\Character.png">
-      <Filter>Resources\Graph\Loading</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\CharacterNormal.png">
-      <Filter>Resources\Graph\Loading</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\CharacterPalette.png">
-      <Filter>Resources\Graph\Loading</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\loading_0.png">
       <Filter>Resources\Graph\Loading</Filter>
@@ -153,15 +120,6 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\StartMenu\StartMenuBackGround.jpg">
       <Filter>Resources\Graph\StartMenu</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Shaders\DeadCells.frag">
-      <Filter>Resources\Shaders</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Shaders\DeadCells.vert">
-      <Filter>Resources\Shaders</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\fonts\Marker Felt.ttf">
-      <Filter>Resources\fonts</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\fonts\arial.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
@@ -171,275 +129,8 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\music\prisonstart_intro.ogg">
       <Filter>Resources\music</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\objecttypes.json">
-      <Filter>Resources</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBehemot.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBeholder.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBeholderExit.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossTimeKeeper.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\CursedDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GardenerCorridor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GiantEscaped.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GiantEscapedEmpty.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GreenhouseEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GreenhouseEntranceOpen.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr1.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr10.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr11.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr12.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr13.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr14.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr15.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr16.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr17.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr18.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr19.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr2.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr20.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr21.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr22.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr23.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr24.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr25.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr26.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr27.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr28.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr29.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr3.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr30.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr31.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr32.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr33.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr34.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr35.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr36.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr37.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr38.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr39.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr4.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr40.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr41.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr42.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr43.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr44.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr45.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr46.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr47.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr48.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr49.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr5.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr50.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr51.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr52.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr53.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr54.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr55.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr56.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr57.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr58.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr59.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr6.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr60.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr7.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr8.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr9.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonArmory.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonCorruptEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDLCPTriggerBeforeGiantDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEndScroll.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEndTreasure.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonFlaskRoom.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonHubEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonMonsterDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonStartExit.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube1.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube2.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube2NoSkel.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PurpleCorridor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\col.png">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\col.tsx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\lnk.png">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\lnk.tsx">
-      <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\xml\string.xml">
       <Filter>Resources\xml</Filter>
@@ -450,17 +141,11 @@
     <ClInclude Include="..\Classes\People\Player.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\Shield.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\People\Sword.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\People\Weapon.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\Bow.h">
-      <Filter>Source Files\Classes\People</Filter>
+    <ClInclude Include="..\Classes\Resprite\Resprite.h">
+      <Filter>Source Files\Classes\Resprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -484,9 +169,6 @@
     <Filter Include="Resources\Graph\StartMenu">
       <UniqueIdentifier>{795DABA1-3752-34BD-A4B3-D78040DCA6D2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\Shaders">
-      <UniqueIdentifier>{8AAC31F6-0A4E-3936-99BB-8CA4A58FD043}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resources\fonts">
       <UniqueIdentifier>{C3EB66CC-0EDF-31DB-B09B-D7AB9C83B4FE}</UniqueIdentifier>
     </Filter>
@@ -495,12 +177,6 @@
     </Filter>
     <Filter Include="Resources\res">
       <UniqueIdentifier>{395FBFF1-012C-3E1D-833A-A1D0F0F1B395}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\room">
-      <UniqueIdentifier>{58C14ECB-DCC5-3C13-8999-99D1E374D4DA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\room\Prison">
-      <UniqueIdentifier>{DCDAF57C-CF4E-39ED-9759-C575D699167D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\xml">
       <UniqueIdentifier>{0EADD752-CE58-3686-A377-83945C7694C6}</UniqueIdentifier>
@@ -511,12 +187,6 @@
     <Filter Include="Source Files\Classes">
       <UniqueIdentifier>{15F5CEEA-3DAE-3D4D-911F-76F2D6060CAD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Classes\Map">
-      <UniqueIdentifier>{A0B6BAC8-5147-3FC4-97B7-93B6F0090DC8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\People">
-      <UniqueIdentifier>{748C09FD-9B27-32A8-A892-3B99D87F9CA9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Classes\Res">
       <UniqueIdentifier>{1DE6140D-BE86-3241-A83A-82A59A8E69AC}</UniqueIdentifier>
     </Filter>
@@ -526,115 +196,30 @@
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{AE5756C4-4DAB-3954-9C92-D5F573D7971A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\Graph\Player">
-      <UniqueIdentifier>{0c13640b-31ff-4a4b-a6b9-ecbafcf0627b}</UniqueIdentifier>
+    <Filter Include="Resources\Shaders">
+      <UniqueIdentifier>{6a39d51f-24d3-4a22-9a9a-6f8b25ef646c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\People">
+      <UniqueIdentifier>{60d144a4-79d3-4559-b85d-f2362adc9f23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Resprite">
+      <UniqueIdentifier>{38f0dbba-7d2d-4673-9a09-89349f73e711}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Resources\Graph\Player\atkA_00-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
+    <None Include="..\Resources\Shaders\DeadCells.frag">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\DeadCells.vert">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\Graph\Loading\Character.png">
+      <Filter>Resources\Graph\Loading</Filter>
     </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_01-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_02-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_03-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_04-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_05-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_06-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_07-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_08-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_09-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_10-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_11-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_12-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\atkA_13-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\playerInit.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_17-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_18-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_19-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_01-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_02-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_03-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_04-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_05-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_06-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_07-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_08-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_09-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_10-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_11-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_12-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_13-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_14-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_15-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_16-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
-    </Image>
-    <Image Include="..\Resources\Graph\Player\AtkAlucardSwordA_00-=-0-=-.png">
-      <Filter>Resources\Graph\Player</Filter>
+    <Image Include="..\Resources\Graph\Loading\CharacterPalette.png">
+      <Filter>Resources\Graph\Loading</Filter>
     </Image>
   </ItemGroup>
 </Project>
