@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="40" height="30" >
+  <data encoding="base64" compression="zlib">  
+   eNrt07EJAAAMAkGz/9KZIZ2BE76/xkkykqTqWsbHx8fHx8fH99lnZvcvt7SFawHr
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="40" height="30"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNrt0zENAAAMw7B+4894CPpPk40gTxIAAAD4b4636dPnjW4BrGwARw==
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="DisableDecorator" type="DisableDecorator" x="96" y="216" width="768" height="480">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="CustomDeco" type="CustomDeco" x="48" y="216" width="864" height="480">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="armory"/>
+   </properties>
+  </object>
+  <object id="3" name="Light" type="Light" x="264" y="432" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="4" name="Light" type="Light" x="384" y="432" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="5" name="FocusCamera" type="FocusCamera" x="432" y="480" width="48" height="48">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="6" name="Light" type="Light" x="504" y="432" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="7" name="Light" type="Light" x="624" y="432" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="8" name="RandomActivable" type="RandomActivable" x="264" y="456" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="9" name="RandomActivable" type="RandomActivable" x="624" y="456" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="10" name="RandomActivable" type="RandomActivable" x="264" y="480" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="11" name="RandomActivable" type="RandomActivable" x="384" y="480" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="12" name="RandomActivable" type="RandomActivable" x="504" y="480" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="13" name="RandomActivable" type="RandomActivable" x="624" y="480" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="14" name="StartShield" type="StartShield" x="264" y="504" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="15" name="RandomActivable" type="RandomActivable" x="384" y="504" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="16" name="RandomActivable" type="RandomActivable" x="504" y="504" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="17" name="StartShield" type="StartShield" x="624" y="504" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="18" name="StartBow" type="StartBow" x="264" y="528" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="19" name="StartShield" type="StartShield" x="384" y="528" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="20" name="StartShield" type="StartShield" x="504" y="528" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="21" name="StartBow" type="StartBow" x="624" y="528" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="22" name="StartCC" type="StartCC" x="264" y="552" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="23" name="StartBow" type="StartBow" x="384" y="552" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="24" name="StartBow" type="StartBow" x="504" y="552" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="25" name="StartCC" type="StartCC" x="624" y="552" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="26" name="StartCC" type="StartCC" x="384" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="27" name="StartCC" type="StartCC" x="504" y="576" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="28" name="Light" type="Light" x="264" y="648" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="29" name="Light" type="Light" x="384" y="648" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="30" name="Light" type="Light" x="504" y="648" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="31" name="Light" type="Light" x="624" y="648" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonArmory"/>
+   </properties>
+  </object>
+  <object id="32" name="CustomEntity" type="CustomEntity" x="264" y="672" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="armoryButton"/>
+   </properties>
+  </object>
+  <object id="33" name="CustomEntity" type="CustomEntity" x="384" y="672" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="armoryButton"/>
+   </properties>
+  </object>
+  <object id="34" name="CustomEntity" type="CustomEntity" x="504" y="672" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="armoryButton"/>
+   </properties>
+  </object>
+  <object id="35" name="CustomEntity" type="CustomEntity" x="624" y="672" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="armoryButton"/>
+   </properties>
+  </object>
+  <object id="36" name="Door" type="Door" x="888" y="672" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

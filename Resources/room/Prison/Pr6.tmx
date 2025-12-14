@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="28" height="16" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="28" height="16" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYCQBYwOU6h8Fwx+Qmy7ITVuMdMCk2sc8Au0jJW2QCpjpnIZH7aO9ffSsi0AYAFfyALI=
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="28" height="16"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNpjYCANsGHBpAB2LJjagJ0AHrVv6Ng3CoY2YGcgL/3woGFKzKdmuh21j7b2kQIorYtAAABzBgOE
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+ </objectgroup>
+</map>

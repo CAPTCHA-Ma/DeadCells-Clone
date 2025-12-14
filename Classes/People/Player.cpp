@@ -1,187 +1,136 @@
 // Player.cpp
 #include "Player.h"
-
+#include "Weapon.h"
+#include "Shield.h"
+#include "Bow.h"
+#include "Sword.h"
 USING_NS_CC;
-
-Player::Player()
-{
-
-}
-Player::~Player()
-{
-
-}
-/***************************************************************************
-  函数名称：init
-  功    能：初始化主角
-  输入参数：
-  返 回 值：bool
-  说    明：
-***************************************************************************/
-bool Player::init()
-{
-	std::string filename = "Player.png";
-	if (!Sprite::initWithFile(filename))
-		return false;
-	// 设置初始属性
-	this->setHealth(100);
-	this->setAttack(20);
-	this->setDefense(10);
-	this->setMoveSpeed(100.0f); 
-	_handNode = Node::create();
-	_handNode->setPosition(Vec2(20, 10));//这个位置要改成手的位置
-	this->addChild(_handNode,2);
-	return true;
-}
-
-
-/***************************************************************************
-  函数名称：createPlayer
-  功    能：创建主角
-  输入参数：
-  返 回 值：Player*
-  说    明：
-***************************************************************************/
+const float GRAVITY = 980.0f; 
 Player* Player::createPlayer()
 {
-	Player* player = new (std::nothrow)Player;
-	if (player&&player->init())
-	{
-		player->autorelease();
-		return player;
-	}
-	CC_SAFE_DELETE(player);
-	return nullptr;
+    Player* player = new (std::nothrow) Player();
+    if (player && player->init())
+    {
+        player->autorelease();
+        return player;
+    }
+    CC_SAFE_DELETE(player);
+    return nullptr;
 }
-/***************************************************************************
-  函数名称：equipWeapon
-  功    能：装备武器
-  输入参数：Weapon* weapon武器类别
-  返 回 值：
-  说    明：
-***************************************************************************/
-void Player::equipWeapon(Weapon* weapon)
+bool Player::init()
 {
-	//已经装备了武器，卸下当前武器
-	if (_currentWeapon)
-	{
-		if (_mainWeapon && _subWeapon)//有主武器和副武器，把当前武器替换为新武器
-		{
-			_currentWeapon->removeFromParent();
-			_currentWeapon = weapon;
-		}
-		else if (_mainWeapon)//只有主武器，那么新武器添加到副武器,当前武器切换为副武器
-		{
-			_subWeapon = weapon;
-			_currentWeapon = _subWeapon;
-		}
-		else//只有副武器，那么新武器添加到主武器,当前武器切换为主武器
-		{
-			_mainWeapon = weapon;
-			_currentWeapon = _mainWeapon;
-		}
-	}
-	else//没有装备武器，直接装备新武器
-	{
-		_currentWeapon = weapon;
-		_mainWeapon = weapon;//默认装备为主武器
-	}
-	if (_currentWeapon)
-	{
-		_handNode->addChild(_currentWeapon);
-		_currentWeapon->setPosition(Vec2::ZERO);
-		_currentWeapon->setRotation(0);
-		_currentWeapon->setLocalZOrder(1);
-	}
-}
-/***************************************************************************
-  函数名称：moveTowards
-  功    能：移动至目标地点
-  输入参数：const cocos2d::Vec2& targetPosition目标位置
-  返 回 值：
-  说    明：
-***************************************************************************/
-void Player::moveTowards(const cocos2d::Vec2& targetPosition)
-{
-	Vec2 currentPosition = this->getPosition();
-	Vec2 directionVector = targetPosition - currentPosition;
-	//距离
-	float distance = directionVector.getLength();
-	//时间
-	float duration = distance / this->getMoveSpeed();
+    if (!Sprite::initWithFile("Graph/Player/playerInit.png"))
+        return false;
 
-	auto action = MoveTo::create(duration, targetPosition);
-	this->runAction(action);
+    _health = 100;
+    _attack = 20;
+    _defense = 10;
+    _moveSpeed = 150.0f;
+    _rollSpeed = 300.0f;
+    _jumpSpeed = 400.0f;
+    _state = ActionState::stand;
+	_direction = MoveDirection::NONE;
+    this->scheduleUpdate(); 
+    playAnimation(ActionState::stand, true);
+    return true;
+}
+void Player::update(float dt)
+{
+    Sprite::update(dt);
+
+    cocos2d::Vec2 newPos = this->getPosition();
+
+    if (_direction != MoveDirection::NONE &&
+        (_state == ActionState::run || _state == ActionState::rollStart))
+    {
+        float speed = (_state == ActionState::rollStart) ? _rollSpeed : _moveSpeed;
+        int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+        newPos.x += speed * dt * dir;
+        this->setFlippedX(dir == -1);
+    }
+
+    _velocity.y -= GRAVITY * dt;
+
+    if (newPos.y <= 0)
+    {
+        newPos.y = 0;
+        _velocity.y = 0;
+    }
+
+    this->setPosition(newPos + _velocity * dt);
 }
 
+void Player::changeState(ActionState newState)
+{
+    if (!canChangeTo(newState))
+        return;
 
+    if (_state == newState)
+        return;
 
-/***************************************************************************
-  函数名称：moveRight
-  功    能：向右移动
-  输入参数：
-  返 回 值：
-  说    明：
-***************************************************************************/
-void Player::moveRight()
-{
-	Vec2 currentPosition = this->getPosition();
-	Vec2 directionVector(1, 0);
-	Vec2 targetPosition = currentPosition + directionVector;
-	this->moveTowards(targetPosition);
-	return;
-}
-/***************************************************************************
-  函数名称：moveLeft
-  功    能：向左移动
-  输入参数：
-  返 回 值：
-  说    明：
-***************************************************************************/
-void Player::moveLeft()
-{
-	Vec2 currentPosition = this->getPosition();
-	Vec2 directionVector(-1, 0);
-	Vec2 targetPosition = currentPosition + directionVector;
-	this->moveTowards(targetPosition);
-	return;
-}
-void Player::jump()//跳跃
-{
+    this->stopActionByTag(1001);
+    _state = newState;
 
+    bool loop = StateTable[newState].loop;
+    playAnimation(newState, loop);
 }
-void Player::crouch()//下蹲
-{
 
-}
-void Player::roll()//翻滚
+bool Player::canChangeTo(ActionState newState)
 {
+    auto currentConfig = StateTable[_state];
+    auto newConfig = StateTable[newState];
+    if (!currentConfig.canBeInterrupted)
+        return false;
 
-}
-void Player::attack()    // 攻击
-{
+    if (newConfig.priority < currentConfig.priority)
+        return false;
 
+    return true;
 }
-void Player::defend()   // 防御
+void Player::playAnimation(ActionState state, bool loop)
 {
+    Animation* anim = getAnimation(state);
+    if (!anim) return;
 
+    auto animate = Animate::create(anim);
+    Action* action;
+    if (loop)
+        action = RepeatForever::create(animate);
+    else
+		action = animate;
+    action->setTag(1001);
+    this->runAction(action);
 }
-void Player::moveFromKeyBoard(char input)//键盘控制移动
+cocos2d::Animation* Player::createAnim(const std::string& name, int frameCount, float delay)
 {
-	switch (input)
-	{
-		case 'A':moveLeft(); break;
-		case 'D':moveRight(); break;
-		case 'K':jump(); break;
-		case 'J':attack(); break;
-		default:break;
-	}
+    auto anim = Animation::create();
+    for (int i = 0; i < frameCount; ++i)
+    {
+        std::string frame = StringUtils::format("Graph/Player/%s_%02d-=-0-=-.png", name.c_str(), i);
+        anim->addSpriteFrameWithFile(frame);
+    }
+    anim->setDelayPerUnit(delay);
+    anim->setRestoreOriginalFrame(false);
+    return anim;
 }
-int Player::getFinalAttackPower() const
+cocos2d::Animation* Player::getAnimation(ActionState state)
 {
-	return _attack + (_currentWeapon ? _currentWeapon->getAttackPower() : 0);
-}
-int Player::getFinalDefensePower() const
-{
-	return _defense + (_currentWeapon ? _currentWeapon->getDefensePower() : 0);
+    auto iter = _animationCache.find(state);
+    if (iter != _animationCache.end())
+        return iter->second;
+
+    Animation* anim = nullptr;
+    switch (state)
+    {
+        case ActionState::stand:       anim = createAnim("stand", 8, 0.1f); break;
+        case ActionState::run:         anim = createAnim("run", 20, 0.05f); break;
+        case ActionState::jumpUp:      anim = createAnim("jumpUp", 6, 0.08f); break;
+        case ActionState::crouch:      anim = createAnim("crouch", 14, 0.05f); break;
+        case ActionState::rollStart:   anim = createAnim("rollStart", 4, 0.06f); break;
+        case ActionState::atkA:        anim = createAnim("atkA", 14, 0.05f); break;
+        default:                        return nullptr;
+    }
+    anim->retain();
+    _animationCache[state] = anim;
+    return anim;
 }

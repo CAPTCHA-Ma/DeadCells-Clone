@@ -1,59 +1,38 @@
-//Weapon.h
+// Weapon.h (修正版本)
 #ifndef __WEAPON_H__
 #define __WEAPON_H__
 
 #include "cocos2d.h"
-
-class Weapon : public cocos2d::Sprite 
+#include <string>
+#include <map>
+class Weapon
 {
 public:
     // 武器的分类
-    enum class Category 
+    enum class WeaponCategory
     {
         Sword,
         Shield,
         Bow
     };
-    // 近战武器
-    enum class SwordType 
-    {
-        LongSword,
-        ShortSword,
-        GreatSword
-    };
-	// 盾
-    enum class ShieldType 
-    {
-        SmallShield,
-        IronShield,
-        MagicShield
-    };
-	// 远程武器
-    enum class BowType 
-    {
-        ShortBow,
-        LongBow,
-        CompositeBow
-    };
 
-    
-    static Weapon* create(Category weaponCategory, int subTypeIndex);
+    virtual ~Weapon() {}
 
-    bool init(Category weaponCategory, int subTypeIndex);
+    // 静态工厂方法
+    static Weapon* create(WeaponCategory category);
 
-    CC_SYNTHESIZE(Category, _category, WeaponCategory);
+    CC_SYNTHESIZE(WeaponCategory, _category, Category);
     CC_SYNTHESIZE(int, _attackPower, AttackPower);
     CC_SYNTHESIZE(int, _defensePower, DefensePower);
 
-    
-    int _subTypeIndex;
-
 protected:
-    Weapon()
-        : _category(Category::Sword), _attackPower(0), _defensePower(0), _subTypeIndex(0) 
-    {}
-    virtual ~Weapon()
-    {}
+
+    Weapon(WeaponCategory category)
+    {
+        this->setCategory(category);
+        this->setAttackPower(0);
+        this->setDefensePower(0);
+    }
 };
 
 #endif // __WEAPON_H__

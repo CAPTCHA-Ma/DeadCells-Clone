@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="70" height="70" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="70" height="70" >
+  <data encoding="base64" compression="zlib">  
+   eNrt1+EKwiAUgNG7oPd/5X4NZBTNuk6d58IHEUXroNa2iNikhPYpH5fPrdQzzs+q62R1m+N3jGSbWf3+nTPGK+ydTy7x5ayuWW/Z02vNZF13r88dzWOk4TLeup3FxnCp3UutfuvfveZRVHut+/tan48z/oe8Yp1zuZdL67P27i6/nH+z3qNmuoxk03N/OF+4XLH/uHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHCRJEmSJElatRejCQrj
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="70" height="70"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNrt0DENAAAMA6B+9e+4HnYuIIEEAIAPqsCLFy9eAAAAAAAAAAAAAAAAAAAAOBgfrwAk
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="DisableDecorator" type="DisableDecorator" x="72" y="48" width="336" height="288">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="Light" type="Light" x="264" y="72" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoor"/>
+   </properties>
+  </object>
+  <object id="3" name="Light" type="Light" x="72" y="168" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoor2"/>
+   </properties>
+  </object>
+  <object id="4" name="GenericEventTrigger" type="GenericEventTrigger" x="336" y="168" width="72" height="168">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="giantEscape"/>
+   </properties>
+  </object>
+  <object id="5" name="DisableDecorator" type="DisableDecorator" x="816" y="168" width="864" height="288">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="6" name="DisableDecorator" type="DisableDecorator" x="408" y="192" width="144" height="120">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="7" name="ZDoor" type="ZDoor" x="168" y="216" width="144" height="120">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="8" name="Examinable" type="Examinable" x="576" y="264" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="scratches"/>
+   </properties>
+  </object>
+  <object id="9" name="Light" type="Light" x="1584" y="264" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="CavernKey"/>
+   </properties>
+  </object>
+  <object id="10" name="Light" type="Light" x="216" y="312" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoorBot"/>
+   </properties>
+  </object>
+  <object id="11" name="Light" type="Light" x="552" y="312" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoorBot"/>
+   </properties>
+  </object>
+  <object id="12" name="Examinable" type="Examinable" x="696" y="312" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="hole"/>
+   </properties>
+  </object>
+  <object id="13" name="TriggeredDoor" type="TriggeredDoor" x="1008" y="312" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="14" name="SinglePressurePlate" type="SinglePressurePlate" x="1032" y="312" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="15" name="SinglePressurePlate" type="SinglePressurePlate" x="1104" y="312" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="16" name="TriggeredDoor" type="TriggeredDoor" x="1128" y="312" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="17" name="CustomSpot" type="CustomSpot" x="744" y="360" width="288" height="96">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="diveZone"/>
+   </properties>
+  </object>
+  <object id="18" name="FixedLoot" type="FixedLoot" x="1584" y="384" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="item" value="CavernKey"/>
+   </properties>
+  </object>
+  <object id="19" name="FocusCamera" type="FocusCamera" x="1584" y="384" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="20" name="Examinable" type="Examinable" x="1368" y="408" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="key"/>
+   </properties>
+  </object>
+  <object id="21" name="Light" type="Light" x="1440" y="408" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoorBot"/>
+   </properties>
+  </object>
+  <object id="22" name="Light" type="Light" x="816" y="432" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoorBot"/>
+   </properties>
+  </object>
+  <object id="23" name="FocusCamera" type="FocusCamera" x="960" y="432" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="24" name="Light" type="Light" x="1128" y="432" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="MonsterDoorBot"/>
+   </properties>
+  </object>
+  <object id="25" name="Lava" type="Lava" x="672" y="456" width="984" height="840">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

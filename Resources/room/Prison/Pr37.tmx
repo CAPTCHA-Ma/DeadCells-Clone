@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="38" height="18" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="38" height="18" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYCQRYwOMVDaHVPMpBeS6i1K1pLhv1F3D310gzEQAo6vDlSfw6cVmPz711A4HWofnqLtGAT3jmlDepUSO3PqOGPWUyA0ldzEOc3exkilHr7YetTAAywwA/Q==
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="38" height="18"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNpjYCAdcGDB5AA2LBgG2NEwPQEp7mKno1tH3TX43MVLojghdzHQKbx40DAx7hpMYCDKheHgrsHmNmrlt8ESXjw4MLX1jbqLdH1sBPBQdhcPGW4ixj+DrU4AAAgOBnE=
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="Door" type="Door" x="432" y="120" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="Door" type="Door" x="576" y="120" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="BreakableGround" type="BreakableGround" x="624" y="144" width="96" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="4" name="Door" type="Door" x="240" y="264" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

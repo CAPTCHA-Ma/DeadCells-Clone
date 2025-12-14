@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="29" height="22" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="29" height="22" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYKQzpgagtnmk2j1q58DaiS1dMeHApKRNUs2gNO0yEqGO3uE/aidt7aSkrMSVTmlZPqOLM1Pgn+FmJ7XTITY7aQ2YGegPRu3EXS5Qq+zAhwGIKADx
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="29" height="22"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNpjYKA/YMeDyQGcRGBq2TVq5+Cwk1aAWvbx4MGjYBSQm45G7RxcgB7lEnrZSusyEJvdo3bSzk50wIEFUxsAAJ4uBFU=
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="Door" type="Door" x="96" y="120" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="BreakableGround" type="BreakableGround" x="288" y="288" width="96" height="72">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="Door" type="Door" x="408" y="480" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

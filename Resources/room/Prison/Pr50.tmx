@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="28" height="33" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="28" height="33" >
+  <data encoding="base64" compression="zlib">  
+   eNrtl+EKgCAMhLfE93/lCOrPqGXtPEs2uD86+fSYE1VE1NFZvMnxchGRvDl5V1oapAExz8X2cnaetwdWHVkey2Ok58kbx0PXZ/aX7/LqrmiPi7xxdq78hGc9rI1+RnlP17F4Aubd3ZMjivSP5HH7HPqft42vpWAB4Q==
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="28" height="33"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNrtlrEKwCAQQ91aIf//vV3qIkVzNdUKeZBFTt8Np5hSm/Mhb2oKRydsD6M+BvvW+4xRgDvsutqHKsxeBPpT+2DfUt/X82n+9zZF7rvau6sPZNS+2bPBksW+3p8tC5w19s3zjZ4Trb0A9xIIWg==
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="Door" type="Door" x="120" y="240" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="BreakableGround" type="BreakableGround" x="144" y="264" width="48" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="Door" type="Door" x="504" y="384" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="4" name="BreakableGround" type="BreakableGround" x="144" y="408" width="48" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="5" name="Door" type="Door" x="96" y="504" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="6" name="FakeBlackWall" type="FakeBlackWall" x="504" y="504" width="120" height="96">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="7" name="FakeBlackWall" type="FakeBlackWall" x="384" y="576" width="48" height="96">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="8" name="FakeBlackWall" type="FakeBlackWall" x="432" y="576" width="72" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

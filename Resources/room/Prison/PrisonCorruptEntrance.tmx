@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="30" height="25" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYBzFo3gUj+JRPCQxKWCg7KWmG4aavQwDaC/DELSXFm4ctZc+9o8kewcqfYPEAVF9Al8=
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="30" height="25"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNpjYBgFo2AUjIJRMApGwSgY+oAdCx7O9mKzf6DCfSTZSw/AgQWDAAD+oACS
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="SpecialEquipment" type="SpecialEquipment" x="216" y="312" width="240" height="120">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="Light" type="Light" x="216" y="408" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonCorruptEntrance"/>
+   </properties>
+  </object>
+  <object id="3" name="CustomDeco" type="CustomDeco" x="432" y="408" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="candle"/>
+   </properties>
+  </object>
+  <object id="4" name="Light" type="Light" x="480" y="480" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="light" value="PrisonCorruptEntrance2"/>
+   </properties>
+  </object>
+  <object id="5" name="CustomDeco" type="CustomDeco" x="504" y="480" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="customId" value="candle"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

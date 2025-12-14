@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="30" height="25" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="30" height="25" >
+  <data encoding="base64" compression="zlib">  
+   eNpjZGBgYCQDYwOU6h8Fo4BSgC+dMUExIx0wvf05au/Is3c0PY/aO9TtHcWjeBSTjgGOywFi
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="30" height="25"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNrtzSEOADAIADE0+/9/5wlmw5E2OX0Rf07TiyxN5CDfXV8AgK0u58EDJg==
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="SpecialEquipment" type="SpecialEquipment" x="240" y="168" width="432" height="120">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="KeyLockedDoor" type="KeyLockedDoor" x="216" y="264" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="item" value="PrisonDepthsKey1"/>
+   </properties>
+  </object>
+  <object id="3" name="SpecialEquipment" type="SpecialEquipment" x="240" y="312" width="432" height="120">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="4" name="KeyLockedDoor" type="KeyLockedDoor" x="216" y="408" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+    <property name="item" value="PrisonDepthsKey1"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

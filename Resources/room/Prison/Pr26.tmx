@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="47" height="18" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="6" source="../../lnk.tsx"/>
+ <tileset firstgid="1" source="../../col.tsx"/>
+ <layer id="1" name="col" width="47" height="18" >
+  <data encoding="base64" compression="zlib">  
+   eNrtl+EKwCAIhM9i7//KY7AfEcFMbRfhgX9C4esSKwEgGEsIYeHQSJtr4ZmRp5atZN+DvQziJN+1s6Ldv2XW9PVR7FaPPB6z+j3ZOezXGyvZiyK0d7IE5X7VINiT2fN91ir87xVWz1fsq2Q/i33Vf+CPv8gNH4EBEA==
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="47" height="18"  opacity="0.5">
+  <data encoding="base64" compression="zlib">  
+   eNrtlzkOwCAMBKmCi/z/vRSQBnH4VBDakbbDYgpkm5QqNMgfPIPsIEY+3k16OGc4zGpJ6C+9T+t7i7vlzcA91h0AcC65RYNkZnrM197Z4r5yjHDPk3i7R/R1uMM9sq9o/gNerHaqAh+tBaE=
+  </data>
+ </layer>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="1" name="Door" type="Door" x="264" y="120" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="Door" type="Door" x="792" y="120" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="3" name="Door" type="Door" x="264" y="240" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="4" name="BreakableGround" type="BreakableGround" x="408" y="264" width="96" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="5" name="BreakableGround" type="BreakableGround" x="672" y="264" width="96" height="48">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="6" name="Door" type="Door" x="360" y="384" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+  <object id="7" name="Door" type="Door" x="912" y="384" width="24" height="24">
+   <properties>
+    <property name="yr" value="0"/>
+    <property name="xr" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
