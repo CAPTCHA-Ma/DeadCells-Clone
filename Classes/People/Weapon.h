@@ -20,7 +20,6 @@ public:
 
     // 静态工厂方法
     static Weapon* create(WeaponCategory category);
-
     CC_SYNTHESIZE(WeaponCategory, _category, Category);
     CC_SYNTHESIZE(int, _attackPower, AttackPower);
     CC_SYNTHESIZE(int, _defensePower, DefensePower);

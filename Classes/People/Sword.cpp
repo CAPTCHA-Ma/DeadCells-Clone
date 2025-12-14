@@ -13,11 +13,17 @@ Sword::Sword(SwordType type)
         case SwordType::AlucardSword:
             _attackPower = 30;
             break;
-        case SwordType::ShortSword:
+        case SwordType::BackStabber:
             _attackPower = 15;
             break;
-        case SwordType::GreatSword:
-            _attackPower = 25;
+		case SwordType::BaseballBat:
+			_attackPower = 20;
+            break;
+		case SwordType::BroadSword:
             break;
     }
+}
+Sword::SwordType Sword::getSwordType()
+{
+	return _type;
 }

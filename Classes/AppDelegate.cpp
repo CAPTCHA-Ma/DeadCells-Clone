@@ -73,19 +73,26 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
 
     if (!glview) {
+        // 创建 OpenGL 视图并设置分辨率
         glview = GLViewImpl::createWithRect("DeadCellsClone", Rect(0, 0, 1920, 1080));
         director->setOpenGLView(glview);
     }
 
+    // 设置动画帧率 (60 FPS)
     director->setAnimationInterval(1.0f / 60);
+
+    // 设置设计分辨率和缩放策略
     glview->setDesignResolutionSize(960, 540, ResolutionPolicy::SHOW_ALL);
     director->setContentScaleFactor(1.0f);
     director->setProjection(Director::Projection::_2D);
 
+    // 注册所有包（如果有）
     register_all_packages();
 
-    MapDataManager::getInstance()->loadMapData("room/map_data.json");
-    auto scene = StartMenu::create();
+    // 创建启用物理世界的 StartMenu 场景
+    auto scene = StartMenu::createSceneWithPhysics();
+
+    // 启动游戏循环，并运行场景 (只调用一次)
     director->runWithScene(scene);
 
     return true;

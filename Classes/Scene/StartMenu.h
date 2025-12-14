@@ -1,12 +1,13 @@
 #pragma once
 #include "cocos2d.h"
 
-class StartMenu : public cocos2d::Scene
+class StartMenu : public cocos2d::Layer
 {
 public:
+    virtual bool init() override;
 
-	virtual bool init() override;
+    virtual void onEnter() override;
 
-	CREATE_FUNC(StartMenu);
-
+    static cocos2d::Scene* createSceneWithPhysics();
+    CREATE_FUNC(StartMenu);
 };

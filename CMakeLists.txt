@@ -63,6 +63,9 @@ list(APPEND GAME_SOURCE
      Classes/People/Player.cpp
      Classes/People/Monster.cpp
      Classes/People/Weapon.cpp
+     Classes/People/Shield.cpp
+     Classes/People/Bow.cpp
+     Classes/People/Sword.cpp
      Classes/Map/MapUnit.cpp
      Classes/Map/SceneMap.cpp
      Classes/Scene/Prison.cpp
@@ -74,8 +77,11 @@ list(APPEND GAME_HEADER
      Classes/Scene/Loading.h
      Classes/Res/strings.h
      Classes/People/Player.h
-     Classes/People/Monster.h
      Classes/People/Weapon.h
+     Classes/People/Shield.h
+     Classes/People/Bow.h
+     Classes/People/Sword.h
+     Classes/People/Monster.h
      Classes/Map/MapUnit.h
      Classes/Map/SceneMap.h
      Classes/Scene/Prison.h
