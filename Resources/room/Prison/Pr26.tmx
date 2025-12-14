@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="47" height="18" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
- <tileset firstgid="6" source="../../lnk.tsx"/>
- <tileset firstgid="1" source="../../col.tsx"/>
+ <tileset firstgid="6" source="lnk.tsx"/>
+ <tileset firstgid="1" source="col.tsx"/>
  <layer id="1" name="col" width="47" height="18" >
   <data encoding="base64" compression="zlib">  
    eNrtl+EKwCAIhM9i7//KY7AfEcFMbRfhgX9C4esSKwEgGEsIYeHQSJtr4ZmRp5atZN+DvQziJN+1s6Ldv2XW9PVR7FaPPB6z+j3ZOezXGyvZiyK0d7IE5X7VINiT2fN91ir87xVWz1fsq2Q/i33Vf+CPv8gNH4EBEA==

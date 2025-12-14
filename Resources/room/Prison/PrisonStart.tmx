@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" width="119" height="55" tilewidth="24" tileheight="24" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" source="col.tsx"/>
+ <tileset firstgid="8" source="lnk.tsx"/>
+ <layer id="1" name="col" width="119" height="55">
+  <data encoding="base64" compression="zlib">
+   eJzt1bEOgzAQREGT///oFFREsaUg4w3crDQdxVmvYGutbQAAAAG9pe9CW7StqLf0XWiLthWNlr4NbdG2mtHSt6Et2lYzWvo2tEXbakZL33bl22xfupG2a5fupu1/TtvnTtvn7s5tXwvvX2nW7nZv6n5tta3oqqXfxf5vnCX9Fo5mLv0WtK3iW5+zS7+FeW0/v02/hd9795a+EwAAAAAAAACAWt7BpxbA
+  </data>
+ </layer>
+ <layer id="2" name="lnk" width="119" height="55">
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJAEAIBDG/9t+wFdzzENakgoGpAgAAAAAAAAAAAACAt94O4Btvc3mby9tc3gIAAAAAAAAAAAAAwG0Djk8ALg==
+  </data>
+ </layer>
+</map>

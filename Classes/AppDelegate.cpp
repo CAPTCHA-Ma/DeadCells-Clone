@@ -24,6 +24,7 @@
 
 #include "AppDelegate.h"
 #include "Scene/StartMenu.h"
+#include "Map/MapUnit.h"
 
 // #define USE_AUDIO_ENGINE 1
 
@@ -83,6 +84,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
 
+    MapDataManager::getInstance()->loadMapData("room/map_data.json");
     auto scene = StartMenu::create();
     director->runWithScene(scene);
 

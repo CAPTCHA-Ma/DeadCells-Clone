@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.cpp">
@@ -30882,36 +30882,6 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBehemot.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBeholder.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBeholderExit.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossTimeKeeper.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\CursedDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GardenerCorridor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GiantEscaped.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GiantEscapedEmpty.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GreenhouseEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GreenhouseEntranceOpen.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr1.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
@@ -31095,43 +31065,13 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonArmory.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonCorruptEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDLCPTriggerBeforeGiantDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEndScroll.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEndTreasure.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonFlaskRoom.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonHubEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonMonsterDoor.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonStart.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonStartExit.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube1.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube2.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube2NoSkel.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PurpleCorridor.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\col.png">
@@ -31145,6 +31085,9 @@
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\lnk.tsx">
       <Filter>Resources\room\Prison</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\map_data.json">
+      <Filter>Resources\room</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\xml\string.xml">
       <Filter>Resources\xml</Filter>
