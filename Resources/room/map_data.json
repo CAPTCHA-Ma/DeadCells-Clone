@@ -1,0 +1,2516 @@
+{
+    "Pr1.tmx": {
+        "width": 45,
+        "height": 20,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    10,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    31,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    39,
+                    19
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    44,
+                    7
+                ]
+            ]
+        }
+    },
+    "Pr10.tmx": {
+        "width": 25,
+        "height": 27,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    6,
+                    26
+                ],
+                [
+                    18,
+                    26
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    21
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    4,
+                    0
+                ],
+                [
+                    16,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    8
+                ]
+            ],
+            "right": [
+                [
+                    24,
+                    1
+                ],
+                [
+                    24,
+                    8
+                ]
+            ]
+        }
+    },
+    "Pr11.tmx": {
+        "width": 34,
+        "height": 20,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    6,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    12,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    18,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    33,
+                    7
+                ],
+                [
+                    33,
+                    14
+                ]
+            ]
+        }
+    },
+    "Pr12.tmx": {
+        "width": 41,
+        "height": 17,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    2,
+                    16
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    11
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    21,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    40,
+                    4
+                ]
+            ]
+        }
+    },
+    "Pr13.tmx": {
+        "width": 38,
+        "height": 18,
+        "entrances": {
+            "top": [
+                [
+                    13,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    2,
+                    17
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    8
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    30,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    30,
+                    17
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    37,
+                    7
+                ]
+            ]
+        }
+    },
+    "Pr14.tmx": {
+        "width": 35,
+        "height": 14,
+        "entrances": {
+            "top": [
+                [
+                    14,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    7
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    19,
+                    13
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    34,
+                    1
+                ],
+                [
+                    34,
+                    8
+                ]
+            ]
+        }
+    },
+    "Pr15.tmx": {
+        "width": 40,
+        "height": 16,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    31,
+                    15
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    39,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr16.tmx": {
+        "width": 35,
+        "height": 15,
+        "entrances": {
+            "top": [
+                [
+                    1,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    1,
+                    14
+                ]
+            ],
+            "left": [],
+            "right": []
+        }
+    },
+    "Pr17.tmx": {
+        "width": 35,
+        "height": 19,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    7
+                ]
+            ],
+            "right": [
+                [
+                    34,
+                    1
+                ]
+            ]
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    2,
+                    18
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    34,
+                    13
+                ]
+            ]
+        }
+    },
+    "Pr18.tmx": {
+        "width": 44,
+        "height": 12,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    6
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    43,
+                    6
+                ]
+            ]
+        }
+    },
+    "Pr19.tmx": {
+        "width": 55,
+        "height": 11,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    2,
+                    10
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    5
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    47,
+                    10
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    54,
+                    5
+                ]
+            ]
+        }
+    },
+    "Pr2.tmx": {
+        "width": 45,
+        "height": 20,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    11
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    36,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    39,
+                    19
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    44,
+                    3
+                ]
+            ]
+        }
+    },
+    "Pr20.tmx": {
+        "width": 56,
+        "height": 19,
+        "entrances": {
+            "top": [
+                [
+                    1,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    7
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    39,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    49,
+                    18
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    55,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr21.tmx": {
+        "width": 56,
+        "height": 19,
+        "entrances": {
+            "top": [
+                [
+                    9,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    50,
+                    18
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    55,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr22.tmx": {
+        "width": 45,
+        "height": 20,
+        "entrances": {
+            "top": [
+                [
+                    6,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    9,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    34,
+                    19
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    44,
+                    14
+                ]
+            ]
+        }
+    },
+    "Pr23.tmx": {
+        "width": 30,
+        "height": 19,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    13,
+                    18
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    13
+                ]
+            ],
+            "right": [
+                [
+                    29,
+                    13
+                ]
+            ]
+        },
+        "exits": {
+            "top": [
+                [
+                    13,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": []
+        }
+    },
+    "Pr24.tmx": {
+        "width": 45,
+        "height": 39,
+        "entrances": {
+            "top": [
+                [
+                    29,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    3
+                ]
+            ],
+            "right": [
+                [
+                    44,
+                    4
+                ]
+            ]
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    14,
+                    38
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    33
+                ]
+            ],
+            "right": [
+                [
+                    44,
+                    33
+                ]
+            ]
+        }
+    },
+    "Pr25.tmx": {
+        "width": 45,
+        "height": 37,
+        "entrances": {
+            "top": [
+                [
+                    35,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    7
+                ]
+            ],
+            "right": [
+                [
+                    44,
+                    1
+                ]
+            ]
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    36,
+                    36
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    31
+                ]
+            ],
+            "right": [
+                [
+                    44,
+                    31
+                ]
+            ]
+        }
+    },
+    "Pr26.tmx": {
+        "width": 47,
+        "height": 18,
+        "entrances": {
+            "top": [
+                [
+                    2,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    9,
+                    17
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    12
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    36,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    40,
+                    17
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    46,
+                    12
+                ]
+            ]
+        }
+    },
+    "Pr27.tmx": {
+        "width": 35,
+        "height": 20,
+        "entrances": {
+            "top": [
+                [
+                    7,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    4,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    34,
+                    1
+                ],
+                [
+                    34,
+                    14
+                ]
+            ]
+        }
+    },
+    "Pr28.tmx": {
+        "width": 29,
+        "height": 28,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    28,
+                    1
+                ]
+            ]
+        },
+        "exits": {
+            "top": [
+                [
+                    20,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    22
+                ]
+            ],
+            "right": [
+                [
+                    28,
+                    22
+                ]
+            ]
+        }
+    },
+    "Pr29.tmx": {
+        "width": 29,
+        "height": 29,
+        "entrances": {
+            "top": [
+                [
+                    1,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    23
+                ]
+            ],
+            "right": [
+                [
+                    28,
+                    23
+                ]
+            ]
+        }
+    },
+    "Pr3.tmx": {
+        "width": 45,
+        "height": 20,
+        "entrances": {
+            "top": [
+                [
+                    8,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    4
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    30,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    6,
+                    19
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    44,
+                    6
+                ],
+                [
+                    44,
+                    14
+                ]
+            ]
+        }
+    },
+    "Pr30.tmx": {
+        "width": 31,
+        "height": 27,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    25,
+                    26
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    21
+                ]
+            ],
+            "right": [
+                [
+                    30,
+                    21
+                ]
+            ]
+        },
+        "exits": {
+            "top": [
+                [
+                    6,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    30,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr31.tmx": {
+        "width": 28,
+        "height": 19,
+        "entrances": {
+            "top": [
+                [
+                    1,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    2
+                ],
+                [
+                    0,
+                    13
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    27,
+                    1
+                ],
+                [
+                    27,
+                    7
+                ]
+            ]
+        }
+    },
+    "Pr32.tmx": {
+        "width": 29,
+        "height": 22,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    28,
+                    1
+                ]
+            ]
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    4,
+                    21
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    16
+                ]
+            ],
+            "right": [
+                [
+                    28,
+                    16
+                ]
+            ]
+        }
+    },
+    "Pr33.tmx": {
+        "width": 27,
+        "height": 21,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    7
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    1,
+                    20
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    15
+                ]
+            ],
+            "right": [
+                [
+                    26,
+                    15
+                ]
+            ]
+        }
+    },
+    "Pr34.tmx": {
+        "width": 22,
+        "height": 18,
+        "entrances": {
+            "top": [
+                [
+                    1,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    1,
+                    17
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    21,
+                    1
+                ],
+                [
+                    21,
+                    12
+                ]
+            ]
+        }
+    },
+    "Pr35.tmx": {
+        "width": 33,
+        "height": 20,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    27,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    12,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    32,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr36.tmx": {
+        "width": 25,
+        "height": 40,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    1,
+                    39
+                ],
+                [
+                    19,
+                    39
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    34
+                ]
+            ],
+            "right": [
+                [
+                    24,
+                    34
+                ]
+            ]
+        },
+        "exits": {
+            "top": [
+                [
+                    1,
+                    0
+                ],
+                [
+                    12,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    5
+                ]
+            ],
+            "right": [
+                [
+                    24,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr37.tmx": {
+        "width": 38,
+        "height": 18,
+        "entrances": {
+            "top": [
+                [
+                    13,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    2,
+                    17
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    10
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    31,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    37,
+                    7
+                ]
+            ]
+        }
+    },
+    "Pr38.tmx": {
+        "width": 38,
+        "height": 18,
+        "entrances": {
+            "top": [
+                [
+                    13,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    2
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    30,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    37,
+                    7
+                ]
+            ]
+        }
+    },
+    "Pr39.tmx": {
+        "width": 26,
+        "height": 18,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    12
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    25,
+                    6
+                ],
+                [
+                    25,
+                    12
+                ]
+            ]
+        }
+    },
+    "Pr4.tmx": {
+        "width": 45,
+        "height": 17,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    23,
+                    16
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    11
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    13,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    44,
+                    1
+                ],
+                [
+                    44,
+                    11
+                ]
+            ]
+        }
+    },
+    "Pr40.tmx": {
+        "width": 35,
+        "height": 20,
+        "entrances": {
+            "top": [
+                [
+                    9,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    1,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    29,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    29,
+                    19
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    34,
+                    1
+                ],
+                [
+                    34,
+                    8
+                ],
+                [
+                    34,
+                    14
+                ]
+            ]
+        }
+    },
+    "Pr41.tmx": {
+        "width": 25,
+        "height": 22,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    16
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    19,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    24,
+                    16
+                ]
+            ]
+        }
+    },
+    "Pr42.tmx": {
+        "width": 30,
+        "height": 21,
+        "entrances": {
+            "top": [
+                [
+                    10,
+                    0
+                ],
+                [
+                    24,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    4,
+                    20
+                ],
+                [
+                    23,
+                    20
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    15
+                ]
+            ],
+            "right": []
+        }
+    },
+    "Pr43.tmx": {
+        "width": 30,
+        "height": 17,
+        "entrances": {
+            "top": [
+                [
+                    6,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": []
+        }
+    },
+    "Pr44.tmx": {
+        "width": 49,
+        "height": 10,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    1,
+                    9
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    4
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    43,
+                    9
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    48,
+                    4
+                ]
+            ]
+        }
+    },
+    "Pr45.tmx": {
+        "width": 49,
+        "height": 12,
+        "entrances": {
+            "top": [
+                [
+                    3,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    43,
+                    11
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    48,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr46.tmx": {
+        "width": 30,
+        "height": 16,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    2,
+                    15
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    10
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    24,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    29,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr47.tmx": {
+        "width": 35,
+        "height": 19,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    1,
+                    18
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    13
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    28,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    34,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr48.tmx": {
+        "width": 32,
+        "height": 20,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    6,
+                    19
+                ],
+                [
+                    26,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": [
+                [
+                    31,
+                    14
+                ]
+            ]
+        },
+        "exits": {
+            "top": [
+                [
+                    8,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    31,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr49.tmx": {
+        "width": 22,
+        "height": 33,
+        "entrances": {
+            "top": [
+                [
+                    8,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    16,
+                    32
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    27
+                ]
+            ],
+            "right": [
+                [
+                    21,
+                    27
+                ]
+            ]
+        }
+    },
+    "Pr5.tmx": {
+        "width": 28,
+        "height": 18,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    12,
+                    17
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    12
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    5,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    27,
+                    1
+                ],
+                [
+                    27,
+                    12
+                ]
+            ]
+        }
+    },
+    "Pr50.tmx": {
+        "width": 28,
+        "height": 33,
+        "entrances": {
+            "top": [
+                [
+                    8,
+                    0
+                ],
+                [
+                    17,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    11,
+                    32
+                ],
+                [
+                    22,
+                    32
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    27
+                ]
+            ],
+            "right": []
+        }
+    },
+    "Pr51.tmx": {
+        "width": 45,
+        "height": 29,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    9
+                ]
+            ],
+            "right": [
+                [
+                    44,
+                    11
+                ]
+            ]
+        },
+        "exits": {
+            "top": [
+                [
+                    25,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    3,
+                    28
+                ],
+                [
+                    34,
+                    28
+                ]
+            ],
+            "left": [],
+            "right": []
+        }
+    },
+    "Pr52.tmx": {
+        "width": 36,
+        "height": 29,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    4,
+                    28
+                ],
+                [
+                    29,
+                    28
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    23
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    7,
+                    0
+                ],
+                [
+                    25,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": []
+        }
+    },
+    "Pr53.tmx": {
+        "width": 39,
+        "height": 22,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    5
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    15
+                ]
+            ],
+            "right": []
+        }
+    },
+    "Pr54.tmx": {
+        "width": 39,
+        "height": 15,
+        "entrances": {
+            "top": [
+                [
+                    3,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    8
+                ]
+            ],
+            "right": [
+                [
+                    38,
+                    6
+                ]
+            ]
+        }
+    },
+    "Pr55.tmx": {
+        "width": 39,
+        "height": 21,
+        "entrances": {
+            "top": [
+                [
+                    2,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    7
+                ],
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    31,
+                    20
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    38,
+                    1
+                ],
+                [
+                    38,
+                    12
+                ]
+            ]
+        }
+    },
+    "Pr56.tmx": {
+        "width": 40,
+        "height": 22,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    2,
+                    21
+                ],
+                [
+                    25,
+                    21
+                ]
+            ],
+            "left": [],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    13,
+                    0
+                ],
+                [
+                    25,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    39,
+                    1
+                ]
+            ]
+        }
+    },
+    "Pr57.tmx": {
+        "width": 46,
+        "height": 20,
+        "entrances": {
+            "top": [
+                [
+                    33,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    38,
+                    19
+                ]
+            ],
+            "left": [],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    2,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    12
+                ]
+            ],
+            "right": [
+                [
+                    45,
+                    7
+                ]
+            ]
+        }
+    },
+    "Pr58.tmx": {
+        "width": 45,
+        "height": 21,
+        "entrances": {
+            "top": [
+                [
+                    2,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    2,
+                    20
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    6
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    39,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    39,
+                    20
+                ]
+            ],
+            "left": [],
+            "right": [
+                [
+                    44,
+                    6
+                ],
+                [
+                    44,
+                    14
+                ]
+            ]
+        }
+    },
+    "Pr59.tmx": {
+        "width": 47,
+        "height": 19,
+        "entrances": {
+            "top": [
+                [
+                    7,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    12
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    46,
+                    2
+                ],
+                [
+                    46,
+                    13
+                ]
+            ]
+        }
+    },
+    "Pr6.tmx": {
+        "width": 28,
+        "height": 16,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    11,
+                    15
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    10
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    12,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    27,
+                    1
+                ],
+                [
+                    27,
+                    10
+                ]
+            ]
+        }
+    },
+    "Pr60.tmx": {
+        "width": 30,
+        "height": 31,
+        "entrances": {
+            "top": [
+                [
+                    6,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    29,
+                    2
+                ]
+            ]
+        },
+        "exits": {
+            "top": [],
+            "bottom": [
+                [
+                    5,
+                    30
+                ],
+                [
+                    22,
+                    30
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    25
+                ]
+            ],
+            "right": [
+                [
+                    29,
+                    25
+                ]
+            ]
+        }
+    },
+    "Pr7.tmx": {
+        "width": 28,
+        "height": 19,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    14,
+                    18
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    13
+                ]
+            ],
+            "right": [
+                [
+                    27,
+                    13
+                ]
+            ]
+        },
+        "exits": {
+            "top": [
+                [
+                    19,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": []
+        }
+    },
+    "Pr8.tmx": {
+        "width": 28,
+        "height": 22,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    14,
+                    21
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    16
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    5,
+                    0
+                ]
+            ],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    27,
+                    3
+                ]
+            ]
+        }
+    },
+    "Pr9.tmx": {
+        "width": 45,
+        "height": 20,
+        "entrances": {
+            "top": [],
+            "bottom": [
+                [
+                    8,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    14
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [
+                [
+                    12,
+                    0
+                ],
+                [
+                    30,
+                    0
+                ]
+            ],
+            "bottom": [
+                [
+                    34,
+                    19
+                ]
+            ],
+            "left": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "right": [
+                [
+                    44,
+                    1
+                ],
+                [
+                    44,
+                    11
+                ]
+            ]
+        }
+    },
+    "PrisonArmory.tmx": {
+        "width": 40,
+        "height": 30,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    24
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    39,
+                    24
+                ]
+            ]
+        }
+    },
+    "PrisonMonsterDoor.tmx": {
+        "width": 19,
+        "height": 20,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [
+                [
+                    0,
+                    11
+                ]
+            ],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    18,
+                    11
+                ]
+            ]
+        }
+    },
+    "PrisonStart.tmx": {
+        "width": 119,
+        "height": 55,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": [
+                [
+                    118,
+                    24
+                ]
+            ]
+        }
+    },
+    "PrisonStartExit.tmx": {
+        "width": 30,
+        "height": 7,
+        "entrances": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": []
+        },
+        "exits": {
+            "top": [],
+            "bottom": [],
+            "left": [],
+            "right": []
+        }
+    }
+}

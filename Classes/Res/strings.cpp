@@ -1,5 +1,6 @@
 #include "strings.h"
 USING_NS_CC;
+
 std::string GetText(const std::string& txt)
 {
 
