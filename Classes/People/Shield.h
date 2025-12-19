@@ -6,16 +6,17 @@
 class Shield : public Weapon
 {
 public:
-    enum class ShieldType
+	enum class ShieldType//具体的盾类型枚举
     {
         SmallShield,
         IronShield,
         MagicShield
     };
     static Shield* create(int subTypeIndex);
-private:
+    Shield getShieldType();
     Shield(ShieldType type);
-    CC_SYNTHESIZE(ShieldType, _type, Type);
+private:
+    ShieldType  _type;
 };
 
 #endif

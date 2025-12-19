@@ -11,15 +11,17 @@ Shield::Shield(ShieldType type)
     switch (type)
     {
         case ShieldType::SmallShield:
-            _defensePower = 10;
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
-
         case ShieldType::IronShield:
-            _defensePower = 20;
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
-
         case ShieldType::MagicShield:
-            _defensePower = 30;
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
     }
+}
+Shield Shield::getShieldType()
+{
+    return _type;
 }

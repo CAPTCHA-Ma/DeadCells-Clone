@@ -1,6 +1,6 @@
 // SwordWeapon.h (ÐÞÕýºó)
-#ifndef __SWORD_WEAPON_H__
-#define __SWORD_WEAPON_H__
+#ifndef __SWORD_H__
+#define __SWORD_H__
 
 #include "Weapon.h"
 #include <map>
@@ -15,7 +15,6 @@ class Sword : public Weapon
 public:
     enum class SwordType
     {
-        AlucardSword,  // °¢Â³¿¨¶à½£
         BackStabber,	// ±³´Ì½£
 		BaseballBat,        // °ôÇò°ô
         BroadSword

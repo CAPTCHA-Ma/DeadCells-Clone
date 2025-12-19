@@ -49,6 +49,18 @@
     <ClCompile Include="..\Classes\People\PlayerLayer.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\People\Grenadier.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\FlyingObject.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\Arrow.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.h">
@@ -72,7 +84,7 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Shield.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Bow.h">
+    <ClInclude Include="..\Classes\People\Bow.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Sword.h">
@@ -31174,6 +31186,21 @@
       <Filter>Resources\xml</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\People\PlayerLayer.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\Grenadier.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\people.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\FlyingObject.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\Arrow.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\MonsterLayer.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
   </ItemGroup>

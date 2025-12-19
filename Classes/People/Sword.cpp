@@ -10,16 +10,14 @@ Sword::Sword(SwordType type)
 {
     switch (type)
     {
-        case SwordType::AlucardSword:
-            _attackPower = 30;
-            break;
         case SwordType::BackStabber:
-            _attackPower = 15;
+			this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
 		case SwordType::BaseballBat:
-			_attackPower = 20;
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
 		case SwordType::BroadSword:
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
     }
 }

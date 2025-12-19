@@ -9,14 +9,18 @@ Bow::Bow(BowType type)
 {
     switch (type)
     {
-        case BowType::ShortBow:
-            _attackPower = 15;
+        case BowType::closeCombatBow:
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
-        case BowType::LongBow:
-            _attackPower = 25;
+        case BowType::dualBow:
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
-        case BowType::CompositeBow:
-            _attackPower = 30;
+        case BowType::crossbow:
+            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
     }
+}
+Bow::BowType Bow::getBowType()
+{
+    return _type;
 }

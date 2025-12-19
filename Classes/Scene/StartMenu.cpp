@@ -3,9 +3,9 @@
 #include "ui/CocosGUI.h"
 #include "Res/strings.h"
 #include "AudioEngine.h"
-#include "Prison.h"
-#include "D:\Code\Cocos2dx\DeadCells\Classes\People\Player.h"    
+#include "Prison.h"  
 #include "D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.h"
+#include "D:\Code\Cocos2dx\DeadCells\Classes\People\MonsterLayer.h"
 USING_NS_CC;
 
 cocos2d::Scene* StartMenu::createSceneWithPhysics()
@@ -13,6 +13,7 @@ cocos2d::Scene* StartMenu::createSceneWithPhysics()
 	cocos2d::Scene* physicsScene = cocos2d::Scene::createWithPhysics();
 
 	physicsScene->getPhysicsWorld()->setGravity(cocos2d::Vec2(0, -980.0f));
+	physicsScene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	StartMenu* pRet = new (std::nothrow) StartMenu();
 
@@ -29,14 +30,21 @@ cocos2d::Scene* StartMenu::createSceneWithPhysics()
 bool StartMenu::init()
 {
 	if (!Layer::init()) return false;
-
+	
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto backGround = Sprite::create("Graph/StartMenu/StartMenuBackGround.jpg");
 	this->addChild(backGround, -1);
+
+
 	auto playerLayer = PlayerLayer::create();
 	playerLayer->setPosition(Vec2(visibleSize.width / 5, 25 + 50));
 	this->addChild(playerLayer, 1);
+
+	auto grenadierLayer = MonsterLayer::create(MonsterCategory::Grenadier);
+	grenadierLayer->setPosition(Vec2(visibleSize.width / 7, 25 + 50));
+	this->addChild(grenadierLayer, 1);
+
 	return true;
 }
 
@@ -62,7 +70,9 @@ void StartMenu::onEnter()
 		groundNode->setPosition(
 			visibleSize.width / 2, // ¾ÓÖÐ
 			groundSize.height / 2);
-
+		groundBody->setCategoryBitmask(GROUND);
+		groundBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY);
+		groundBody->setContactTestBitmask(PLAYER_BODY | ENEMY_BODY);
 		this->addChild(groundNode);
 		CCLOG("Physics Ground Added in onEnter.");
 
