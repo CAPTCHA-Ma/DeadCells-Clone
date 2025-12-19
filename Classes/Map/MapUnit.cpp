@@ -16,21 +16,22 @@ bool IsBoxOverLap(Box box, Box other)
 bool IsRoomOverLap(MapUnitData* room, MapUnitData* other)
 {
 
-    for (const auto& u : room->obstacle)
-    {
+    if (IsBoxOverLap(room->obstacle, other->obstacle)) return true;
 
-        for (const auto& v : other->obstacle)
-        {
-
-            if (IsBoxOverLap(u, v)) return false;
-
-        }
-
-    }
-
-    return true;
+    return false;
 
 }
+
+void MapUnitData::ChangePosition()
+{
+
+    obstacle.lowLeft += velocity;
+    obstacle.upperRight += velocity;
+
+    center += velocity;
+	velocity = Vec2::ZERO;
+
+}   
 
 static MapDataManager* _instance = nullptr;
 
@@ -49,44 +50,29 @@ void MapDataManager::destroyInstance()
     }
 }
 
-void parseCoordinateArray(const rapidjson::Value& jsonArray, std::vector<Vec2>& outVector)
+void parseData(const rapidjson::Value& value, std::vector<Vec2>& outData)
 {
-    if (!jsonArray.IsArray()) return;
 
-    for (const auto& item : jsonArray.GetArray())
+    if (!value.IsArray()) return;
+
+    for (const auto& item : value.GetArray())
     {
         if (item.IsArray() && item.Size() >= 2)
         {
             float x = (float)item[0].GetInt();
             float y = (float)item[1].GetInt();
-            outVector.push_back(Vec2(x, y));
+            outData.push_back(Vec2(x, y));
         }
     }
-}
 
-void parseDirectionData(const rapidjson::Value& value, DirectionData& outData)
-{
-    if (value.HasMember("top"))    parseCoordinateArray(value["top"], outData.top);
-    if (value.HasMember("bottom")) parseCoordinateArray(value["bottom"], outData.bottom);
-    if (value.HasMember("left"))   parseCoordinateArray(value["left"], outData.left);
-    if (value.HasMember("right"))  parseCoordinateArray(value["right"], outData.right);
 }
 
 void MapDataManager::loadMapData(const std::string& jsonFile)
 {
     std::string content = FileUtils::getInstance()->getStringFromFile(jsonFile);
-    if (content.empty()) {
-        CCLOG("MapDataManager Error: File empty or not found: %s", jsonFile.c_str());
-        return;
-    }
 
     rapidjson::Document doc;
     doc.Parse(content.c_str());
-
-    if (doc.HasParseError()) {
-        CCLOG("MapDataManager Error: JSON parse failed in %s", jsonFile.c_str());
-        return;
-    }
 
     for (auto it = doc.MemberBegin(); it != doc.MemberEnd(); ++it)
     {
@@ -98,11 +84,11 @@ void MapDataManager::loadMapData(const std::string& jsonFile)
         if (value.HasMember("height")) roomData.height = value["height"].GetInt();
 
         if (value.HasMember("entrances")) {
-            parseDirectionData(value["entrances"], roomData.entrances);
+            parseData(value["entrances"], roomData.entrances);
         }
 
         if (value.HasMember("exits")) {
-            parseDirectionData(value["exits"], roomData.exits);
+            parseData(value["exits"], roomData.exits);
         }
 
         _mapCache[fileName] = roomData;

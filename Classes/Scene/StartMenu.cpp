@@ -3,79 +3,108 @@
 #include "ui/CocosGUI.h"
 #include "Res/strings.h"
 #include "AudioEngine.h"
-#include "Prison.h"  
-#include "D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.h"
-#include "D:\Code\Cocos2dx\DeadCells\Classes\People\MonsterLayer.h"
+#include "Prison.h"
 USING_NS_CC;
 
-cocos2d::Scene* StartMenu::createSceneWithPhysics()
-{
-	cocos2d::Scene* physicsScene = cocos2d::Scene::createWithPhysics();
-
-	physicsScene->getPhysicsWorld()->setGravity(cocos2d::Vec2(0, -980.0f));
-	physicsScene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-
-	StartMenu* pRet = new (std::nothrow) StartMenu();
-
-	if (pRet && pRet->init())
-	{
-		pRet->autorelease();
-		physicsScene->addChild(pRet);
-		return physicsScene;
-	}
-
-	CC_SAFE_DELETE(pRet);
-	return nullptr;
-}
 bool StartMenu::init()
 {
-	if (!Layer::init()) return false;
-	
+
+	if (!Scene::init()) return false;
+
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	// 背景图
 	auto backGround = Sprite::create("Graph/StartMenu/StartMenuBackGround.jpg");
+	backGround->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+
+	Size bgSize = backGround->getContentSize();
+
+	float scaleX = visibleSize.width / bgSize.width;
+	float scaleY = visibleSize.height / bgSize.height;
+
+	backGround->setScale(std::max(scaleX, scaleY));
+
 	this->addChild(backGround, -1);
 
+	// 右下角logo
+	auto Logo = Sprite::create("Graph/StartMenu/Logo.png");
+	Logo->setAnchorPoint(Vec2(1, 0));
+	Logo->setPosition(Vec2(visibleSize.width + origin.x, origin.y));
+	Logo->setScale(std::max(scaleX, scaleY));
 
-	auto playerLayer = PlayerLayer::create();
-	playerLayer->setPosition(Vec2(visibleSize.width / 5, 25 + 50));
-	this->addChild(playerLayer, 1);
+	this->addChild(Logo, 0);
 
-	auto grenadierLayer = MonsterLayer::create(MonsterCategory::Grenadier);
-	grenadierLayer->setPosition(Vec2(visibleSize.width / 7, 25 + 50));
-	this->addChild(grenadierLayer, 1);
+	// 开始按钮和退出按钮
+	auto StartButton = ui::Button::create();
+	StartButton->setTitleText(GetText("start_game_text"));
+	StartButton->setTitleFontName("fonts/fusion-pixel.ttf");
+	StartButton->setTitleFontSize(40);
+	StartButton->setAnchorPoint(Vec2(1, 0));
+	StartButton->setPosition(Vec2(visibleSize.width + origin.x - 10, origin.y + visibleSize.height / 4 + 15));
+	auto Startlabel = dynamic_cast<cocos2d::Label*>(StartButton->getTitleRenderer());
+	Startlabel->enableShadow();
+	Startlabel->enableGlow(Color4B::WHITE);
+
+	/*StartButton->addClickEventListener([](Ref* sender) {
+
+		auto LoadingScene = Loading::create();
+		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, LoadingScene));
+
+		std::thread PrisonLoadingThread([]() {
+
+			Prison* prisonScene = new class Prison;
+			if (prisonScene->InitPrisonData()) {
+
+				cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
+
+					prisonScene->RenderPrisonScene();
+
+					});
+
+			}
+
+			});
+
+		PrisonLoadingThread.detach();
+
+		});*/
+
+	StartButton->addClickEventListener([](Ref* sender) {
+
+		Prison* prisonScene = new class Prison;
+
+		prisonScene->SetupVisualScene();
+
+		std::thread PrisonLoadingThread([=]() {
+
+			prisonScene->InitPrisonData();
+
+			});
+
+		PrisonLoadingThread.detach();
+
+		});
+
+	this->addChild(StartButton);
+
+	auto ExitButton = ui::Button::create();
+	ExitButton->setTitleText(GetText("exit_text"));
+	ExitButton->setTitleFontName("fonts/fusion-pixel.ttf");
+	ExitButton->setTitleFontSize(40);
+	ExitButton->setAnchorPoint(Vec2(1, 0));
+	ExitButton->setPosition(Vec2(visibleSize.width + origin.x - 10, origin.y + visibleSize.height / 4 - 40));
+	auto Exitlabel = dynamic_cast<cocos2d::Label*>(ExitButton->getTitleRenderer());
+	Exitlabel->enableShadow();
+	Exitlabel->enableGlow(Color4B::WHITE);
+
+	ExitButton->addClickEventListener([](Ref* sender) {
+		// 退出游戏
+		Director::getInstance()->end();
+		});
+
+	this->addChild(ExitButton);
 
 	return true;
-}
 
-void StartMenu::onEnter()
-{
-	Layer::onEnter();
-
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	auto world = this->getScene()->getPhysicsWorld();
-
-	if (world)
-	{
-		cocos2d::Size groundSize(visibleSize.width * 2, 50);
-		auto groundBody = cocos2d::PhysicsBody::createEdgeBox(
-			groundSize,
-			cocos2d::PhysicsMaterial(0.1f, 0.0f, 0.0f));
-
-		groundBody->setDynamic(false);
-
-		auto groundNode = cocos2d::Node::create();
-		groundNode->setPhysicsBody(groundBody);
-
-		groundNode->setPosition(
-			visibleSize.width / 2, // 居中
-			groundSize.height / 2);
-		groundBody->setCategoryBitmask(GROUND);
-		groundBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY);
-		groundBody->setContactTestBitmask(PLAYER_BODY | ENEMY_BODY);
-		this->addChild(groundNode);
-		CCLOG("Physics Ground Added in onEnter.");
-
-		// 
-	}
 }

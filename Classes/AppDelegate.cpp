@@ -89,11 +89,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // 注册所有包（如果有）
     register_all_packages();
 
-    // 创建启用物理世界的 StartMenu 场景
-    auto scene = StartMenu::createSceneWithPhysics();
+    auto StartMenuScene = StartMenu::create();
+    MapDataManager::getInstance()->loadMapData("room/map_data.json");
 
     // 启动游戏循环，并运行场景 (只调用一次)
-    director->runWithScene(scene);
+    director->runWithScene(StartMenuScene);
 
     return true;
 }

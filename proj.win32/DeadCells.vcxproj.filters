@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.cpp">
@@ -39,6 +39,9 @@
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.cpp">
       <Filter>Source Files\Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.cpp">
+      <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
@@ -101,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.h">
       <Filter>Source Files\Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.h">
+      <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
@@ -28587,6 +28593,9 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Player\stairs_23-=-0-=-.png">
       <Filter>Resources\Graph\Player</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Player\stand_00-=-0-=-.png">
+      <Filter>Resources\Graph\Player</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Player\startBowCrouchShoot_00-=-0-=-.png">
       <Filter>Resources\Graph\Player</Filter>
     </ClInclude>
@@ -31119,9 +31128,6 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr9.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonArmory.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonCorruptEntrance.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
@@ -31137,19 +31143,25 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEntrance.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonElite.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonExit.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonFlaskRoom.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonHubEntrance.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonMonsterDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonStart.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonStartExit.tmx">
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTrader.tmx">
+      <Filter>Resources\room\Prison</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTreasure.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube1.tmx">

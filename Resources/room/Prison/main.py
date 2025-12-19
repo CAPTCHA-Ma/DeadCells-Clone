@@ -96,8 +96,8 @@ def process_tmx(file_path):
     result = {
         "width": width,
         "height": height,
-        "entrances": { "top": [], "bottom": [], "left": [], "right": [] },
-        "exits":     { "top": [], "bottom": [], "left": [], "right": [] }
+        "entrances": [],
+        "exits":     []
     }
 
     SEQ_LEN = 5
@@ -111,10 +111,10 @@ def process_tmx(file_path):
         if len(set(segment)) == 1:
             gid = segment[0]
             if gid == GID_UP:
-                result["exits"]["top"].append([x, y])
+                result["exits"].append([x + 2, height - y - 1])
                 x += SEQ_LEN
             elif gid == GID_DOWN:
-                result["entrances"]["top"].append([x, y])
+                result["entrances"].append([x + 2, height - y - 1])
                 x += SEQ_LEN
             else:
                 x += 1
@@ -130,10 +130,10 @@ def process_tmx(file_path):
         if len(set(segment)) == 1:
             gid = segment[0]
             if gid == GID_DOWN:
-                result["exits"]["bottom"].append([x, y])
+                result["exits"].append([x + 2, height - y - 1])
                 x += SEQ_LEN
             elif gid == GID_UP:
-                result["entrances"]["bottom"].append([x, y])
+                result["entrances"].append([x + 2, height - y - 1])
                 x += SEQ_LEN
             else:
                 x += 1
@@ -149,10 +149,10 @@ def process_tmx(file_path):
         if len(set(segment)) == 1:
             gid = segment[0]
             if gid == GID_LEFT:
-                result["exits"]["left"].append([x, y])
+                result["exits"].append([x, height - y - 3])
                 y += SEQ_LEN
             elif gid == GID_RIGHT:
-                result["entrances"]["left"].append([x, y])
+                result["entrances"].append([x, height - y - 3])
                 y += SEQ_LEN
             else:
                 y += 1
@@ -168,10 +168,10 @@ def process_tmx(file_path):
         if len(set(segment)) == 1:
             gid = segment[0]
             if gid == GID_RIGHT:
-                result["exits"]["right"].append([x, y])
+                result["exits"].append([x, height - y - 3])
                 y += SEQ_LEN
             elif gid == GID_LEFT:
-                result["entrances"]["right"].append([x, y])
+                result["entrances"].append([x, height - y - 3])
                 y += SEQ_LEN
             else:
                 y += 1

@@ -10,7 +10,7 @@ USING_NS_CC;
 enum class Type
 {
 
-    elite, treasure, trader, exit, combat, corridor, start
+    elite, treasure, trader, exit, combat, start
 
 };
 
@@ -28,24 +28,27 @@ struct Box
 
 };
 
-struct door
-{
-
-	Direction dir;
-	Vec2 pos;
-
-};
-
 class MapUnitData
 {
 public:
 
 	Type roomtype;
 	std::string name;
-    std::vector<door> entrance, exit;
-	std::vector<Box> obstacle;
+    std::vector<Vec2> entrance, exit, path;
+    Vec2 center, velocity = Vec2::ZERO;
+	Box obstacle;
 	MapUnitData* preRoom = nullptr;
     std::vector<MapUnitData*> nextRoom;
+
+    void ChangePosition();
+
+};
+
+class CorridorData
+{
+public:
+
+    
 
 };
 
@@ -56,18 +59,11 @@ class MapUnit : public cocos2d::Node
 
 };
 
-struct DirectionData
-{
-
-    std::vector<Vec2> top, bottom, left, right;
-
-};
-
 struct RoomData
 {
 
     int width = 0, height = 0;
-    DirectionData entrances, exits;     
+    std::vector<Vec2> entrances, exits;
 
 };
 
