@@ -69,7 +69,7 @@ list(APPEND GAME_SOURCE
      Classes/Map/MapUnit.cpp
      Classes/Map/SceneMap.cpp
      Classes/Scene/Prison.cpp
-
+     Classes/WFC/WFC.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -85,6 +85,7 @@ list(APPEND GAME_HEADER
      Classes/Map/MapUnit.h
      Classes/Map/SceneMap.h
      Classes/Scene/Prison.h
+     Classes/WFC/WFC.h
      )
 
 if(ANDROID)
