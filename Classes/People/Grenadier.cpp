@@ -13,7 +13,7 @@ bool Grenadier::init()
     _state = GrenadierState::idle;
     _direction = MoveDirection::RIGHT;
     _moveSpeed = 150.0f; // 水平移动速度
-    _attackRange = 20.0f;
+    _attackRange = 100.0f;
 
     Size bodySize = Size(40, 75);
 
@@ -81,26 +81,47 @@ void Grenadier::dead()
 }
 void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
 {
+    if (_state == GrenadierState::atk)
+        return;
+
     _aiTickTimer += dt;
 
-    // 1. 获取怪物自己的世界坐标进行比对
-    Vec2 myWorldPos = this->getParent()->convertToWorldSpace(this->getPosition());
-    float distance = myWorldPos.distance(playerWorldPos);
 
-    // 2. 只有在计时器达到时才进行状态决策
+    Vec2 myWorldPos = this->getParent()->convertToWorldSpace(this->getPosition());
+    Vec2 toPlayer = playerWorldPos - myWorldPos;
+    float distX = abs(toPlayer.x);
+    float distY = abs(toPlayer.y);
+
+    // 2. 决策阶段
     if (_aiTickTimer >= 0.2f)
     {
-        if (distance <= _attackRange) {
+        _aiTickTimer = 0.0f;
+
+        // 判断 A: 是否在攻击范围内 (水平距离够近 且 高度基本一致)
+        // 这里的 _attackRange 建议根据投弹兵特性设定，比如 100-200
+        if (distX <= _attackRange && distY < 10.0f)
+        {
+            // 攻击前修正一次朝向，确保正对玩家
+            _direction = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
+            int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+            this->setFlippedX(dir == -1);
             this->changeState(GrenadierState::atk);
         }
-        else if (distance <= 300.0f) { // 这里应该用一个较大的探测范围，比如 300
-            _direction = (playerWorldPos.x < myWorldPos.x) ? MoveDirection::LEFT : MoveDirection::RIGHT;
+        // 判断 B: 是否在追踪范围内
+        else if (distX <= 200.0f && distY < 200.0f)
+        {
+            MoveDirection newDir = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
+            if (_direction != newDir)
+            {
+                _direction = newDir;
+            }
             this->changeState(GrenadierState::walk);
         }
-        else {
+        // 判断 C: 距离太远，歇着
+        else
+        {
             this->changeState(GrenadierState::idle);
         }
-        _aiTickTimer = 0.0f;
     }
 }
 //*******************************************************************

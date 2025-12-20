@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.cpp">
@@ -49,16 +49,13 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\People\PlayerLayer.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\People\Grenadier.cpp">
+    <ClCompile Include="..\Classes\People\Arrow.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\People\FlyingObject.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\People\Arrow.cpp">
+    <ClCompile Include="..\Classes\People\Grenadier.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
@@ -87,7 +84,7 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Shield.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\Bow.h">
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Bow.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Sword.h">
@@ -113,6 +110,375 @@
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\resource.h">
       <Filter>Source Files\proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_00-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_01-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_02-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_03-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_04-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_05-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_06-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_07-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_08-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_09-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_10-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_11-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_12-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_13-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\atk_14-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\grenadierInit.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_00-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_01-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_02-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_03-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_04-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_05-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_06-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_07-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idleAtkLoad_08-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_00-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_01-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_02-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_03-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_04-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_05-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_06-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_07-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_08-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_09-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_10-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_11-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_12-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_13-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_14-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_15-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_16-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_17-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_18-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_19-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_20-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_21-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_22-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_23-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_24-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_25-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_26-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_27-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_28-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_29-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_30-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_31-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_32-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_33-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_34-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_35-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_36-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_37-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_38-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\idle_39-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_00-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_01-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_02-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_03-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_04-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_05-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_06-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_07-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_08-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_09-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_10-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_11-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_12-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_13-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_14-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_15-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_16-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_17-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_18-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_19-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\land_20-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_00-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_01-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_02-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_03-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_04-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_05-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_06-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_07-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_08-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_09-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_10-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_11-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_12-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_13-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_14-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_15-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_16-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_17-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_18-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_19-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_20-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_21-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_22-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_23-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_24-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_25-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_26-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_27-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_28-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_29-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_30-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_31-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_32-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_33-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_34-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_35-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Grenadier\walk_36-=-0-=-.png">
+      <Filter>Resources\Graph\Grenadier</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Loading\Character.png">
       <Filter>Resources\Graph\Loading</Filter>
@@ -31197,22 +31563,19 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\xml\string.xml">
       <Filter>Resources\xml</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\PlayerLayer.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\People\Grenadier.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\People\people.h">
+    <ClInclude Include="..\Classes\People\Arrow.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\People\FlyingObject.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\Arrow.h">
+    <ClInclude Include="..\Classes\People\Grenadier.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\People\MonsterLayer.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\people.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
   </ItemGroup>
@@ -31230,6 +31593,9 @@
     </Filter>
     <Filter Include="Resources\Graph">
       <UniqueIdentifier>{2FBDA5A6-AAD2-3806-A522-7BCF8FC95FF3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Graph\Grenadier">
+      <UniqueIdentifier>{BC278742-1545-3906-9657-7039F3F6A4C1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Graph\Loading">
       <UniqueIdentifier>{A0151D25-AB65-3B4B-A03C-7B42AA3AAFC1}</UniqueIdentifier>

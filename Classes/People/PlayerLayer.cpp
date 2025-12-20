@@ -5,9 +5,10 @@ bool PlayerLayer::init()
     if (!Layer::init())
         return false;
 
-
+    this->setName("PlayerLayer"); 
     _player = Player::create();
-    _player->setPosition(Vec2(400, 200));
+    _player->setPosition(Vec2(200, 200));
+	_player->setName("Player");
     this->addChild(_player);
 
     this->setupEventListeners();
@@ -74,7 +75,7 @@ void PlayerLayer::setupEventListeners()
                 _leftPressed = false;
                 if (_player->_state == ActionState::run)
                 {
-                    _player->changeState(ActionState::stand);
+                    _player->changeState(ActionState::idle);
                 }
             }
             else if (keyCode == EventKeyboard::KeyCode::KEY_D)
@@ -82,14 +83,14 @@ void PlayerLayer::setupEventListeners()
                 _rightPressed = false;
                 if (_player->_state == ActionState::run)
                 {
-                    _player->changeState(ActionState::stand);
+                    _player->changeState(ActionState::idle);
                 }
             }
             else if (keyCode == EventKeyboard::KeyCode::KEY_S)
             {
                 if (_player->_state == ActionState::crouch)
                 {
-                    _player->changeState(ActionState::stand);
+                    _player->changeState(ActionState::idle);
                 }
             }
         };
@@ -115,7 +116,7 @@ void PlayerLayer::update(float dt)
     else
     {
         if (_player->_state == ActionState::run)
-            _player->changeState(ActionState::stand);
+            _player->changeState(ActionState::idle);
     }
 }
 

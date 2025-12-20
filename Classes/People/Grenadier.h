@@ -22,13 +22,14 @@ public:
 
     CREATE_FUNC(Grenadier);
     virtual bool init() override;
+
+	virtual void idle() override;
     virtual void attack() override;
     virtual void walk() override;
 	virtual void dead() override;
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) override;
     void changeState(GrenadierState newState);
     void playAnimation(GrenadierState state, bool loop);
-    virtual void idle() override;
 private:
     std::unordered_map<GrenadierState, cocos2d::Animation*> _animCache;
 	float _attackRange; // ¹¥»÷·¶Î§

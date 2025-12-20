@@ -10,8 +10,9 @@ enum class MonsterCategory
 class Monster : public cocos2d::Sprite
 {
 public:
+    virtual bool init() = 0;
+
     virtual void idle()=0;
-    virtual bool init()=0;
     virtual void attack() = 0;     
 	virtual void walk() = 0;   
 	virtual void dead() = 0;

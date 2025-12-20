@@ -13,7 +13,7 @@ struct StateConfig
 
 enum class ActionState 
 {
-    stand,      // 站立
+    idle,
     run,        // 奔跑
     rollStart,
     jumpDown,//
@@ -36,7 +36,7 @@ enum class ActionState
 
 static std::unordered_map<ActionState, StateConfig> StateTable =
 {//                     能否被打断 优先级数字越大优先级越高   动画是否循环播放
-    { ActionState::stand,                                   { true,  0, true  } },
+    { ActionState::idle,                                   { true,  0, true  } },
     { ActionState::run,                                     { true,  1, true  } },
     { ActionState::rollStart,                               { true,  4, false } },
     { ActionState::jumpDown,                                { false,99, true } },
@@ -63,7 +63,8 @@ public:
     CREATE_FUNC(Player);
     bool Player::init() override;
     //动作
-    void stand();
+	void changeDirection(MoveDirection dir);
+    void idle();
     void jumpUp();
     void run();
     void rollStart();

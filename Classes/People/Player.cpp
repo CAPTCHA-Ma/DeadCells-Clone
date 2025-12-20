@@ -11,13 +11,13 @@ const float GRAVITY = 980.0f;
 //初始化
 bool Player::init()
 {
-    if (!Sprite::initWithFile("Graph/Player/playerInit.png", Rect(0, 0, 150, 150)))
+    if (!Sprite::initWithFile("Graph/Player/idle_00-=-0-=-.png", Rect(0, 0, 150, 150)))
         return false;
 
 	_moveSpeed = 200.0f;
 	_jumpSpeed = 250.0f;
 	_rollSpeed = 300.0f;
-	_state = ActionState::stand;
+	_state = ActionState::idle;
 	_direction = MoveDirection::RIGHT;
     this->setOriginalAttributes(BasicAttributes({ 100, 10, 10 }));
     this->setFinalAttributes(BasicAttributes({ 100, 10, 10 }));
@@ -48,7 +48,7 @@ bool Player::init()
     body->setContactTestBitmask(ENEMY_BODY);
 
     this->createHurtBox();
-
+    playAnimation(ActionState::idle, true);
     this->scheduleUpdate();
     return true;
 }
@@ -67,7 +67,12 @@ void Player::getWeapon(Weapon* w)
                                this->getOriginalAttributes().attack + w->getWeaponAttributes().attack,
                                this->getOriginalAttributes().defense + w->getWeaponAttributes().defense});
 }
-void Player::stand()
+void Player::changeDirection(MoveDirection dir)
+{
+    _direction = dir;
+    this->setFlippedX(_direction == MoveDirection::RIGHT);
+}
+void Player::idle()
 {
     auto body = this->getPhysicsBody();
     if (body)
@@ -115,7 +120,6 @@ void Player::rollStart()
 }
 void Player::crouch()
 {
-    this->stand();
 }
 void Player::atkA()
 {
@@ -126,62 +130,62 @@ void Player::atkA()
     }
     else
     {
-        this->stand();
+        this->idle();
     }
 }
 void Player::atkB()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::atkBackStabber()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::AtkBaseballBatA()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::AtkBaseballBatB()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::AtkBaseballBatC()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::AtkBaseballBatD()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::AtkBaseballBatE()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::atkBroadSwordA()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::AtkcloseCombatBow()
 {
     this->createAttackBox();
-    this->stand();
+    this->idle();
 }
 void Player::AtkdualBow()
 {
     this->createAttackBox();
-	this->stand();
+    this->idle();
 }
 void Player::crossbowShoot()
 {
-    this->stand();
+    this->idle();
 }
 void Player::dead()
 {
@@ -199,7 +203,7 @@ void Player::changeState(ActionState newState)
     switch (newState)
     {
         case ActionState::jumpDown:; break;
-        case ActionState::stand:this->stand(); break;
+        case ActionState::idle:this->idle(); break;
         case ActionState::run:this->run(); break;
         case ActionState::jumpUp:this->jumpUp(); break;
         case ActionState::rollStart:this->rollStart(); break;
@@ -265,9 +269,9 @@ bool Player::whetherCanChangeToNewState(ActionState newState) const
 {
     if (isAttackState(_state) && isAttackState(newState))
         return true;
-    if (newState == ActionState::stand)
+    if (newState == ActionState::idle)
         return true;
-    if (_state == ActionState::stand || _state == ActionState::run)
+    if (_state == ActionState::idle || _state == ActionState::run)
         return true;
     auto currentConfig = StateTable[_state];
     auto newConfig = StateTable[newState];
@@ -344,7 +348,7 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
     Animation* anim = nullptr;
     switch (state)
     {
-        case ActionState::stand:            anim = createAnim("stand", 1, 1.0f); break;
+        case ActionState::idle:            anim = createAnim("idle", 46, 1.0f); break;
         case ActionState::run:              anim = createAnim("run", 20, 1.0f); break;
         case ActionState::jumpDown:         anim = createAnim("jumpDown", 4, 1.0f); break;
         case ActionState::jumpUp:           anim = createAnim("jumpUp", 6, 1.0f); break;
@@ -374,7 +378,7 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
 //攻击受击判定
 void Player::whenOnAttackKey(Weapon* w)
 {
-    if (_state == ActionState::stand ||
+    if (_state == ActionState::idle ||
         _state == ActionState::jumpUp)
     {
         this->changeStateByWeapon(w);
@@ -382,7 +386,7 @@ void Player::whenOnAttackKey(Weapon* w)
     }
     if (_state == ActionState::run)
     {
-        this->changeState(ActionState::stand);
+        this->changeState(ActionState::idle);
         this->changeStateByWeapon(w);
 		return;
     }
@@ -441,7 +445,7 @@ void Player::actionWhenEnding(ActionState state)
     // 重置状态
     _comboStep = 0;
     _comboInput = false;
-    changeState(ActionState::stand);
+    changeState(ActionState::idle);
 }
 bool Player::isAttackState(ActionState s) const
 {

@@ -4,15 +4,43 @@
 #include "Res/strings.h"
 #include "AudioEngine.h"
 #include "Prison.h"
+#include "People/people.h"
+#include "People/PlayerLayer.h"
+#include "People/MonsterLayer.h"
 USING_NS_CC;
 
 bool StartMenu::init()
 {
+	//if (!Scene::init()) return false;
+	if (!Scene::initWithPhysics()) return false;
+	this->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	this->getPhysicsWorld()->setGravity(Vec2(0, -980.0f));
 
-	if (!Scene::init()) return false;
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	auto groundNode = Node::create();
+	auto groundBody = PhysicsBody::createBox(Size(visibleSize.width, 20.0f),
+		PhysicsMaterial(0.1f, 1.0f, 0.0f));
+	groundBody->setDynamic(false);
+	groundBody->setCategoryBitmask(GROUND);
+	groundBody->setCollisionBitmask(0xFFFFFFFF); // 与所有东西碰撞
+	groundBody->setContactTestBitmask(0xFFFFFFFF);
+	groundNode->setPhysicsBody(groundBody);
+	groundNode->setPosition(Vec2(visibleSize.width / 2 + origin.x, origin.y + 10));
+	this->addChild(groundNode);
+	
+	auto _playerLayer = PlayerLayer::create();
+	this->addChild(_playerLayer, 1);
+	auto _monsterLayer = MonsterLayer::create(MonsterCategory::Grenadier); 
+	this->addChild(_monsterLayer, 1);
+
+
+
+
+
+
 
 	// 背景图
 	auto backGround = Sprite::create("Graph/StartMenu/StartMenuBackGround.jpg");
