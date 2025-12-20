@@ -49,13 +49,19 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\People\Arrow.cpp">
+    <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\People\FlyingObject.cpp">
+    <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\People\Grenadier.cpp">
+    <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\People\MonsterLayer.cpp">
@@ -31545,37 +31551,22 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\col.png">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\col.tsx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\lnk.png">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\lnk.tsx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\main.py">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\map_data.json">
-      <Filter>Resources\room</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\xml\string.xml">
-      <Filter>Resources\xml</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\People\Arrow.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\People\FlyingObject.h">
+    <ClInclude Include="..\Classes\People\PlayerLayer.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\People\Grenadier.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\MonsterLayer.h">
+    <ClInclude Include="..\Classes\People\people.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\people.h">
+    <ClInclude Include="..\Classes\People\FlyingObject.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\Arrow.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\MonsterLayer.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
   </ItemGroup>

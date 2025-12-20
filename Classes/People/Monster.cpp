@@ -19,4 +19,4 @@ Monster* Monster::create(MonsterCategory category)
         default:
             return nullptr;
     }
-}                          
+}
