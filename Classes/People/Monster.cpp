@@ -1,6 +1,6 @@
 // Monster.cpp
-#include "Monster.h"
 #include "Grenadier.h"
+#include "Zombie.h"
 USING_NS_CC;
 void Monster::removeAttackBox()
 {
@@ -16,6 +16,8 @@ Monster* Monster::create(MonsterCategory category)
     {
         case MonsterCategory::Grenadier:
             return Grenadier::create();
+        case MonsterCategory::Zombie:
+            return Zombie::create();
         default:
             return nullptr;
     }

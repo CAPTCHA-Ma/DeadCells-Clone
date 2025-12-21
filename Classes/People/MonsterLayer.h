@@ -5,10 +5,10 @@ class MonsterLayer : public cocos2d::Layer
 {
 public:
 
-	static MonsterLayer* create(MonsterCategory category);
+	static MonsterLayer* create(MonsterCategory category, cocos2d::Vec2 pos);
 	void update(float dt);
 private:
-	bool init(MonsterCategory category);
+	bool init(MonsterCategory category, cocos2d::Vec2 pos);
 	Monster* _monster;
 	float _aiTickTimer;
 };

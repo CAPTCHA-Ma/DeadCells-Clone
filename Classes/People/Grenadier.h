@@ -10,7 +10,7 @@ enum class GrenadierState
     atk,
     walk
 };
-static std::unordered_map<GrenadierState, bool> StateLoop =
+static std::unordered_map<GrenadierState, bool> GrenadierStateLoop =
 {
     { GrenadierState::idle, true  },
     { GrenadierState::atk,  false },
@@ -24,7 +24,7 @@ public:
     virtual bool init() override;
 
 	virtual void idle() override;
-    virtual void attack() override;
+    void attack();
     virtual void walk() override;
 	virtual void dead() override;
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) override;

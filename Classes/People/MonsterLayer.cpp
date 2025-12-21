@@ -1,10 +1,10 @@
 #include "MonsterLayer.h"
 USING_NS_CC;
-MonsterLayer* MonsterLayer::create(MonsterCategory category)
+MonsterLayer* MonsterLayer::create(MonsterCategory category, cocos2d::Vec2 pos)
 {
 
     MonsterLayer* pRet = new(std::nothrow) MonsterLayer();
-    if (pRet && pRet->init(category))
+    if (pRet && pRet->init(category,pos))
     {
         pRet->autorelease(); 
         return pRet;
@@ -17,7 +17,7 @@ MonsterLayer* MonsterLayer::create(MonsterCategory category)
     }
 }
 
-bool MonsterLayer::init(MonsterCategory category)
+bool MonsterLayer::init(MonsterCategory category, cocos2d::Vec2 pos)
 {
     if (!Layer::init())
         return false;
@@ -28,7 +28,7 @@ bool MonsterLayer::init(MonsterCategory category)
         this->addChild(_monster);
 
         // 3. 建议：设置一个初始坐标，否则默认在 (0,0) 可能在屏幕边缘
-        _monster->setPosition(Vec2(500, 200));
+        _monster->setPosition(pos);
     }
     this->scheduleUpdate(); 
     return true;

@@ -33,8 +33,10 @@ bool StartMenu::init()
 	
 	auto _playerLayer = PlayerLayer::create();
 	this->addChild(_playerLayer, 1);
-	auto _monsterLayer = MonsterLayer::create(MonsterCategory::Grenadier); 
-	this->addChild(_monsterLayer, 1);
+	auto _monsterLayer1 = MonsterLayer::create(MonsterCategory::Grenadier,Vec2(100,200)); 
+	this->addChild(_monsterLayer1, 1);
+	auto _monsterLayer2 = MonsterLayer::create(MonsterCategory::Zombie, Vec2(500,500));
+	this->addChild(_monsterLayer2, 1);
 
 
 

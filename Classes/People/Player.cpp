@@ -3,6 +3,8 @@
 #include "Shield.h"
 #include "Bow.h"
 #include "Sword.h"
+const float targetWidth = 150.0f;
+const float targetHeight = 150.0f;
 USING_NS_CC;
 const float GRAVITY = 980.0f;
 //*******************************************************************
@@ -25,17 +27,14 @@ bool Player::init()
 
 
     this->_mainWeapon = new Sword(Sword::SwordType::BaseballBat);
-    this->_subWeapon = NULL;
+    this->_subWeapon = new Sword(Sword::SwordType::BroadSword);
 
     
-    Size bodySize = Size(50, 75);
-    float bottomPadding = 75.0f;
-    float offsetY = -(this->getContentSize().height / 2 - bodySize.height / 2 - bottomPadding);
-
-    auto body = PhysicsBody::createBox(bodySize,
-        PhysicsMaterial(0.1f, 0.0f, 0.5f),
-        Vec2(0, offsetY));
-
+  
+    auto size = this->getContentSize();
+    //中心点在图片中间
+    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth/3,targetHeight/3), PhysicsMaterial(0.1f, 0.0f, 0.5f),Vec2(0,1.0/6*targetHeight));
+	//auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth,targetHeight), PhysicsMaterial(0.1f, 0.0f, 0.5f));
     body->setDynamic(true);
     body->setRotationEnable(false);
     body->setGravityEnable(true);
@@ -313,8 +312,7 @@ cocos2d::Animation* Player::createAnim(const std::string& name, int frameCount, 
     auto anim = Animation::create();
 
     // 设置目标裁剪尺寸
-    const float targetWidth  = 150.0f;
-    const float targetHeight = 150.0f;
+
 
     for (int i = 0; i < frameCount; ++i)
     {
@@ -331,7 +329,7 @@ cocos2d::Animation* Player::createAnim(const std::string& name, int frameCount, 
         float offsetY = (originalSize.height - targetHeight) / 2.0f;
 
         // 构建SpriteFrame并添加到动画
-        auto frame = SpriteFrame::create(framePath, Rect(offsetX, offsetY, targetWidth, originalSize.height));
+        auto frame = SpriteFrame::create(framePath, Rect(offsetX, offsetY, targetWidth, targetHeight));
         anim->addSpriteFrame(frame);
     }
 
@@ -472,8 +470,8 @@ void Player::createHurtBox()
 {
     // Player::createHurtBox()
     _hurtNode = Node::create();
-    auto hurtBody = PhysicsBody::createBox(Size(50, 75));
-    _hurtNode->setPosition(Vec2(75, 112));
+    //中心点是图片的左下角(0,0)，因为hurtBox是player的子节点
+    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(targetWidth/2, targetHeight*2/3));
     hurtBody->setDynamic(false);
     hurtBody->setGravityEnable(false);
     hurtBody->setRotationEnable(false);
@@ -489,25 +487,15 @@ void Player::createAttackBox()
     removeAttackBox(); 
 
     _attackNode = Node::create();
-    _attackNode->setPosition(Vec2(75, 75));
+    float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
+    _attackNode->setPosition(Vec2(targetWidth/2+dir*targetWidth/6, targetHeight*2/3));
     this->addChild(_attackNode, 10);
 
     //获取方向偏移
-    float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
+   
 
 
-    float boxWidth = 80.0f;
-    float boxHeight = 50.0f;
-    float offsetX = 20.0f * dir; // 向右为 +40，向左为 -40
-
-    // 计算矩形的左下角和右上角
-    Vec2 origin = Vec2(offsetX - boxWidth / 2, -boxHeight / 2);
-    Vec2 destination = Vec2(offsetX + boxWidth / 2, boxHeight / 2);
-
-
-    auto attackBody = PhysicsBody::createBox(Size(boxWidth, boxHeight),
-        PhysicsMaterial(0, 0, 0),
-        Vec2(offsetX, 35)); 
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0));
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);

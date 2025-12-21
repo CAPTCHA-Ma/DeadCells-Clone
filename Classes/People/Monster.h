@@ -5,15 +5,15 @@
 #include "People.h"
 enum class MonsterCategory
 {
-    Grenadier
+    Grenadier,
+    Zombie
 };
 class Monster : public cocos2d::Sprite
 {
 public:
     virtual bool init() = 0;
 
-    virtual void idle()=0;
-    virtual void attack() = 0;     
+    virtual void idle()=0;     
 	virtual void walk() = 0;   
 	virtual void dead() = 0;
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) = 0;

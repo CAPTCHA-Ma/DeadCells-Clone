@@ -60,16 +60,22 @@ list(APPEND GAME_SOURCE
      Classes/Scene/StartMenu.cpp
      Classes/Scene/Loading.cpp
      Classes/Res/strings.cpp
+     Classes/People/PlayerLayer.cpp
+     Classes/People/People.cpp
      Classes/People/Player.cpp
-     Classes/People/Monster.cpp
      Classes/People/Weapon.cpp
      Classes/People/Shield.cpp
      Classes/People/Bow.cpp
      Classes/People/Sword.cpp
+     Classes/People/MonsterLayer.cpp
+     Classes/People/Monster.cpp
+     Classes/People/Grenadier.cpp
+     Classes/People/Zombie.cpp
      Classes/Map/MapUnit.cpp
      Classes/Map/SceneMap.cpp
      Classes/Scene/Prison.cpp
-     Classes/People/PlayerLayer.cpp
+
+
 
      )
 list(APPEND GAME_HEADER
@@ -77,16 +83,22 @@ list(APPEND GAME_HEADER
      Classes/Scene/StartMenu.h
      Classes/Scene/Loading.h
      Classes/Res/strings.h
+     Classes/People/PlayerLayer.h
+     Classes/People/People.h
      Classes/People/Player.h
      Classes/People/Weapon.h
      Classes/People/Shield.h
      Classes/People/Bow.h
      Classes/People/Sword.h
+     Classes/People/MonsterLayer.h
      Classes/People/Monster.h
+     Classes/People/Grenadier.h
+     Classes/People/Zombie.h
      Classes/Map/MapUnit.h
      Classes/Map/SceneMap.h
      Classes/Scene/Prison.h
-     Classes/People/PlayerLayer.h
+
+     
      )
 
 if(ANDROID)

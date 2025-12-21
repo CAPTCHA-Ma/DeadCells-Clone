@@ -1,4 +1,6 @@
 #include "Grenadier.h"
+const float targetWidth = 140.0f;
+const float targetHeight = 200.0f;
 USING_NS_CC;
 //*******************************************************************
 //*******************************************************************
@@ -15,14 +17,7 @@ bool Grenadier::init()
     _moveSpeed = 150.0f; // 水平移动速度
     _attackRange = 100.0f;
 
-    Size bodySize = Size(40, 75);
-
-    float bottomPadding = 100.0f;
-    float offsetY = -(this->getContentSize().height / 2 - bodySize.height / 2 - bottomPadding);
-
-    auto body = PhysicsBody::createBox(bodySize,
-        PhysicsMaterial(0.1f, 0.0f, 0.5f),
-        Vec2(0, offsetY));
+    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, 1.0 / 6 * targetHeight));
 
     body->setDynamic(true);            // 动态体，受力影响
     body->setRotationEnable(false);    // 禁止旋转
@@ -34,11 +29,9 @@ bool Grenadier::init()
     this->getPhysicsBody()->setCategoryBitmask(ENEMY_BODY);//类别掩码1
     this->getPhysicsBody()->setCollisionBitmask(GROUND);//碰撞掩码2
 
-
+    this->createHurtBox();
     this->scheduleUpdate();
     playAnimation(GrenadierState::idle, true);
-
-    this->createHurtBox();
 
 
     return true;
@@ -141,7 +134,7 @@ void Grenadier::changeState(GrenadierState newState)
     }
 
     _state = newState;
-    playAnimation(newState, StateLoop[newState]);
+    playAnimation(newState, GrenadierStateLoop[newState]);
 }
 cocos2d::Animation* Grenadier::getAnimation(GrenadierState state)
 {
@@ -166,8 +159,7 @@ cocos2d::Animation* Grenadier::createAnim(const std::string& name, int frameCoun
     auto anim = Animation::create();
 
     // 设置目标裁剪尺寸
-    const float targetWidth = 140.0f;
-    const float targetHeight = 200.0f;
+
 
     for (int i = 0; i < frameCount; ++i)
     {
@@ -224,8 +216,7 @@ void Grenadier::createHurtBox()
 {
     // Player::createHurtBox()
     _hurtNode = Node::create();
-    auto hurtBody = PhysicsBody::createBox(Size(40, 75));
-    _hurtNode->setPosition(Vec2(70, 137));
+    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(targetWidth / 2, targetHeight * 2 / 3));
     hurtBody->setDynamic(false);
     hurtBody->setGravityEnable(false);
     hurtBody->setRotationEnable(false);
@@ -241,25 +232,12 @@ void Grenadier::createAttackBox()
     removeAttackBox();
 
     _attackNode = Node::create();
-    _attackNode->setPosition(Vec2(75, 75));
+    float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
+    _attackNode->setPosition(Vec2(targetWidth / 2 + dir * targetWidth / 6, targetHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
-    //获取方向偏移
-    float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0));
 
-
-    float boxWidth = 80.0f;
-    float boxHeight = 50.0f;
-    float offsetX = 20.0f * dir; // 向右为 +40，向左为 -40
-
-    // 计算矩形的左下角和右上角
-    Vec2 origin = Vec2(offsetX - boxWidth / 2, -boxHeight / 2);
-    Vec2 destination = Vec2(offsetX + boxWidth / 2, boxHeight / 2);
-
-
-    auto attackBody = PhysicsBody::createBox(Size(boxWidth, boxHeight),
-        PhysicsMaterial(0, 0, 0),
-        Vec2(offsetX, 35));
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);
