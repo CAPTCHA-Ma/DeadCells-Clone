@@ -8,7 +8,7 @@
 struct AStarNode
 {
 
-	int g = 0, f = 0, h = 0, lastDir = -1;
+	int g = 0, f = 0, h = 0, lastDir = -1, height = 0;
 	bool IsOccupied = false, extra = false;
 	Vec2 last = Vec2::ZERO;
 
@@ -17,13 +17,6 @@ std::vector<std::vector<AStarNode>> AStarGraph;
 
 struct compare
 {
-
-	//bool operator()(Vec2 a, Vec2 b) 
-	//{
-
-	//	return AStarGraph[a.x][a.y].f > AStarGraph[b.x][b.y].f;
-
-	//}
 
 	bool operator()(Vec2 a, Vec2 b)
 	{
@@ -39,7 +32,6 @@ struct compare
 void Prison::SetupVisualScene()
 {
 
-	PrisonMapData = new SceneMapData; 
 	PrisonScene = Scene::create();
 
 	_debugDrawNode = DrawNode::create();
@@ -47,8 +39,6 @@ void Prison::SetupVisualScene()
 
 	_debugDrawNode->setPosition(visibleSize.width / 2, visibleSize.height / 2);
 	PrisonScene->addChild(_debugDrawNode, 999);
-
-	Director::getInstance()->replaceScene(PrisonScene);
 
 }
 
@@ -79,13 +69,6 @@ void Prison::Draw()
 					color = Color4F::BLUE;
 
 				}
-
-				/*if (room->preRoom)
-				{
-
-					_debugDrawNode->drawLine(room->center + move, room->preRoom->center + move, Color4F(1, 1, 1, 0.3f));
-
-				}*/
 
 				color = Color4F::GREEN;
 				for (Vec2 exit : room->exit)
@@ -350,7 +333,21 @@ bool FindPath(std::vector<std::vector<int>>& mapArray, Vec2 startPos, Vec2 endPo
 			}
 
 			AStarGraph[pos.x][pos.y].g = AStarGraph[front.x][front.y].g + mapArray[pos.x][pos.y];
-			if (!AStarGraph[pos.x][pos.y].extra) AStarGraph[pos.x][pos.y].g += 1;
+			if (i == 2 || i == 3)
+			{
+
+				if (AStarGraph[front.x][front.y].lastDir != i) AStarGraph[pos.x][pos.y].height = 0;
+				else AStarGraph[pos.x][pos.y].height = AStarGraph[front.x][front.y].height + 1;
+				if (!AStarGraph[pos.x][pos.y].extra) AStarGraph[pos.x][pos.y].g += 1 + AStarGraph[pos.x][pos.y].height;
+
+			}
+			else
+			{
+
+				AStarGraph[pos.x][pos.y].height = 0;
+				if (!AStarGraph[pos.x][pos.y].extra) AStarGraph[pos.x][pos.y].g += 1;
+
+			}
 			AStarGraph[pos.x][pos.y].lastDir = i;
 			if (AStarGraph[front.x][front.y].lastDir != -1 && AStarGraph[front.x][front.y].lastDir != AStarGraph[pos.x][pos.y].lastDir) AStarGraph[pos.x][pos.y].g += TURN_PUNISH;
 			CalH(pos, endPos);
@@ -486,6 +483,7 @@ GenRoom:
 GenPos:
 
 	++counter;
+	CCLOG("%d", counter);
 	if (counter == MAX_TEMP)
 	{
 
@@ -618,7 +616,6 @@ GenPos:
 
 	}
 
-	CCLOG("!!!\n");
 	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
 	{
 
@@ -631,30 +628,29 @@ GenPos:
 
 			bool IsExitCorrected = true;
 			Vec2 start = room->obstacle.lowLeft + exit;
-			//std::vector<Vec2> path[3];
+			std::vector<Vec2> path[3];
 
 			for (int i = 0; i < room->nextRoom.size(); ++i)
 			{
 
 				MapUnitData* sonRoom = room->nextRoom[i];
 				bool IsPathConnected = false;
-				//path[i].clear();
+				path[i].clear();
 
 				for (Vec2 entrance : sonRoom->entrance)
 				{
 
 					Vec2 end = sonRoom->obstacle.lowLeft + entrance;
-					sonRoom->path.clear();
-					//std::vector<Vec2> tmppath;
+					std::vector<Vec2> tmppath;
 
-					bool result = FindPath(MapArray, start, end, sonRoom->path);
+					bool result = FindPath(MapArray, start, end, tmppath);
 
-					/*if (tmppath.size())
+					if (tmppath.size())
 					{
 
 						if (!path[i].size() || (tmppath.size() < path[i].size())) path[i] = tmppath;
 
-					}*/
+					}
 
 					for (auto& row : AStarGraph)
 					{
@@ -668,27 +664,20 @@ GenPos:
 
 					}
 
-					if (result)
-					{
-
-						IsPathConnected = true;
-						break;
-
-					}
-
+					if (result) IsPathConnected = true;
+ 
 				}
 
 				if (!IsPathConnected)
 				{
 
 					IsExitCorrected = false;
-					break;
 
 				}
 				else
 				{
 
-					for (Vec2 point : sonRoom->path) AStarGraph[point.x][point.y].extra = true;
+					for (Vec2 point : path[i]) AStarGraph[point.x][point.y].extra = true;
 
 				}
 
@@ -709,8 +698,33 @@ GenPos:
 			if (IsExitCorrected)
 			{
 
-				IsRoomConnected = true;
-				break;
+				if (!IsRoomConnected)
+				{
+
+					IsRoomConnected = true;
+					for (int i = 0; i < room->nextRoom.size(); ++i) room->nextRoom[i]->path = path[i];
+
+				}
+				else
+				{
+					
+					int prelen = 0, nowlen = 0;
+					for (int i = 0; i < room->nextRoom.size(); ++i)
+					{
+
+						prelen += room->nextRoom[i]->path.size();
+						nowlen += path[i].size();
+
+					}
+
+					if (nowlen < prelen)
+					{
+
+						for (int i = 0; i < room->nextRoom.size(); ++i) room->nextRoom[i]->path = path[i];
+
+					}
+
+				}
 
 			}
 
@@ -735,8 +749,16 @@ GenPos:
 		}
 
 	}
+
+	CCLOG("Done!");
 	
-	Draw();
+	//Draw();
+
+	Director::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
+		
+		RenderPrisonScene();
+		
+		});
 
 	return true;
 
@@ -748,14 +770,89 @@ bool Prison::RenderPrisonScene()
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
-	auto prisonMap = TMXTiledMap::create("room/Prison/Pr2.tmx");
-	prisonMap->setAnchorPoint(Vec2(0, origin.y / 2));
-	prisonMap->setPosition(Vec2(origin.x, origin.y));
+	InitMap();
 
-	PrisonScene = Scene::create();
-	PrisonScene->addChild(prisonMap, 0);
+	PrisonScene = Scene::createWithPhysics();
+	PrisonScene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	PrisonScene->getPhysicsWorld()->setGravity(Vec2(0, -1000));
+	_worldLayer->setAnchorPoint(Vec2::ZERO);
+	_worldLayer->setPosition(-PrisonMapData->SceneMapDataUnit[0]->obstacle.lowLeft * 24);
+	PrisonScene->addChild(_worldLayer, 0);
 	Director::getInstance()->replaceScene(TransitionFade::create(1.0f, PrisonScene));
 
 	return true;
+
+}
+
+void Prison::InitMap()
+{
+
+	_worldLayer = Layer::create();
+
+	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
+	{
+
+		auto tmx = TMXTiledMap::create(room->name);
+		tmx->setAnchorPoint(Vec2::ZERO);
+		tmx->setPosition(room->obstacle.lowLeft * 24);
+
+		// 1. 获取你要检测的图层 (请确保名字和你 Tiled 里的一致)
+		auto layer = tmx->getLayer("col");
+
+		// 2. 获取地图尺寸（单位：格）
+		Size layerSize = layer->getLayerSize();
+
+		// 3. 遍历每一个格子
+		for (int x = 0; x < layerSize.width; x++)
+		{
+			for (int y = 0; y < layerSize.height; y++)
+			{
+				// Tiled 坐标系：(0,0) 是左上角
+				Vec2 tileCoord = Vec2(x, y);
+
+				// 获取该位置的 GID
+				int gid = layer->getTileGIDAt(tileCoord);
+
+				// --- 核心判断：检查该 GID 是否包含 "Collidable" 属性 ---
+				Value properties = tmx->getPropertiesForGID(gid);
+				if (!properties.isNull())
+				{
+					ValueMap dict = properties.asValueMap();
+
+					// 如果属性里有 "Collidable" 且为 true
+					if (dict.find("Collidable") != dict.end() && dict["Collidable"].asBool())
+					{
+						Size tileSize = tmx->getTileSize();
+
+						// 2. 创建一个物理刚体
+						// 注意：这里我们创建一个和瓦片一样大的盒子
+						auto physicsBody = PhysicsBody::createBox(tileSize, PhysicsMaterial(0.1f, 0.0f, 1.0f));
+						physicsBody->setDynamic(false); // 静态墙壁
+
+						// 3. 创建一个空节点来承载这个刚体
+						auto node = Node::create();
+						node->setPhysicsBody(physicsBody);
+
+						// 4. 计算坐标 (最关键的一步)
+						// getPositionAt 返回的是瓦片的【左下角】像素坐标 (相对于 layer)
+						Vec2 pos = layer->getPositionAt(tileCoord);
+
+						// PhysicsBody 默认是以节点中心为锚点的
+						// 所以我们需要把节点位置移动到瓦片的【中心】
+						float centerX = pos.x + tileSize.width / 2;
+						float centerY = pos.y + tileSize.height / 2;
+
+						node->setPosition(Vec2(centerX, centerY));
+
+						// 5. 将刚体节点加到地图上
+						tmx->addChild(node);
+					}
+				}
+			}
+		}
+
+		_worldLayer->addChild(tmx, -1);
+
+	}
 
 }

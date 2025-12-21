@@ -89,6 +89,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // 注册所有包（如果有）
     register_all_packages();
 
+    FileUtils::getInstance()->addSearchPath("room/Prison", false);
+
     auto StartMenuScene = StartMenu::create();
     MapDataManager::getInstance()->loadMapData("room/map_data.json");
 

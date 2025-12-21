@@ -5,7 +5,7 @@
 #define CORR_WIDTH 10
 #define PUSH_FORCE 10.0f
 #define PULL_FORCE 5.0f
-#define MAX_TEMP 10
+#define MAX_TEMP 5
 #define TURN_PUNISH 20
 #define BLOCK_WEIGHT 1000000
 #define SURROUND_WEIGHT 10
@@ -19,6 +19,8 @@ public:
 	bool InitPrisonData();
 	bool RenderPrisonScene();
 	void GenRoomPos();
+	void Draw();
+	void InitMap();
 
 	SceneMap* PrisonMap = nullptr;
 	SceneMapData* PrisonMapData = nullptr;
@@ -26,6 +28,6 @@ public:
 	MapDataManager* mDM = nullptr;
 	cocos2d::DrawNode* _debugDrawNode = nullptr;
 	std::vector<std::vector<int>> MapArray;
-	void Draw();
+	cocos2d::Layer* _worldLayer = nullptr;
 
 };
