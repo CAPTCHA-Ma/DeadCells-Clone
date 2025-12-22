@@ -10,18 +10,15 @@ Shield::Shield(ShieldType type)
 {
     switch (type)
     {
-        case ShieldType::SmallShield:
+        case ShieldType::LightningShield:
             this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
-        case ShieldType::IronShield:
-            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
-            break;
-        case ShieldType::MagicShield:
+        case ShieldType::ParryShield:
             this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
             break;
     }
 }
-Shield Shield::getShieldType()
+Shield::ShieldType Shield::getShieldType()
 {
     return _type;
 }

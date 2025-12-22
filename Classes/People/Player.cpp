@@ -26,7 +26,7 @@ bool Player::init()
 
 
     this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
-    this->_subWeapon = new Bow(Bow::BowType::dualBow);
+    this->_subWeapon = new Shield(Shield::ShieldType::LightningShield);
 
     
   
@@ -211,6 +211,9 @@ void Player::changeState(ActionState newState)
 		case ActionState::AtkcloseCombatBow:this->AtkcloseCombatBow(); break;
 		case ActionState::AtkdualBow:this->AtkdualBow(); break;
 		case ActionState::crossbowShoot:this->crossbowShoot(); break;
+
+        case ActionState::blockEndLightningShield:this->createBlockEndBox(); break;
+        case ActionState::blockEndParryShield:this->createBlockEndBox(); break;
         default:break;
     }
     _state = newState;
@@ -249,6 +252,15 @@ void Player::changeStateByWeapon(Weapon* weapon)
         else if(bow->getBowType() == Bow::BowType::crossbow)
 			changeState(ActionState::crossbowShoot);
 		return;
+    }
+    Shield* shield = dynamic_cast<Shield*>(weapon);
+    if (shield)
+    {
+        if (shield->getShieldType() == Shield::ShieldType::LightningShield)
+            changeState(ActionState::blockEndLightningShield);
+        else if (shield->getShieldType() == Shield::ShieldType::ParryShield)
+            changeState(ActionState::blockEndParryShield);
+        return;
     }
 
 }
@@ -356,8 +368,10 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::AtkcloseCombatBow:anim = createAnim("closeCombatBow", 25, 0.3f); break;
         case ActionState::AtkdualBow:       anim = createAnim("dualBow", 25, 0.3f); break;
         case ActionState::crossbowShoot:    anim = createAnim("crossbowShoot", 11, 0.3f); break;
-        case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 0.3f); break;
         case ActionState::lethalSlam:       anim = createAnim("lethalSlam", 17, 0.5f); break;
+        case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 0.3f); break;
+        case ActionState::blockEndLightningShield: anim = createAnim("blockEndLightningShield", 9, 0.2f); break;
+        case ActionState::blockEndParryShield: anim = createAnim("blockEndParryShield", 8, 0.2f); break;
         default:return nullptr;
     }
     anim->retain();
@@ -502,6 +516,33 @@ void Player::createAttackBox()
 
     //获取方向偏移
    
+
+
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0));
+    attackBody->setDynamic(false);
+    attackBody->setGravityEnable(false);
+    attackBody->setCategoryBitmask(PLAYER_ATTACK);
+    attackBody->setCollisionBitmask(0);
+    attackBody->setContactTestBitmask(ENEMY_HURT);
+    _attackNode->setPhysicsBody(attackBody);
+
+    //延长显示时间以便调试 (例如 0.5s)
+    _attackNode->runAction(Sequence::create(
+        DelayTime::create(0.5f),
+        CallFunc::create([this]() { this->removeAttackBox(); }),
+        nullptr
+    ));
+}
+void Player::createBlockEndBox()
+{
+    removeAttackBox();
+    _attackNode = Node::create();
+    float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
+    _attackNode->setPosition(Vec2(targetWidth / 2 + dir * targetWidth / 6, targetHeight * 2 / 3));
+    this->addChild(_attackNode, 10);
+
+    //获取方向偏移
+
 
 
     auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0));

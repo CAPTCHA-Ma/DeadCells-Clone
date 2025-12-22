@@ -48,8 +48,11 @@ enum class ActionState
     AtkdualBow,
     crossbowShoot,
 
+    blockEndLightningShield,
+    blockEndParryShield,
+
     lethalFall,
-    lethalSlam
+    lethalSlam,
 
 };
 
@@ -89,6 +92,9 @@ static std::unordered_map<ActionState, StateConfig> StateTable =
     { ActionState::AtkcloseCombatBow,                       { false, 3, false } },
     { ActionState::AtkdualBow,                              { false, 3, false } },
     { ActionState::crossbowShoot,                           { false, 3, false } },
+
+    { ActionState::blockEndLightningShield,                 { false, 3, false } },
+    { ActionState::blockEndParryShield,                     { false, 3, false } },
 
     { ActionState::lethalFall,                              { false, 99, false } },
     { ActionState::lethalSlam,                              { false, 99, false } },
@@ -170,6 +176,7 @@ private:
     void createHurtBox();
     void createRollBox();
     void createAttackBox();
+    void createBlockEndBox();
     void removeHurtBox();
     void removeAttackBox();
 

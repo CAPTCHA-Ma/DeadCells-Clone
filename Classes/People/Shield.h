@@ -8,12 +8,11 @@ class Shield : public Weapon
 public:
 	enum class ShieldType//具体的盾类型枚举
     {
-        SmallShield,
-        IronShield,
-        MagicShield
+        LightningShield,
+        ParryShield
     };
     static Shield* create(int subTypeIndex);
-    Shield getShieldType();
+    ShieldType getShieldType();
     Shield(ShieldType type);
 private:
     ShieldType  _type;

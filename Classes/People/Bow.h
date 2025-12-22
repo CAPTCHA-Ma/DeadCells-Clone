@@ -12,8 +12,8 @@ public:
         dualBow,
         crossbow
     };
-	BowType getBowType();
     static Bow* create(int subTypeIndex);
+	BowType getBowType();
     Bow(BowType type);
 private:
     
