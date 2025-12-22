@@ -27,7 +27,7 @@ bool Player::init()
 
 
     this->_mainWeapon = new Sword(Sword::SwordType::BaseballBat);
-    this->_subWeapon = new Sword(Sword::SwordType::BroadSword);
+    this->_subWeapon = new Bow(Bow::BowType::closeCombatBow);
 
     
   
@@ -174,20 +174,41 @@ void Player::atkBroadSwordA()
 }
 void Player::AtkcloseCombatBow()
 {
-    this->createAttackBox();
+
     this->idle();
 }
 void Player::AtkdualBow()
 {
-    this->createAttackBox();
+ 
     this->idle();
 }
 void Player::crossbowShoot()
 {
+
     this->idle();
 }
 void Player::dead()
 {
+}
+void Player::shootArrow()
+{
+	int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+    auto arrow = dynamic_cast<Arrow*>(FlyingObject::create(FlyType::Arrow, true));
+	arrow->setPosition(this->getPosition()+Vec2(0,50));
+    if (!arrow)
+		return;
+    this->getParent()->addChild(arrow);
+    arrow->run(Vec2(dir, 0));
+}
+void Player::throwBomb()
+{
+    int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+    auto bomb = dynamic_cast<Bomb*>(FlyingObject::create(FlyType::Bomb, true));
+    bomb->setPosition(this->getPosition() + Vec2(0, 50));
+    if (!bomb)
+        return;
+    this->getParent()->addChild(bomb);
+    bomb->run(Vec2(20, 5));
 }
 //*******************************************************************
 //*******************************************************************
@@ -432,7 +453,11 @@ void Player::actionWhenEnding(ActionState state)
             return;
         }
     }
-
+    if (_state == ActionState::crossbowShoot || _state == ActionState::AtkcloseCombatBow || _state == ActionState::AtkdualBow)
+    {
+        //this->shootArrow();
+        this->throwBomb();
+    }
     // ÏÂÂä×´Ì¬ÅÐ¶Ï
     if (_velocity.y < 0)
     {

@@ -65,6 +65,9 @@
       <Filter>proj.win32</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\cocos2d\cocos\precheader.cpp" />
+    <ClCompile Include="..\Classes\People\Bomb.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Code\Cocos2dx\DeadCells\CMakeLists.txt" />
@@ -165,7 +168,7 @@
     <ClInclude Include="..\Classes\People\MonsterLayer.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\people.h">
+    <ClInclude Include="..\Classes\People\People.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\People\Player.h">
@@ -197,6 +200,9 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\Bomb.h">
+      <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

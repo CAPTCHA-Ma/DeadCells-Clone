@@ -3,7 +3,9 @@
 #define __PLAYER_H__
 #include <unordered_map>
 #include "Weapon.h" 
-
+#include "FlyingObject.h"
+#include "Arrow.h"
+#include "Bomb.h"
 struct StateConfig
 {
     bool canBeInterrupted;
@@ -94,7 +96,8 @@ public:
 	//¹¥»÷¼°ÎäÆ÷ÏµÍ³
     void getWeapon(Weapon* w);
     void struck(int value);
-    
+    void shootArrow();
+    void throwBomb();
 
 
 
