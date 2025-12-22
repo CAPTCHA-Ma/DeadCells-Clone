@@ -17,8 +17,8 @@ public:
     {
         BackStabber,	// 背刺剑
 		BaseballBat,        // 棒球棒
-        BroadSword
-
+        BroadSword,
+        OvenAxe
     };
     // 具体的剑类型枚举 
     SwordType getSwordType();

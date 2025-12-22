@@ -5,8 +5,8 @@
 class PlayerLayer : public cocos2d::Layer
 {
 public:
-    virtual bool init() override;
-    CREATE_FUNC(PlayerLayer);
+    bool init(cocos2d::Vec2 pos);
+    static PlayerLayer* create(cocos2d::Vec2 pos=cocos2d::Vec2(200,200));
     void update(float dt);
 private:
     Player* _player;

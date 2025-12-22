@@ -15,7 +15,7 @@ bool Grenadier::init()
     _state = GrenadierState::idle;
     _direction = MoveDirection::RIGHT;
     _moveSpeed = 150.0f; // 水平移动速度
-    _attackRange = 100.0f;
+    _attackRange = 1000.0f;
 
     auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, 1.0 / 6 * targetHeight));
 
@@ -52,8 +52,26 @@ void Grenadier::idle()
 }
 void Grenadier::attack()
 {
-    createAttackBox();
-    this->idle();
+    // 1. 创建炸弹
+    // 假设你有一个 Bomb 类的工厂方法
+    auto bomb = Bomb::create();
+    if (!bomb)
+        return;
+
+    // 2. 设置炸弹的起始位置
+    // 炸弹应该从怪物的头顶或手部位置生成，而不是脚心（getPosition）
+    // 建议加上一个偏移量 Vec2(0, 50)
+    bomb->setPosition(this->getPosition() + Vec2(0, 40));
+
+    // 3. 将炸弹添加到场景中
+    // 必须添加到 parent（即 MonsterLayer），它才能独立于怪物运动
+    this->getParent()->addChild(bomb);
+
+    // 4. 让炸弹飞向我们之前记录的玩家位置
+    // 注意：_lastPlayerPos 是世界坐标，需要转回相对于 MonsterLayer 的局部坐标
+    Vec2 localTargetPos = this->getParent()->convertToNodeSpace(_lastPlayerPos);
+
+    bomb->run(localTargetPos);
 }
 void Grenadier::walk()
 {
@@ -94,10 +112,12 @@ void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
         // 这里的 _attackRange 建议根据投弹兵特性设定，比如 100-200
         if (distX <= _attackRange && distY < 10.0f)
         {
-            // 攻击前修正一次朝向，确保正对玩家
             _direction = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
-            int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-            this->setFlippedX(dir == -1);
+            this->setFlippedX(_direction == MoveDirection::LEFT);
+
+            // 记录玩家当前的世界坐标，准备投掷
+            _lastPlayerPos = playerWorldPos;
+
             this->changeState(GrenadierState::atk);
         }
         // 判断 B: 是否在追踪范围内

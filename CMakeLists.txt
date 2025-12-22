@@ -60,8 +60,10 @@ list(APPEND GAME_SOURCE
      Classes/Scene/StartMenu.cpp
      Classes/Scene/Loading.cpp
      Classes/Res/strings.cpp
+     Classes/People/FlyingObject.cpp
+     Classes/People/Arrow.cpp
+     Classes/People/Bomb.cpp
      Classes/People/PlayerLayer.cpp
-     Classes/People/People.cpp
      Classes/People/Player.cpp
      Classes/People/Weapon.cpp
      Classes/People/Shield.cpp
@@ -83,6 +85,9 @@ list(APPEND GAME_HEADER
      Classes/Scene/StartMenu.h
      Classes/Scene/Loading.h
      Classes/Res/strings.h
+     Classes/People/FlyingObject.h
+     Classes/People/Arrow.h
+     Classes/People/Bomb.h
      Classes/People/PlayerLayer.h
      Classes/People/People.h
      Classes/People/Player.h

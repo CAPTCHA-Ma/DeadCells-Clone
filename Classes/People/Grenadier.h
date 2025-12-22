@@ -35,7 +35,7 @@ private:
 	float _attackRange; // 攻击范围
     float _moveSpeed; // 水平移动速度
     cocos2d::Vec2 _velocity; // 用于跳跃和重力的速度向量
-
+	cocos2d::Vec2 _lastPlayerPos; // 上次记录的玩家位置
 
     GrenadierState _state;
     MoveDirection _direction;

@@ -3,6 +3,8 @@
 #define __MONSTER_H__
 #include "cocos2d.h"
 #include "People.h"
+#include "Arrow.h"
+#include "Bomb.h"
 enum class MonsterCategory
 {
     Grenadier,
