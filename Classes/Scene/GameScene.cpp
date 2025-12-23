@@ -7,14 +7,15 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
     if (scene && scene->initWithPhysics()) 
     {
 
+		scene->getPhysicsWorld()->setGravity(Vec2(0, -980.f));
+		scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+
         scene->_mapGenerator = generator;
         scene->autorelease();
         scene->init();
 
-        // 关键：不再直接在这里运行 generate()，而是启动异步任务
-        scene->startAsyncGeneration();
+        scene->GenMapData();
 
-        scene->scheduleUpdate();
         return scene;
 
     }
@@ -27,12 +28,35 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
 bool GameScene::init() 
 {
 
-    // 1. 先创建一个基础的加载界面，防止黑屏
-    _loadingLabel = Label::createWithSystemFont("Generating World...", "Arial", 30);
-    _loadingLabel->setPosition(Director::getInstance()->getVisibleSize() / 2);
-    this->addChild(_loadingLabel, 10);
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    // 2. 初始化地图容器
+    _loadingSprite = Sprite::create("Graph/Loading/Loading_0.png");
+    auto Animation = Animation::create();
+
+    for (int i = 0; i <= 19; i++)
+    {
+
+        std::string frameName = StringUtils::format("Graph/Loading/Loading_%d.png", i);
+        Animation->addSpriteFrameWithFile(frameName);
+
+    }
+
+    Animation->setDelayPerUnit(0.1f);
+    Animation->setRestoreOriginalFrame(true);
+
+    auto animate = Animate::create(Animation);
+    auto repeatAction = RepeatForever::create(animate);
+
+    _loadingSprite->runAction(repeatAction);
+
+    _loadingSprite->setPosition(Vec2(origin.x + visibleSize.width - 100, origin.y + visibleSize.height / 4 - 25));
+    this->addChild(_loadingSprite);
+
+    _loadingLabel = Label::createWithTTF(GetText("loading_text"), "fonts/fusion-pixel.ttf", 25);
+    _loadingLabel->setPosition(Vec2(origin.x + visibleSize.width - 95, origin.y + visibleSize.height / 4 - 75));
+    this->addChild(_loadingLabel);
+
     _mapContainer = Node::create();
     this->addChild(_mapContainer);
 
@@ -40,45 +64,60 @@ bool GameScene::init()
 
 }
 
-void GameScene::startAsyncGeneration() {
-    // 开启子线程进行耗时的逻辑运算
-    std::thread t([this]() {
-        // 这里的 generate() 包含大量的 AStarGraph 计算和循环重试逻辑
-        // 只要不涉及 UI 节点的创建，在子线程运行是安全的
-        this->_mapGenerator->generate();
+void GameScene::GenMapData() 
+{
+    
+    std::thread renderThread([this](){
+        
+        this->_mapGenerator->Generate();
 
-        // 运算完成后，必须回到主线程进行渲染
         Director::getInstance()->getScheduler()->performFunctionInCocosThread([this]() {
-            this->onGenerationComplete();
+            this->RenderMap();
             });
+
         });
 
-    // 分离线程，让它独立运行
-    t.detach();
+    renderThread.detach();
 }
 
-void GameScene::onGenerationComplete() 
+void GameScene::RenderMap()
 {
 
-    // 移除加载提示
     if (_loadingLabel) _loadingLabel->removeFromParent();
+	if (_loadingSprite) _loadingSprite->removeFromParent();
 
-    // 根据生成好的数据，创建视觉节点
     auto rooms = _mapGenerator->GetRooms();
-    for (auto roomData : rooms) {
-        // RoomNode 内部会解析 TMX 并创建物理边缘
+
+    Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24;
+    _player = PlayerLayer::create(startDir);
+    _mapContainer->addChild(_player);
+	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
+
+    int counter = 0;
+    for (auto roomData : rooms) 
+    {
+
+        CCLOG("%d\n", ++counter);
+        
         auto node = RoomNode::create(roomData);
         _mapContainer->addChild(node);
+
     }
 
-    _player = PlayerLayer::create();
-    _mapContainer->addChild(_player);
+    this->scheduleUpdate();
 
 }
 
 void GameScene::update(float dt)
 {
 
+    if (!_player || !_mapContainer) return;
 
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto player = _player->getChildByName("Player");
+	Vec2 playerPos = player->getPosition();
+
+    Vec2 currentPos = _mapContainer->getPosition();
+    _mapContainer->setPosition(currentPos.lerp(visibleSize / 2 - Size(playerPos), 0.1f));
 
 }

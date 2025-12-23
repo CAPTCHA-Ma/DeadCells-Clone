@@ -16,7 +16,7 @@ class PrisonMapGen : public MapGenerator
 {
 public:
 
-	virtual void generate() override;
+	virtual void Generate() override;
 	virtual void GenRoomPos() override;
 	virtual bool FindPath(std::vector<std::vector<int>>& mapArray,
 		std::vector<std::vector<AStarNode>>& AStarGraph,

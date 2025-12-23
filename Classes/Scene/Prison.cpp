@@ -103,7 +103,7 @@ void PrisonMapGen::GenRoomPos()
 
 }
 
-void PrisonMapGen::generate()
+void PrisonMapGen::Generate()
 {
 
 	mDM = MapDataManager::getInstance();
@@ -517,8 +517,8 @@ GenPos:
 bool PrisonMapGen::FindPath(std::vector<std::vector<int>>& mapArray, std::vector<std::vector<AStarNode>>& AStarGraph, Vec2 startPos, Vec2 endPos, std::vector<Vec2>& path)
 {
 
-	NodeComparator cmp(AStarGraph);
-	std::priority_queue<Vec2, std::vector<Vec2>, NodeComparator> frontier(cmp);
+	compare cmp(AStarGraph);
+	std::priority_queue<Vec2, std::vector<Vec2>, compare> frontier(cmp);
 	AStarGraph[startPos.x][startPos.y].IsOccupied = true;
 	AStarGraph[startPos.x][startPos.y].g = 0;
 	CalH(startPos, endPos, AStarGraph);

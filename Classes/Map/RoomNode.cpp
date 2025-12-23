@@ -4,13 +4,7 @@ RoomNode* RoomNode::create(MapUnitData* data)
 {
 
 	auto node = new RoomNode();
-	if (node && node->init(data)) 
-	{
-
-		node->autorelease();
-		return node;
-
-	}
+	if (node && node->init(data)) return node;
 
 	CC_SAFE_DELETE(node);
 
@@ -91,10 +85,10 @@ bool RoomNode::init(MapUnitData* data)
 
 	auto tmx = TMXTiledMap::create(data->name);
 	this->addChild(tmx);
+	this->setAnchorPoint(Vec2::ZERO);
 	this->setPosition(data->obstacle.lowLeft * 24);
 
 	tmx->setAnchorPoint(Vec2::ZERO);
-	tmx->setPosition(data->obstacle.lowLeft * 24);
 
 	Size Size = tmx->getMapSize();
 	std::vector<std::vector<PhysicsCategory>> layerCategory(int(Size.height), std::vector<PhysicsCategory>(int(Size.width)));

@@ -28,12 +28,11 @@ enum PhysicsCategory
     ENEMY_ARROW = 1 << 7,  // 敌人箭矢
     ENEMY_BOMB = 1 << 8,  // 敌人炸弹
 
-    GROUND = 1 << 9  // 地面
-    TRAP = 1 << 10  // 环境陷阱（尖刺等）
-    LADDER = 1 << 11, // 梯子
-    PLATFORM = 1 << 12, // 平台
-    AIR = 1 << 13, // 空气
-    MIX = 1 << 14
+    GROUND = 1 << 9,  // 地面
+    LADDER = 1 << 10, // 梯子
+    PLATFORM = 1 << 11, // 平台
+    AIR = 1 << 12, // 空气
+    MIX = 1 << 13
 };
 
 

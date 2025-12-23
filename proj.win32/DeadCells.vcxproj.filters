@@ -7,13 +7,31 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\StartMenu.cpp">
       <Filter>Source Files\Classes\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Loading.cpp">
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.cpp">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\GameScene.cpp">
       <Filter>Source Files\Classes\Scene</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.cpp">
       <Filter>Source Files\Classes\Res</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\FlyingObject.cpp">
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Player.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Shield.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Sword.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Weapon.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Arrow.cpp">
@@ -22,44 +40,26 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Bomb.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Player.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Weapon.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Shield.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Bow.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Sword.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\MonsterLayer.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Monster.cpp">
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\FlyingObject.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Grenadier.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.cpp">
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Monster.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\MonsterLayer.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\MapUnit.cpp">
       <Filter>Source Files\Classes\Map</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\SceneMap.cpp">
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\RoomNode.cpp">
       <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
@@ -75,13 +75,31 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\StartMenu.h">
       <Filter>Source Files\Classes\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Loading.h">
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.h">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\GameScene.h">
       <Filter>Source Files\Classes\Scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.h">
       <Filter>Source Files\Classes\Res</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\FlyingObject.h">
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Player.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Shield.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Sword.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Weapon.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Arrow.h">
@@ -90,47 +108,32 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Bomb.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\PlayerLayer.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\People.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Player.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Weapon.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Shield.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Bow.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Sword.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\MonsterLayer.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Monster.h">
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\FlyingObject.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Grenadier.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.h">
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Monster.h">
       <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\MonsterLayer.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\people.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\MapGenerator.h">
+      <Filter>Source Files\Classes\Map</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\MapUnit.h">
       <Filter>Source Files\Classes\Map</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\SceneMap.h">
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\RoomNode.h">
       <Filter>Source Files\Classes\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\Prison.h">
-      <Filter>Source Files\Classes\Scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
@@ -32025,36 +32028,6 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBehemot.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBeholder.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossBeholderExit.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\BossTimeKeeper.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\CursedDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GardenerCorridor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GiantEscaped.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GiantEscapedEmpty.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GreenhouseEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\GreenhouseEntranceOpen.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr1.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
@@ -32235,31 +32208,10 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\Pr9.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonCorruptEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDLCPTriggerBeforeGiantDoor.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEndScroll.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEndTreasure.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonDepthsEntrance.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonElite.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonExit.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonFlaskRoom.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonHubEntrance.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonStart.tmx">
@@ -32269,18 +32221,6 @@
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTreasure.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube1.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube2.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PrisonTube2NoSkel.tmx">
-      <Filter>Resources\room\Prison</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\PurpleCorridor.tmx">
       <Filter>Resources\room\Prison</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\room\Prison\col.png">
