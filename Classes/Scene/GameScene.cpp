@@ -60,6 +60,12 @@ bool GameScene::init()
     _mapContainer = Node::create();
     this->addChild(_mapContainer);
 
+
+    auto listener = EventListenerPhysicsContact::create();
+    listener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+
     return true;
 
 }
@@ -90,6 +96,12 @@ void GameScene::RenderMap()
 
     Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24;
     _player = PlayerLayer::create(startDir);
+    auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
+    auto _monster2 = MonsterLayer::create(MonsterCategory::Grenadier, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
+    monster.pushBack(_monster1);
+    monster.pushBack(_monster2);
+    _mapContainer->addChild(_monster1);
+    _mapContainer->addChild(_monster2);
     _mapContainer->addChild(_player);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
@@ -120,4 +132,60 @@ void GameScene::update(float dt)
     Vec2 currentPos = _mapContainer->getPosition();
     _mapContainer->setPosition(currentPos.lerp(visibleSize / 2 - Size(playerPos), 0.1f));
 
+
+    if (!_player) return;
+
+    Vec2 playerWorldPos = _player->getPlayerWorldPosition();
+
+    for (auto it = monster.begin(); it != monster.end(); )
+    {
+        MonsterLayer* mLayer = *it;
+        Monster* m = mLayer->getMonster();
+
+        // 如果怪物已经标记为“准备移除”
+        if (m && m->isReadyToRemove())
+        {
+            mLayer->removeFromParent(); // 从渲染树移除
+            it = monster.erase(it);      // 从 Vector 移除，指针不再是 0xDDDDDDDD
+            CCLOG("Monster Safely Deleted");
+        }
+        else
+        {
+            // 只有没死或动画还没播完的怪物才更新 AI
+            Vec2 playerWorldPos = _player->getPlayerWorldPosition();
+            mLayer->update(dt, playerWorldPos);
+            ++it;
+        }
+    }
+
+}
+bool GameScene::onContactBegin(PhysicsContact& contact)
+{
+    auto a = contact.getShapeA()->getBody();
+    auto b = contact.getShapeB()->getBody();
+
+    int ca = a->getCategoryBitmask();
+    int cb = b->getCategoryBitmask();
+    //玩家攻击怪物
+    if ((ca == PLAYER_ATTACK && cb == ENEMY_HURT) || (ca == ENEMY_HURT && cb == PLAYER_ATTACK))
+    {
+        auto node = (ca == ENEMY_HURT) ? a->getNode() : b->getNode();
+        if (node && node->getParent()) 
+        {
+            auto enemyNode = dynamic_cast<Monster*>(node->getParent());
+            if (enemyNode) 
+            {
+                enemyNode->struck(100);
+            }
+        }
+    }
+    //怪物攻击玩家
+    if ((ca == ENEMY_ATTACK && cb == PLAYER_HURT) || (ca == PLAYER_HURT && cb == ENEMY_ATTACK))
+    {
+        if (_player) 
+        {
+            _player->struck(100); 
+        }
+    }
+    return true;
 }

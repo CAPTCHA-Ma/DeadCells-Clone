@@ -102,6 +102,16 @@ void PlayerLayer::setupEventListeners()
         };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
+cocos2d::Vec2 PlayerLayer::getPlayerWorldPosition() const
+{
+    if (!_player) 
+        return Vec2::ZERO;
+    return this->convertToWorldSpace(_player->getPosition());
+}
+void PlayerLayer::struck(float attackPower)
+{
+    _player->struck(attackPower);
+}
 void PlayerLayer::update(float dt)
 {
     auto body = _player->getPhysicsBody();

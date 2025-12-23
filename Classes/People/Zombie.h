@@ -9,14 +9,16 @@ enum class ZombieState
     idle,
     atkA,
     walk,
-    run
+    run,
+    dead
 };
 static std::unordered_map<ZombieState, bool> ZombieStateLoop =
 {
     { ZombieState::idle, true  },
     { ZombieState::atkA,  false },
     { ZombieState::walk,  true },
-    { ZombieState::run,  true }
+    { ZombieState::run,  true },
+    { ZombieState::dead,  false }
 };
 class Zombie : public Monster
 {
@@ -24,11 +26,10 @@ public:
 
     CREATE_FUNC(Zombie);
     virtual bool init() override;
-
     virtual void idle() override;
+    virtual void onDead() override;
     void atkA();
     virtual void walk() override;
-    virtual void dead() override;
     void run();
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) override;
     void changeState(ZombieState newState);

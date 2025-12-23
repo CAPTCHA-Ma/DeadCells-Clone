@@ -26,29 +26,47 @@ bool Player::init()
 
 
     this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
-    this->_subWeapon = new Shield(Shield::ShieldType::LightningShield);
-
+    this->_subWeapon = new Shield(Shield::ShieldType::ParryShield);
+    this->createNormalBody();
     
   
-    auto size = this->getContentSize();
+    
+
+    this->createHurtBox();
+    playAnimation(ActionState::idle, true);
+    this->scheduleUpdate();
+    return true;
+}
+void Player::createNormalBody()
+{
+    this->removeComponent(this->getPhysicsBody());
     //中心点在图片中间
-    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth/3,targetHeight/3), PhysicsMaterial(0.1f, 0.0f, 0.5f),Vec2(0,1.0/6*targetHeight));
-	//auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth,targetHeight), PhysicsMaterial(0.1f, 0.0f, 0.5f));
+    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, 1.0 / 6 * targetHeight));
+    //auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth,targetHeight), PhysicsMaterial(0.1f, 0.0f, 0.5f));
     body->setDynamic(true);
     body->setRotationEnable(false);
     body->setGravityEnable(true);
-    body->setVelocity(Vec2::ZERO);
     this->setPhysicsBody(body);
 
 
     body->setCategoryBitmask(PLAYER_BODY);
     body->setCollisionBitmask(GROUND | ENEMY_BODY);
     body->setContactTestBitmask(ENEMY_BODY);
+}
+void Player::createRollBody()
+{
+    this->removeComponent(this->getPhysicsBody());
+    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, targetHeight / 12));
 
-    this->createHurtBox();
-    playAnimation(ActionState::idle, true);
-    this->scheduleUpdate();
-    return true;
+    body->setDynamic(true);
+    body->setRotationEnable(false);
+    body->setGravityEnable(true);
+    this->setPhysicsBody(body);
+
+
+    body->setCategoryBitmask(PLAYER_BODY);
+    body->setCollisionBitmask(GROUND | ENEMY_BODY);
+    body->setContactTestBitmask(ENEMY_BODY);
 }
 void Player::giveVelocityX(float speed)
 {
@@ -88,7 +106,7 @@ void Player::update(float dt)
     auto body = this->getPhysicsBody();
     if (this->isOnGround() && (_state == ActionState::jumpDown || _state == ActionState::jumpUp))
         this->changeState(ActionState::idle);
-    else if (!this->isOnGround())
+    else if (!this->isOnGround()&&_state!= ActionState::rollStart)
         this->changeState(ActionState::jumpDown);
 }
 //*******************************************************************
@@ -132,6 +150,7 @@ void Player::jumpUp()
 }
 void Player::rollStart()
 {
+    this->createRollBody();
     this->createRollBox();
     auto body = this->getPhysicsBody();
     if (!body)
@@ -151,8 +170,19 @@ void Player::AtkdualBow()
 void Player::crossbowShoot()
 {
 }
-void Player::dead()
+void Player::dead() 
 {
+    this->unscheduleUpdate();
+    _invincible = true;
+
+    // 2. 移除攻击和受击判定
+    this->removeAttackBox();
+    this->removeHurtBox();
+
+    // 3. 停止物理移动（可选，如果你希望死后滑行一段则不设为ZERO）
+    this->getPhysicsBody()->setVelocity(Vec2(this->getPhysicsBody()->getVelocity().x * 0.5f, 0));
+
+    // 4. 开始死亡序列
     this->changeState(ActionState::lethalFall);
 }
 void Player::shootArrow()
@@ -191,7 +221,7 @@ void Player::changeState(ActionState newState)
         case ActionState::jumpUp:this->jumpUp(); break;
         case ActionState::rollStart:this->rollStart(); break;
         case ActionState::crouch:this->crouch(); break;
-
+        case ActionState::dead:this->dead(); break;
 
 		case ActionState::atkA:this->createAttackBox(); break;
 		case ActionState::atkB:this->createAttackBox(); break;
@@ -212,11 +242,13 @@ void Player::changeState(ActionState newState)
 		case ActionState::AtkdualBow:this->AtkdualBow(); break;
 		case ActionState::crossbowShoot:this->crossbowShoot(); break;
 
-        case ActionState::blockEndLightningShield:this->createBlockEndBox(); break;
-        case ActionState::blockEndParryShield:this->createBlockEndBox(); break;
+        case ActionState::blockEndLightningShield:this->createShieldParryBox(); break;
+        case ActionState::blockEndParryShield:this->createShieldParryBox(); break;
         default:break;
     }
     _state = newState;
+    if (_state == ActionState::dead)
+        return;
     bool loop = StateTable[newState].loop;
     playAnimation(newState, loop);
 }
@@ -270,6 +302,8 @@ bool Player::whetherCanChangeToNewState(ActionState newState) const
     if (newState == ActionState::idle) 
         return true;
     if (isAttackState(_state) && isAttackState(newState)) 
+        return true;
+    if(!isOnGround()&&newState==ActionState::rollStart)
         return true;
     auto currentConfig = StateTable[_state];
     auto newConfig = StateTable[newState];
@@ -345,7 +379,7 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
     Animation* anim = nullptr;
     switch (state)
     {
-        case ActionState::idle:            anim = createAnim("idle", 46, 0.5f); break;
+        case ActionState::idle:             anim = createAnim("idle", 46, 0.5f); break;
         case ActionState::run:              anim = createAnim("run", 20, 0.5f); break;
         case ActionState::jumpDown:         anim = createAnim("jumpDown", 4, 0.3f); break;
         case ActionState::jumpUp:           anim = createAnim("jumpUp", 6, 0.3f); break;
@@ -368,8 +402,8 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::AtkcloseCombatBow:anim = createAnim("closeCombatBow", 25, 0.3f); break;
         case ActionState::AtkdualBow:       anim = createAnim("dualBow", 25, 0.3f); break;
         case ActionState::crossbowShoot:    anim = createAnim("crossbowShoot", 11, 0.3f); break;
-        case ActionState::lethalSlam:       anim = createAnim("lethalSlam", 17, 0.5f); break;
-        case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 0.3f); break;
+        case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 1.0f); break;
+        case ActionState::lethalSlam:       anim = createAnim("lethalSlam", 17, 1.0f); break;
         case ActionState::blockEndLightningShield: anim = createAnim("blockEndLightningShield", 9, 0.2f); break;
         case ActionState::blockEndParryShield: anim = createAnim("blockEndParryShield", 8, 0.2f); break;
         default:return nullptr;
@@ -426,17 +460,28 @@ void Player::actionWhenEnding(ActionState state)
             return; 
         }
     }
-    if (state == ActionState::rollStart)
-    {
-        this->createHurtBox(); // 恢复正常的受击盒子
-    }
-    if (state == ActionState::lethalFall)
-    {
-        this->changeState(ActionState::lethalSlam);
-    }
     _comboStep = 0;
     _comboInput = false;
 
+    if (state == ActionState::rollStart)
+    {
+        this->createHurtBox(); 
+    }
+    else if (state == ActionState::lethalFall) 
+    {
+        this->getPhysicsBody()->setVelocity(Vec2::ZERO);
+        this->changeState(ActionState::lethalSlam);
+        return;
+    }
+    else if (state == ActionState::lethalSlam) 
+    {
+        CCLOG("GAME OVER SCREEN HERE");
+        return;
+    }
+    else if (state == ActionState::rollStart)
+    {
+        this->createNormalBody();
+    }
     if (!this->isOnGround()) 
     {
         this->changeState(ActionState::jumpDown);
@@ -462,16 +507,16 @@ bool Player::isAttackState(ActionState s) const
            s == ActionState::AtkOvenAxeC ||
            s == ActionState::AtkBaseballBatE;
 }
-void Player::struck(int value)
-{
-    BasicAttributes currentAttributes = this->getFinalAttributes();
-    currentAttributes.health -= value;
-    if (currentAttributes.health < 0)
-    {
-        currentAttributes.health = 0;
+void Player::struck(float attackPower) {
+    auto attributes = this->getFinalAttributes();
+    attributes.health -= attackPower * (1 - attributes.defense / 100);
+
+    this->setFinalAttributes(attributes);
+
+    CCLOG("Player HP: %f", this->getFinalAttributes().health);
+
+    if (this->getFinalAttributes().health <= 0) 
         this->dead();
-    }
-    this->setFinalAttributes(currentAttributes);
 }
 void Player::createHurtBox()
 {
@@ -490,21 +535,21 @@ void Player::createHurtBox()
     _hurtNode->setPhysicsBody(hurtBody);
     this->addChild(_hurtNode);
 }
+void Player::startRollInvincible(float time)
+{
+    _invincible = true;
+
+    this->runAction(Sequence::create(
+        DelayTime::create(time),
+        CallFunc::create([this]() {
+            _invincible = false;
+            }),
+        nullptr
+    ));
+}
 void Player::createRollBox()
 {
-    removeHurtBox();
-    _hurtNode = Node::create();
-    DelayTime::create(0.2f);
-    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0), Vec2(targetWidth / 2, targetHeight * 7 / 12));
-    hurtBody->setDynamic(false);
-    hurtBody->setGravityEnable(false);
-    hurtBody->setRotationEnable(false);
-    hurtBody->setCategoryBitmask(PLAYER_HURT);    // PLAYER_HURT
-    hurtBody->setCollisionBitmask(0);      // 不产生物理碰撞
-    hurtBody->setContactTestBitmask(ENEMY_ATTACK); // ENEMY_HIT
-
-    _hurtNode->setPhysicsBody(hurtBody);
-    this->addChild(_hurtNode);
+    startRollInvincible(2.0f);
 }
 void Player::createAttackBox()
 {
@@ -533,7 +578,8 @@ void Player::createAttackBox()
         nullptr
     ));
 }
-void Player::createBlockEndBox()
+//盾反框
+void Player::createShieldParryBox()
 {
     removeAttackBox();
     _attackNode = Node::create();

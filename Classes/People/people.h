@@ -7,16 +7,16 @@ enum class MoveDirection
 };
 struct BasicAttributes
 {
-    int health;
-    int attack;
-    int defense;
+    float health;
+    float attack;
+    float defense;
 };
 enum PhysicsCategory
 {
     NONE = 0,
 
     // --- 玩家相关---
-    PLAYER_BODY = 1 << 0,  // 玩家物理身体（用于与地面、墙壁碰撞）
+    PLAYER_BODY = 1 << 0,  // 玩家物理身体
     PLAYER_ATTACK = 1 << 1,  // 玩家近战攻击判定框
     PLAYER_HURT = 1 << 2,  // 玩家受击框
     PLAYER_ARROW = 1 << 3,  // 玩家射出的箭
@@ -36,4 +36,4 @@ enum PhysicsCategory
 };
 
 
-#endif // __MOVE_DIRECTION_H__
+#endif // __PEOPLE_H__

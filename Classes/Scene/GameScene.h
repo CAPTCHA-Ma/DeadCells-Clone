@@ -3,8 +3,10 @@
 #include "Map/MapUnit.h"
 #include "Map/MapGenerator.h"
 #include "Map/RoomNode.h"
-#include "People/Player.h"
 #include "People/PlayerLayer.h"
+#include "People/MonsterLayer.h"
+#include "People/Zombie.h"
+#include "People/Grenadier.h"
 #include "Res/strings.h"
 
 class GameScene : public cocos2d::Scene
@@ -18,7 +20,9 @@ private:
 
     void GenMapData();
     void RenderMap();
+    bool onContactBegin(PhysicsContact& contact);
 
+    Vector<MonsterLayer*> monster;
     MapGenerator* _mapGenerator = nullptr;
     cocos2d::Node* _mapContainer = nullptr;
     cocos2d::Label* _loadingLabel = nullptr; 

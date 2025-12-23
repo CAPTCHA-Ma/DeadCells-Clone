@@ -8,31 +8,36 @@ USING_NS_CC;
 //初始化
 bool Grenadier::init()
 {
-    if (!Sprite::initWithFile("Graph/Grenadier/grenadierInit.png"))
+    _type = MonsterCategory::Grenadier;
+    if (!Node::init())
+        return false;
+    _sprite = Sprite::create("Graph/Grenadier/idle_00-=-0-=-.png");
+    if (!_sprite)
         return false;
 
-    // 属性
+    this->addChild(_sprite);
+    this->setMonsterAttributes({ 100,100,50 });
     _state = GrenadierState::idle;
     _direction = MoveDirection::RIGHT;
-    _moveSpeed = 150.0f; // 水平移动速度
+    _moveSpeed = 150.0f;
     _attackRange = 1000.0f;
 
-    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, 1.0 / 6 * targetHeight));
+    _body = PhysicsBody::createBox(Size(targetWidth / 3, targetHeight / 3),PhysicsMaterial(0.1f, 0.0f, 0.5f),Vec2(0, targetHeight / 6));
 
-    body->setDynamic(true);            // 动态体，受力影响
-    body->setRotationEnable(false);    // 禁止旋转
-    body->setGravityEnable(true);      // 启用重力
-    body->setVelocity(Vec2::ZERO);
+    _body->setDynamic(true);
+    _body->setRotationEnable(false);
+    _body->setGravityEnable(true);
+    _body->setVelocity(Vec2::ZERO);
 
-    this->setPhysicsBody(body);
+    this->setPhysicsBody(_body);
 
-    this->getPhysicsBody()->setCategoryBitmask(ENEMY_BODY);//类别掩码1
-    this->getPhysicsBody()->setCollisionBitmask(GROUND);//碰撞掩码2
+    _body->setCategoryBitmask(ENEMY_BODY);
+    _body->setCollisionBitmask(GROUND);
+    _body->setContactTestBitmask(PLAYER_ATTACK);
+
 
     this->createHurtBox();
-    this->scheduleUpdate();
     playAnimation(GrenadierState::idle, true);
-
 
     return true;
 }
@@ -86,9 +91,17 @@ void Grenadier::walk()
 
     this->setFlippedX(dir == -1);
 }
-void Grenadier::dead()
+void Grenadier::onDead()
 {
-    this->removeFromParentAndCleanup(true);
+    changeState(GrenadierState::dead);
+
+    float deadAnimTime = 3.7f; // 和 createAnim 里 dead 的时间一致
+
+    runAction(Sequence::create(
+        DelayTime::create(deadAnimTime),
+        RemoveSelf::create(true),
+        nullptr
+    ));
 }
 void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
 {
@@ -168,6 +181,7 @@ cocos2d::Animation* Grenadier::getAnimation(GrenadierState state)
         case GrenadierState::idle:            anim = createAnim("idle", 40, 1.0f); break;
         case GrenadierState::atk:             anim = createAnim("atk", 15, 1.0f); break;
         case GrenadierState::walk:            anim = createAnim("walk", 37, 3.7f); break;
+        case GrenadierState::dead:            anim = createAnim("dead", 37, 3.7f); break;
         default:return nullptr;
     }
     anim->retain();
@@ -206,7 +220,9 @@ cocos2d::Animation* Grenadier::createAnim(const std::string& name, int frameCoun
 }
 void Grenadier::playAnimation(GrenadierState state, bool loop)
 {
-    this->stopActionByTag(1001);
+    if (!_sprite) return;
+    _sprite->stopActionByTag(1001);
+
     Animation* anim = getAnimation(state);
     if (!anim) return;
 
@@ -219,30 +235,33 @@ void Grenadier::playAnimation(GrenadierState state, bool loop)
     }
     else
     {
-        auto callback = CallFunc::create([this, state]() {
-            if (_state == state)
-            {
-                changeState(GrenadierState::idle);
-            }
-            });
-        action = Sequence::create(animate, callback, nullptr);
+        // 死亡状态不需要回调 idle，播完就停在最后一帧等待 Scene 移除
+        if (state == GrenadierState::dead) 
+        {
+            action = animate;
+        }
+        else {
+            action = Sequence::create(animate, CallFunc::create([this, state]() {
+                if (_state == state) changeState(GrenadierState::idle);
+                }), nullptr);
+        }
     }
 
     action->setTag(1001);
-    this->runAction(action);
+    _sprite->runAction(action);
 }
 
 void Grenadier::createHurtBox() 
 {
     // Player::createHurtBox()
     _hurtNode = Node::create();
-    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(targetWidth / 2, targetHeight * 2 / 3));
+    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(0,targetHeight/6));
     hurtBody->setDynamic(false);
     hurtBody->setGravityEnable(false);
     hurtBody->setRotationEnable(false);
-    hurtBody->setCategoryBitmask(PLAYER_HURT);    // PLAYER_HURT
+    hurtBody->setCategoryBitmask(ENEMY_HURT);    // PLAYER_HURT
     hurtBody->setCollisionBitmask(0);      // 不产生物理碰撞
-    hurtBody->setContactTestBitmask(ENEMY_ATTACK); // ENEMY_HIT
+    hurtBody->setContactTestBitmask(PLAYER_ATTACK); // ENEMY_HIT
 
     _hurtNode->setPhysicsBody(hurtBody);
     this->addChild(_hurtNode);
@@ -260,9 +279,9 @@ void Grenadier::createAttackBox()
 
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
-    attackBody->setCategoryBitmask(PLAYER_ATTACK);
+    attackBody->setCategoryBitmask(ENEMY_ATTACK);
     attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(ENEMY_HURT);
+    attackBody->setContactTestBitmask(PLAYER_HURT);
     _attackNode->setPhysicsBody(attackBody);
 
     //延长显示时间以便调试 (例如 0.5s)

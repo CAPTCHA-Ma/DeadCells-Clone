@@ -22,6 +22,8 @@ enum class ActionState
     jumpDown,//
     jumpUp,
     crouch,     // 下蹲
+    dead,
+
     atkA,   // 徒手攻击 (或通用攻击)
     atkB,
 
@@ -65,6 +67,7 @@ static std::unordered_map<ActionState, StateConfig> StateTable =
     { ActionState::jumpDown,                                { true, 99, true } },
     { ActionState::jumpUp,                                  { true,  2, false } },
     { ActionState::crouch,                                  { true,  1, true } },
+    { ActionState::dead,                                    { true,  100, false }},
 
 
     //攻击
@@ -136,7 +139,7 @@ public:
 
 	//攻击及武器系统
     void getWeapon(Weapon* w);
-    void struck(int value);
+    void struck(float attackPower);
     void shootArrow();
     void throwBomb();
 
@@ -165,6 +168,7 @@ protected:
 
 private:
     //动画
+
    
     cocos2d::Animation* createAnim(const std::string& name, int frameCount, float delay) const;
     cocos2d::Animation* getAnimation(ActionState state);
@@ -173,10 +177,14 @@ private:
 	//攻击判定
     cocos2d::Node* _attackNode = nullptr;
     cocos2d::Node* _hurtNode = nullptr;
+    bool _invincible = false;
+    void createNormalBody();
+    void createRollBody();
+    void startRollInvincible(float time);
     void createHurtBox();
     void createRollBox();
     void createAttackBox();
-    void createBlockEndBox();
+    void createShieldParryBox();
     void removeHurtBox();
     void removeAttackBox();
 

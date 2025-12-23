@@ -8,13 +8,15 @@ enum class GrenadierState
 {
     idle,
     atk,
-    walk
+    walk,
+    dead
 };
 static std::unordered_map<GrenadierState, bool> GrenadierStateLoop =
 {
     { GrenadierState::idle, true  },
     { GrenadierState::atk,  false },
-    { GrenadierState::atk,  true } 
+    { GrenadierState::walk,  true } ,
+    { GrenadierState::dead,  false }
 };
 class Grenadier : public Monster
 {
@@ -26,7 +28,7 @@ public:
 	virtual void idle() override;
     void attack();
     virtual void walk() override;
-	virtual void dead() override;
+    virtual void onDead() override;
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) override;
     void changeState(GrenadierState newState);
     void playAnimation(GrenadierState state, bool loop);
@@ -43,7 +45,7 @@ private:
     cocos2d::Animation* getAnimation(GrenadierState state);
 
 	virtual void createHurtBox() override;
-    virtual void createAttackBox() override ;
+    virtual void createAttackBox() override;
 
 	float _aiTickTimer;
 
