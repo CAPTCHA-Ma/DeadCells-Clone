@@ -1,6 +1,6 @@
 // SwordWeapon.h (修正后)
-#ifndef __SWORD_WEAPON_H__
-#define __SWORD_WEAPON_H__
+#ifndef __SWORD_H__
+#define __SWORD_H__
 
 #include "Weapon.h"
 #include <map>
@@ -15,11 +15,10 @@ class Sword : public Weapon
 public:
     enum class SwordType
     {
-        AlucardSword,  // 阿鲁卡多剑
         BackStabber,	// 背刺剑
 		BaseballBat,        // 棒球棒
-        BroadSword
-
+        BroadSword,
+        OvenAxe
     };
     // 具体的剑类型枚举 
     SwordType getSwordType();

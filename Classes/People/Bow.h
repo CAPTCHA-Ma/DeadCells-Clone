@@ -8,15 +8,16 @@ class Bow : public Weapon
 public:
     enum class BowType
     {
-        ShortBow,
-        LongBow,
-        CompositeBow
+        closeCombatBow,
+        dualBow,
+        crossbow
     };
-
     static Bow* create(int subTypeIndex);
-private:
+	BowType getBowType();
     Bow(BowType type);
-    CC_SYNTHESIZE(BowType, _type, Type);
+private:
+    
+    BowType _type;
 };
 
 #endif

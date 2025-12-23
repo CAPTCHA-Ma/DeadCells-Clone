@@ -5,7 +5,8 @@
 #define CORR_WIDTH 10
 #define PUSH_FORCE 10.0f
 #define PULL_FORCE 5.0f
-#define MAX_TEMP 10000
+#define MAX_TEMP 10
+#define TURN_PUNISH 20
 #define BLOCK_WEIGHT 1000000
 #define SURROUND_WEIGHT 10
 USING_NS_CC;

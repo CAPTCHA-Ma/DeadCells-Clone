@@ -2,7 +2,7 @@
 <map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" width="30" height="7" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
  <tileset firstgid="1" source="lnk.tsx"/>
  <tileset firstgid="9" source="col.tsx"/>
- <layer id="1" name="col" width="30" height="7" visible="0">
+ <layer id="1" name="col" width="30" height="7">
   <data encoding="base64" compression="zlib">
    eJzjZGBg4IRibICTRpheYKDsRbeb3mCk2ksozGmVngGZCQI4
   </data>

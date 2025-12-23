@@ -3,8 +3,11 @@
 #include "Sword.h"
 #include "Shield.h"
 #include "Bow.h"
-
 USING_NS_CC;
+
+Weapon::Weapon(WeaponCategory category)
+	: _category(category) 
+{}
 
 Weapon* Weapon::create(WeaponCategory category)
 {
