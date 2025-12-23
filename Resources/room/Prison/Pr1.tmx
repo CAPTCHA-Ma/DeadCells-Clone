@@ -15,49 +15,42 @@
  <objectgroup id="3" name="markers" opacity="0.5">
   <object id="1" name="Door" type="Door" x="312" y="96" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="2" name="SinglePressurePlate" type="SinglePressurePlate" x="672" y="96" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="3" name="Door" type="Door" x="888" y="96" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="4" name="Door" type="Door" x="312" y="264" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="5" name="TriggeredDoor" type="TriggeredDoor" x="768" y="264" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="6" name="Door" type="Door" x="888" y="264" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="7" name="Door" type="Door" x="192" y="432" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>

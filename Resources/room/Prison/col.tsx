@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.4" tiledversion="1.4.0" name="col" tilewidth="24" tileheight="24" tilecount="7" columns="7">
  <image source="col.png" width="168" height="24"/>
- <tile id="0">
+ <tile id="0" type="GROUND">
   <properties>
-   <property name="Collidable" type="bool" value="true"/>
+   <property name="cate" value="GROUND"/>
   </properties>
  </tile>
- <tile id="1">
+ <tile id="1" type="PLATFORM">
   <properties>
-   <property name="Collidable" type="bool" value="true"/>
+   <property name="cate" value="PLATFORM"/>
+  </properties>
+ </tile>
+ <tile id="2" type="LADDER">
+  <properties>
+   <property name="cate" value="LADDER"/>
   </properties>
  </tile>
 </tileset>

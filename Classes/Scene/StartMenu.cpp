@@ -1,5 +1,5 @@
 #include "StartMenu.h"
-#include "Loading.h"
+#include "Prison.h"
 #include "ui/CocosGUI.h"
 #include "Res/strings.h"
 #include "AudioEngine.h"
@@ -46,46 +46,12 @@ bool StartMenu::init()
 	Startlabel->enableShadow();
 	Startlabel->enableGlow(Color4B::WHITE);
 
-	/*StartButton->addClickEventListener([](Ref* sender) {
-
-		auto LoadingScene = Loading::create();
-		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, LoadingScene));
-
-		std::thread PrisonLoadingThread([]() {
-
-			Prison* prisonScene = new class Prison;
-			if (prisonScene->InitPrisonData()) {
-
-				cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
-
-					prisonScene->RenderPrisonScene();
-
-					});
-
-			}
-
-			});
-
-		PrisonLoadingThread.detach();
-
-		});*/
-
 	StartButton->addClickEventListener([](Ref* sender)
 		{
 
-			Loading* loadingScene = Loading::create();
-			Director::getInstance()->replaceScene(loadingScene);
-
-			Prison* prisonScene = new class Prison;
-			//prisonScene->SetupVisualScene();
-
-			std::thread PrisonLoadingThread([=]() {
-
-				prisonScene->InitPrisonData();
-
-				});
-
-			PrisonLoadingThread.detach();
+			auto prisonGen = new PrisonMapGen();
+			auto scene = GameScene::createWithGenerator(prisonGen);
+			Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
 
 		});
 

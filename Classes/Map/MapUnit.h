@@ -35,7 +35,8 @@ public:
 	Type roomtype;
 	std::string name;
     std::vector<Vec2> entrance, exit, path;
-    Vec2 center, velocity = Vec2::ZERO;
+    Vec2 center = Vec2::ZERO, velocity = Vec2::ZERO;
+	int chosenEntrance = -1, chosenExit = -1;
 	Box obstacle;
 	MapUnitData* preRoom = nullptr;
     std::vector<MapUnitData*> nextRoom;

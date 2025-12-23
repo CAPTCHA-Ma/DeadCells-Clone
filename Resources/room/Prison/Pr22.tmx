@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="45" height="20" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
- <tileset firstgid="6" source="lnk.tsx"/>
- <tileset firstgid="1" source="col.tsx"/>
- <layer id="1" name="col" width="45" height="20" >
-  <data encoding="base64" compression="zlib">  
-   eNrtl0sOwCAIBaGk979y9wTlp9KmkLCTl0FBAgIACi4Zvsi/ZM3czBqz5NfALf0wi5/pWDisfUlKnhIzJe5L07bUxk7mXfXMmcEZ08z/YL4PMUfmufdPimquZKZErEeTG89LykV725Vz0sKcqfdq5qx+M9cyV+0bUd0Tu9Lo7AM/HgGF
+<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" width="45" height="20" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+ <tileset firstgid="1" source="lnk.tsx"/>
+ <tileset firstgid="9" source="col.tsx"/>
+ <layer id="1" name="col" width="45" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztlUEKgDAMBHOtwf9/13vc6mabKoUO5CLpOgUTm5k1UAjU91etxHb+hpWdUR2dYubh6fxTDuPBzqW/3BM5O3gee5T9wH4bM52zqM4M2zl/bnXnk8wedVb+59mdpGZWOvvA2UxmJN4L3aWHEz1ZGGcLPWp+FRnn0fwZmdv5nt+jYi4V1NzKfZJ9xwVWvAtV
   </data>
  </layer>
- <layer id="2" name="lnk" width="45" height="20"  opacity="0.5">
-  <data encoding="base64" compression="zlib">  
-   eNpjYMAOOLDgwQR4sODBDkbdPOpmevkZGfBiwYPdzYM1bVBDL63dzEOD8BpKbqZX2hhqbh7MZSE7FFMTsEHxcHczOxrGJoZNDRuVMSVuZh/kbmYfdfOQdTO9yi5sbiI2v9PSvaT05QC09wf/
+ <layer id="2" name="lnk" width="45" height="20" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJztl8EKABEURTEL/v+LbaymG573cMmps5moM0hxDvMBmYhAdl7zGk5s1lL73wRkYMceac+GxVwp0mbLtTyxeZTbm5nvwlC0xBdnwdIcfqJvaIw3VtPc487mkd7XzNE8m1pTixW9krdcBhI+Aw4=
   </data>
  </layer>
  <objectgroup id="3" name="markers" opacity="0.5">
   <object id="1" name="Door" type="Door" x="120" y="96" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
+    <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="2" name="Door" type="Door" x="336" y="96" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
+    <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="3" name="BreakableGround" type="BreakableGround" x="408" y="120" width="96" height="72">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
+    <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="4" name="Door" type="Door" x="120" y="264" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
+    <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="5" name="Door" type="Door" x="408" y="408" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
+    <property name="yr" value="0"/>
    </properties>
   </object>
  </objectgroup>

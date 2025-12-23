@@ -1,7 +1,8 @@
 #pragma once
 #include "cocos2d.h"
-#include "Map/SceneMap.h"
-#include "People/Player.h"
+#include "Scene/GameScene.h"
+#include "Map/MapGenerator.h"
+
 #define CORR_WIDTH 10
 #define PUSH_FORCE 10.0f
 #define PULL_FORCE 5.0f
@@ -11,23 +12,16 @@
 #define SURROUND_WEIGHT 10
 USING_NS_CC;
 
-class Prison
+class PrisonMapGen : public MapGenerator
 {
 public:
 
-	void SetupVisualScene();
-	bool InitPrisonData();
-	bool RenderPrisonScene();
-	void GenRoomPos();
-	void Draw();
-	void InitMap();
-
-	SceneMap* PrisonMap = nullptr;
-	SceneMapData* PrisonMapData = nullptr;
-	Scene* PrisonScene = nullptr;
-	MapDataManager* mDM = nullptr;
-	cocos2d::DrawNode* _debugDrawNode = nullptr;
-	std::vector<std::vector<int>> MapArray;
-	cocos2d::Layer* _worldLayer = nullptr;
+	virtual void generate() override;
+	virtual void GenRoomPos() override;
+	virtual bool FindPath(std::vector<std::vector<int>>& mapArray,
+		std::vector<std::vector<AStarNode>>& AStarGraph,
+		Vec2 startPos,
+		Vec2 endPos,
+		std::vector<Vec2>& path) override;
 
 };
