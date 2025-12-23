@@ -20,6 +20,7 @@ public:
     void struck(float attackPower);
 	void dead();
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) = 0;
+    float getFinalAttack() { return _monsterAttributes.attack; };
     static Monster* create(MonsterCategory category);
     MonsterCategory getMonsterType();
 protected:

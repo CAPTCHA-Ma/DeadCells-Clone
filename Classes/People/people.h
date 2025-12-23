@@ -7,9 +7,9 @@ enum class MoveDirection
 };
 struct BasicAttributes
 {
-    float health;
-    float attack;
-    float defense;
+    float health;//生命值
+    float attack;//攻击力
+    float defense;//防御力
 };
 enum PhysicsCategory
 {

@@ -10,6 +10,8 @@ public:
     static PlayerLayer* create(cocos2d::Vec2 pos = cocos2d::Vec2(200,200));
     void update(float dt);
     void struck(float attackPower);
+    float getFinalAttack() { return _player->getFinalAttributes().attack; };
+    bool isInvincible() {return _player->_invincible; };
 private:
     Player* _player;
     bool _leftPressed = false;

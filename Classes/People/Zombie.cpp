@@ -17,7 +17,7 @@ bool Zombie::init()
         return false;
 
     this->addChild(_sprite);
-    this->setMonsterAttributes({ 100,100,50 });
+    this->setMonsterAttributes({ 100,100,0 });
     _state = ZombieState::idle;
     _direction = MoveDirection::RIGHT;
     _moveSpeed = 150.0f;
@@ -51,10 +51,14 @@ void Zombie::onDead()
 {
     changeState(ZombieState::dead);
 
-    float deadAnimTime = 3.7f; // 和 createAnim 里 dead 的时间一致
+    if (auto body = this->getPhysicsBody()) 
+    {
+        body->setVelocity(Vec2::ZERO);
+        body->setAngularVelocity(0);
+    }
 
     runAction(Sequence::create(
-        DelayTime::create(deadAnimTime),
+        FadeOut::create(0.5f),
         RemoveSelf::create(true),
         nullptr
     ));
@@ -104,6 +108,8 @@ void Zombie::run()
 }
 void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
 {
+    if (_isDead)
+        return;
     if (_state == ZombieState::atkA)
         return;
 
@@ -114,14 +120,9 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
     Vec2 toPlayer = playerWorldPos - myWorldPos;
     float distX = abs(toPlayer.x);
     float distY = abs(toPlayer.y);
-
-    // 2. 决策阶段
     if (_aiTickTimer >= 0.2f)
     {
         _aiTickTimer = 0.0f;
-
-        // 判断 A: 是否在攻击范围内 (水平距离够近 且 高度基本一致)
-        // 这里的 _attackRange 建议根据投弹兵特性设定，比如 100-200
         if (distX <= _attackRange && distY < 10.0f)
         {
             // 攻击前修正一次朝向，确保正对玩家
@@ -153,6 +154,9 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
 //动画
 void Zombie::changeState(ZombieState newState)
 {
+    if (_isDead && newState != ZombieState::dead)
+        return;
+
     if (_state == newState)
         return;
     switch (newState)
@@ -160,10 +164,10 @@ void Zombie::changeState(ZombieState newState)
         case ZombieState::idle: this->idle(); break;
         case ZombieState::atkA: this->atkA(); break;
         case ZombieState::walk: this->walk(); break;
-        case ZombieState::run: this->run(); break;
+        case ZombieState::run:  this->run(); break;
+        case ZombieState::dead:this->idle(); break;
         default: break;
     }
-
     _state = newState;
     playAnimation(newState, ZombieStateLoop[newState]);
 }
@@ -180,7 +184,6 @@ cocos2d::Animation* Zombie::getAnimation(ZombieState state)
         case ZombieState::atkA:             anim = createAnim("atkA", 9, 1.0f); break;
         case ZombieState::walk:            anim = createAnim("walk", 28, 1.0f); break;
         case ZombieState::run:            anim = createAnim("run", 25, 1.0f); break;
-        case ZombieState::dead:            anim = createAnim("dead", 25, 1.0f); break;
         default:return nullptr;
     }
     anim->retain();
@@ -276,7 +279,7 @@ void Zombie::createAttackBox()
     attackBody->setContactTestBitmask(PLAYER_HURT);
     _attackNode->setPhysicsBody(attackBody);
 
-    //延长显示时间以便调试 (例如 0.5s)
+
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),
         CallFunc::create([this]() { this->removeAttackBox(); }),

@@ -28,30 +28,35 @@ MonsterCategory Monster::getMonsterType()
 }
 void Monster::struck(float attackPower)
 {
-    _monsterAttributes.health -= attackPower * (1 - _monsterAttributes.defense / 100);
+    _monsterAttributes.health -= attackPower * (100 - _monsterAttributes.defense)/100;
 
     if (_monsterAttributes.health <= 0)
     {
         dead();
     }
 }
+// 在 Monster.cpp (基类) 中修改
 void Monster::dead()
 {
-    if (_isDead)
-        return;
-
+    if (_isDead) return;
     _isDead = true;
+    this->stopAllActions();
+    if (_sprite) 
+        _sprite->stopAllActions();
 
-    stopAllActions();
 
-    if (_body)
+    if (_body) 
     {
         _body->setVelocity(Vec2::ZERO);
-        _body->setGravityEnable(false);
         _body->setContactTestBitmask(0);
-        _body->setCollisionBitmask(0);
+        _body->setCollisionBitmask(GROUND); 
+    }
+    auto parentLayer = dynamic_cast<Layer*>(this->getParent());
+    if (parentLayer) 
+    {
+        parentLayer->unscheduleUpdate();
     }
 
-    onDead(); 
+    onDead();
 }
 

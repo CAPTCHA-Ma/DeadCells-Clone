@@ -21,12 +21,12 @@ bool Player::init()
 	_state = ActionState::idle;
 	_direction = MoveDirection::RIGHT;
     this->setOriginalAttributes(BasicAttributes({ 100, 10, 10 }));
-    this->setFinalAttributes(BasicAttributes({ 100, 10, 10 }));
+    this->setFinalAttributes(BasicAttributes({ 100, 100, 100 }));
     this->setLevel(1);
 
 
-    this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
-    this->_subWeapon = new Shield(Shield::ShieldType::ParryShield);
+    this->_mainWeapon = new Sword(Sword::SwordType::BaseballBat);
+    this->_subWeapon = new Bow(Bow::BowType::dualBow);
     this->createNormalBody();
     
   
@@ -37,36 +37,38 @@ bool Player::init()
     this->scheduleUpdate();
     return true;
 }
-void Player::createNormalBody()
+void Player::setupBodyProperties(cocos2d::PhysicsBody* body) 
 {
-    this->removeComponent(this->getPhysicsBody());
-    //中心点在图片中间
-    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, 1.0 / 6 * targetHeight));
-    //auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth,targetHeight), PhysicsMaterial(0.1f, 0.0f, 0.5f));
     body->setDynamic(true);
     body->setRotationEnable(false);
     body->setGravityEnable(true);
-    this->setPhysicsBody(body);
-
-
     body->setCategoryBitmask(PLAYER_BODY);
-    body->setCollisionBitmask(GROUND | ENEMY_BODY);
-    body->setContactTestBitmask(ENEMY_BODY);
+    body->setCollisionBitmask(GROUND);
 }
-void Player::createRollBody()
+void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset) 
 {
-    this->removeComponent(this->getPhysicsBody());
-    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, targetHeight / 12));
+    auto currentBody = this->getPhysicsBody();
+    if (currentBody) 
+    {
+        currentBody->removeAllShapes();
+        auto newShape = PhysicsShapeBox::create(size, PhysicsMaterial(0.1f, 0.0f, 0.5f), offset);
+        currentBody->addShape(newShape);
+    }
+    else {
+        auto body = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 0.0f, 0.5f), offset);
+        this->setPhysicsBody(body);
+    }
 
-    body->setDynamic(true);
-    body->setRotationEnable(false);
-    body->setGravityEnable(true);
-    this->setPhysicsBody(body);
-
-
-    body->setCategoryBitmask(PLAYER_BODY);
-    body->setCollisionBitmask(GROUND | ENEMY_BODY);
-    body->setContactTestBitmask(ENEMY_BODY);
+    setupBodyProperties(this->getPhysicsBody());
+}
+void Player::createNormalBody() 
+{
+    updatePhysicsBody(Size(targetWidth / 3, targetHeight / 3), Vec2(0, targetHeight / 6));
+}
+void Player::createRollBody() 
+{
+    // 翻滚状态：高度减半，重心降低
+    updatePhysicsBody(Size(targetWidth / 3, targetHeight / 6), Vec2(0, targetHeight / 12));
 }
 void Player::giveVelocityX(float speed)
 {
@@ -141,12 +143,20 @@ void Player::jumpDown()
 }
 void Player::jumpUp()
 {
-    auto body = this->getPhysicsBody();
-    if (!body)
+    // --- 核心修复：只有在地面上才能起跳 ---
+    if (!this->isOnGround()) {
         return;
+    }
+
+    auto body = this->getPhysicsBody();
+    if (!body) return;
+
+    // 给予向上的冲量
     Vec2 impulse(0, body->getMass() * _jumpSpeed);
     body->applyImpulse(impulse);
 
+    // 立即手动切换状态，防止重复起跳
+    // _state = ActionState::jumpUp; 
 }
 void Player::rollStart()
 {
@@ -211,8 +221,14 @@ void Player::throwBomb()
 //动画
 void Player::changeState(ActionState newState)
 {
-    if (_state == newState) return; // 如果已经是该状态，直接返回，防止动画重置
-    if (!whetherCanChangeToNewState(newState)) return;
+    if (_state == ActionState::lethalSlam)
+        return;
+    if (_state == ActionState::lethalFall && newState != ActionState::lethalSlam) 
+        return;
+    if (_state == newState)
+        return; 
+    if (!whetherCanChangeToNewState(newState))
+        return;
     switch (newState)
     {
         case ActionState::jumpDown:; break;
@@ -431,12 +447,27 @@ void Player::whenOnAttackKey(Weapon* w)
 
 void Player::actionWhenEnding(ActionState state)
 {
-    // 远程武器处理
-    if (state == ActionState::crossbowShoot || state == ActionState::AtkcloseCombatBow || state == ActionState::AtkdualBow)
+    if (state == ActionState::lethalFall)
     {
-        this->throwBomb();
+        if (this->getPhysicsBody()) {
+            this->getPhysicsBody()->setVelocity(Vec2::ZERO);
+            this->getPhysicsBody()->setGravityEnable(false); 
+        }
+        this->changeState(ActionState::lethalSlam);
+        return; 
+    }
+    if (state == ActionState::lethalSlam)
+    {
+        CCLOG("DEAD ANIMATION FINISHED - SHOW UI");
+        // 可以在这里发送一个自定义事件，通知 GameScene 弹出结算界面
+        return;
     }
 
+    if (state == ActionState::crossbowShoot || state == ActionState::AtkcloseCombatBow || state == ActionState::AtkdualBow)
+    {
+        this->shootArrow();
+        //this->throwBomb();
+    }
     // --- 连招衔接判定 ---
     if (_comboInput)
     {
@@ -462,33 +493,29 @@ void Player::actionWhenEnding(ActionState state)
     }
     _comboStep = 0;
     _comboInput = false;
+    if (_state != ActionState::lethalFall && _state != ActionState::lethalSlam)
+    {
+        if (state == ActionState::rollStart)
+        {
+            _invincible = false; 
+            this->setOpacity(255);
+            this->createNormalBody(); 
+        }
 
-    if (state == ActionState::rollStart)
-    {
-        this->createHurtBox(); 
-    }
-    else if (state == ActionState::lethalFall) 
-    {
-        this->getPhysicsBody()->setVelocity(Vec2::ZERO);
-        this->changeState(ActionState::lethalSlam);
-        return;
-    }
-    else if (state == ActionState::lethalSlam) 
-    {
-        CCLOG("GAME OVER SCREEN HERE");
-        return;
-    }
-    else if (state == ActionState::rollStart)
-    {
-        this->createNormalBody();
-    }
-    if (!this->isOnGround()) 
-    {
-        this->changeState(ActionState::jumpDown);
-    }
-    else 
-    {
-        this->changeState(ActionState::idle);
+        if (!this->isOnGround()) {
+            this->changeState(ActionState::jumpDown);
+        }
+        else {
+            this->changeState(ActionState::idle);
+        }
+        if (!this->isOnGround())
+        {
+            this->changeState(ActionState::jumpDown);
+        }
+        else
+        {
+            this->changeState(ActionState::idle);
+        }
     }
 }
 bool Player::isAttackState(ActionState s) const
@@ -509,7 +536,7 @@ bool Player::isAttackState(ActionState s) const
 }
 void Player::struck(float attackPower) {
     auto attributes = this->getFinalAttributes();
-    attributes.health -= attackPower * (1 - attributes.defense / 100);
+    attributes.health -= attackPower * (100 - attributes.defense)/100;
 
     this->setFinalAttributes(attributes);
 
@@ -520,36 +547,42 @@ void Player::struck(float attackPower) {
 }
 void Player::createHurtBox()
 {
-    removeHurtBox();
-    // Player::createHurtBox()
+    if (_hurtNode) 
+        return; // 如果已经存在，不要重复创建
     _hurtNode = Node::create();
-    //中心点是图片的左下角(0,0)，因为hurtBox是player的子节点
     auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(targetWidth/2, targetHeight*2/3));
+
     hurtBody->setDynamic(false);
-    hurtBody->setGravityEnable(false);
-    hurtBody->setRotationEnable(false);
-    hurtBody->setCategoryBitmask(PLAYER_HURT);    // PLAYER_HURT
-    hurtBody->setCollisionBitmask(0);      // 不产生物理碰撞
-    hurtBody->setContactTestBitmask(ENEMY_ATTACK); // ENEMY_HIT
+    hurtBody->setCategoryBitmask(PLAYER_HURT);
+    hurtBody->setCollisionBitmask(0);
+    hurtBody->setContactTestBitmask(ENEMY_ATTACK);
 
     _hurtNode->setPhysicsBody(hurtBody);
     this->addChild(_hurtNode);
 }
 void Player::startRollInvincible(float time)
 {
+    this->stopActionByTag(2001);
+
     _invincible = true;
 
-    this->runAction(Sequence::create(
-        DelayTime::create(time),
-        CallFunc::create([this]() {
-            _invincible = false;
-            }),
-        nullptr
-    ));
+    auto delay = DelayTime::create(time);
+    auto endInvincible = CallFunc::create([this]() {
+        _invincible = false;
+        this->setOpacity(255);
+        });
+
+    auto seq = Sequence::create(delay, endInvincible, nullptr);
+    seq->setTag(2001); 
+    this->runAction(seq);
+    this->setOpacity(150);
 }
+
 void Player::createRollBox()
 {
-    startRollInvincible(2.0f);
+    // 动态获取翻滚动画的时间，确保逻辑与表现同步
+    float duration = 0.3f; // 对应 getAnimation 里的 rollStart 时间
+    startRollInvincible(duration);
 }
 void Player::createAttackBox()
 {
@@ -565,13 +598,12 @@ void Player::createAttackBox()
 
     auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0));
     attackBody->setDynamic(false);
-    attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);
-    attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(ENEMY_HURT);
+    attackBody->setCollisionBitmask(0);            // 严禁设为 1，否则会推开怪物
+    attackBody->setContactTestBitmask(ENEMY_HURT); // 只检测怪物受击
+
     _attackNode->setPhysicsBody(attackBody);
 
-    //延长显示时间以便调试 (例如 0.5s)
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),
         CallFunc::create([this]() { this->removeAttackBox(); }),

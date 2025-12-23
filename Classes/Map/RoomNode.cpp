@@ -61,8 +61,17 @@ void GenWall(const std::vector<std::vector<PhysicsCategory>>& layerCategory, TMX
 
 			auto physicsBody = PhysicsBody::createBox(Size(width * 24, height * 24), PhysicsMaterial(0.1f, 0.0f, 0.0f));
 			physicsBody->setDynamic(false);
-			physicsBody->setCategoryBitmask(GROUND);
-			physicsBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY);
+
+			// 1. 身份：我是地面
+			physicsBody->setCategoryBitmask(PhysicsCategory::GROUND);
+
+			// 2. 碰撞：我会挡住这些物体，让他们不穿模（产生物理碰撞）
+			// 注意：你原代码里写了两次 ENEMY_BOMB，这里整理一下
+			physicsBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW);
+
+			// 3. 回调：当这些物体撞到我时，请通知 GameScene 的 onContactBegin
+			// 必须设置这个，否则炸弹撞地不会爆炸，箭撞地不会消失
+			physicsBody->setContactTestBitmask(ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW);
 
 			auto node = Node::create();
 			node->setPhysicsBody(physicsBody);

@@ -161,31 +161,113 @@ void GameScene::update(float dt)
 }
 bool GameScene::onContactBegin(PhysicsContact& contact)
 {
-    auto a = contact.getShapeA()->getBody();
-    auto b = contact.getShapeB()->getBody();
+    auto bodyA = contact.getShapeA()->getBody();
+    auto bodyB = contact.getShapeB()->getBody();
+    int maskA = bodyA->getCategoryBitmask();
+    int maskB = bodyB->getCategoryBitmask();
 
-    int ca = a->getCategoryBitmask();
-    int cb = b->getCategoryBitmask();
-    //玩家攻击怪物
-    if ((ca == PLAYER_ATTACK && cb == ENEMY_HURT) || (ca == ENEMY_HURT && cb == PLAYER_ATTACK))
+    // --- 逻辑 A：玩家打怪物 ---
+    if ((maskA == PLAYER_ATTACK && maskB == ENEMY_HURT) || (maskA == ENEMY_HURT && maskB == PLAYER_ATTACK))
     {
-        auto node = (ca == ENEMY_HURT) ? a->getNode() : b->getNode();
-        if (node && node->getParent()) 
+        auto hurtBody = (maskA == ENEMY_HURT) ? bodyA : bodyB;
+        auto hurtNode = hurtBody->getNode();
+        if (hurtNode && hurtNode->getParent())
         {
-            auto enemyNode = dynamic_cast<Monster*>(node->getParent());
-            if (enemyNode) 
+            auto monster = dynamic_cast<Monster*>(hurtNode->getParent());
+            if (monster && !monster->isDead())
             {
-                enemyNode->struck(100);
+                // 使用玩家的攻击力
+                float damage = _player->getFinalAttack();
+                monster->struck(damage);
+                CCLOG("Monster Hit!");
             }
         }
     }
-    //怪物攻击玩家
-    if ((ca == ENEMY_ATTACK && cb == PLAYER_HURT) || (ca == PLAYER_HURT && cb == ENEMY_ATTACK))
+
+    // --- 逻辑 B：怪物打玩家 ---
+    if ((maskA == ENEMY_ATTACK && maskB == PLAYER_HURT) || (maskA == PLAYER_HURT && maskB == ENEMY_ATTACK))
     {
-        if (_player) 
+        // 1. 找到攻击发起者
+        auto attackBody = (maskA == ENEMY_ATTACK) ? bodyA : bodyB;
+        auto attackNode = attackBody->getNode();
+
+        if (attackNode && attackNode->getParent() && _player && !_player->isInvincible())
         {
-            _player->struck(100); 
+            // 2. 溯源到 Monster 脚本
+            auto monster = dynamic_cast<Monster*>(attackNode->getParent());
+            if (monster)
+            {
+                // 3. 动态获取怪物攻击力并扣血
+                float damage = monster->getFinalAttack();
+                _player->struck(damage);
+                CCLOG("Player struck by monster! Damage: %f", damage);
+            }
         }
     }
+    //检测 炸弹(ENEMY_BOMB) 与 玩家受击框(PLAYER_HURT) 的碰撞
+    if ((maskA == ENEMY_BOMB && maskB == PLAYER_HURT) || (maskB == ENEMY_BOMB && maskA == PLAYER_HURT)) 
+    {
+
+        // 1. 找到炸弹节点并触发爆炸
+        auto bombNode = (maskA == ENEMY_BOMB) ? dynamic_cast<Bomb*>(bodyA->getNode()) : dynamic_cast<Bomb*>(bodyB->getNode());
+
+        if (bombNode && !bombNode->isExploded()) 
+        {
+            bombNode->explode(); // 执行爆炸动画
+
+            // 2. 玩家受伤逻辑
+            if (_player && !_player->isInvincible())
+                _player->struck(20.0f); // 伤害数值
+        }
+    }
+    if ((maskA == PLAYER_ARROW && maskB == ENEMY_HURT) || (maskA == ENEMY_HURT && maskB == PLAYER_ARROW)) 
+    {
+        auto arrowNode = dynamic_cast<Arrow*>((maskA == PLAYER_ARROW) ? bodyA->getNode() : bodyB->getNode());
+        auto enemyNode = (maskA == ENEMY_HURT) ? bodyA->getNode() : bodyB->getNode();
+
+        if (arrowNode && !arrowNode->hasHit())
+        {
+            arrowNode->hit(); // 销毁箭
+            if (enemyNode && enemyNode->getParent()) 
+            {
+                auto monster = dynamic_cast<Monster*>(enemyNode->getParent());
+                float damage = _player->getFinalAttack();
+                monster->struck(damage);
+            }
+        }
+    }
+
+    //怪物的箭 命中 玩家
+    if ((maskA == ENEMY_ARROW && maskB == PLAYER_HURT) || (maskA == PLAYER_HURT && maskB == ENEMY_ARROW)) 
+    {
+        auto arrowNode = dynamic_cast<Arrow*>((maskA == ENEMY_ARROW) ? bodyA->getNode() : bodyB->getNode());
+        if (arrowNode && !arrowNode->hasHit() && _player && !_player->isInvincible()) 
+        {
+            arrowNode->hit();
+            _player->struck(15.0f); 
+        }
+    }
+
+    // 炸弹撞地逻辑
+    if ((maskA == ENEMY_BOMB && maskB == GROUND) || (maskA == GROUND && maskB == ENEMY_BOMB)) 
+    {
+        auto bombNode = (maskA == ENEMY_BOMB) ? contact.getShapeA()->getBody()->getNode() : contact.getShapeB()->getBody()->getNode();
+        auto bomb = dynamic_cast<Bomb*>(bombNode);
+        if (bomb && !bomb->isExploded()) 
+        {
+            bomb->explode();
+        }
+    }
+
+    // 箭矢撞地逻辑
+    if ((maskA == PLAYER_ARROW && maskB == GROUND) || (maskA == GROUND && maskB == PLAYER_ARROW)) 
+    {
+        auto arrowNode = (maskA == PLAYER_ARROW) ? contact.getShapeA()->getBody()->getNode() : contact.getShapeB()->getBody()->getNode();
+        auto arrow = dynamic_cast<Arrow*>(arrowNode);
+        if (arrow) 
+            arrow->hit();
+    }
+
+    return true;
     return true;
 }

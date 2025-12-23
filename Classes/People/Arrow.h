@@ -8,9 +8,12 @@ public:
 	static Arrow* create(bool fromPlayer);
     bool init(bool fromPlayer);
 	virtual void run(cocos2d::Vec2 targetPos) override;
+	void hit();
+	bool hasHit() { return _hasHit; };
 private:
 	MoveDirection _direction;
 	float _speed = 400.0f;
+	bool _hasHit;
 };
 
 #endif // __ARROW_H__

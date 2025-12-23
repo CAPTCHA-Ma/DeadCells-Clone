@@ -16,7 +16,7 @@ bool Grenadier::init()
         return false;
 
     this->addChild(_sprite);
-    this->setMonsterAttributes({ 100,100,50 });
+    this->setMonsterAttributes({ 100,100,0 });
     _state = GrenadierState::idle;
     _direction = MoveDirection::RIGHT;
     _moveSpeed = 150.0f;
@@ -57,54 +57,58 @@ void Grenadier::idle()
 }
 void Grenadier::attack()
 {
-    // 1. 创建炸弹
-    // 假设你有一个 Bomb 类的工厂方法
     auto bomb = Bomb::create();
     if (!bomb)
         return;
-
-    // 2. 设置炸弹的起始位置
-    // 炸弹应该从怪物的头顶或手部位置生成，而不是脚心（getPosition）
-    // 建议加上一个偏移量 Vec2(0, 50)
     bomb->setPosition(this->getPosition() + Vec2(0, 40));
-
-    // 3. 将炸弹添加到场景中
-    // 必须添加到 parent（即 MonsterLayer），它才能独立于怪物运动
     this->getParent()->addChild(bomb);
-
-    // 4. 让炸弹飞向我们之前记录的玩家位置
-    // 注意：_lastPlayerPos 是世界坐标，需要转回相对于 MonsterLayer 的局部坐标
     Vec2 localTargetPos = this->getParent()->convertToNodeSpace(_lastPlayerPos);
-
     bomb->run(localTargetPos);
 }
 void Grenadier::walk()
 {
-    auto body = this->getPhysicsBody();
-    if (!body) return;
-
-    int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-
-    Vec2 vel = body->getVelocity();
-    vel.x = _moveSpeed * dir;
-    body->setVelocity(vel);
-
-    this->setFlippedX(dir == -1);
+    if (_body)
+    {
+        int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+        if (_sprite)
+            _sprite->setFlippedX(dir == -1);
+        Vec2 vel = _body->getVelocity();
+        vel.x = _moveSpeed * dir;
+        _body->setVelocity(vel);
+    }
 }
 void Grenadier::onDead()
 {
+    // 1. 确保切换到死亡状态
     changeState(GrenadierState::dead);
 
-    float deadAnimTime = 3.7f; // 和 createAnim 里 dead 的时间一致
+    // 2. 彻底停止父层级对 AI 的调度 (如果有调用的话)
+    this->unscheduleUpdate();
+
+    // 3. 物理修复：防止穿墙和死后滑动
+    if (auto body = this->getPhysicsBody()) {
+        body->setVelocity(Vec2::ZERO);
+        body->setAngularVelocity(0);
+
+        // 停止伤害检测，但保留与地面的碰撞防止掉入墙中
+        body->setContactTestBitmask(0);
+        body->setCollisionBitmask(GROUND);
+    }
+
+    // 4. 彻底停止所有残留动作
+    this->stopAllActions();
+    if (_sprite) _sprite->stopAllActions();
 
     runAction(Sequence::create(
-        DelayTime::create(deadAnimTime),
+        FadeOut::create(0.5f),
         RemoveSelf::create(true),
         nullptr
     ));
 }
 void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
 {
+    if (_isDead)
+        return;
     if (_state == GrenadierState::atk)
         return;
 
@@ -116,24 +120,19 @@ void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
     float distX = abs(toPlayer.x);
     float distY = abs(toPlayer.y);
 
-    // 2. 决策阶段
+ 
     if (_aiTickTimer >= 0.2f)
     {
         _aiTickTimer = 0.0f;
-
-        // 判断 A: 是否在攻击范围内 (水平距离够近 且 高度基本一致)
-        // 这里的 _attackRange 建议根据投弹兵特性设定，比如 100-200
         if (distX <= _attackRange && distY < 10.0f)
         {
             _direction = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
-            this->setFlippedX(_direction == MoveDirection::LEFT);
-
-            // 记录玩家当前的世界坐标，准备投掷
+            int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+            _sprite->setFlippedX(dir == -1);
             _lastPlayerPos = playerWorldPos;
 
             this->changeState(GrenadierState::atk);
         }
-        // 判断 B: 是否在追踪范围内
         else if (distX <= 200.0f && distY < 200.0f)
         {
             MoveDirection newDir = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
@@ -143,7 +142,6 @@ void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
             }
             this->changeState(GrenadierState::walk);
         }
-        // 判断 C: 距离太远，歇着
         else
         {
             this->changeState(GrenadierState::idle);
@@ -156,13 +154,17 @@ void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
 //动画
 void Grenadier::changeState(GrenadierState newState)
 {
-    if (_state == newState)
-        return;
+    if (_isDead && newState != GrenadierState::dead) return;
+    if (_state == newState) return;
+
     switch (newState)
     {
         case GrenadierState::idle: this->idle(); break;
-        case GrenadierState::atk: this->attack(); break;
+        case GrenadierState::atk:  this->attack(); break;
         case GrenadierState::walk: this->walk(); break;
+        case GrenadierState::dead:
+            this->idle();
+            break;
         default: break;
     }
 
@@ -181,7 +183,6 @@ cocos2d::Animation* Grenadier::getAnimation(GrenadierState state)
         case GrenadierState::idle:            anim = createAnim("idle", 40, 1.0f); break;
         case GrenadierState::atk:             anim = createAnim("atk", 15, 1.0f); break;
         case GrenadierState::walk:            anim = createAnim("walk", 37, 3.7f); break;
-        case GrenadierState::dead:            anim = createAnim("dead", 37, 3.7f); break;
         default:return nullptr;
     }
     anim->retain();
