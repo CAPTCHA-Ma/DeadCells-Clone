@@ -142,16 +142,14 @@ void GameScene::update(float dt)
         MonsterLayer* mLayer = *it;
         Monster* m = mLayer->getMonster();
 
-        // 如果怪物已经标记为“准备移除”
         if (m && m->isReadyToRemove())
         {
             mLayer->removeFromParent(); // 从渲染树移除
-            it = monster.erase(it);      // 从 Vector 移除，指针不再是 0xDDDDDDDD
+            it = monster.erase(it);      // 从 Vector 移除
             CCLOG("Monster Safely Deleted");
         }
         else
         {
-            // 只有没死或动画还没播完的怪物才更新 AI
             Vec2 playerWorldPos = _player->getPlayerWorldPosition();
             mLayer->update(dt, playerWorldPos);
             ++it;
@@ -163,111 +161,115 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 {
     auto bodyA = contact.getShapeA()->getBody();
     auto bodyB = contact.getShapeB()->getBody();
+
     int maskA = bodyA->getCategoryBitmask();
     int maskB = bodyB->getCategoryBitmask();
 
-    // --- 逻辑 A：玩家打怪物 ---
-    if ((maskA == PLAYER_ATTACK && maskB == ENEMY_HURT) || (maskA == ENEMY_HURT && maskB == PLAYER_ATTACK))
+    auto nodeA = bodyA->getNode();
+    auto nodeB = bodyB->getNode();
+
+    // 如果任何一个节点已经由于某些原因被移除，直接跳过逻辑
+    if (!nodeA || !nodeB) return true;
+
+    // ==========================================================
+    // 1. 玩家近战攻击怪物 (PLAYER_ATTACK <-> ENEMY_BODY)
+    // ==========================================================
+    if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
-        auto hurtBody = (maskA == ENEMY_HURT) ? bodyA : bodyB;
-        auto hurtNode = hurtBody->getNode();
-        if (hurtNode && hurtNode->getParent())
+        auto enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
+        // 在你的实现中，Zombie/Grenadier 本身就是绑定 Body 的 Node
+        auto monster = dynamic_cast<Monster*>(enemyNode);
+
+        if (monster && !monster->isDead())
         {
-            auto monster = dynamic_cast<Monster*>(hurtNode->getParent());
-            if (monster && !monster->isDead())
-            {
-                // 使用玩家的攻击力
-                float damage = _player->getFinalAttack();
-                monster->struck(damage);
-                CCLOG("Monster Hit!");
-            }
+            float damage = _player->getFinalAttack();
+            monster->struck(damage);
+            CCLOG("Melee Hit Monster: %p | Damage: %f", monster, damage);
         }
     }
 
-    // --- 逻辑 B：怪物打玩家 ---
-    if ((maskA == ENEMY_ATTACK && maskB == PLAYER_HURT) || (maskA == PLAYER_HURT && maskB == ENEMY_ATTACK))
+    // ==========================================================
+    // 2. 玩家远程攻击怪物 (PLAYER_ARROW <-> ENEMY_BODY)
+    // ==========================================================
+    if ((maskA & PLAYER_ARROW && maskB & ENEMY_BODY) || (maskB & PLAYER_ARROW && maskA & ENEMY_BODY))
     {
-        // 1. 找到攻击发起者
-        auto attackBody = (maskA == ENEMY_ATTACK) ? bodyA : bodyB;
-        auto attackNode = attackBody->getNode();
+        auto arrowNode = (maskA & PLAYER_ARROW) ? nodeA : nodeB;
+        auto enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
 
-        if (attackNode && attackNode->getParent() && _player && !_player->isInvincible())
+        auto arrow = dynamic_cast<Arrow*>(arrowNode);
+        auto monster = dynamic_cast<Monster*>(enemyNode);
+
+        if (arrow && !arrow->hasHit() && monster && !monster->isDead())
         {
-            // 2. 溯源到 Monster 脚本
+            arrow->hit(); // 箭矢消失
+            float damage = _player->getFinalAttack();
+            monster->struck(damage);
+            CCLOG("Arrow Hit Monster!");
+        }
+    }
+
+    // ==========================================================
+    // 3. 怪物攻击玩家 (ENEMY_ATTACK / ENEMY_BOMB / ENEMY_ARROW <-> PLAYER_BODY)
+    // ==========================================================
+
+    // A. 怪物近战攻击框
+    if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
+    {
+        auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
+        if (_player && !_player->isInvincible())
+        {
+            // 注意：怪物的攻击框 _attackNode 是挂在 Monster 下的，所以需要 getParent
             auto monster = dynamic_cast<Monster*>(attackNode->getParent());
-            if (monster)
-            {
-                // 3. 动态获取怪物攻击力并扣血
-                float damage = monster->getFinalAttack();
-                _player->struck(damage);
-                CCLOG("Player struck by monster! Damage: %f", damage);
-            }
-        }
-    }
-    //检测 炸弹(ENEMY_BOMB) 与 玩家受击框(PLAYER_HURT) 的碰撞
-    if ((maskA == ENEMY_BOMB && maskB == PLAYER_HURT) || (maskB == ENEMY_BOMB && maskA == PLAYER_HURT)) 
-    {
-
-        // 1. 找到炸弹节点并触发爆炸
-        auto bombNode = (maskA == ENEMY_BOMB) ? dynamic_cast<Bomb*>(bodyA->getNode()) : dynamic_cast<Bomb*>(bodyB->getNode());
-
-        if (bombNode && !bombNode->isExploded()) 
-        {
-            bombNode->explode(); // 执行爆炸动画
-
-            // 2. 玩家受伤逻辑
-            if (_player && !_player->isInvincible())
-                _player->struck(20.0f); // 伤害数值
-        }
-    }
-    if ((maskA == PLAYER_ARROW && maskB == ENEMY_HURT) || (maskA == ENEMY_HURT && maskB == PLAYER_ARROW)) 
-    {
-        auto arrowNode = dynamic_cast<Arrow*>((maskA == PLAYER_ARROW) ? bodyA->getNode() : bodyB->getNode());
-        auto enemyNode = (maskA == ENEMY_HURT) ? bodyA->getNode() : bodyB->getNode();
-
-        if (arrowNode && !arrowNode->hasHit())
-        {
-            arrowNode->hit(); // 销毁箭
-            if (enemyNode && enemyNode->getParent()) 
-            {
-                auto monster = dynamic_cast<Monster*>(enemyNode->getParent());
-                float damage = _player->getFinalAttack();
-                monster->struck(damage);
-            }
+            float damage = monster ? monster->getFinalAttack() : 10.0f;
+            _player->struck(damage);
+            CCLOG("Player hit by melee!");
         }
     }
 
-    //怪物的箭 命中 玩家
-    if ((maskA == ENEMY_ARROW && maskB == PLAYER_HURT) || (maskA == PLAYER_HURT && maskB == ENEMY_ARROW)) 
+    // B. 怪物炸弹
+    if ((maskA & ENEMY_BOMB && maskB & PLAYER_BODY) || (maskB & ENEMY_BOMB && maskA & PLAYER_BODY))
     {
-        auto arrowNode = dynamic_cast<Arrow*>((maskA == ENEMY_ARROW) ? bodyA->getNode() : bodyB->getNode());
-        if (arrowNode && !arrowNode->hasHit() && _player && !_player->isInvincible()) 
-        {
-            arrowNode->hit();
-            _player->struck(15.0f); 
-        }
-    }
-
-    // 炸弹撞地逻辑
-    if ((maskA == ENEMY_BOMB && maskB == GROUND) || (maskA == GROUND && maskB == ENEMY_BOMB)) 
-    {
-        auto bombNode = (maskA == ENEMY_BOMB) ? contact.getShapeA()->getBody()->getNode() : contact.getShapeB()->getBody()->getNode();
+        auto bombNode = (maskA & ENEMY_BOMB) ? nodeA : nodeB;
         auto bomb = dynamic_cast<Bomb*>(bombNode);
-        if (bomb && !bomb->isExploded()) 
+        if (bomb && !bomb->isExploded())
         {
+            bomb->explode();
+            if (_player && !_player->isInvincible()) {
+                _player->struck(20.0f); // 炸弹基础伤害
+            }
+        }
+    }
+
+    // C. 怪物箭矢
+    if ((maskA & ENEMY_ARROW && maskB & PLAYER_BODY) || (maskB & ENEMY_ARROW && maskA & PLAYER_BODY))
+    {
+        auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
+        auto arrow = dynamic_cast<Arrow*>(arrowNode);
+        if (arrow && !arrow->hasHit())
+        {
+            arrow->hit();
+            if (_player && !_player->isInvincible()) {
+                _player->struck(15.0f);
+            }
+        }
+    }
+
+    // ==========================================================
+    // 4. 飞行物撞击地面 (GROUND 逻辑)
+    // ==========================================================
+    if ((maskA & GROUND || maskB & GROUND))
+    {
+        auto otherNode = (maskA & GROUND) ? nodeB : nodeA;
+
+        // 如果撞地的是箭矢
+        if (auto arrow = dynamic_cast<Arrow*>(otherNode)) {
+            arrow->hit();
+        }
+        // 如果撞地的是炸弹
+        else if (auto bomb = dynamic_cast<Bomb*>(otherNode)) {
             bomb->explode();
         }
     }
 
-    // 箭矢撞地逻辑
-    if ((maskA == PLAYER_ARROW && maskB == GROUND) || (maskA == GROUND && maskB == PLAYER_ARROW)) 
-    {
-        auto arrowNode = (maskA == PLAYER_ARROW) ? contact.getShapeA()->getBody()->getNode() : contact.getShapeB()->getBody()->getNode();
-        auto arrow = dynamic_cast<Arrow*>(arrowNode);
-        if (arrow) 
-            arrow->hit();
-    }
-
-    return true;
     return true;
 }

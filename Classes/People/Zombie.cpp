@@ -42,7 +42,6 @@ bool Zombie::init()
     _body->setContactTestBitmask(PLAYER_ATTACK);
 
 
-    this->createHurtBox();
     playAnimation(ZombieState::idle, true);
 
     return true;
@@ -246,22 +245,6 @@ void Zombie::playAnimation(ZombieState state, bool loop)
     action->setTag(1001);
     _sprite->runAction(action); // 修改这里：让 _sprite 动起来
 }
-
-void Zombie::createHurtBox()
-{
-    // Player::createHurtBox()
-    _hurtNode = Node::create();
-    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(0, targetHeight/6));
-    hurtBody->setDynamic(false);
-    hurtBody->setGravityEnable(false);
-    hurtBody->setRotationEnable(false);
-    hurtBody->setCategoryBitmask(ENEMY_HURT);  
-    hurtBody->setCollisionBitmask(0);     
-    hurtBody->setContactTestBitmask(PLAYER_ATTACK); 
-
-    _hurtNode->setPhysicsBody(hurtBody);
-    this->addChild(_hurtNode);
-}
 void Zombie::createAttackBox()
 {
     removeAttackBox();
@@ -276,7 +259,7 @@ void Zombie::createAttackBox()
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(ENEMY_ATTACK);
     attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(PLAYER_HURT);
+    attackBody->setContactTestBitmask(PLAYER_BODY);
     _attackNode->setPhysicsBody(attackBody);
 
 

@@ -36,7 +36,6 @@ bool Grenadier::init()
     _body->setContactTestBitmask(PLAYER_ATTACK);
 
 
-    this->createHurtBox();
     playAnimation(GrenadierState::idle, true);
 
     return true;
@@ -251,22 +250,6 @@ void Grenadier::playAnimation(GrenadierState state, bool loop)
     action->setTag(1001);
     _sprite->runAction(action);
 }
-
-void Grenadier::createHurtBox() 
-{
-    // Player::createHurtBox()
-    _hurtNode = Node::create();
-    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(0,targetHeight/6));
-    hurtBody->setDynamic(false);
-    hurtBody->setGravityEnable(false);
-    hurtBody->setRotationEnable(false);
-    hurtBody->setCategoryBitmask(ENEMY_HURT);    // PLAYER_HURT
-    hurtBody->setCollisionBitmask(0);      // 不产生物理碰撞
-    hurtBody->setContactTestBitmask(PLAYER_ATTACK); // ENEMY_HIT
-
-    _hurtNode->setPhysicsBody(hurtBody);
-    this->addChild(_hurtNode);
-}
 void Grenadier::createAttackBox()
 {
     removeAttackBox();
@@ -282,7 +265,7 @@ void Grenadier::createAttackBox()
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(ENEMY_ATTACK);
     attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(PLAYER_HURT);
+    attackBody->setContactTestBitmask(PLAYER_BODY);
     _attackNode->setPhysicsBody(attackBody);
 
     //延长显示时间以便调试 (例如 0.5s)

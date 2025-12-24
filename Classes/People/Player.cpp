@@ -29,21 +29,19 @@ bool Player::init()
     this->_subWeapon = new Bow(Bow::BowType::dualBow);
     this->createNormalBody();
     
-  
-    
 
-    this->createHurtBox();
     playAnimation(ActionState::idle, true);
     this->scheduleUpdate();
     return true;
 }
-void Player::setupBodyProperties(cocos2d::PhysicsBody* body) 
+void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
 {
     body->setDynamic(true);
     body->setRotationEnable(false);
     body->setGravityEnable(true);
     body->setCategoryBitmask(PLAYER_BODY);
     body->setCollisionBitmask(GROUND);
+    body->setContactTestBitmask(ENEMY_ATTACK| ENEMY_ARROW| ENEMY_BOMB);
 }
 void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset) 
 {
@@ -187,7 +185,6 @@ void Player::dead()
 
     // 2. 移除攻击和受击判定
     this->removeAttackBox();
-    this->removeHurtBox();
 
     // 3. 停止物理移动（可选，如果你希望死后滑行一段则不设为ZERO）
     this->getPhysicsBody()->setVelocity(Vec2(this->getPhysicsBody()->getVelocity().x * 0.5f, 0));
@@ -545,21 +542,6 @@ void Player::struck(float attackPower) {
     if (this->getFinalAttributes().health <= 0) 
         this->dead();
 }
-void Player::createHurtBox()
-{
-    if (_hurtNode) 
-        return; // 如果已经存在，不要重复创建
-    _hurtNode = Node::create();
-    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(targetWidth/2, targetHeight*2/3));
-
-    hurtBody->setDynamic(false);
-    hurtBody->setCategoryBitmask(PLAYER_HURT);
-    hurtBody->setCollisionBitmask(0);
-    hurtBody->setContactTestBitmask(ENEMY_ATTACK);
-
-    _hurtNode->setPhysicsBody(hurtBody);
-    this->addChild(_hurtNode);
-}
 void Player::startRollInvincible(float time)
 {
     this->stopActionByTag(2001);
@@ -600,7 +582,7 @@ void Player::createAttackBox()
     attackBody->setDynamic(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);
     attackBody->setCollisionBitmask(0);            // 严禁设为 1，否则会推开怪物
-    attackBody->setContactTestBitmask(ENEMY_HURT); // 只检测怪物受击
+    attackBody->setContactTestBitmask(ENEMY_BODY); // 只检测怪物受击
 
     _attackNode->setPhysicsBody(attackBody);
 
@@ -628,7 +610,7 @@ void Player::createShieldParryBox()
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);
     attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(ENEMY_HURT);
+    attackBody->setContactTestBitmask(ENEMY_BODY);
     _attackNode->setPhysicsBody(attackBody);
 
     //延长显示时间以便调试 (例如 0.5s)
@@ -637,14 +619,6 @@ void Player::createShieldParryBox()
         CallFunc::create([this]() { this->removeAttackBox(); }),
         nullptr
     ));
-}
-void Player::removeHurtBox()
-{
-    if (_hurtNode)
-    {
-        _hurtNode->removeFromParent();
-        _hurtNode = nullptr;
-    }
 }
 void Player::removeAttackBox()
 {

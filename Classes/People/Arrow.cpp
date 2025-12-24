@@ -39,7 +39,7 @@ bool Arrow::init(bool fromPlayer)
         // --- 核心修复：必须包含 GROUND，否则无法被地面挡住 ---
         hurtbody->setCollisionBitmask(PhysicsCategory::GROUND);
         // 监听敌人和地面
-        hurtbody->setContactTestBitmask(ENEMY_HURT | GROUND);
+        hurtbody->setContactTestBitmask(ENEMY_BODY | GROUND);
     }
     else
     {
@@ -47,7 +47,7 @@ bool Arrow::init(bool fromPlayer)
         // 敌人的箭也需要被地面挡住
         hurtbody->setCollisionBitmask(PhysicsCategory::GROUND);
         // 监听玩家和地面
-        hurtbody->setContactTestBitmask(PLAYER_HURT | GROUND);
+        hurtbody->setContactTestBitmask(PLAYER_BODY | GROUND);
     }
 
     this->setPhysicsBody(hurtbody);

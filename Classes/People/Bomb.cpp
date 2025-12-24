@@ -13,7 +13,7 @@ bool Bomb::init()
 
     body->setCategoryBitmask(PhysicsCategory::ENEMY_BOMB);
     body->setCollisionBitmask(PhysicsCategory::GROUND); 
-    body->setContactTestBitmask(PhysicsCategory::PLAYER_HURT | PhysicsCategory::GROUND);
+    body->setContactTestBitmask(PhysicsCategory::PLAYER_BODY | PhysicsCategory::GROUND);
 
     this->setPhysicsBody(body);
     return true;

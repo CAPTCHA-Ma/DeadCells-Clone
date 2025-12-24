@@ -184,11 +184,9 @@ private:
     void createNormalBody();
     void createRollBody();
     void startRollInvincible(float time);
-    void createHurtBox();
     void createRollBox();
     void createAttackBox();
     void createShieldParryBox();
-    void removeHurtBox();
     void removeAttackBox();
 
 

@@ -33,7 +33,6 @@ protected:
 
     cocos2d::Node* _attackNode = nullptr;
     cocos2d::Node* _hurtNode = nullptr;
-	virtual void createHurtBox() = 0;
     virtual void createAttackBox()=0;
     void removeAttackBox();
     

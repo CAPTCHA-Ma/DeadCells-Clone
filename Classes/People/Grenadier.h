@@ -44,7 +44,6 @@ private:
     cocos2d::Animation* createAnim(const std::string& name, int frameCount, float time);
     cocos2d::Animation* getAnimation(GrenadierState state);
 
-	virtual void createHurtBox() override;
     virtual void createAttackBox() override;
 
 	float _aiTickTimer;
