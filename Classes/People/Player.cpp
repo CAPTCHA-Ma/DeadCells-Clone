@@ -17,11 +17,11 @@ bool Player::init()
 {
     if (!Sprite::initWithFile("Graph/Player/idle_00-=-0-=-.png", Rect(0, 0, pictureWidth, pictureHeight)))
         return false;
-	_runSpeed = 200.0f;
-	_jumpSpeed = 500.0f;
-	_rollSpeed = 600.0f;
-	_state = ActionState::idle;
-	_direction = MoveDirection::RIGHT;
+    _runSpeed = 200.0f;
+    _jumpSpeed = 500.0f;
+    _rollSpeed = 600.0f;
+    _state = ActionState::idle;
+    _direction = MoveDirection::RIGHT;
     this->setOriginalAttributes(BasicAttributes({ 100, 10, 10 }));
     this->setFinalAttributes(BasicAttributes({ 100, 100, 100 }));
 
@@ -29,7 +29,7 @@ bool Player::init()
     this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
     this->_subWeapon = new Bow(Bow::BowType::dualBow);
     this->createNormalBody();
-    
+
 
     playAnimation(ActionState::idle, true);
     this->scheduleUpdate();
@@ -41,13 +41,13 @@ void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
     body->setRotationEnable(false);
     body->setGravityEnable(true);
     body->setCategoryBitmask(PLAYER_BODY);
-    body->setCollisionBitmask(GROUND);
-    body->setContactTestBitmask(ENEMY_ATTACK| ENEMY_ARROW| ENEMY_BOMB);
+    body->setCollisionBitmask(GROUND | PLATFORM | LADDER);
+    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER);
 }
-void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset) 
+void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
 {
     auto currentBody = this->getPhysicsBody();
-    if (currentBody) 
+    if (currentBody)
     {
         currentBody->removeAllShapes();
         auto newShape = PhysicsShapeBox::create(size, PhysicsMaterial(0.1f, 0.0f, 0.5f), offset);
@@ -60,19 +60,19 @@ void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& o
 
     setupBodyProperties(this->getPhysicsBody());
 }
-void Player::createNormalBody() 
+void Player::createNormalBody()
 {
     updatePhysicsBody(Size(bodyWidth / 3, bodyHeight / 3), Vec2(0, bodyWidth / 4));
 }
-void Player::createRollBody() 
+void Player::createRollBody()
 {
     // 翻滚状态：高度减半，重心降低
     updatePhysicsBody(Size(bodyWidth / 3, bodyHeight / 6), Vec2(0, bodyHeight / 12));
 }
 void Player::giveVelocityX(float speed)
 {
-	int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-	this->getPhysicsBody()->setVelocity(Vec2(speed * dir, this->getPhysicsBody()->getVelocity().y));
+    int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+    this->getPhysicsBody()->setVelocity(Vec2(speed * dir, this->getPhysicsBody()->getVelocity().y));
 }
 void Player::changeDirection(MoveDirection dir)
 {
@@ -86,7 +86,7 @@ void Player::set0VelocityX()
         return;
     Vec2 currentVel = body->getVelocity();
     currentVel.x = 0;
-	body->setVelocity(Vec2(0, currentVel.y));
+    body->setVelocity(Vec2(0, currentVel.y));
 }
 void Player::set0VelocityY()
 {
@@ -107,7 +107,7 @@ void Player::update(float dt)
     auto body = this->getPhysicsBody();
     if (this->isOnGround() && (_state == ActionState::jumpDown || _state == ActionState::jumpUp))
         this->changeState(ActionState::idle);
-    else if (!this->isOnGround()&&_state!= ActionState::rollStart)
+    else if (!this->isOnGround() && _state != ActionState::rollStart)
         this->changeState(ActionState::jumpDown);
 }
 //*******************************************************************
@@ -122,7 +122,7 @@ void Player::getWeapon(Weapon* w)
         _subWeapon = w;
     this->setFinalAttributes({ this->getOriginalAttributes().health + w->getWeaponAttributes().health,
                                this->getOriginalAttributes().attack + w->getWeaponAttributes().attack,
-                               this->getOriginalAttributes().defense + w->getWeaponAttributes().defense});
+                               this->getOriginalAttributes().defense + w->getWeaponAttributes().defense });
 }
 void Player::idle()
 {
@@ -134,7 +134,7 @@ void Player::run()
     auto body = this->getPhysicsBody();
     if (!body)
         return;
-	this->giveVelocityX(_runSpeed);
+    this->giveVelocityX(_runSpeed);
 }
 void Player::jumpDown()
 {
@@ -173,7 +173,7 @@ void Player::AtkdualBow()
 void Player::crossbowShoot()
 {
 }
-void Player::dead() 
+void Player::dead()
 {
     this->unscheduleUpdate();
     _invincible = true;
@@ -187,11 +187,11 @@ void Player::lethalHit()
 }
 void Player::shootArrow()
 {
-	int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+    int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
     auto arrow = dynamic_cast<Arrow*>(FlyingObject::create(FlyType::Arrow, true));
-	arrow->setPosition(this->getPosition()+Vec2(0,50));
+    arrow->setPosition(this->getPosition() + Vec2(0, 50));
     if (!arrow)
-		return;
+        return;
     this->getParent()->addChild(arrow);
     arrow->run(Vec2(dir, 0));
 }
@@ -213,10 +213,10 @@ void Player::changeState(ActionState newState)
 {
     if (_state == ActionState::lethalSlam)
         return;
-    if (_state == ActionState::lethalFall && newState != ActionState::lethalSlam) 
+    if (_state == ActionState::lethalFall && newState != ActionState::lethalSlam)
         return;
     if (_state == newState)
-        return; 
+        return;
     if (!whetherCanChangeToNewState(newState))
         return;
     switch (newState)
@@ -229,24 +229,24 @@ void Player::changeState(ActionState newState)
         case ActionState::crouch:this->crouch(); break;
         case ActionState::dead:this->dead(); break;
 
-		case ActionState::atkA:this->createAttackBox(); break;
-		case ActionState::atkB:this->createAttackBox(); break;
-		case ActionState::atkBackStabber:this->createAttackBox(); break;
-		case ActionState::AtkBaseballBatA:this->createAttackBox(); break;
-		case ActionState::AtkBaseballBatB:this->createAttackBox(); break;
-		case ActionState::AtkBaseballBatC:this->createAttackBox(); break;
-		case ActionState::AtkBaseballBatD:this->createAttackBox(); break;
-		case ActionState::AtkBaseballBatE:this->createAttackBox(); break;
-		case ActionState::atkBroadSwordA:this->createAttackBox(); break;
+        case ActionState::atkA:this->createAttackBox(); break;
+        case ActionState::atkB:this->createAttackBox(); break;
+        case ActionState::atkBackStabber:this->createAttackBox(); break;
+        case ActionState::AtkBaseballBatA:this->createAttackBox(); break;
+        case ActionState::AtkBaseballBatB:this->createAttackBox(); break;
+        case ActionState::AtkBaseballBatC:this->createAttackBox(); break;
+        case ActionState::AtkBaseballBatD:this->createAttackBox(); break;
+        case ActionState::AtkBaseballBatE:this->createAttackBox(); break;
+        case ActionState::atkBroadSwordA:this->createAttackBox(); break;
         case ActionState::atkBroadSwordB:this->createAttackBox(); break;
         case ActionState::atkBroadSwordC:this->createAttackBox(); break;
         case ActionState::AtkOvenAxeA:this->createAttackBox(); break;
         case ActionState::AtkOvenAxeB:this->createAttackBox(); break;
         case ActionState::AtkOvenAxeC:this->createAttackBox(); break;
 
-		case ActionState::AtkcloseCombatBow:this->AtkcloseCombatBow(); break;
-		case ActionState::AtkdualBow:this->AtkdualBow(); break;
-		case ActionState::crossbowShoot:this->crossbowShoot(); break;
+        case ActionState::AtkcloseCombatBow:this->AtkcloseCombatBow(); break;
+        case ActionState::AtkdualBow:this->AtkdualBow(); break;
+        case ActionState::crossbowShoot:this->crossbowShoot(); break;
 
         case ActionState::blockEndLightningShield:this->createShieldParryBox(); break;
         case ActionState::blockEndParryShield:this->createShieldParryBox(); break;
@@ -262,7 +262,7 @@ void Player::changeState(ActionState newState)
 void Player::changeStateByWeapon(Weapon* weapon)
 {
     if (isAttackState(_state))
-        return; 
+        return;
     if (!weapon)
     {
         changeState(ActionState::atkA);
@@ -271,12 +271,12 @@ void Player::changeStateByWeapon(Weapon* weapon)
     Sword* sword = dynamic_cast<Sword*>(weapon);
     if (sword)
     {
-		if (sword->getSwordType() == Sword::SwordType::BackStabber)
+        if (sword->getSwordType() == Sword::SwordType::BackStabber)
             changeState(ActionState::atkBackStabber);
         else if (sword->getSwordType() == Sword::SwordType::BaseballBat)
             changeState(ActionState::AtkBaseballBatA);
         else if (sword->getSwordType() == Sword::SwordType::BroadSword)
-			changeState(ActionState::atkBroadSwordA);
+            changeState(ActionState::atkBroadSwordA);
         else if (sword->getSwordType() == Sword::SwordType::OvenAxe)
             changeState(ActionState::AtkOvenAxeA);
         return;
@@ -284,13 +284,13 @@ void Player::changeStateByWeapon(Weapon* weapon)
     Bow* bow = dynamic_cast<Bow*>(weapon);
     if (bow)
     {
-        if(bow->getBowType()==Bow::BowType::closeCombatBow)
+        if (bow->getBowType() == Bow::BowType::closeCombatBow)
             changeState(ActionState::AtkcloseCombatBow);
-        else if(bow->getBowType() == Bow::BowType::dualBow)
-			changeState(ActionState::AtkdualBow);
-        else if(bow->getBowType() == Bow::BowType::crossbow)
-			changeState(ActionState::crossbowShoot);
-		return;
+        else if (bow->getBowType() == Bow::BowType::dualBow)
+            changeState(ActionState::AtkdualBow);
+        else if (bow->getBowType() == Bow::BowType::crossbow)
+            changeState(ActionState::crossbowShoot);
+        return;
     }
     Shield* shield = dynamic_cast<Shield*>(weapon);
     if (shield)
@@ -306,11 +306,11 @@ void Player::changeStateByWeapon(Weapon* weapon)
 bool Player::whetherCanChangeToNewState(ActionState newState) const
 {
 
-    if (newState == ActionState::idle) 
+    if (newState == ActionState::idle)
         return true;
-    if (isAttackState(_state) && isAttackState(newState)) 
+    if (isAttackState(_state) && isAttackState(newState))
         return true;
-    if(!isOnGround()&&newState==ActionState::rollStart)
+    if (!isOnGround() && newState == ActionState::rollStart)
         return true;
     auto currentConfig = StateTable[_state];
     auto newConfig = StateTable[newState];
@@ -354,10 +354,10 @@ cocos2d::Animation* Player::createAnim(const std::string& name, int frameCount, 
     {
         std::string framePath = StringUtils::format("Graph/Player/%s_%02d-=-0-=-.png", name.c_str(), i);
         auto tempSprite = Sprite::create(framePath);
-        if (!tempSprite) 
-            continue; 
+        if (!tempSprite)
+            continue;
         auto originalSize = tempSprite->getContentSize();
-        float offsetX = (originalSize.width  - pictureWidth)  / 2.0f;
+        float offsetX = (originalSize.width - pictureWidth) / 2.0f;
         float offsetY = (originalSize.height - pictureHeight) / 2.0f;
         auto frame = SpriteFrame::create(framePath, Rect(offsetX, offsetY, pictureWidth, pictureHeight));
         anim->addSpriteFrame(frame);
@@ -381,16 +381,16 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::jumpDown:         anim = createAnim("jumpDown", 4, 0.3f); break;
         case ActionState::jumpUp:           anim = createAnim("jumpUp", 6, 0.3f); break;
         case ActionState::crouch:           anim = createAnim("crouch", 1, 0.3f); break;
-        case ActionState::rollStart:        anim = createAnim("rollStart", 4,0.3f); break;
+        case ActionState::rollStart:        anim = createAnim("rollStart", 4, 0.3f); break;
         case ActionState::atkA:             anim = createAnim("atkA", 14, 0.3f); break;
-		case ActionState::atkB:             anim = createAnim("atkB", 10, 0.3f); break;
-		case ActionState::atkBackStabber:   anim = createAnim("atkBackStabberA", 13, 0.3f); break;
-		case ActionState::AtkBaseballBatA:  anim = createAnim("AtkBaseballBatA", 11, 0.3f); break;
+        case ActionState::atkB:             anim = createAnim("atkB", 10, 0.3f); break;
+        case ActionState::atkBackStabber:   anim = createAnim("atkBackStabberA", 13, 0.3f); break;
+        case ActionState::AtkBaseballBatA:  anim = createAnim("AtkBaseballBatA", 11, 0.3f); break;
         case ActionState::AtkBaseballBatB:  anim = createAnim("AtkBaseballBatB", 12, 0.3f); break;
         case ActionState::AtkBaseballBatC:  anim = createAnim("AtkBaseballBatC", 10, 0.3f); break;
         case ActionState::AtkBaseballBatD:  anim = createAnim("AtkBaseballBatD", 14, 0.3f); break;
         case ActionState::AtkBaseballBatE:  anim = createAnim("AtkBaseballBatE", 8, 0.3f); break;
-		case ActionState::atkBroadSwordA:   anim = createAnim("atkBroadSwordA", 15, 0.5f); break;
+        case ActionState::atkBroadSwordA:   anim = createAnim("atkBroadSwordA", 15, 0.5f); break;
         case ActionState::atkBroadSwordB:   anim = createAnim("atkBroadSwordB", 16, 0.5f); break;
         case ActionState::atkBroadSwordC:   anim = createAnim("atkBroadSwordC", 28, 1.0f); break;
         case ActionState::AtkOvenAxeA:      anim = createAnim("AtkOvenAxeA", 38, 1.0f); break;
@@ -422,7 +422,7 @@ void Player::whenOnAttackKey(Weapon* w)
         return;
     }
     _comboStep = 1;
-    _comboInput = false; 
+    _comboInput = false;
     this->set0VelocityX();
     this->changeStateByWeapon(w);
 }
@@ -433,10 +433,10 @@ void Player::actionWhenEnding(ActionState state)
     {
         if (this->getPhysicsBody()) {
             this->getPhysicsBody()->setVelocity(Vec2::ZERO);
-            this->getPhysicsBody()->setGravityEnable(false); 
+            this->getPhysicsBody()->setGravityEnable(false);
         }
         this->changeState(ActionState::lethalSlam);
-        return; 
+        return;
     }
     if (state == ActionState::lethalSlam)
     {
@@ -469,8 +469,8 @@ void Player::actionWhenEnding(ActionState state)
         {
             _comboStep++;
             _comboInput = false;
-            this->changeState(nextState); 
-            return; 
+            this->changeState(nextState);
+            return;
         }
     }
     _comboStep = 0;
@@ -479,9 +479,9 @@ void Player::actionWhenEnding(ActionState state)
     {
         if (state == ActionState::rollStart)
         {
-            _invincible = false; 
+            _invincible = false;
             this->setOpacity(255);
-            this->createNormalBody(); 
+            this->createNormalBody();
         }
 
         if (!this->isOnGround()) {
@@ -503,23 +503,23 @@ void Player::actionWhenEnding(ActionState state)
 bool Player::isAttackState(ActionState s) const
 {
     return s == ActionState::atkA ||
-           s == ActionState::atkB ||
-           s == ActionState::AtkBaseballBatA ||
-           s == ActionState::AtkBaseballBatB ||
-           s == ActionState::AtkBaseballBatC ||
-           s == ActionState::AtkBaseballBatD ||
-           s == ActionState::atkBroadSwordA ||
-           s == ActionState::atkBroadSwordB ||
-           s == ActionState::atkBroadSwordC ||
-           s == ActionState::AtkOvenAxeA ||
-           s == ActionState::AtkOvenAxeB ||
-           s == ActionState::AtkOvenAxeC ||
-           s == ActionState::AtkBaseballBatE;
+        s == ActionState::atkB ||
+        s == ActionState::AtkBaseballBatA ||
+        s == ActionState::AtkBaseballBatB ||
+        s == ActionState::AtkBaseballBatC ||
+        s == ActionState::AtkBaseballBatD ||
+        s == ActionState::atkBroadSwordA ||
+        s == ActionState::atkBroadSwordB ||
+        s == ActionState::atkBroadSwordC ||
+        s == ActionState::AtkOvenAxeA ||
+        s == ActionState::AtkOvenAxeB ||
+        s == ActionState::AtkOvenAxeC ||
+        s == ActionState::AtkBaseballBatE;
 }
-void Player::struck(float attackPower) 
+void Player::struck(float attackPower)
 {
     auto attributes = this->getFinalAttributes();
-    attributes.health -= attackPower * (100 - attributes.defense)/100;
+    attributes.health -= attackPower * (100 - attributes.defense) / 100;
 
     this->setFinalAttributes(attributes);
 
@@ -543,7 +543,7 @@ void Player::startRollInvincible(float time)
         });
 
     auto seq = Sequence::create(delay, endInvincible, nullptr);
-    seq->setTag(2001); 
+    seq->setTag(2001);
     this->runAction(seq);
     this->setOpacity(150);
 }
@@ -556,14 +556,14 @@ void Player::createRollBox()
 }
 void Player::createAttackBox()
 {
-    removeAttackBox(); 
+    removeAttackBox();
     _attackNode = Node::create();
     float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
-    _attackNode->setPosition(Vec2(pictureWidth /2+dir* pictureWidth /6, pictureHeight *2/3));
+    _attackNode->setPosition(Vec2(pictureWidth / 2 + dir * pictureWidth / 6, pictureHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
     //获取方向偏移
-   
+
 
 
     auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 3, pictureHeight / 6), PhysicsMaterial(0, 0, 0));

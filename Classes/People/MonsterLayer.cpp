@@ -5,14 +5,14 @@ MonsterLayer* MonsterLayer::create(MonsterCategory category, cocos2d::Vec2 pos)
 {
 
     MonsterLayer* pRet = new(std::nothrow) MonsterLayer();
-    if (pRet && pRet->init(category,pos))
+    if (pRet && pRet->init(category, pos))
     {
-        pRet->autorelease(); 
+        pRet->autorelease();
         return pRet;
     }
     else
     {
-        delete pRet; 
+        delete pRet;
         pRet = nullptr;
         return nullptr;
     }
@@ -40,8 +40,8 @@ Monster* MonsterLayer::getMonster()
 }
 void MonsterLayer::update(float dt, cocos2d::Vec2 playerPos)
 {
-    if (!_monster) 
+    if (!_monster)
         return;
     else
-        _monster->ai(dt, playerPos); 
+        _monster->ai(dt, playerPos);
 }
