@@ -6,8 +6,9 @@
 #include "People/PlayerLayer.h"
 #include "People/MonsterLayer.h"
 #include "People/Zombie.h"
-#include "People/Grenadier.h"
 #include "Res/strings.h"
+#include "People/Grenadier.h"
+#include "People/Monster.h"
 
 class GameScene : public cocos2d::Scene
 {
@@ -28,6 +29,6 @@ private:
     cocos2d::Label* _loadingLabel = nullptr; 
 	cocos2d::Sprite* _loadingSprite = nullptr;
     PlayerLayer* _player = nullptr;
-    Vec2 _playerDir = Vec2::ZERO;
+	cocos2d::Vector<MonsterLayer*> _monsters;
 
 };

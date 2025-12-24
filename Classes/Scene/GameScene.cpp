@@ -7,7 +7,7 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
     if (scene && scene->initWithPhysics()) 
     {
 
-		scene->getPhysicsWorld()->setGravity(Vec2(0, -980.f));
+		//scene->getPhysicsWorld()->setGravity(Vec2(0, -980.f));
 		scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
         scene->_mapGenerator = generator;
@@ -94,7 +94,7 @@ void GameScene::RenderMap()
 
     auto rooms = _mapGenerator->GetRooms();
 
-    Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24;
+    Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 24)) * 24;
     _player = PlayerLayer::create(startDir);
     auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
     auto _monster2 = MonsterLayer::create(MonsterCategory::Grenadier, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
@@ -105,16 +105,46 @@ void GameScene::RenderMap()
     _mapContainer->addChild(_player);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
+	auto monster = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
+	_monsters.pushBack(monster);
+	_mapContainer->addChild(monster);
+
     int counter = 0;
     for (auto roomData : rooms) 
     {
 
         CCLOG("%d\n", ++counter);
-        
         auto node = RoomNode::create(roomData);
         _mapContainer->addChild(node);
 
     }
+
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactPreSolve = [this](PhysicsContact& contact, PhysicsContactPreSolve& solve) 
+        {
+
+            auto bodyA = contact.getShapeA()->getBody();
+            auto bodyB = contact.getShapeB()->getBody();
+
+            PhysicsBody* playerBody = nullptr;
+            PhysicsBody* platformBody = nullptr;
+
+            if (bodyA->getCategoryBitmask() == PLAYER_BODY && bodyB->getCategoryBitmask() == PLATFORM) {
+                playerBody = bodyA;
+                platformBody = bodyB;
+            }
+            else if (bodyB->getCategoryBitmask() == PLAYER_BODY && bodyA->getCategoryBitmask() == PLATFORM) {
+                playerBody = bodyB;
+                platformBody = bodyA;
+            }
+
+            if (playerBody && platformBody && (playerBody->getVelocity().y > 0.5 || _player->_isDropping)) solve.ignore();
+                
+            return true;
+
+        };
+
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
     this->scheduleUpdate();
 

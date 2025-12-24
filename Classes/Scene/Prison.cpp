@@ -502,6 +502,8 @@ GenPos:
 				for (Vec2 point : sonRoom->path)
 				{
 
+					
+
 					MapArray[point.x][point.y] = BLOCK_WEIGHT;
 
 				}
@@ -553,6 +555,11 @@ bool PrisonMapGen::FindPath(std::vector<std::vector<int>>& mapArray, std::vector
 
 				}
 
+				path.push_back(startPos);
+
+				int sz = path.size();
+				for (int i = 0; i < sz / 2; ++i) std::swap(path[i], path[sz - 1 - i]);
+
 				return true;
 
 			}
@@ -567,7 +574,7 @@ bool PrisonMapGen::FindPath(std::vector<std::vector<int>>& mapArray, std::vector
 
 				Vec2 point = pos;
 
-				for (int k = 0; k <= 1; ++k)
+				for (int k = 0; k <= 2; ++k)
 				{
 
 					point += dir[(1 ^ (i / 2)) * 2 + j];
@@ -597,12 +604,12 @@ bool PrisonMapGen::FindPath(std::vector<std::vector<int>>& mapArray, std::vector
 			if (AStarGraph[front.x][front.y].lastDir != -1 && i != AStarGraph[front.x][front.y].lastDir)
 			{
 
-				for (int j = 1; j <= 2; ++j)
+				for (int j = 1; j <= 3; ++j)
 				{
 
 					Vec2 point = pos + dir[AStarGraph[front.x][front.y].lastDir] * j;
 
-					for (int k = 0; k <= 2; ++k)
+					for (int k = 0; k <= 3; ++k)
 					{
 
 						point += dir[i ^ 1];

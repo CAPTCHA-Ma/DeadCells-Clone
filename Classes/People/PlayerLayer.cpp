@@ -56,7 +56,19 @@ void PlayerLayer::setupEventListeners()
                     _player->changeState(ActionState::run);
                     break;
                 case EventKeyboard::KeyCode::KEY_SPACE://ÌøÔ¾
-                    _player->changeState(ActionState::jumpUp);
+
+                    if (_downPressed)
+                    {
+
+                        if (_isDropping) break;
+                        _isDropping = true;
+
+                        this->scheduleOnce([this](float dt) {
+                            _isDropping = false;
+                            }, 0.3f, "reset_drop_flag");
+
+                    }
+                    else _player->changeState(ActionState::jumpUp);
                     break;
                 case EventKeyboard::KeyCode::KEY_J://Ö÷ÎäÆ÷¹¥»÷
                     _player->whenOnAttackKey(_player->_mainWeapon);
@@ -65,6 +77,7 @@ void PlayerLayer::setupEventListeners()
                     _player->whenOnAttackKey(_player->_subWeapon);
                     break;
                 case EventKeyboard::KeyCode::KEY_S://ÏÂ¶×
+					_downPressed = true;
                     _player->changeState(ActionState::crouch);
                     break;
                 case EventKeyboard::KeyCode::KEY_L://¹ö¶¯
@@ -96,6 +109,7 @@ void PlayerLayer::setupEventListeners()
             }
             else if (keyCode == EventKeyboard::KeyCode::KEY_S)
             {
+                _downPressed = false;
                 if (_player->_state == ActionState::crouch)
                 {
                     _player->changeState(ActionState::idle);
