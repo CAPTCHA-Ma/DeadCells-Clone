@@ -81,7 +81,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 					}
 
 					cateBitMask = GROUND;
-					colBitMask = PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW
+					colBitMask = PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
 					conBitMask = ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
 
 					break;
