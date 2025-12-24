@@ -153,7 +153,6 @@ public:
 protected:
 	CC_SYNTHESIZE(BasicAttributes, _originalAttributes, OriginalAttributes);//初始属性只与等级有关
 	CC_SYNTHESIZE(BasicAttributes, _finalAttributes, FinalAttributes);//最终属性与装备有关
-	CC_SYNTHESIZE(int, _level, Level);
 
 	float _runSpeed; // 水平移动速度
 	float _rollSpeed; // 滚动速度

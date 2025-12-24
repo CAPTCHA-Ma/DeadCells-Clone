@@ -24,7 +24,6 @@ bool Player::init()
 	_direction = MoveDirection::RIGHT;
     this->setOriginalAttributes(BasicAttributes({ 100, 10, 10 }));
     this->setFinalAttributes(BasicAttributes({ 100, 100, 100 }));
-    this->setLevel(1);
 
 
     this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
