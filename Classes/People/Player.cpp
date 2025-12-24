@@ -3,8 +3,10 @@
 #include "Shield.h"
 #include "Bow.h"
 #include "Sword.h"
-const float targetWidth = 200.0f;
-const float targetHeight = 200.0f;
+const float pictureWidth = 250.0f;
+const float pictureHeight = 250.0f;
+const float bodyWidth = 100.0f;
+const float bodyHeight = 150.0f;
 USING_NS_CC;
 const float GRAVITY = 980.0f;
 //*******************************************************************
@@ -13,7 +15,7 @@ const float GRAVITY = 980.0f;
 //初始化
 bool Player::init()
 {
-    if (!Sprite::initWithFile("Graph/Player/idle_00-=-0-=-.png", Rect(0, 0, targetWidth, targetHeight)))
+    if (!Sprite::initWithFile("Graph/Player/idle_00-=-0-=-.png", Rect(0, 0, pictureWidth, pictureHeight)))
         return false;
 	_runSpeed = 200.0f;
 	_jumpSpeed = 500.0f;
@@ -25,7 +27,7 @@ bool Player::init()
     this->setLevel(1);
 
 
-    this->_mainWeapon = new Sword(Sword::SwordType::BaseballBat);
+    this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
     this->_subWeapon = new Bow(Bow::BowType::dualBow);
     this->createNormalBody();
     
@@ -61,12 +63,12 @@ void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& o
 }
 void Player::createNormalBody() 
 {
-    updatePhysicsBody(Size(targetWidth / 3, targetHeight / 3), Vec2(0, targetHeight / 6));
+    updatePhysicsBody(Size(bodyWidth / 3, bodyHeight / 3), Vec2(0, bodyWidth / 4));
 }
 void Player::createRollBody() 
 {
     // 翻滚状态：高度减半，重心降低
-    updatePhysicsBody(Size(targetWidth / 3, targetHeight / 6), Vec2(0, targetHeight / 12));
+    updatePhysicsBody(Size(bodyWidth / 3, bodyHeight / 6), Vec2(0, bodyHeight / 12));
 }
 void Player::giveVelocityX(float speed)
 {
@@ -137,24 +139,18 @@ void Player::run()
 }
 void Player::jumpDown()
 {
-
 }
 void Player::jumpUp()
 {
-    // --- 核心修复：只有在地面上才能起跳 ---
     if (!this->isOnGround()) {
         return;
     }
 
     auto body = this->getPhysicsBody();
-    if (!body) return;
-
-    // 给予向上的冲量
+    if (!body)
+        return;
     Vec2 impulse(0, body->getMass() * _jumpSpeed);
     body->applyImpulse(impulse);
-
-    // 立即手动切换状态，防止重复起跳
-    // _state = ActionState::jumpUp; 
 }
 void Player::rollStart()
 {
@@ -182,15 +178,13 @@ void Player::dead()
 {
     this->unscheduleUpdate();
     _invincible = true;
-
-    // 2. 移除攻击和受击判定
     this->removeAttackBox();
-
-    // 3. 停止物理移动（可选，如果你希望死后滑行一段则不设为ZERO）
     this->getPhysicsBody()->setVelocity(Vec2(this->getPhysicsBody()->getVelocity().x * 0.5f, 0));
-
-    // 4. 开始死亡序列
     this->changeState(ActionState::lethalFall);
+}
+void Player::lethalHit()
+{
+    this->set0VelocityX();
 }
 void Player::shootArrow()
 {
@@ -257,6 +251,7 @@ void Player::changeState(ActionState newState)
 
         case ActionState::blockEndLightningShield:this->createShieldParryBox(); break;
         case ActionState::blockEndParryShield:this->createShieldParryBox(); break;
+        case ActionState::lethalHit:this->lethalHit(); break;
         default:break;
     }
     _state = newState;
@@ -356,26 +351,16 @@ void Player::playAnimation(ActionState state, bool loop)
 cocos2d::Animation* Player::createAnim(const std::string& name, int frameCount, float time) const
 {
     auto anim = Animation::create();
-
-    // 设置目标裁剪尺寸
-
-
     for (int i = 0; i < frameCount; ++i)
     {
         std::string framePath = StringUtils::format("Graph/Player/%s_%02d-=-0-=-.png", name.c_str(), i);
-
-        // 先创建一个临时Sprite获取图片原始尺寸
         auto tempSprite = Sprite::create(framePath);
-        if (!tempSprite) continue; // 图片不存在则跳过
-
+        if (!tempSprite) 
+            continue; 
         auto originalSize = tempSprite->getContentSize();
-
-        // 计算截取偏移，使目标区域居中
-        float offsetX = (originalSize.width  - targetWidth)  / 2.0f;
-        float offsetY = (originalSize.height - targetHeight) / 2.0f;
-
-        // 构建SpriteFrame并添加到动画
-        auto frame = SpriteFrame::create(framePath, Rect(offsetX, offsetY, targetWidth, targetHeight));
+        float offsetX = (originalSize.width  - pictureWidth)  / 2.0f;
+        float offsetY = (originalSize.height - pictureHeight) / 2.0f;
+        auto frame = SpriteFrame::create(framePath, Rect(offsetX, offsetY, pictureWidth, pictureHeight));
         anim->addSpriteFrame(frame);
     }
 
@@ -415,6 +400,7 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::AtkcloseCombatBow:anim = createAnim("closeCombatBow", 25, 0.3f); break;
         case ActionState::AtkdualBow:       anim = createAnim("dualBow", 25, 0.3f); break;
         case ActionState::crossbowShoot:    anim = createAnim("crossbowShoot", 11, 0.3f); break;
+        case ActionState::lethalHit:       anim = createAnim("lethalHit", 1, 1.0f); break;
         case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 1.0f); break;
         case ActionState::lethalSlam:       anim = createAnim("lethalSlam", 17, 1.0f); break;
         case ActionState::blockEndLightningShield: anim = createAnim("blockEndLightningShield", 9, 0.2f); break;
@@ -531,7 +517,8 @@ bool Player::isAttackState(ActionState s) const
            s == ActionState::AtkOvenAxeC ||
            s == ActionState::AtkBaseballBatE;
 }
-void Player::struck(float attackPower) {
+void Player::struck(float attackPower) 
+{
     auto attributes = this->getFinalAttributes();
     attributes.health -= attackPower * (100 - attributes.defense)/100;
 
@@ -539,8 +526,10 @@ void Player::struck(float attackPower) {
 
     CCLOG("Player HP: %f", this->getFinalAttributes().health);
 
-    if (this->getFinalAttributes().health <= 0) 
+    if (this->getFinalAttributes().health <= 0)
         this->dead();
+    else
+        this->changeState(ActionState::lethalHit);
 }
 void Player::startRollInvincible(float time)
 {
@@ -571,14 +560,14 @@ void Player::createAttackBox()
     removeAttackBox(); 
     _attackNode = Node::create();
     float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
-    _attackNode->setPosition(Vec2(targetWidth/2+dir*targetWidth/6, targetHeight*2/3));
+    _attackNode->setPosition(Vec2(pictureWidth /2+dir* pictureWidth /6, pictureHeight *2/3));
     this->addChild(_attackNode, 10);
 
     //获取方向偏移
    
 
 
-    auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0));
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 3, pictureHeight / 6), PhysicsMaterial(0, 0, 0));
     attackBody->setDynamic(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);
     attackBody->setCollisionBitmask(0);            // 严禁设为 1，否则会推开怪物
@@ -598,14 +587,14 @@ void Player::createShieldParryBox()
     removeAttackBox();
     _attackNode = Node::create();
     float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
-    _attackNode->setPosition(Vec2(targetWidth / 2 + dir * targetWidth / 6, targetHeight * 2 / 3));
+    _attackNode->setPosition(Vec2(pictureWidth / 2 + dir * pictureWidth / 6, pictureHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
     //获取方向偏移
 
 
 
-    auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 6), PhysicsMaterial(0, 0, 0));
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 3, pictureHeight / 6), PhysicsMaterial(0, 0, 0));
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);

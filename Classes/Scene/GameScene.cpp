@@ -168,107 +168,105 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
 
-    // 如果任何一个节点已经由于某些原因被移除，直接跳过逻辑
     if (!nodeA || !nodeB) return true;
 
+    // 获取碰撞发生的大致位置
+    Vec2 contactPoint = contact.getContactData()->points[0];
+
     // ==========================================================
-    // 1. 玩家近战攻击怪物 (PLAYER_ATTACK <-> ENEMY_BODY)
+    // 玩家攻击怪物
     // ==========================================================
+
+    //近战攻击
     if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
         auto enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
-        // 在你的实现中，Zombie/Grenadier 本身就是绑定 Body 的 Node
         auto monster = dynamic_cast<Monster*>(enemyNode);
-
         if (monster && !monster->isDead())
         {
-            float damage = _player->getFinalAttack();
-            monster->struck(damage);
-            CCLOG("Melee Hit Monster: %p | Damage: %f", monster, damage);
+            monster->struck(_player->getFinalAttack());
         }
     }
 
-    // ==========================================================
-    // 2. 玩家远程攻击怪物 (PLAYER_ARROW <-> ENEMY_BODY)
-    // ==========================================================
+    // 玩家箭矢
     if ((maskA & PLAYER_ARROW && maskB & ENEMY_BODY) || (maskB & PLAYER_ARROW && maskA & ENEMY_BODY))
     {
         auto arrowNode = (maskA & PLAYER_ARROW) ? nodeA : nodeB;
         auto enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
-
         auto arrow = dynamic_cast<Arrow*>(arrowNode);
         auto monster = dynamic_cast<Monster*>(enemyNode);
 
-        if (arrow && !arrow->hasHit() && monster && !monster->isDead())
+        if (arrow && !arrow->hasHit())
         {
-            arrow->hit(); // 箭矢消失
-            float damage = _player->getFinalAttack();
-            monster->struck(damage);
-            CCLOG("Arrow Hit Monster!");
+            arrow->hit();
+            if (monster && !monster->isDead()) 
+            {
+                monster->struck(_player->getFinalAttack());
+            }
         }
     }
 
     // ==========================================================
-    // 3. 怪物攻击玩家 (ENEMY_ATTACK / ENEMY_BOMB / ENEMY_ARROW <-> PLAYER_BODY)
+    // 怪物攻击玩家
     // ==========================================================
 
-    // A. 怪物近战攻击框
+    // 怪物近战
     if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
     {
         auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
         if (_player && !_player->isInvincible())
         {
-            // 注意：怪物的攻击框 _attackNode 是挂在 Monster 下的，所以需要 getParent
             auto monster = dynamic_cast<Monster*>(attackNode->getParent());
             float damage = monster ? monster->getFinalAttack() : 10.0f;
-            _player->struck(damage);
-            CCLOG("Player hit by melee!");
+
+
+            Vec2 sourcePos = attackNode->getParent()->convertToWorldSpace(attackNode->getPosition());
+            _player->struck(damage, sourcePos); 
         }
     }
 
-    // B. 怪物炸弹
+    //怪物炸弹
     if ((maskA & ENEMY_BOMB && maskB & PLAYER_BODY) || (maskB & ENEMY_BOMB && maskA & PLAYER_BODY))
     {
         auto bombNode = (maskA & ENEMY_BOMB) ? nodeA : nodeB;
         auto bomb = dynamic_cast<Bomb*>(bombNode);
         if (bomb && !bomb->isExploded())
         {
+            Vec2 sourcePos = bomb->getParent()->convertToWorldSpace(bomb->getPosition());
             bomb->explode();
-            if (_player && !_player->isInvincible()) {
-                _player->struck(20.0f); // 炸弹基础伤害
+            if (_player && !_player->isInvincible())
+            {
+                _player->struck(20.0f, sourcePos);
             }
         }
     }
 
-    // C. 怪物箭矢
+    // 怪物箭矢
     if ((maskA & ENEMY_ARROW && maskB & PLAYER_BODY) || (maskB & ENEMY_ARROW && maskA & PLAYER_BODY))
     {
         auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
         auto arrow = dynamic_cast<Arrow*>(arrowNode);
         if (arrow && !arrow->hasHit())
         {
+            Vec2 sourcePos = arrow->getParent()->convertToWorldSpace(arrow->getPosition());
             arrow->hit();
-            if (_player && !_player->isInvincible()) {
-                _player->struck(15.0f);
+            if (_player && !_player->isInvincible())
+            {
+                _player->struck(15.0f, sourcePos);
             }
         }
     }
 
     // ==========================================================
-    // 4. 飞行物撞击地面 (GROUND 逻辑)
+    //环境碰撞 
     // ==========================================================
     if ((maskA & GROUND || maskB & GROUND))
     {
         auto otherNode = (maskA & GROUND) ? nodeB : nodeA;
-
-        // 如果撞地的是箭矢
-        if (auto arrow = dynamic_cast<Arrow*>(otherNode)) {
+        if (auto arrow = dynamic_cast<Arrow*>(otherNode))
             arrow->hit();
-        }
-        // 如果撞地的是炸弹
-        else if (auto bomb = dynamic_cast<Bomb*>(otherNode)) {
+        else if (auto bomb = dynamic_cast<Bomb*>(otherNode)) 
             bomb->explode();
-        }
     }
 
     return true;

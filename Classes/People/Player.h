@@ -54,6 +54,7 @@ enum class ActionState
     blockEndLightningShield,
     blockEndParryShield,
 
+    lethalHit,
     lethalFall,
     lethalSlam,
 
@@ -100,6 +101,7 @@ static std::unordered_map<ActionState, StateConfig> StateTable =
     { ActionState::blockEndLightningShield,                 { true, 3, false } },
     { ActionState::blockEndParryShield,                     { true, 3, false } },
 
+    { ActionState::lethalHit,                               { true, 30, false } },
     { ActionState::lethalFall,                              { true, 99, false } },
     { ActionState::lethalSlam,                              { false, 99, false } },
 };
@@ -115,6 +117,7 @@ public:
 	void set0VelocityX();
 	void set0VelocityY();
     bool isOnGround() const;
+    bool isLethalState() const { return _state == ActionState::lethalHit || _state == ActionState::lethalFall || _state == ActionState::lethalSlam; };
 	void update(float dt);
 
     //¶¯×÷
@@ -132,6 +135,7 @@ public:
     void whenOnAttackKey(Weapon* w);
     void actionWhenEnding(ActionState state);
     void dead();
+    void lethalHit();
 
     //¶¯»­
     void changeState(ActionState newState);

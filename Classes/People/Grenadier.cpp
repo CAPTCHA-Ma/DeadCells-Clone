@@ -33,7 +33,7 @@ bool Grenadier::init()
 
     _body->setCategoryBitmask(ENEMY_BODY);
     _body->setCollisionBitmask(GROUND);
-    _body->setContactTestBitmask(PLAYER_ATTACK);
+    _body->setContactTestBitmask(PLAYER_ATTACK | PLAYER_ARROW); 
 
 
     playAnimation(GrenadierState::idle, true);
@@ -78,26 +78,18 @@ void Grenadier::walk()
 }
 void Grenadier::onDead()
 {
-    // 1. 确保切换到死亡状态
     changeState(GrenadierState::dead);
-
-    // 2. 彻底停止父层级对 AI 的调度 (如果有调用的话)
     this->unscheduleUpdate();
-
-    // 3. 物理修复：防止穿墙和死后滑动
-    if (auto body = this->getPhysicsBody()) {
+    if (auto body = this->getPhysicsBody())
+    {
         body->setVelocity(Vec2::ZERO);
         body->setAngularVelocity(0);
-
-        // 停止伤害检测，但保留与地面的碰撞防止掉入墙中
         body->setContactTestBitmask(0);
         body->setCollisionBitmask(GROUND);
     }
-
-    // 4. 彻底停止所有残留动作
     this->stopAllActions();
-    if (_sprite) _sprite->stopAllActions();
-
+    if (_sprite) 
+        _sprite->stopAllActions();
     runAction(Sequence::create(
         FadeOut::create(0.5f),
         RemoveSelf::create(true),
@@ -191,29 +183,18 @@ cocos2d::Animation* Grenadier::getAnimation(GrenadierState state)
 cocos2d::Animation* Grenadier::createAnim(const std::string& name, int frameCount, float time)
 {
     auto anim = Animation::create();
-
-    // 设置目标裁剪尺寸
-
-
     for (int i = 0; i < frameCount; ++i)
     {
         std::string framePath = StringUtils::format("Graph/Grenadier/%s_%02d-=-0-=-.png", name.c_str(), i);
-
-        // 先创建一个临时Sprite获取图片原始尺寸
         auto tempSprite = Sprite::create(framePath);
-        if (!tempSprite) continue; // 图片不存在则跳过
-
+        if (!tempSprite) 
+            continue;
         auto originalSize = tempSprite->getContentSize();
-
-        // 计算截取偏移，使目标区域居中
         float offsetX = (originalSize.width - targetWidth) / 2.0f;
         float offsetY = (originalSize.height - targetHeight) / 2.0f;
-
-        // 构建SpriteFrame并添加到动画
         auto frame = SpriteFrame::create(framePath, Rect(offsetX, offsetY, targetWidth, targetHeight));
         anim->addSpriteFrame(frame);
     }
-
     anim->setDelayPerUnit(time / frameCount);
     anim->setRestoreOriginalFrame(false);
     return anim;
@@ -235,7 +216,6 @@ void Grenadier::playAnimation(GrenadierState state, bool loop)
     }
     else
     {
-        // 死亡状态不需要回调 idle，播完就停在最后一帧等待 Scene 移除
         if (state == GrenadierState::dead) 
         {
             action = animate;
@@ -265,10 +245,8 @@ void Grenadier::createAttackBox()
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(ENEMY_ATTACK);
     attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(PLAYER_BODY);
+    attackBody->setContactTestBitmask(PLAYER_BODY|PLAYER_ARROW);
     _attackNode->setPhysicsBody(attackBody);
-
-    //延长显示时间以便调试 (例如 0.5s)
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),
         CallFunc::create([this]() { this->removeAttackBox(); }),

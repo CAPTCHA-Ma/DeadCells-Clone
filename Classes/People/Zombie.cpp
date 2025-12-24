@@ -39,7 +39,7 @@ bool Zombie::init()
 
     _body->setCategoryBitmask(ENEMY_BODY);
     _body->setCollisionBitmask(GROUND);
-    _body->setContactTestBitmask(PLAYER_ATTACK);
+    _body->setContactTestBitmask(PLAYER_ATTACK|PLAYER_ARROW);
 
 
     playAnimation(ZombieState::idle, true);

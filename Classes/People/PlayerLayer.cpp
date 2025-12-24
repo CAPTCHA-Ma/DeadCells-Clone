@@ -36,6 +36,8 @@ void PlayerLayer::setupEventListeners()
     auto listener = EventListenerKeyboard::create();
     listener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event)
         {
+            if (_player->isLethalState())
+                return;
             auto body = _player->getPhysicsBody();
             if (!body)
                 return;
@@ -108,13 +110,29 @@ cocos2d::Vec2 PlayerLayer::getPlayerWorldPosition() const
         return Vec2::ZERO;
     return this->convertToWorldSpace(_player->getPosition());
 }
-void PlayerLayer::struck(float attackPower)
+void PlayerLayer::struck(float attackPower, cocos2d::Vec2 sourcePos)
 {
+    float diffX = sourcePos.x - getPlayerWorldPosition().x;
+
+    if (diffX > 0)
+    {
+        _player->changeDirection(MoveDirection::RIGHT);
+    }
+    else 
+    {
+        _player->changeDirection(MoveDirection::LEFT);
+    }
     _player->struck(attackPower);
 }
 void PlayerLayer::update(float dt)
 {
     auto body = _player->getPhysicsBody();
+    if (_player->isLethalState())
+    {
+        _player->update(dt);
+        return;
+    }
+
     if (_leftPressed && !_rightPressed)
     {
         _player->changeDirection(MoveDirection::LEFT);

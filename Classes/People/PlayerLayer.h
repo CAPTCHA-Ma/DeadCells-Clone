@@ -9,7 +9,7 @@ public:
     cocos2d::Vec2 getPlayerWorldPosition() const;
     static PlayerLayer* create(cocos2d::Vec2 pos = cocos2d::Vec2(200,200));
     void update(float dt);
-    void struck(float attackPower);
+    void struck(float attackPower, cocos2d::Vec2 sourcePos);
     float getFinalAttack() { return _player->getFinalAttributes().attack; };
     bool isInvincible() {return _player->_invincible; };
 private:

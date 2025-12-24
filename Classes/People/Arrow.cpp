@@ -22,37 +22,28 @@ bool Arrow::init(bool fromPlayer)
     if (!Sprite::initWithFile("Graph/FlyingObject/heavyArrow-=-0-=-.png"))
         return false;
 
-    this->_speed = 400.0f; // 适当提升速度增加打击感
-    this->_hasHit = false; // 建议在头文件定义此变量，防止一次碰撞多次逻辑
+    this->_speed = 400.0f; 
+    this->_hasHit = false; 
 
-    // 优化碰撞盒：Size 建议略小于图片，避免箭尾擦边触发碰撞
     auto hurtbody = PhysicsBody::createBox(Size(targetWidth * 0.8f, targetHeight), PhysicsMaterial(0.1f, 0.0f, 0.0f));
 
-    hurtbody->setDynamic(true);
-    hurtbody->setRotationEnable(false);
-    hurtbody->setGravityEnable(false);
-
+	hurtbody->setDynamic(true);
+	hurtbody->setGravityEnable(false);
 
     if (fromPlayer)
     {
         hurtbody->setCategoryBitmask(PLAYER_ARROW);
-        // --- 核心修复：必须包含 GROUND，否则无法被地面挡住 ---
         hurtbody->setCollisionBitmask(PhysicsCategory::GROUND);
-        // 监听敌人和地面
         hurtbody->setContactTestBitmask(ENEMY_BODY | GROUND);
     }
     else
     {
         hurtbody->setCategoryBitmask(ENEMY_ARROW);
-        // 敌人的箭也需要被地面挡住
         hurtbody->setCollisionBitmask(PhysicsCategory::GROUND);
-        // 监听玩家和地面
         hurtbody->setContactTestBitmask(PLAYER_BODY | GROUND);
     }
 
     this->setPhysicsBody(hurtbody);
-
-    // 生命周期管理
     this->runAction(Sequence::create(DelayTime::create(8.0f), RemoveSelf::create(), nullptr));
 
     return true;
