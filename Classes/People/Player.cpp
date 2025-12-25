@@ -20,6 +20,7 @@ bool Player::init()
     _runSpeed = 200.0f;
     _jumpSpeed = 500.0f;
     _rollSpeed = 600.0f;
+	_climbSpeed = 100.0f;
     _state = ActionState::idle;
     _direction = MoveDirection::RIGHT;
     this->setOriginalAttributes(BasicAttributes({ 100, 10, 10 }));
@@ -41,8 +42,8 @@ void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
     body->setRotationEnable(false);
     body->setGravityEnable(true);
     body->setCategoryBitmask(PLAYER_BODY);
-    body->setCollisionBitmask(GROUND | PLATFORM | LADDER);
-    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER);
+    body->setCollisionBitmask(GROUND | PLATFORM | LADDER | MIX);
+    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER | MIX | GROUND);
 }
 void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
 {
@@ -73,6 +74,11 @@ void Player::giveVelocityX(float speed)
 {
     int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
     this->getPhysicsBody()->setVelocity(Vec2(speed * dir, this->getPhysicsBody()->getVelocity().y));
+}
+void Player::giveVelocityY(float speed)
+{
+	int dir = (_directionY == UpDownDirection::UP) ? 1 : -1;
+    this->getPhysicsBody()->setVelocity(Vec2(0, speed * dir));
 }
 void Player::changeDirection(MoveDirection dir)
 {
@@ -109,6 +115,7 @@ void Player::update(float dt)
         this->changeState(ActionState::idle);
     else if (!this->isOnGround() && _state != ActionState::rollStart)
         this->changeState(ActionState::jumpDown);
+
 }
 //*******************************************************************
 //*******************************************************************
@@ -145,6 +152,8 @@ void Player::jumpUp()
         return;
     }
 
+	CCLOG("JUMPING UP!\n");
+
     auto body = this->getPhysicsBody();
     if (!body)
         return;
@@ -160,6 +169,29 @@ void Player::rollStart()
         return;
     this->giveVelocityX(_rollSpeed);
 }
+
+void Player::hanging()
+{
+
+    CCLOG("HANGING!\n");
+
+    auto body = this->getPhysicsBody();
+    if (!body) return;
+
+	body->setVelocity(Vec2(0, 0));
+    body->setGravityEnable(false);
+
+}
+
+void Player::climbing()
+{
+
+	CCLOG("CLIMBING!\n");
+
+    this->giveVelocityY(_climbSpeed);
+
+}
+
 void Player::crouch()
 {
 }
@@ -228,6 +260,8 @@ void Player::changeState(ActionState newState)
         case ActionState::rollStart:this->rollStart(); break;
         case ActionState::crouch:this->crouch(); break;
         case ActionState::dead:this->dead(); break;
+		case ActionState::hanging:this->hanging(); break;
+		case ActionState::climbing:this->climbing(); break;
 
         case ActionState::atkA:this->createAttackBox(); break;
         case ActionState::atkB:this->createAttackBox(); break;
@@ -306,6 +340,10 @@ void Player::changeStateByWeapon(Weapon* weapon)
 bool Player::whetherCanChangeToNewState(ActionState newState) const
 {
 
+    if (newState == ActionState::hanging)
+        return true;
+    if (_state == ActionState::hanging && newState == ActionState::jumpUp)
+		return true;
     if (newState == ActionState::idle)
         return true;
     if (isAttackState(_state) && isAttackState(newState))

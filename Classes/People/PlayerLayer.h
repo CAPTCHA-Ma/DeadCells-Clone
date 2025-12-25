@@ -12,7 +12,10 @@ public:
     void struck(float attackPower, cocos2d::Vec2 sourcePos);
     float getFinalAttack() { return _player->getFinalAttributes().attack; };
     bool isInvincible() { return _player->_invincible; };
-    bool _isDropping = false;
+    bool _isDropping = false, _isBelowLadder = false, _isAboveLadder = false, _isContactBottom = false;
+    ActionState getCurrentState() const { return _player->_state; };
+    cocos2d::Vec2 GetVelo();
+
 private:
     Player* _player;
     bool _leftPressed = false;

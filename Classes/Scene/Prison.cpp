@@ -499,12 +499,55 @@ GenPos:
 			for (MapUnitData* sonRoom : room->nextRoom)
 			{
 
-				for (Vec2 point : sonRoom->path)
+				std::vector<Vec2>& path = sonRoom->path;
+				int n = path.size();
+				for (int i = 0; i < n; ++i)
 				{
 
-					
+					Vec2 pos = path[i];
 
-					MapArray[point.x][point.y] = BLOCK_WEIGHT;
+					if (i == 0 || i == n - 1) continue;
+
+					Vec2 dirToStart = path[i] - path[i - 1];
+					Vec2 dirToEnd = path[i + 1] - path[i];
+
+					for (int dy = -3; dy <= 3; ++dy) 
+					{
+
+						for (int dx = -3; dx <= 3; ++dx) 
+						{
+
+							if (abs(dx) == 3 || abs(dy) == 3) 
+							{
+								
+								if (i <= 3) 
+								{
+
+									if (dirToStart.x > 0 && dx < 0) continue;
+									if (dirToStart.x < 0 && dx > 0) continue;
+									if (dirToStart.y > 0 && dy < 0) continue;
+									if (dirToStart.y < 0 && dy > 0) continue;
+
+								}
+								
+								if (i >= n - 4) 
+								{
+
+									if (dirToEnd.x > 0 && dx > 0) continue;
+									if (dirToEnd.x < 0 && dx < 0) continue;
+									if (dirToEnd.y > 0 && dy > 0) continue;
+									if (dirToEnd.y < 0 && dy < 0) continue;
+
+								}
+
+								int tx = pos.x + dx, ty = pos.y + dy;
+								MapArray[tx][ty] = BLOCK_WEIGHT;
+
+							}
+
+						}
+
+					}
 
 				}
 
