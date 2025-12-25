@@ -10,13 +10,13 @@ Bow::Bow(BowType type)
     switch (type)
     {
         case BowType::closeCombatBow:
-            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
+            this->setWeaponAttributes(BasicAttributes({ 0, 100, 0 }));
             break;
         case BowType::dualBow:
-            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
+            this->setWeaponAttributes(BasicAttributes({ 0, 100, 0 }));
             break;
         case BowType::crossbow:
-            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
+            this->setWeaponAttributes(BasicAttributes({ 0, 100, 0 }));
             break;
     }
 }

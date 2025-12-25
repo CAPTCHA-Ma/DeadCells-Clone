@@ -1,48 +1,18 @@
 #include "StartMenu.h"
-#include "Loading.h"
+#include "Prison.h"
 #include "ui/CocosGUI.h"
 #include "Res/strings.h"
 #include "AudioEngine.h"
 #include "Prison.h"
-#include "People/people.h"
-#include "People/PlayerLayer.h"
-#include "People/MonsterLayer.h"
 USING_NS_CC;
 
 bool StartMenu::init()
 {
-	//if (!Scene::init()) return false;
-	if (!Scene::initWithPhysics()) return false;
-	this->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-	this->getPhysicsWorld()->setGravity(Vec2(0, -980.0f));
 
+	if (!Scene::init()) return false;
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-	auto groundNode = Node::create();
-	auto groundBody = PhysicsBody::createBox(Size(visibleSize.width, 20.0f),
-		PhysicsMaterial(0.1f, 1.0f, 0.0f));
-	groundBody->setDynamic(false);
-	groundBody->setCategoryBitmask(GROUND);
-	groundBody->setCollisionBitmask(0xFFFFFFFF); // 与所有东西碰撞
-	groundBody->setContactTestBitmask(0xFFFFFFFF);
-	groundNode->setPhysicsBody(groundBody);
-	groundNode->setPosition(Vec2(visibleSize.width / 2 + origin.x, origin.y + 10));
-	this->addChild(groundNode);
-	
-	auto _playerLayer = PlayerLayer::create();
-	this->addChild(_playerLayer, 1);
-	auto _monsterLayer1 = MonsterLayer::create(MonsterCategory::Grenadier,Vec2(100,200)); 
-	this->addChild(_monsterLayer1, 1);
-	auto _monsterLayer2 = MonsterLayer::create(MonsterCategory::Zombie, Vec2(500,500));
-	this->addChild(_monsterLayer2, 1);
-
-
-
-
-
-
 
 	// 背景图
 	auto backGround = Sprite::create("Graph/StartMenu/StartMenuBackGround.jpg");
@@ -76,43 +46,12 @@ bool StartMenu::init()
 	Startlabel->enableShadow();
 	Startlabel->enableGlow(Color4B::WHITE);
 
-	/*StartButton->addClickEventListener([](Ref* sender) {
+	StartButton->addClickEventListener([](Ref* sender)
+		{
 
-		auto LoadingScene = Loading::create();
-		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, LoadingScene));
-
-		std::thread PrisonLoadingThread([]() {
-
-			Prison* prisonScene = new class Prison;
-			if (prisonScene->InitPrisonData()) {
-
-				cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
-
-					prisonScene->RenderPrisonScene();
-
-					});
-
-			}
-
-			});
-
-		PrisonLoadingThread.detach();
-
-		});*/
-
-	StartButton->addClickEventListener([](Ref* sender) {
-
-		Prison* prisonScene = new class Prison;
-
-		prisonScene->SetupVisualScene();
-
-		std::thread PrisonLoadingThread([=]() {
-
-			prisonScene->InitPrisonData();
-
-			});
-
-		PrisonLoadingThread.detach();
+			auto prisonGen = new PrisonMapGen();
+			auto scene = GameScene::createWithGenerator(prisonGen);
+			Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
 
 		});
 

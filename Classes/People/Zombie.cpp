@@ -8,46 +8,72 @@ const float targetHeight = 120.0f;
 //初始化
 bool Zombie::init()
 {
-    if (!Sprite::initWithFile("Graph/Zombie/idle-=-0-=-.png"))
+    _type = MonsterCategory::Zombie;
+    if (!Node::init())
         return false;
 
-    // 属性
+    _sprite = Sprite::create("Graph/Zombie/idle-=-0-=-.png");
+    if (!_sprite)
+        return false;
+
+    this->addChild(_sprite);
+    this->setMonsterAttributes({ 100,100,0 });
     _state = ZombieState::idle;
     _direction = MoveDirection::RIGHT;
-    _moveSpeed = 150.0f; // 水平移动速度
+    _moveSpeed = 150.0f;
     _runSpeed = 2 * _moveSpeed;
     _attackRange = 100.0f;
 
-    auto body = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0.1f, 0.0f, 0.5f), Vec2(0, 1.0 / 6 * targetHeight));
-    body->setDynamic(true);            // 动态体，受力影响
-    body->setRotationEnable(false);    // 禁止旋转
-    body->setGravityEnable(true);      // 启用重力
-    body->setVelocity(Vec2::ZERO);
+    _body = PhysicsBody::createBox(
+        Size(targetWidth / 3, targetHeight / 3),
+        PhysicsMaterial(0.1f, 0.0f, 0.5f),
+        Vec2(0, targetHeight / 6)
+    );
 
-    this->setPhysicsBody(body);
+    _body->setDynamic(true);
+    _body->setRotationEnable(false);
+    _body->setGravityEnable(true);
+    _body->setVelocity(Vec2::ZERO);
 
-    this->getPhysicsBody()->setCategoryBitmask(ENEMY_BODY);//类别掩码1
-    this->getPhysicsBody()->setCollisionBitmask(GROUND);//碰撞掩码2
+    this->setPhysicsBody(_body);
 
-    this->createHurtBox();
-    this->scheduleUpdate();
+    _body->setCategoryBitmask(ENEMY_BODY);
+    _body->setCollisionBitmask(GROUND);
+    _body->setContactTestBitmask(PLAYER_ATTACK|PLAYER_ARROW);
+
+
     playAnimation(ZombieState::idle, true);
-
 
     return true;
 }
+void Zombie::onDead()
+{
+    changeState(ZombieState::dead);
+
+    if (auto body = this->getPhysicsBody()) 
+    {
+        body->setVelocity(Vec2::ZERO);
+        body->setAngularVelocity(0);
+    }
+
+    runAction(Sequence::create(
+        FadeOut::create(0.5f),
+        RemoveSelf::create(true),
+        nullptr
+    ));
+}
+
 //*******************************************************************
 //*******************************************************************
 //*******************************************************************
 //动作
 void Zombie::idle()
 {
-    auto body = this->getPhysicsBody();
-    if (body)
+    if (_body)
     {
-        Vec2 currentVel = body->getVelocity();
+        Vec2 currentVel = _body->getVelocity();
         currentVel.x = 0;
-        body->setVelocity(Vec2(0, currentVel.y));
+        _body->setVelocity(Vec2(0, currentVel.y));
     }
 }
 void Zombie::atkA()
@@ -57,33 +83,32 @@ void Zombie::atkA()
 }
 void Zombie::walk()
 {
-    auto body = this->getPhysicsBody();
-    if (!body) return;
-
-    int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-
-    Vec2 vel = body->getVelocity();
-    vel.x = _moveSpeed * dir;
-    body->setVelocity(vel);
-
-    this->setFlippedX(dir == -1);
+    if (_body)
+    {
+        int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+        if (_sprite)
+            _sprite->setFlippedX(dir == -1);
+        Vec2 vel = _body->getVelocity();
+        vel.x = _moveSpeed * dir;
+        _body->setVelocity(vel);
+    }
 }
 void Zombie::run()
 {
-    auto body = this->getPhysicsBody();
-    if (!body) return;
-    int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-    Vec2 vel = body->getVelocity();
-    vel.x = _runSpeed * dir;
-    body->setVelocity(vel);
-    this->setFlippedX(dir == -1);
-}
-void Zombie::dead()
-{
-    this->removeFromParentAndCleanup(true);
+    if (_body)
+    {
+        int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
+        if (_sprite)
+            _sprite->setFlippedX(dir == -1);
+        Vec2 vel = _body->getVelocity();
+        vel.x = _runSpeed * dir;
+        _body->setVelocity(vel);
+    }
 }
 void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
 {
+    if (_isDead)
+        return;
     if (_state == ZombieState::atkA)
         return;
 
@@ -94,20 +119,15 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
     Vec2 toPlayer = playerWorldPos - myWorldPos;
     float distX = abs(toPlayer.x);
     float distY = abs(toPlayer.y);
-
-    // 2. 决策阶段
     if (_aiTickTimer >= 0.2f)
     {
         _aiTickTimer = 0.0f;
-
-        // 判断 A: 是否在攻击范围内 (水平距离够近 且 高度基本一致)
-        // 这里的 _attackRange 建议根据投弹兵特性设定，比如 100-200
         if (distX <= _attackRange && distY < 10.0f)
         {
             // 攻击前修正一次朝向，确保正对玩家
             _direction = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
             int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-            this->setFlippedX(dir == -1);
+            _sprite->setFlippedX(dir == -1);
             this->changeState(ZombieState::atkA);
         }
         // 判断 B: 是否在追踪范围内
@@ -133,6 +153,9 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
 //动画
 void Zombie::changeState(ZombieState newState)
 {
+    if (_isDead && newState != ZombieState::dead)
+        return;
+
     if (_state == newState)
         return;
     switch (newState)
@@ -140,10 +163,10 @@ void Zombie::changeState(ZombieState newState)
         case ZombieState::idle: this->idle(); break;
         case ZombieState::atkA: this->atkA(); break;
         case ZombieState::walk: this->walk(); break;
-        case ZombieState::run: this->run(); break;
+        case ZombieState::run:  this->run(); break;
+        case ZombieState::dead:this->idle(); break;
         default: break;
     }
-
     _state = newState;
     playAnimation(newState, ZombieStateLoop[newState]);
 }
@@ -197,46 +220,30 @@ cocos2d::Animation* Zombie::createAnim(const std::string& name, int frameCount, 
 }
 void Zombie::playAnimation(ZombieState state, bool loop)
 {
-    this->stopActionByTag(1001);
+    if (!_sprite) return; // 确保精灵存在
+
+    // 停止 _sprite 上的旧动作
+    _sprite->stopActionByTag(1001);
+
     Animation* anim = getAnimation(state);
     if (!anim) return;
 
     auto animate = Animate::create(anim);
     Action* action = nullptr;
 
-    if (loop)
-    {
+    if (loop) {
         action = RepeatForever::create(animate);
     }
-    else
-    {
-        auto callback = CallFunc::create([this, state]() {
-            if (_state == state)
-            {
+    else {
+        action = Sequence::create(animate, CallFunc::create([this, state]() {
+            if (_state == state) {
                 changeState(ZombieState::idle);
             }
-            });
-        action = Sequence::create(animate, callback, nullptr);
+            }), nullptr);
     }
 
     action->setTag(1001);
-    this->runAction(action);
-}
-
-void Zombie::createHurtBox()
-{
-    // Player::createHurtBox()
-    _hurtNode = Node::create();
-    auto hurtBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 3, targetHeight / 3), PhysicsMaterial(0, 0, 0), Vec2(targetWidth / 2, targetHeight * 2 / 3));
-    hurtBody->setDynamic(false);
-    hurtBody->setGravityEnable(false);
-    hurtBody->setRotationEnable(false);
-    hurtBody->setCategoryBitmask(PLAYER_HURT);    // PLAYER_HURT
-    hurtBody->setCollisionBitmask(0);      // 不产生物理碰撞
-    hurtBody->setContactTestBitmask(ENEMY_ATTACK); // ENEMY_HIT
-
-    _hurtNode->setPhysicsBody(hurtBody);
-    this->addChild(_hurtNode);
+    _sprite->runAction(action); // 修改这里：让 _sprite 动起来
 }
 void Zombie::createAttackBox()
 {
@@ -244,19 +251,18 @@ void Zombie::createAttackBox()
 
     _attackNode = Node::create();
     float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
-    _attackNode->setPosition(Vec2(targetWidth / 2 + dir * targetWidth / 6, targetHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
-    auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth / 2, targetHeight / 6), PhysicsMaterial(0, 0, 0));
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth*2/3, targetHeight / 6), PhysicsMaterial(0, 0, 0),Vec2(dir*targetWidth/6,targetHeight/6));
 
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
-    attackBody->setCategoryBitmask(PLAYER_ATTACK);
+    attackBody->setCategoryBitmask(ENEMY_ATTACK);
     attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(ENEMY_HURT);
+    attackBody->setContactTestBitmask(PLAYER_BODY);
     _attackNode->setPhysicsBody(attackBody);
 
-    //延长显示时间以便调试 (例如 0.5s)
+
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),
         CallFunc::create([this]() { this->removeAttackBox(); }),

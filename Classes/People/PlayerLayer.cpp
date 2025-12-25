@@ -20,10 +20,10 @@ bool PlayerLayer::init(cocos2d::Vec2 pos)
     if (!Layer::init())
         return false;
 
-    this->setName("PlayerLayer"); 
+    this->setName("PlayerLayer");
     _player = Player::create();
     _player->setPosition(pos);
-	_player->setName("Player");
+    _player->setName("Player");
     this->addChild(_player);
 
     this->setupEventListeners();
@@ -36,6 +36,8 @@ void PlayerLayer::setupEventListeners()
     auto listener = EventListenerKeyboard::create();
     listener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event)
         {
+            if (_player->isLethalState())
+                return;
             auto body = _player->getPhysicsBody();
             if (!body)
                 return;
@@ -43,18 +45,30 @@ void PlayerLayer::setupEventListeners()
             {
                 case EventKeyboard::KeyCode::KEY_A://×óÒÆ
                     _leftPressed = true;
-					_rightPressed = false;
+                    _rightPressed = false;
                     _player->changeDirection(MoveDirection::LEFT);
                     _player->changeState(ActionState::run);
                     break;
                 case EventKeyboard::KeyCode::KEY_D://ÓÒÒÆ
                     _rightPressed = true;
-					_leftPressed = false;
+                    _leftPressed = false;
                     _player->changeDirection(MoveDirection::RIGHT);
                     _player->changeState(ActionState::run);
                     break;
                 case EventKeyboard::KeyCode::KEY_SPACE://ÌøÔ¾
-                    _player->changeState(ActionState::jumpUp);
+
+                    if (_downPressed)
+                    {
+
+                        if (_isDropping) break;
+                        _isDropping = true;
+
+                        this->scheduleOnce([this](float dt) {
+                            _isDropping = false;
+                            }, 0.3f, "reset_drop_flag");
+
+                    }
+                    else _player->changeState(ActionState::jumpUp);
                     break;
                 case EventKeyboard::KeyCode::KEY_J://Ö÷ÎäÆ÷¹¥»÷
                     _player->whenOnAttackKey(_player->_mainWeapon);
@@ -63,6 +77,7 @@ void PlayerLayer::setupEventListeners()
                     _player->whenOnAttackKey(_player->_subWeapon);
                     break;
                 case EventKeyboard::KeyCode::KEY_S://ÏÂ¶×
+					_downPressed = true;
                     _player->changeState(ActionState::crouch);
                     break;
                 case EventKeyboard::KeyCode::KEY_L://¹ö¶¯
@@ -94,6 +109,7 @@ void PlayerLayer::setupEventListeners()
             }
             else if (keyCode == EventKeyboard::KeyCode::KEY_S)
             {
+                _downPressed = false;
                 if (_player->_state == ActionState::crouch)
                 {
                     _player->changeState(ActionState::idle);
@@ -102,9 +118,35 @@ void PlayerLayer::setupEventListeners()
         };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
+cocos2d::Vec2 PlayerLayer::getPlayerWorldPosition() const
+{
+    if (!_player) 
+        return Vec2::ZERO;
+    return this->convertToWorldSpace(_player->getPosition());
+}
+void PlayerLayer::struck(float attackPower, cocos2d::Vec2 sourcePos)
+{
+    float diffX = sourcePos.x - getPlayerWorldPosition().x;
+
+    if (diffX > 0)
+    {
+        _player->changeDirection(MoveDirection::RIGHT);
+    }
+    else 
+    {
+        _player->changeDirection(MoveDirection::LEFT);
+    }
+    _player->struck(attackPower);
+}
 void PlayerLayer::update(float dt)
 {
     auto body = _player->getPhysicsBody();
+    if (_player->isLethalState())
+    {
+        _player->update(dt);
+        return;
+    }
+
     if (_leftPressed && !_rightPressed)
     {
         _player->changeDirection(MoveDirection::LEFT);
@@ -112,9 +154,9 @@ void PlayerLayer::update(float dt)
         {
             if (!body)
                 return;
-			_player->giveVelocityX(_player->_runSpeed);
+            _player->giveVelocityX(_player->_runSpeed);
         }
-            _player->changeState(ActionState::run);
+        _player->changeState(ActionState::run);
     }
     else if (_rightPressed && !_leftPressed)
     {
@@ -136,5 +178,3 @@ void PlayerLayer::update(float dt)
     }
     _player->update(dt);
 }
-
-

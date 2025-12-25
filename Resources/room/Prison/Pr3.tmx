@@ -7,7 +7,7 @@
    eJztlEEKwCAMBL1a///f0oNUwprGRCIpGdiD0K2jEGsppTJBcN9LY/1vJNLZh2i+D5ZZ0HS+cg0Z11rnZnCmXck99HWbOKL9KdIuoneR1y5nbt+dXcmbi7rSOUznd2+ts2fo2xAh492ddvmL8wzLbKCzrnY1nHTWks4+7Hbm3E/PdM8Nbu8MlQ==
   </data>
  </layer>
- <layer id="2" name="lnk" width="45" height="20" visible="0" opacity="0.5">
+ <layer id="2" name="lnk" width="45" height="20" opacity="0.5">
   <data encoding="base64" compression="zlib">
    eJzt1jkOwCAMRFFCCu5/4/TIMWNskEHzJXcUj0VRStF7hYnoEcZSVcZa6ybK0XtoXm9G95XdvNqGmDXbaWbk/HfmMXves6eZM6XZXsa7Zwwt6lsm/Xv+zWh9RjOyJ5rvMWv2LH38LQN5
   </data>
@@ -15,28 +15,24 @@
  <objectgroup id="3" name="markers" opacity="0.5">
   <object id="1" name="BreakableGround" type="BreakableGround" x="336" y="120" width="96" height="48">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="2" name="Door" type="Door" x="648" y="240" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="3" name="Door" type="Door" x="912" y="240" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>
   </object>
   <object id="4" name="Door" type="Door" x="360" y="432" width="24" height="24">
    <properties>
-    <property name="yr" value="0"/>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
    </properties>

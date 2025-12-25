@@ -58,51 +58,53 @@ endif()
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/Scene/StartMenu.cpp
-     Classes/Scene/Loading.cpp
+     Classes/Scene/Prison.cpp
+     Classes/Scene/GameScene.cpp
      Classes/Res/strings.cpp
-     Classes/People/FlyingObject.cpp
-     Classes/People/Arrow.cpp
-     Classes/People/Bomb.cpp
+
      Classes/People/PlayerLayer.cpp
      Classes/People/Player.cpp
-     Classes/People/Weapon.cpp
      Classes/People/Shield.cpp
-     Classes/People/Bow.cpp
      Classes/People/Sword.cpp
-     Classes/People/MonsterLayer.cpp
-     Classes/People/Monster.cpp
-     Classes/People/Grenadier.cpp
+     Classes/People/Weapon.cpp
      Classes/People/Zombie.cpp
+     Classes/People/Arrow.cpp
+     Classes/People/Bomb.cpp
+     Classes/People/Bow.cpp
+     Classes/People/FlyingObject.cpp
+     Classes/People/Grenadier.cpp
+     Classes/People/Monster.cpp
+     Classes/People/MonsterLayer.cpp
+
      Classes/Map/MapUnit.cpp
-     Classes/Map/SceneMap.cpp
-     Classes/Scene/Prison.cpp
-
-
+     Classes/Map/RoomNode.cpp
 
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/Scene/StartMenu.h
-     Classes/Scene/Loading.h
+     Classes/Scene/Prison.h
+     Classes/Scene/GameScene.h
      Classes/Res/strings.h
-     Classes/People/FlyingObject.h
+
+     Classes/People/PlayerLayer.h
+     Classes/People/Player.h
+     Classes/People/Shield.h
+     Classes/People/Sword.h
+     Classes/People/Weapon.h
+     Classes/People/Zombie.h
      Classes/People/Arrow.h
      Classes/People/Bomb.h
-     Classes/People/PlayerLayer.h
-     Classes/People/People.h
-     Classes/People/Player.h
-     Classes/People/Weapon.h
-     Classes/People/Shield.h
      Classes/People/Bow.h
-     Classes/People/Sword.h
-     Classes/People/MonsterLayer.h
-     Classes/People/Monster.h
+     Classes/People/FlyingObject.h
      Classes/People/Grenadier.h
-     Classes/People/Zombie.h
-     Classes/Map/MapUnit.h
-     Classes/Map/SceneMap.h
-     Classes/Scene/Prison.h
+     Classes/People/Monster.h
+     Classes/People/MonsterLayer.h
+     Classes/People/people.h
 
+     Classes/Map/MapGenerator.h
+     Classes/Map/MapUnit.h
+     Classes/Map/RoomNode.h
      
      )
 

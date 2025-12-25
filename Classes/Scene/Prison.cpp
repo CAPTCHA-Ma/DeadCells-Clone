@@ -5,122 +5,10 @@
 #include <cmath>
 #include <algorithm>
 
-struct AStarNode
+void PrisonMapGen::GenRoomPos()
 {
 
-	int g = 0, f = 0, h = 0, lastDir = -1;
-	bool IsOccupied = false, extra = false;
-	Vec2 last = Vec2::ZERO;
-
-};
-std::vector<std::vector<AStarNode>> AStarGraph;
-
-struct compare
-{
-
-	//bool operator()(Vec2 a, Vec2 b) 
-	//{
-
-	//	return AStarGraph[a.x][a.y].f > AStarGraph[b.x][b.y].f;
-
-	//}
-
-	bool operator()(Vec2 a, Vec2 b)
-	{
-
-		if (AStarGraph[a.x][a.y].f != AStarGraph[b.x][b.y].f) return AStarGraph[a.x][a.y].f > AStarGraph[b.x][b.y].f;
-
-		return AStarGraph[a.x][a.y].h > AStarGraph[b.x][b.y].h;
-
-	}
-
-};
-
-void Prison::SetupVisualScene()
-{
-
-	PrisonMapData = new SceneMapData; 
-	PrisonScene = Scene::create();
-
-	_debugDrawNode = DrawNode::create();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-
-	_debugDrawNode->setPosition(visibleSize.width / 2, visibleSize.height / 2);
-	PrisonScene->addChild(_debugDrawNode, 999);
-
-	Director::getInstance()->replaceScene(PrisonScene);
-
-}
-
-void Prison::Draw()
-{
-
-	Director::getInstance()->getScheduler()->performFunctionInCocosThread([=]() {
-
-		if (_debugDrawNode) {
-			_debugDrawNode->clear();
-
-			Vec2 move(-200, -100);
-
-			for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
-			{
-
-				Color4F color = Color4F::WHITE;
-				if (room->roomtype == Type::start) color = Color4F::GREEN;
-				else if (room->roomtype == Type::combat) color = Color4F::RED;
-
-				_debugDrawNode->drawRect(room->obstacle.lowLeft + move, room->obstacle.upperRight + move, color);
-
-				color = Color4F::RED;
-				for (Vec2 entrance : room->entrance)
-				{
-
-					_debugDrawNode->drawRect(room->obstacle.lowLeft + entrance - Vec2(0.5, 0.5) + move, room->obstacle.lowLeft + entrance + Vec2(0.5, 0.5) + move, color);
-					color = Color4F::BLUE;
-
-				}
-
-				/*if (room->preRoom)
-				{
-
-					_debugDrawNode->drawLine(room->center + move, room->preRoom->center + move, Color4F(1, 1, 1, 0.3f));
-
-				}*/
-
-				color = Color4F::GREEN;
-				for (Vec2 exit : room->exit)
-				{
-
-					_debugDrawNode->drawRect(room->obstacle.lowLeft + exit - Vec2(0.5, 0.5) + move, room->obstacle.lowLeft + exit + Vec2(0.5, 0.5) + move, color);
-					color = Color4F::YELLOW;
-
-				}
-
-				if (room->path.size())
-				{
-
-					for (int i = 0; i < room->path.size() - 1; ++i)
-					{
-
-						Vec2 u = room->path[i];
-						Vec2 v = room->path[i + 1];
-						_debugDrawNode->drawLine(u + move, v + move, Color4F(1, 1, 1, 0.3f));
-
-					}
-
-				}
-
-			}
-		}
-
-		});
-
-}
-
-void Prison::GenRoomPos()
-{
-
-	for (MapUnitData* roomData : PrisonMapData->SceneMapDataUnit)
+	for (MapUnitData* roomData : _rooms)
 	{
 
 		if (roomData->preRoom == nullptr) continue;
@@ -143,7 +31,7 @@ void Prison::GenRoomPos()
 
 		NotYet = false;
 
-		for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
+		for (MapUnitData* room : _rooms)
 		{
 
 			if (room->preRoom)
@@ -172,15 +60,15 @@ void Prison::GenRoomPos()
 
 		}
 
-		for (int i = 0; i < PrisonMapData->SceneMapDataUnit.size(); ++i)
+		for (int i = 0; i < _rooms.size(); ++i)
 		{
 
-			MapUnitData* roomA = PrisonMapData->SceneMapDataUnit[i];
+			MapUnitData* roomA = _rooms[i];
 
-			for (int j = i + 1; j < PrisonMapData->SceneMapDataUnit.size(); ++j)
+			for (int j = i + 1; j < _rooms.size(); ++j)
 			{
 
-				MapUnitData* roomB = PrisonMapData->SceneMapDataUnit[j];
+				MapUnitData* roomB = _rooms[j];
 
 				if (IsRoomOverLap(roomA, roomB))
 				{
@@ -201,11 +89,11 @@ void Prison::GenRoomPos()
 
 		}
 
-		for (MapUnitData* room : PrisonMapData->SceneMapDataUnit) room->ChangePosition();
+		for (MapUnitData* room : _rooms) room->ChangePosition();
 
 	}
 
-	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
+	for (MapUnitData* room : _rooms)
 	{
 
 		room->obstacle.lowLeft += Vec2(CORR_WIDTH, CORR_WIDTH);
@@ -215,169 +103,17 @@ void Prison::GenRoomPos()
 
 }
 
-void CalH(Vec2 startPos, Vec2 endPos)
+void PrisonMapGen::Generate()
 {
 
-	AStarGraph[startPos.x][startPos.y].h = std::abs(endPos.x - startPos.x) + std::abs(endPos.y - startPos.y);
-
-}
-
-bool IsOut(Vec2 pos)
-{
-
-	int x = AStarGraph.size(),
-		y = AStarGraph[0].size();
-
-	if (pos.x <= 0 || pos.x >= x || pos.y <= 0 || pos.y >= y) return true;
-	else return false;
-
-}
-
-bool FindPath(std::vector<std::vector<int>>& mapArray, Vec2 startPos, Vec2 endPos, std::vector<Vec2>& path)
-{
-	
-	std::priority_queue<Vec2, std::vector<Vec2>, compare> frontier;
-	AStarGraph[startPos.x][startPos.y].IsOccupied = true;
-	AStarGraph[startPos.x][startPos.y].g = 0;
-	CalH(startPos, endPos);
-	AStarGraph[startPos.x][startPos.y].f = AStarGraph[startPos.x][startPos.y].g + AStarGraph[startPos.x][startPos.y].h;
-	frontier.push(startPos);
-
-	Vec2 dir[4] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
-
-	int counter = 0;
-	while (frontier.size())
-	{
-
-		Vec2 front = frontier.top();
-		frontier.pop();
-
-		for (int i = 0; i < 4; ++i)
-		{
-
-			Vec2 pos = front + dir[i];
-
-			if (pos == endPos)
-			{
-
-				Vec2 index = pos;
-				AStarGraph[pos.x][pos.y].last = front;
-
-				while (index != startPos)
-				{
-
-					path.push_back(index);
-					index = AStarGraph[index.x][index.y].last;
-
-				}
-
-				return true;
-
-			}
-
-			if (IsOut(pos)) continue;
-
-			if (AStarGraph[pos.x][pos.y].IsOccupied || (mapArray[pos.x][pos.y] == BLOCK_WEIGHT)) continue;
-
-			bool IsWidthEnough = true;
-			for (int j = 0; j <= 1; ++j)
-			{
-
-				Vec2 point = pos;
-
-				for (int k = 0; k <= 1; ++k)
-				{
-
-					point += dir[(1 ^ (i / 2)) * 2 + j];
-
-					if (IsOut(point))
-					{
-
-						IsWidthEnough = false;
-						break;
-
-					}
-
-					if (mapArray[point.x][point.y] == BLOCK_WEIGHT)
-					{
-
-						IsWidthEnough = false;
-						break;
-
-					}
-
-				}
-
-			}
-
-			if (!IsWidthEnough) continue;
-
-			if (AStarGraph[front.x][front.y].lastDir != -1 && i != AStarGraph[front.x][front.y].lastDir)
-			{
-
-				for (int j = 1; j <= 2; ++j)
-				{
-
-					Vec2 point = pos + dir[AStarGraph[front.x][front.y].lastDir] * j;
-
-					for (int k = 0; k <= 2; ++k)
-					{
-
-						point += dir[i ^ 1];
-
-						if (IsOut(point))
-						{
-
-							IsWidthEnough = false;
-							break;
-
-						}
-
-						if (mapArray[point.x][point.y] == BLOCK_WEIGHT)
-						{
-
-							IsWidthEnough = false;
-							break;
-
-						}
-
-					}
-
-				}
-
-				if (!IsWidthEnough) continue;
-
-			}
-
-			AStarGraph[pos.x][pos.y].g = AStarGraph[front.x][front.y].g + mapArray[pos.x][pos.y];
-			if (!AStarGraph[pos.x][pos.y].extra) AStarGraph[pos.x][pos.y].g += 1;
-			AStarGraph[pos.x][pos.y].lastDir = i;
-			if (AStarGraph[front.x][front.y].lastDir != -1 && AStarGraph[front.x][front.y].lastDir != AStarGraph[pos.x][pos.y].lastDir) AStarGraph[pos.x][pos.y].g += TURN_PUNISH;
-			CalH(pos, endPos);
-			AStarGraph[pos.x][pos.y].f = AStarGraph[pos.x][pos.y].g + AStarGraph[pos.x][pos.y].h;
-			AStarGraph[pos.x][pos.y].IsOccupied = true;
-			AStarGraph[pos.x][pos.y].last = front;
-
-			frontier.push(pos);
-
-		}
-
-	}
-
-	return false;
-
-}
-
-bool Prison::InitPrisonData()
-{
-
-	PrisonMapData = new SceneMapData;
 	mDM = MapDataManager::getInstance();
+	std::vector<std::vector<int>> MapArray;
+	std::vector<std::vector<AStarNode>> AStarGraph;
 
 GenRoom:
 
-	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit) delete room;
-	PrisonMapData->SceneMapDataUnit.clear();
+	for (MapUnitData* room : _rooms) delete room;
+	_rooms.clear();
 
 	int AllNum = RandomHelper::random_int(12, 15),
 		eliteNum = RandomHelper::random_int(0, 2),
@@ -395,7 +131,7 @@ GenRoom:
 	startRoomData->roomtype = Type::start;
 	startRoomData->name = "PrisonStart.tmx";
 	startRoomData->preRoom = nullptr;
-	PrisonMapData->SceneMapDataUnit.push_back(startRoomData);
+	_rooms.push_back(startRoomData);
 	roomQueue.push(startRoomData);
 
 	while (!roomQueue.empty())
@@ -409,7 +145,7 @@ GenRoom:
 		if (sonNum[1]) sonNumPool.insert(sonNumPool.end(), sonNum[1], 1);
 		if (sonNum[2]) sonNumPool.insert(sonNumPool.end(), sonNum[2], 2);
 		if (sonNum[3]) sonNumPool.insert(sonNumPool.end(), sonNum[3], 3);
-		
+
 		int chosenSonNum = sonNumPool[RandomHelper::random_int(0, int(sonNumPool.size() - 1))];
 		--sonNum[chosenSonNum];
 
@@ -434,22 +170,22 @@ GenRoom:
 
 			}
 			else room->roomtype = Type::exit;
-			
+
 			switch (room->roomtype)
 			{
 
-			case Type::elite:
-				room->name = "PrisonElite.tmx";
-				break;
-			case Type::treasure:
-				room->name = "PrisonTreasure.tmx";
-				break;
-			case Type::trader:
-				room->name = "PrisonTrader.tmx";
-				break;
-			case Type::exit:
-				room->name = "PrisonExit.tmx";
-				break;
+				case Type::elite:
+					room->name = "PrisonElite.tmx";
+					break;
+				case Type::treasure:
+					room->name = "PrisonTreasure.tmx";
+					break;
+				case Type::trader:
+					room->name = "PrisonTrader.tmx";
+					break;
+				case Type::exit:
+					room->name = "PrisonExit.tmx";
+					break;
 
 			}
 
@@ -473,7 +209,7 @@ GenRoom:
 				sonRoomData->preRoom = room;
 				room->nextRoom.push_back(sonRoomData);
 				roomQueue.push(sonRoomData);
-				PrisonMapData->SceneMapDataUnit.push_back(sonRoomData);
+				_rooms.push_back(sonRoomData);
 
 			}
 
@@ -486,6 +222,7 @@ GenRoom:
 GenPos:
 
 	++counter;
+	CCLOG("%d", counter);
 	if (counter == MAX_TEMP)
 	{
 
@@ -501,20 +238,20 @@ GenPos:
 	startRoomData->center = Vec2(static_cast<float>(mDM->getRoomData(startRoomData->name)->width / 2), static_cast<float>(mDM->getRoomData(startRoomData->name)->height / 2));
 	GenRoomPos();
 
-	for (int i = 0; i < PrisonMapData->SceneMapDataUnit.size(); ++i)
+	for (int i = 0; i < _rooms.size(); ++i)
 	{
 
-		MapUnitData* roomA = PrisonMapData->SceneMapDataUnit[i];
+		MapUnitData* roomA = _rooms[i];
 
 		if (!roomA->nextRoom.size()) continue;
 
 		for (MapUnitData* sonroomA : roomA->nextRoom)
 		{
 
-			for (int j = i + 1; j < PrisonMapData->SceneMapDataUnit.size(); ++j)
+			for (int j = i + 1; j < _rooms.size(); ++j)
 			{
 
-				MapUnitData* roomB = PrisonMapData->SceneMapDataUnit[j];
+				MapUnitData* roomB = _rooms[j];
 				if (!roomB->nextRoom.size() || roomB == sonroomA) continue;
 
 				for (MapUnitData* sonroomB : roomB->nextRoom)
@@ -535,7 +272,7 @@ GenPos:
 
 	int minLowLeftX = INT_MAX, minLowLeftY = INT_MAX, maxUpperRightX = INT_MIN, maxUpperRightY = INT_MIN;
 
-	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
+	for (MapUnitData* room : _rooms)
 	{
 
 		room->obstacle.lowLeft = Vec2(int(room->obstacle.lowLeft.x), int(room->obstacle.lowLeft.y));
@@ -553,7 +290,7 @@ GenPos:
 	}
 
 	Vec2 moveVec = Vec2(-minLowLeftX + 5 * CORR_WIDTH, -minLowLeftY + 5 * CORR_WIDTH);
-	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
+	for (MapUnitData* room : _rooms)
 	{
 
 		room->velocity = moveVec;
@@ -564,7 +301,7 @@ GenPos:
 	MapArray.assign(maxUpperRightX - minLowLeftX + 10 * CORR_WIDTH, std::vector<int>(maxUpperRightY - minLowLeftY + 10 * CORR_WIDTH, 0));
 	AStarGraph.assign(maxUpperRightX - minLowLeftX + 10 * CORR_WIDTH, std::vector<AStarNode>(maxUpperRightY - minLowLeftY + 10 * CORR_WIDTH));
 
-	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
+	for (MapUnitData* room : _rooms)
 	{
 
 		Vec2& ll = room->obstacle.lowLeft;
@@ -618,43 +355,50 @@ GenPos:
 
 	}
 
-	CCLOG("!!!\n");
-	for (MapUnitData* room : PrisonMapData->SceneMapDataUnit)
+	for (MapUnitData* room : _rooms)
 	{
 
 		if (!room->nextRoom.size()) continue;
 
 		bool IsRoomConnected = false;
 
-		for (Vec2 exit : room->exit)
+		for (int j = 0; j < room->exit.size(); ++j)
 		{
 
+			Vec2 exit = room->exit[j];
 			bool IsExitCorrected = true;
 			Vec2 start = room->obstacle.lowLeft + exit;
-			//std::vector<Vec2> path[3];
+			std::vector<Vec2> path[3];
+			int entIndex[3];
 
 			for (int i = 0; i < room->nextRoom.size(); ++i)
 			{
 
 				MapUnitData* sonRoom = room->nextRoom[i];
 				bool IsPathConnected = false;
-				//path[i].clear();
+				path[i].clear();
 
-				for (Vec2 entrance : sonRoom->entrance)
+				for (int k = 0; k < sonRoom->entrance.size(); ++k)
 				{
 
+					Vec2 entrance = sonRoom->entrance[k];
 					Vec2 end = sonRoom->obstacle.lowLeft + entrance;
-					sonRoom->path.clear();
-					//std::vector<Vec2> tmppath;
+					std::vector<Vec2> tmppath;
 
-					bool result = FindPath(MapArray, start, end, sonRoom->path);
+					bool result = FindPath(MapArray, AStarGraph, start, end, tmppath);
 
-					/*if (tmppath.size())
+					if (tmppath.size())
 					{
 
-						if (!path[i].size() || (tmppath.size() < path[i].size())) path[i] = tmppath;
+						if (!path[i].size() || (tmppath.size() < path[i].size()))
+						{
 
-					}*/
+							path[i] = tmppath;
+							entIndex[i] = k;
+
+						}
+
+					}
 
 					for (auto& row : AStarGraph)
 					{
@@ -668,13 +412,7 @@ GenPos:
 
 					}
 
-					if (result)
-					{
-
-						IsPathConnected = true;
-						break;
-
-					}
+					if (result) IsPathConnected = true;
 
 				}
 
@@ -682,13 +420,12 @@ GenPos:
 				{
 
 					IsExitCorrected = false;
-					break;
 
 				}
 				else
 				{
 
-					for (Vec2 point : sonRoom->path) AStarGraph[point.x][point.y].extra = true;
+					for (Vec2 point : path[i]) AStarGraph[point.x][point.y].extra = true;
 
 				}
 
@@ -709,8 +446,47 @@ GenPos:
 			if (IsExitCorrected)
 			{
 
-				IsRoomConnected = true;
-				break;
+				if (!IsRoomConnected)
+				{
+
+					IsRoomConnected = true;
+					for (int i = 0; i < room->nextRoom.size(); ++i)
+					{
+
+						room->nextRoom[i]->path = path[i];
+						room->nextRoom[i]->chosenEntrance = entIndex[i];
+
+					}
+					room->chosenExit = j;
+
+				}
+				else
+				{
+
+					int prelen = 0, nowlen = 0;
+					for (int i = 0; i < room->nextRoom.size(); ++i)
+					{
+
+						prelen += room->nextRoom[i]->path.size();
+						nowlen += path[i].size();
+
+					}
+
+					if (nowlen < prelen)
+					{
+
+						for (int i = 0; i < room->nextRoom.size(); ++i)
+						{
+
+							room->nextRoom[i]->path = path[i];
+							room->nextRoom[i]->chosenEntrance = entIndex[i];
+
+						}
+						room->chosenExit = j;
+
+					}
+
+				}
 
 			}
 
@@ -726,6 +502,8 @@ GenPos:
 				for (Vec2 point : sonRoom->path)
 				{
 
+					
+
 					MapArray[point.x][point.y] = BLOCK_WEIGHT;
 
 				}
@@ -735,27 +513,160 @@ GenPos:
 		}
 
 	}
-	
-	Draw();
 
-	return true;
+}
 
-}	
-
-bool Prison::RenderPrisonScene()
+bool PrisonMapGen::FindPath(std::vector<std::vector<int>>& mapArray, std::vector<std::vector<AStarNode>>& AStarGraph, Vec2 startPos, Vec2 endPos, std::vector<Vec2>& path)
 {
 
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	auto origin = Director::getInstance()->getVisibleOrigin();
+	compare cmp(AStarGraph);
+	std::priority_queue<Vec2, std::vector<Vec2>, compare> frontier(cmp);
+	AStarGraph[startPos.x][startPos.y].IsOccupied = true;
+	AStarGraph[startPos.x][startPos.y].g = 0;
+	CalH(startPos, endPos, AStarGraph);
+	AStarGraph[startPos.x][startPos.y].f = AStarGraph[startPos.x][startPos.y].g + AStarGraph[startPos.x][startPos.y].h;
+	frontier.push(startPos);
 
-	auto prisonMap = TMXTiledMap::create("room/Prison/Pr2.tmx");
-	prisonMap->setAnchorPoint(Vec2(0, origin.y / 2));
-	prisonMap->setPosition(Vec2(origin.x, origin.y));
+	Vec2 dir[4] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 
-	PrisonScene = Scene::create();
-	PrisonScene->addChild(prisonMap, 0);
-	Director::getInstance()->replaceScene(TransitionFade::create(1.0f, PrisonScene));
+	int counter = 0;
+	while (frontier.size())
+	{
 
-	return true;
+		Vec2 front = frontier.top();
+		frontier.pop();
+
+		for (int i = 0; i < 4; ++i)
+		{
+
+			Vec2 pos = front + dir[i];
+
+			if (pos == endPos)
+			{
+
+				Vec2 index = pos;
+				AStarGraph[pos.x][pos.y].last = front;
+
+				while (index != startPos)
+				{
+
+					path.push_back(index);
+					index = AStarGraph[index.x][index.y].last;
+
+				}
+
+				path.push_back(startPos);
+
+				int sz = path.size();
+				for (int i = 0; i < sz / 2; ++i) std::swap(path[i], path[sz - 1 - i]);
+
+				return true;
+
+			}
+
+			if (IsOut(pos, AStarGraph)) continue;
+
+			if (AStarGraph[pos.x][pos.y].IsOccupied || (mapArray[pos.x][pos.y] == BLOCK_WEIGHT)) continue;
+
+			bool IsWidthEnough = true;
+			for (int j = 0; j <= 1; ++j)
+			{
+
+				Vec2 point = pos;
+
+				for (int k = 0; k <= 2; ++k)
+				{
+
+					point += dir[(1 ^ (i / 2)) * 2 + j];
+
+					if (IsOut(point, AStarGraph))
+					{
+
+						IsWidthEnough = false;
+						break;
+
+					}
+
+					if (mapArray[point.x][point.y] == BLOCK_WEIGHT)
+					{
+
+						IsWidthEnough = false;
+						break;
+
+					}
+
+				}
+
+			}
+
+			if (!IsWidthEnough) continue;
+
+			if (AStarGraph[front.x][front.y].lastDir != -1 && i != AStarGraph[front.x][front.y].lastDir)
+			{
+
+				for (int j = 1; j <= 3; ++j)
+				{
+
+					Vec2 point = pos + dir[AStarGraph[front.x][front.y].lastDir] * j;
+
+					for (int k = 0; k <= 3; ++k)
+					{
+
+						point += dir[i ^ 1];
+
+						if (IsOut(point, AStarGraph))
+						{
+
+							IsWidthEnough = false;
+							break;
+
+						}
+
+						if (mapArray[point.x][point.y] == BLOCK_WEIGHT)
+						{
+
+							IsWidthEnough = false;
+							break;
+
+						}
+
+					}
+
+				}
+
+				if (!IsWidthEnough) continue;
+
+			}
+
+			AStarGraph[pos.x][pos.y].g = AStarGraph[front.x][front.y].g + mapArray[pos.x][pos.y];
+			if (i == 2 || i == 3)
+			{
+
+				if (AStarGraph[front.x][front.y].lastDir != i) AStarGraph[pos.x][pos.y].height = 0;
+				else AStarGraph[pos.x][pos.y].height = AStarGraph[front.x][front.y].height + 1;
+				if (!AStarGraph[pos.x][pos.y].extra) AStarGraph[pos.x][pos.y].g += 1 + AStarGraph[pos.x][pos.y].height;
+
+			}
+			else
+			{
+
+				AStarGraph[pos.x][pos.y].height = 0;
+				if (!AStarGraph[pos.x][pos.y].extra) AStarGraph[pos.x][pos.y].g += 1;
+
+			}
+			AStarGraph[pos.x][pos.y].lastDir = i;
+			if (AStarGraph[front.x][front.y].lastDir != -1 && AStarGraph[front.x][front.y].lastDir != AStarGraph[pos.x][pos.y].lastDir) AStarGraph[pos.x][pos.y].g += TURN_PUNISH;
+			CalH(pos, endPos, AStarGraph);
+			AStarGraph[pos.x][pos.y].f = AStarGraph[pos.x][pos.y].g + AStarGraph[pos.x][pos.y].h;
+			AStarGraph[pos.x][pos.y].IsOccupied = true;
+			AStarGraph[pos.x][pos.y].last = front;
+
+			frontier.push(pos);
+
+		}
+
+	}
+
+	return false;
 
 }

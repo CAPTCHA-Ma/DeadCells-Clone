@@ -1,6 +1,7 @@
 // Player.h
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
+#include "cocos2d.h"
 #include <unordered_map>
 #include "Weapon.h" 
 #include "FlyingObject.h"
@@ -22,6 +23,8 @@ enum class ActionState
     jumpDown,//
     jumpUp,
     crouch,     // 下蹲
+    dead,
+
     atkA,   // 徒手攻击 (或通用攻击)
     atkB,
 
@@ -51,6 +54,7 @@ enum class ActionState
     blockEndLightningShield,
     blockEndParryShield,
 
+    lethalHit,
     lethalFall,
     lethalSlam,
 
@@ -65,38 +69,40 @@ static std::unordered_map<ActionState, StateConfig> StateTable =
     { ActionState::jumpDown,                                { true, 99, true } },
     { ActionState::jumpUp,                                  { true,  2, false } },
     { ActionState::crouch,                                  { true,  1, true } },
+    { ActionState::dead,                                    { true,  100, false }},
 
 
     //攻击
-    { ActionState::atkA,                                    { false, 3, false } },
-    { ActionState::atkB,                                    { false, 3, false } },
+    { ActionState::atkA,                                    { true, 3, false } },
+    { ActionState::atkB,                                    { true, 3, false } },
 
 
-    { ActionState::atkBackStabber,                          { false, 3, false } },
+    { ActionState::atkBackStabber,                          { true, 3, false } },
 
-    { ActionState::AtkBaseballBatA,                         { false, 3, false } },
-    { ActionState::AtkBaseballBatB,                         { false, 3, false } },
-    { ActionState::AtkBaseballBatC,                         { false, 3, false } },
-    { ActionState::AtkBaseballBatD,                         { false, 3, false } },
-    { ActionState::AtkBaseballBatE,                         { false, 3, false } },
+    { ActionState::AtkBaseballBatA,                         { true, 3, false } },
+    { ActionState::AtkBaseballBatB,                         { true, 3, false } },
+    { ActionState::AtkBaseballBatC,                         { true, 3, false } },
+    { ActionState::AtkBaseballBatD,                         { true, 3, false } },
+    { ActionState::AtkBaseballBatE,                         { true, 3, false } },
 
 
-    { ActionState::atkBroadSwordA,                          { false, 3, false } },
-    { ActionState::atkBroadSwordB,                          { false, 3, false } },
-    { ActionState::atkBroadSwordC,                          { false, 3, false } },
+    { ActionState::atkBroadSwordA,                          { true, 3, false } },
+    { ActionState::atkBroadSwordB,                          { true, 3, false } },
+    { ActionState::atkBroadSwordC,                          { true, 3, false } },
 
-    { ActionState::AtkOvenAxeA,                             { false, 3, false } },
-    { ActionState::AtkOvenAxeB,                             { false, 3, false } },
-    { ActionState::AtkOvenAxeC,                             { false, 3, false } },
+    { ActionState::AtkOvenAxeA,                             { true, 3, false } },
+    { ActionState::AtkOvenAxeB,                             { true, 3, false } },
+    { ActionState::AtkOvenAxeC,                             { true, 3, false } },
 
-    { ActionState::AtkcloseCombatBow,                       { false, 3, false } },
-    { ActionState::AtkdualBow,                              { false, 3, false } },
-    { ActionState::crossbowShoot,                           { false, 3, false } },
+    { ActionState::AtkcloseCombatBow,                       { true, 3, false } },
+    { ActionState::AtkdualBow,                              { true, 3, false } },
+    { ActionState::crossbowShoot,                           { true, 3, false } },
 
-    { ActionState::blockEndLightningShield,                 { false, 3, false } },
-    { ActionState::blockEndParryShield,                     { false, 3, false } },
+    { ActionState::blockEndLightningShield,                 { true, 3, false } },
+    { ActionState::blockEndParryShield,                     { true, 3, false } },
 
-    { ActionState::lethalFall,                              { false, 99, false } },
+    { ActionState::lethalHit,                               { true, 30, false } },
+    { ActionState::lethalFall,                              { true, 99, false } },
     { ActionState::lethalSlam,                              { false, 99, false } },
 };
 
@@ -111,6 +117,7 @@ public:
 	void set0VelocityX();
 	void set0VelocityY();
     bool isOnGround() const;
+    bool isLethalState() const { return _state == ActionState::lethalHit || _state == ActionState::lethalFall || _state == ActionState::lethalSlam; };
 	void update(float dt);
 
     //动作
@@ -128,6 +135,7 @@ public:
     void whenOnAttackKey(Weapon* w);
     void actionWhenEnding(ActionState state);
     void dead();
+    void lethalHit();
 
     //动画
     void changeState(ActionState newState);
@@ -136,16 +144,15 @@ public:
 
 	//攻击及武器系统
     void getWeapon(Weapon* w);
-    void struck(int value);
+    void struck(float attackPower);
     void shootArrow();
     void throwBomb();
-
+    bool _invincible = false;
 
 
 protected:
 	CC_SYNTHESIZE(BasicAttributes, _originalAttributes, OriginalAttributes);//初始属性只与等级有关
 	CC_SYNTHESIZE(BasicAttributes, _finalAttributes, FinalAttributes);//最终属性与装备有关
-	CC_SYNTHESIZE(int, _level, Level);
 
 	float _runSpeed; // 水平移动速度
 	float _rollSpeed; // 滚动速度
@@ -165,6 +172,7 @@ protected:
 
 private:
     //动画
+
    
     cocos2d::Animation* createAnim(const std::string& name, int frameCount, float delay) const;
     cocos2d::Animation* getAnimation(ActionState state);
@@ -173,11 +181,15 @@ private:
 	//攻击判定
     cocos2d::Node* _attackNode = nullptr;
     cocos2d::Node* _hurtNode = nullptr;
-    void createHurtBox();
+
+    void updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset);
+    void setupBodyProperties(cocos2d::PhysicsBody* body);
+    void createNormalBody();
+    void createRollBody();
+    void startRollInvincible(float time);
     void createRollBox();
     void createAttackBox();
-    void createBlockEndBox();
-    void removeHurtBox();
+    void createShieldParryBox();
     void removeAttackBox();
 
 
