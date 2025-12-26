@@ -1,0 +1,758 @@
+{
+  "tileSize": 24,
+  "decorations": {
+    "ground_top": {
+      "textures": [
+        {
+          "path": "prison/floor_decorations/floorjunk_0-=-0-=-.png",
+          "name": "floorjunk_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_1-=-0-=-.png",
+          "name": "floorjunk_1",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_10-=-0-=-.png",
+          "name": "floorjunk_10",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_11-=-0-=-.png",
+          "name": "floorjunk_11",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_12-=-0-=-.png",
+          "name": "floorjunk_12",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_13-=-0-=-.png",
+          "name": "floorjunk_13",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_14-=-0-=-.png",
+          "name": "floorjunk_14",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_15-=-0-=-.png",
+          "name": "floorjunk_15",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_16-=-0-=-.png",
+          "name": "floorjunk_16",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_17-=-0-=-.png",
+          "name": "floorjunk_17",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_18-=-0-=-.png",
+          "name": "floorjunk_18",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_19-=-0-=-.png",
+          "name": "floorjunk_19",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_2-=-0-=-.png",
+          "name": "floorjunk_2",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_20-=-0-=-.png",
+          "name": "floorjunk_20",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_21-=-0-=-.png",
+          "name": "floorjunk_21",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_22-=-0-=-.png",
+          "name": "floorjunk_22",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_23-=-0-=-.png",
+          "name": "floorjunk_23",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_24-=-0-=-.png",
+          "name": "floorjunk_24",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_25-=-0-=-.png",
+          "name": "floorjunk_25",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_26-=-0-=-.png",
+          "name": "floorjunk_26",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_27-=-0-=-.png",
+          "name": "floorjunk_27",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_28-=-0-=-.png",
+          "name": "floorjunk_28",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_29-=-0-=-.png",
+          "name": "floorjunk_29",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_3-=-0-=-.png",
+          "name": "floorjunk_3",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_30-=-0-=-.png",
+          "name": "floorjunk_30",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_31-=-0-=-.png",
+          "name": "floorjunk_31",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_32-=-0-=-.png",
+          "name": "floorjunk_32",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_33-=-0-=-.png",
+          "name": "floorjunk_33",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_34-=-0-=-.png",
+          "name": "floorjunk_34",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_35-=-0-=-.png",
+          "name": "floorjunk_35",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_36-=-0-=-.png",
+          "name": "floorjunk_36",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_37-=-0-=-.png",
+          "name": "floorjunk_37",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_38-=-0-=-.png",
+          "name": "floorjunk_38",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_39-=-0-=-.png",
+          "name": "floorjunk_39",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_4-=-0-=-.png",
+          "name": "floorjunk_4",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_40-=-0-=-.png",
+          "name": "floorjunk_40",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_41-=-0-=-.png",
+          "name": "floorjunk_41",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_42-=-0-=-.png",
+          "name": "floorjunk_42",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_5-=-0-=-.png",
+          "name": "floorjunk_5",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_6-=-0-=-.png",
+          "name": "floorjunk_6",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_7-=-0-=-.png",
+          "name": "floorjunk_7",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_8-=-0-=-.png",
+          "name": "floorjunk_8",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorjunk_9-=-0-=-.png",
+          "name": "floorjunk_9",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_0-=-0-=-.png",
+          "name": "floorStamp_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_1-=-0-=-.png",
+          "name": "floorStamp_1",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_10-=-0-=-.png",
+          "name": "floorStamp_10",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_11-=-0-=-.png",
+          "name": "floorStamp_11",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_12-=-0-=-.png",
+          "name": "floorStamp_12",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_13-=-0-=-.png",
+          "name": "floorStamp_13",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_14-=-0-=-.png",
+          "name": "floorStamp_14",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_15-=-0-=-.png",
+          "name": "floorStamp_15",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_16-=-0-=-.png",
+          "name": "floorStamp_16",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_17-=-0-=-.png",
+          "name": "floorStamp_17",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_18-=-0-=-.png",
+          "name": "floorStamp_18",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_19-=-0-=-.png",
+          "name": "floorStamp_19",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_2-=-0-=-.png",
+          "name": "floorStamp_2",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_20-=-0-=-.png",
+          "name": "floorStamp_20",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_21-=-0-=-.png",
+          "name": "floorStamp_21",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_3-=-0-=-.png",
+          "name": "floorStamp_3",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_4-=-0-=-.png",
+          "name": "floorStamp_4",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_5-=-0-=-.png",
+          "name": "floorStamp_5",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_6-=-0-=-.png",
+          "name": "floorStamp_6",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_7-=-0-=-.png",
+          "name": "floorStamp_7",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_8-=-0-=-.png",
+          "name": "floorStamp_8",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/floor_decorations/floorStamp_9-=-0-=-.png",
+          "name": "floorStamp_9",
+          "weight": 1.0
+        }
+      ],
+      "probability": 0.3,
+      "zOrder": 10
+    },
+    "ground_surface": {
+      "textures": [
+        {
+          "path": "prison/tiles/groundCells-=-0-=-.png",
+          "name": "groundCells",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/groundCellsAdd-=-0-=-.png",
+          "name": "groundCellsAdd",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/groundNunchuckLoreRoom-=-0-=-.png",
+          "name": "groundNunchuckLoreRoom",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/groundNunchuckLoreRoomcorner-=-0-=-.png",
+          "name": "groundNunchuckLoreRoomcorner",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_0-=-0-=-.png",
+          "name": "ground_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_1-=-0-=-.png",
+          "name": "ground_1",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_2-=-0-=-.png",
+          "name": "ground_2",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_3-=-0-=-.png",
+          "name": "ground_3",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_left_0-=-0-=-.png",
+          "name": "ground_left_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_left_1-=-0-=-.png",
+          "name": "ground_left_1",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_right_0-=-0-=-.png",
+          "name": "ground_right_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/ground_right_1-=-0-=-.png",
+          "name": "ground_right_1",
+          "weight": 1.0
+        }
+      ],
+      "probability": 0.2,
+      "zOrder": 5
+    },
+    "wall_back": {
+      "textures": [
+        {
+          "path": "prison/tiles/backWall_0-=-0-=-.png",
+          "name": "backWall_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_1-=-0-=-.png",
+          "name": "backWall_1",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_2-=-0-=-.png",
+          "name": "backWall_2",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_3-=-0-=-.png",
+          "name": "backWall_3",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_4-=-0-=-.png",
+          "name": "backWall_4",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_5-=-0-=-.png",
+          "name": "backWall_5",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_6-=-0-=-.png",
+          "name": "backWall_6",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_7-=-0-=-.png",
+          "name": "backWall_7",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_8-=-0-=-.png",
+          "name": "backWall_8",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/tiles/backWall_9-=-0-=-.png",
+          "name": "backWall_9",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/wall_decorations/stampWallBig_0-=-0-=-.png",
+          "name": "stampWallBig_0",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallBig_1-=-0-=-.png",
+          "name": "stampWallBig_1",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallBig_2-=-0-=-.png",
+          "name": "stampWallBig_2",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallBig_3-=-0-=-.png",
+          "name": "stampWallBig_3",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallBig_4-=-0-=-.png",
+          "name": "stampWallBig_4",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallBig_5-=-0-=-.png",
+          "name": "stampWallBig_5",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallMedium_0-=-0-=-.png",
+          "name": "stampWallMedium_0",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallMedium_1-=-0-=-.png",
+          "name": "stampWallMedium_1",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallMedium_2-=-0-=-.png",
+          "name": "stampWallMedium_2",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallMedium_3-=-0-=-.png",
+          "name": "stampWallMedium_3",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallMedium_4-=-0-=-.png",
+          "name": "stampWallMedium_4",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallMedium_5-=-0-=-.png",
+          "name": "stampWallMedium_5",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallSmall_0-=-0-=-.png",
+          "name": "stampWallSmall_0",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallSmall_1-=-0-=-.png",
+          "name": "stampWallSmall_1",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallSmall_2-=-0-=-.png",
+          "name": "stampWallSmall_2",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallSmall_3-=-0-=-.png",
+          "name": "stampWallSmall_3",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallSmall_4-=-0-=-.png",
+          "name": "stampWallSmall_4",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/stampWallSmall_5-=-0-=-.png",
+          "name": "stampWallSmall_5",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallBed-=-0-=-.png",
+          "name": "wallBed",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_0-=-0-=-.png",
+          "name": "wallJunk_0",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_1-=-0-=-.png",
+          "name": "wallJunk_1",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_10-=-0-=-.png",
+          "name": "wallJunk_10",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_11-=-0-=-.png",
+          "name": "wallJunk_11",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_12-=-0-=-.png",
+          "name": "wallJunk_12",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_13-=-0-=-.png",
+          "name": "wallJunk_13",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_14-=-0-=-.png",
+          "name": "wallJunk_14",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_15-=-0-=-.png",
+          "name": "wallJunk_15",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_16-=-0-=-.png",
+          "name": "wallJunk_16",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_17-=-0-=-.png",
+          "name": "wallJunk_17",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_18-=-0-=-.png",
+          "name": "wallJunk_18",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_2-=-0-=-.png",
+          "name": "wallJunk_2",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_3-=-0-=-.png",
+          "name": "wallJunk_3",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_4-=-0-=-.png",
+          "name": "wallJunk_4",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_5-=-0-=-.png",
+          "name": "wallJunk_5",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_6-=-0-=-.png",
+          "name": "wallJunk_6",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_7-=-0-=-.png",
+          "name": "wallJunk_7",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_8-=-0-=-.png",
+          "name": "wallJunk_8",
+          "weight": 0.5
+        },
+        {
+          "path": "prison/wall_decorations/wallJunk_9-=-0-=-.png",
+          "name": "wallJunk_9",
+          "weight": 0.5
+        }
+      ],
+      "probability": 0.15,
+      "zOrder": -10
+    },
+    "ceiling": {
+      "textures": [
+        {
+          "path": "prison/wall_decorations/stampCeilingBig_0-=-0-=-.png",
+          "name": "stampCeilingBig_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/wall_decorations/stampCeilingMedium_0-=-0-=-.png",
+          "name": "stampCeilingMedium_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/wall_decorations/stampCeilingSmall_0-=-0-=-.png",
+          "name": "stampCeilingSmall_0",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/wall_decorations/stampCeilingSmall_1-=-0-=-.png",
+          "name": "stampCeilingSmall_1",
+          "weight": 1.0
+        }
+      ],
+      "probability": 0.1,
+      "zOrder": 10
+    },
+    "corner_tl": {
+      "textures": [
+        {
+          "path": "prison/webs/webBigTL-=-0-=-.png",
+          "name": "webBigTL",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webMediumTL-=-0-=-.png",
+          "name": "webMediumTL",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webSmallTL-=-0-=-.png",
+          "name": "webSmallTL",
+          "weight": 1.0
+        }
+      ],
+      "probability": 0.4,
+      "zOrder": 15
+    },
+    "corner_tr": {
+      "textures": [
+        {
+          "path": "prison/webs/webBigTR-=-0-=-.png",
+          "name": "webBigTR",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webMediumTR-=-0-=-.png",
+          "name": "webMediumTR",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webSmallTR-=-0-=-.png",
+          "name": "webSmallTR",
+          "weight": 1.0
+        }
+      ],
+      "probability": 0.4,
+      "zOrder": 15
+    },
+    "corner_bl": {
+      "textures": [
+        {
+          "path": "prison/webs/webBigBL-=-0-=-.png",
+          "name": "webBigBL",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webMediumBL-=-0-=-.png",
+          "name": "webMediumBL",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webSmallBL-=-0-=-.png",
+          "name": "webSmallBL",
+          "weight": 1.0
+        }
+      ],
+      "probability": 0.4,
+      "zOrder": 15
+    },
+    "corner_br": {
+      "textures": [
+        {
+          "path": "prison/webs/webBigBR-=-0-=-.png",
+          "name": "webBigBR",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webMediumBR-=-0-=-.png",
+          "name": "webMediumBR",
+          "weight": 1.0
+        },
+        {
+          "path": "prison/webs/webSmallBR-=-0-=-.png",
+          "name": "webSmallBR",
+          "weight": 1.0
+        }
+      ],
+      "probability": 0.4,
+      "zOrder": 15
+    }
+  }
+}

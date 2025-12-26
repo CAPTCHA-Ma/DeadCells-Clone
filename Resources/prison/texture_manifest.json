@@ -1,0 +1,1508 @@
+{
+  "wall_decorations": [
+    {
+      "file": "alccoveParalaxeA-=-0-=-.png",
+      "name": "alccoveParalaxeA"
+    },
+    {
+      "file": "alccoveParalaxeB-=-0-=-.png",
+      "name": "alccoveParalaxeB"
+    },
+    {
+      "file": "alchemyAlcove-=-0-=-.png",
+      "name": "alchemyAlcove"
+    },
+    {
+      "file": "alchemyAlcoveMask-=-0-=-.png",
+      "name": "alchemyAlcoveMask"
+    },
+    {
+      "file": "alchemyBibli-=-0-=-.png",
+      "name": "alchemyBibli"
+    },
+    {
+      "file": "alcovePillar-=-0-=-.png",
+      "name": "alcovePillar"
+    },
+    {
+      "file": "archeSmall-=-0-=-.png",
+      "name": "archeSmall"
+    },
+    {
+      "file": "archeTrainingRoom-=-0-=-.png",
+      "name": "archeTrainingRoom"
+    },
+    {
+      "file": "bannerBig-=-0-=-.png",
+      "name": "bannerBig"
+    },
+    {
+      "file": "bannerRoomBot-=-0-=-.png",
+      "name": "bannerRoomBot"
+    },
+    {
+      "file": "bannerRoomTiled-=-0-=-.png",
+      "name": "bannerRoomTiled"
+    },
+    {
+      "file": "bannerRoomTop-=-0-=-.png",
+      "name": "bannerRoomTop"
+    },
+    {
+      "file": "prionSmallWindow-=-0-=-.png",
+      "name": "prionSmallWindow"
+    },
+    {
+      "file": "prisonBigAlcove-=-0-=-.png",
+      "name": "prisonBigAlcove"
+    },
+    {
+      "file": "shelf_0-=-0-=-.png",
+      "name": "shelf_0"
+    },
+    {
+      "file": "shelf_1-=-0-=-.png",
+      "name": "shelf_1"
+    },
+    {
+      "file": "stampCeilingBig_0-=-0-=-.png",
+      "name": "stampCeilingBig_0"
+    },
+    {
+      "file": "stampCeilingMedium_0-=-0-=-.png",
+      "name": "stampCeilingMedium_0"
+    },
+    {
+      "file": "stampCeilingSmall_0-=-0-=-.png",
+      "name": "stampCeilingSmall_0"
+    },
+    {
+      "file": "stampCeilingSmall_1-=-0-=-.png",
+      "name": "stampCeilingSmall_1"
+    },
+    {
+      "file": "stampWallBig_0-=-0-=-.png",
+      "name": "stampWallBig_0"
+    },
+    {
+      "file": "stampWallBig_1-=-0-=-.png",
+      "name": "stampWallBig_1"
+    },
+    {
+      "file": "stampWallBig_2-=-0-=-.png",
+      "name": "stampWallBig_2"
+    },
+    {
+      "file": "stampWallBig_3-=-0-=-.png",
+      "name": "stampWallBig_3"
+    },
+    {
+      "file": "stampWallBig_4-=-0-=-.png",
+      "name": "stampWallBig_4"
+    },
+    {
+      "file": "stampWallBig_5-=-0-=-.png",
+      "name": "stampWallBig_5"
+    },
+    {
+      "file": "stampWallMedium_0-=-0-=-.png",
+      "name": "stampWallMedium_0"
+    },
+    {
+      "file": "stampWallMedium_1-=-0-=-.png",
+      "name": "stampWallMedium_1"
+    },
+    {
+      "file": "stampWallMedium_2-=-0-=-.png",
+      "name": "stampWallMedium_2"
+    },
+    {
+      "file": "stampWallMedium_3-=-0-=-.png",
+      "name": "stampWallMedium_3"
+    },
+    {
+      "file": "stampWallMedium_4-=-0-=-.png",
+      "name": "stampWallMedium_4"
+    },
+    {
+      "file": "stampWallMedium_5-=-0-=-.png",
+      "name": "stampWallMedium_5"
+    },
+    {
+      "file": "stampWallSmall_0-=-0-=-.png",
+      "name": "stampWallSmall_0"
+    },
+    {
+      "file": "stampWallSmall_1-=-0-=-.png",
+      "name": "stampWallSmall_1"
+    },
+    {
+      "file": "stampWallSmall_2-=-0-=-.png",
+      "name": "stampWallSmall_2"
+    },
+    {
+      "file": "stampWallSmall_3-=-0-=-.png",
+      "name": "stampWallSmall_3"
+    },
+    {
+      "file": "stampWallSmall_4-=-0-=-.png",
+      "name": "stampWallSmall_4"
+    },
+    {
+      "file": "stampWallSmall_5-=-0-=-.png",
+      "name": "stampWallSmall_5"
+    },
+    {
+      "file": "tableauNoir-=-0-=-.png",
+      "name": "tableauNoir"
+    },
+    {
+      "file": "wallBed-=-0-=-.png",
+      "name": "wallBed"
+    },
+    {
+      "file": "wallJunk_0-=-0-=-.png",
+      "name": "wallJunk_0"
+    },
+    {
+      "file": "wallJunk_1-=-0-=-.png",
+      "name": "wallJunk_1"
+    },
+    {
+      "file": "wallJunk_10-=-0-=-.png",
+      "name": "wallJunk_10"
+    },
+    {
+      "file": "wallJunk_11-=-0-=-.png",
+      "name": "wallJunk_11"
+    },
+    {
+      "file": "wallJunk_12-=-0-=-.png",
+      "name": "wallJunk_12"
+    },
+    {
+      "file": "wallJunk_13-=-0-=-.png",
+      "name": "wallJunk_13"
+    },
+    {
+      "file": "wallJunk_14-=-0-=-.png",
+      "name": "wallJunk_14"
+    },
+    {
+      "file": "wallJunk_15-=-0-=-.png",
+      "name": "wallJunk_15"
+    },
+    {
+      "file": "wallJunk_16-=-0-=-.png",
+      "name": "wallJunk_16"
+    },
+    {
+      "file": "wallJunk_17-=-0-=-.png",
+      "name": "wallJunk_17"
+    },
+    {
+      "file": "wallJunk_18-=-0-=-.png",
+      "name": "wallJunk_18"
+    },
+    {
+      "file": "wallJunk_2-=-0-=-.png",
+      "name": "wallJunk_2"
+    },
+    {
+      "file": "wallJunk_3-=-0-=-.png",
+      "name": "wallJunk_3"
+    },
+    {
+      "file": "wallJunk_4-=-0-=-.png",
+      "name": "wallJunk_4"
+    },
+    {
+      "file": "wallJunk_5-=-0-=-.png",
+      "name": "wallJunk_5"
+    },
+    {
+      "file": "wallJunk_6-=-0-=-.png",
+      "name": "wallJunk_6"
+    },
+    {
+      "file": "wallJunk_7-=-0-=-.png",
+      "name": "wallJunk_7"
+    },
+    {
+      "file": "wallJunk_8-=-0-=-.png",
+      "name": "wallJunk_8"
+    },
+    {
+      "file": "wallJunk_9-=-0-=-.png",
+      "name": "wallJunk_9"
+    },
+    {
+      "file": "weaponDeco-=-0-=-.png",
+      "name": "weaponDeco"
+    }
+  ],
+  "landmarks": [
+    {
+      "file": "armoryCorpsTrainingRoom-=-0-=-.png",
+      "name": "armoryCorpsTrainingRoom"
+    },
+    {
+      "file": "armoryDomeTrainingRoom-=-0-=-.png",
+      "name": "armoryDomeTrainingRoom"
+    },
+    {
+      "file": "armory_corps-=-0-=-.png",
+      "name": "armory_corps"
+    },
+    {
+      "file": "armory_dome-=-0-=-.png",
+      "name": "armory_dome"
+    },
+    {
+      "file": "bigSword-=-0-=-.png",
+      "name": "bigSword"
+    },
+    {
+      "file": "dummy_0-=-0-=-.png",
+      "name": "dummy_0"
+    },
+    {
+      "file": "dummy_1-=-0-=-.png",
+      "name": "dummy_1"
+    },
+    {
+      "file": "gardenerGonePathSprite-=-0-=-.png",
+      "name": "gardenerGonePathSprite"
+    },
+    {
+      "file": "gardenerGoneSprite-=-0-=-.png",
+      "name": "gardenerGoneSprite"
+    },
+    {
+      "file": "gardenerSprite-=-0-=-.png",
+      "name": "gardenerSprite"
+    },
+    {
+      "file": "homonculusFlush-=-0-=-.png",
+      "name": "homonculusFlush"
+    },
+    {
+      "file": "prisonFountain-=-0-=-.png",
+      "name": "prisonFountain"
+    },
+    {
+      "file": "skeletonSheet-=-0-=-.png",
+      "name": "skeletonSheet"
+    },
+    {
+      "file": "skeletonSpawn-=-0-=-.png",
+      "name": "skeletonSpawn"
+    },
+    {
+      "file": "snakeLandmark-=-0-=-.png",
+      "name": "snakeLandmark"
+    },
+    {
+      "file": "switchCopper-=-0-=-.png",
+      "name": "switchCopper"
+    },
+    {
+      "file": "switchCopper_off-=-0-=-.png",
+      "name": "switchCopper_off"
+    },
+    {
+      "file": "tailorRoom1-=-0-=-.png",
+      "name": "tailorRoom1"
+    },
+    {
+      "file": "tailorRoom2-=-0-=-.png",
+      "name": "tailorRoom2"
+    },
+    {
+      "file": "tailorRoom3-=-0-=-.png",
+      "name": "tailorRoom3"
+    },
+    {
+      "file": "tpStoneDown-=-0-=-.png",
+      "name": "tpStoneDown"
+    },
+    {
+      "file": "tpStoneUp-=-0-=-.png",
+      "name": "tpStoneUp"
+    }
+  ],
+  "npcs": [
+    {
+      "file": "aspectsNPCstuffs-=-0-=-.png",
+      "name": "aspectsNPCstuffs"
+    },
+    {
+      "file": "leftShoulder-=-0-=-.png",
+      "name": "leftShoulder"
+    },
+    {
+      "file": "railing_0-=-0-=-.png",
+      "name": "railing_0"
+    },
+    {
+      "file": "railing_1-=-0-=-.png",
+      "name": "railing_1"
+    },
+    {
+      "file": "railing_2-=-0-=-.png",
+      "name": "railing_2"
+    },
+    {
+      "file": "railing_3-=-0-=-.png",
+      "name": "railing_3"
+    },
+    {
+      "file": "rightHeadSide_0-=-0-=-.png",
+      "name": "rightHeadSide_0"
+    }
+  ],
+  "tiles": [
+    {
+      "file": "backWall_0-=-0-=-.png",
+      "name": "backWall_0"
+    },
+    {
+      "file": "backWall_1-=-0-=-.png",
+      "name": "backWall_1"
+    },
+    {
+      "file": "backWall_2-=-0-=-.png",
+      "name": "backWall_2"
+    },
+    {
+      "file": "backWall_3-=-0-=-.png",
+      "name": "backWall_3"
+    },
+    {
+      "file": "backWall_4-=-0-=-.png",
+      "name": "backWall_4"
+    },
+    {
+      "file": "backWall_5-=-0-=-.png",
+      "name": "backWall_5"
+    },
+    {
+      "file": "backWall_6-=-0-=-.png",
+      "name": "backWall_6"
+    },
+    {
+      "file": "backWall_7-=-0-=-.png",
+      "name": "backWall_7"
+    },
+    {
+      "file": "backWall_8-=-0-=-.png",
+      "name": "backWall_8"
+    },
+    {
+      "file": "backWall_9-=-0-=-.png",
+      "name": "backWall_9"
+    },
+    {
+      "file": "ceiling_0-=-0-=-.png",
+      "name": "ceiling_0"
+    },
+    {
+      "file": "ceiling_1-=-0-=-.png",
+      "name": "ceiling_1"
+    },
+    {
+      "file": "ceiling_2-=-0-=-.png",
+      "name": "ceiling_2"
+    },
+    {
+      "file": "ceiling_3-=-0-=-.png",
+      "name": "ceiling_3"
+    },
+    {
+      "file": "dirt-=-0-=-.png",
+      "name": "dirt"
+    },
+    {
+      "file": "groundCells-=-0-=-.png",
+      "name": "groundCells"
+    },
+    {
+      "file": "groundCellsAdd-=-0-=-.png",
+      "name": "groundCellsAdd"
+    },
+    {
+      "file": "groundFoliage_0-=-0-=-.png",
+      "name": "groundFoliage_0"
+    },
+    {
+      "file": "groundFoliage_1-=-0-=-.png",
+      "name": "groundFoliage_1"
+    },
+    {
+      "file": "groundNunchuckLoreRoom-=-0-=-.png",
+      "name": "groundNunchuckLoreRoom"
+    },
+    {
+      "file": "groundNunchuckLoreRoomcorner-=-0-=-.png",
+      "name": "groundNunchuckLoreRoomcorner"
+    },
+    {
+      "file": "ground_0-=-0-=-.png",
+      "name": "ground_0"
+    },
+    {
+      "file": "ground_1-=-0-=-.png",
+      "name": "ground_1"
+    },
+    {
+      "file": "ground_2-=-0-=-.png",
+      "name": "ground_2"
+    },
+    {
+      "file": "ground_3-=-0-=-.png",
+      "name": "ground_3"
+    },
+    {
+      "file": "ground_left_0-=-0-=-.png",
+      "name": "ground_left_0"
+    },
+    {
+      "file": "ground_left_1-=-0-=-.png",
+      "name": "ground_left_1"
+    },
+    {
+      "file": "ground_right_0-=-0-=-.png",
+      "name": "ground_right_0"
+    },
+    {
+      "file": "ground_right_1-=-0-=-.png",
+      "name": "ground_right_1"
+    },
+    {
+      "file": "rockStamp0-=-0-=-.png",
+      "name": "rockStamp0"
+    },
+    {
+      "file": "rockStamp1-=-0-=-.png",
+      "name": "rockStamp1"
+    },
+    {
+      "file": "rockStamp2-=-0-=-.png",
+      "name": "rockStamp2"
+    },
+    {
+      "file": "rockStamp3-=-0-=-.png",
+      "name": "rockStamp3"
+    },
+    {
+      "file": "rockStampCorner-=-0-=-.png",
+      "name": "rockStampCorner"
+    },
+    {
+      "file": "rockStampEdge-=-0-=-.png",
+      "name": "rockStampEdge"
+    },
+    {
+      "file": "rockStampSide0-=-0-=-.png",
+      "name": "rockStampSide0"
+    },
+    {
+      "file": "rockStampSide1-=-0-=-.png",
+      "name": "rockStampSide1"
+    },
+    {
+      "file": "rockStampSide2-=-0-=-.png",
+      "name": "rockStampSide2"
+    },
+    {
+      "file": "rockStampSide3-=-0-=-.png",
+      "name": "rockStampSide3"
+    },
+    {
+      "file": "stoneStamp_0-=-0-=-.png",
+      "name": "stoneStamp_0"
+    },
+    {
+      "file": "stoneStamp_1-=-0-=-.png",
+      "name": "stoneStamp_1"
+    },
+    {
+      "file": "stoneStamp_2-=-0-=-.png",
+      "name": "stoneStamp_2"
+    },
+    {
+      "file": "stoneStamp_3-=-0-=-.png",
+      "name": "stoneStamp_3"
+    },
+    {
+      "file": "stoneStamp_4-=-0-=-.png",
+      "name": "stoneStamp_4"
+    },
+    {
+      "file": "stoneStamp_5-=-0-=-.png",
+      "name": "stoneStamp_5"
+    },
+    {
+      "file": "stoneWall_0-=-0-=-.png",
+      "name": "stoneWall_0"
+    },
+    {
+      "file": "stoneWall_1-=-0-=-.png",
+      "name": "stoneWall_1"
+    },
+    {
+      "file": "stoneWall_2-=-0-=-.png",
+      "name": "stoneWall_2"
+    },
+    {
+      "file": "stoneWall_3-=-0-=-.png",
+      "name": "stoneWall_3"
+    },
+    {
+      "file": "tpRock_0-=-0-=-.png",
+      "name": "tpRock_0"
+    },
+    {
+      "file": "tpRock_1-=-0-=-.png",
+      "name": "tpRock_1"
+    },
+    {
+      "file": "tpRock_2-=-0-=-.png",
+      "name": "tpRock_2"
+    },
+    {
+      "file": "tpRock_3-=-0-=-.png",
+      "name": "tpRock_3"
+    }
+  ],
+  "doors": [
+    {
+      "file": "bigDoor_0-=-0-=-.png",
+      "name": "bigDoor_0"
+    },
+    {
+      "file": "bigDoor_1-=-0-=-.png",
+      "name": "bigDoor_1"
+    },
+    {
+      "file": "bigDoor_2-=-0-=-.png",
+      "name": "bigDoor_2"
+    },
+    {
+      "file": "bigDoor_3-=-0-=-.png",
+      "name": "bigDoor_3"
+    },
+    {
+      "file": "bigDoor_4-=-0-=-.png",
+      "name": "bigDoor_4"
+    },
+    {
+      "file": "bigDoor_5-=-0-=-.png",
+      "name": "bigDoor_5"
+    },
+    {
+      "file": "exitDoor-=-0-=-.png",
+      "name": "exitDoor"
+    },
+    {
+      "file": "exitDoorAncientTemple-=-0-=-.png",
+      "name": "exitDoorAncientTemple"
+    },
+    {
+      "file": "exitDoorBridge-=-0-=-.png",
+      "name": "exitDoorBridge"
+    },
+    {
+      "file": "exitDoorCemetery-=-0-=-.png",
+      "name": "exitDoorCemetery"
+    },
+    {
+      "file": "exitDoorGreenhouse-=-0-=-.png",
+      "name": "exitDoorGreenhouse"
+    },
+    {
+      "file": "exitDoorOssuary-=-0-=-.png",
+      "name": "exitDoorOssuary"
+    },
+    {
+      "file": "exitDoorPrisonCourtyard-=-0-=-.png",
+      "name": "exitDoorPrisonCourtyard"
+    },
+    {
+      "file": "exitDoorPrisonDepths-=-0-=-.png",
+      "name": "exitDoorPrisonDepths"
+    },
+    {
+      "file": "exitDoorPurpleGarden-=-0-=-.png",
+      "name": "exitDoorPurpleGarden"
+    },
+    {
+      "file": "exitDoorSewerShort-=-0-=-.png",
+      "name": "exitDoorSewerShort"
+    },
+    {
+      "file": "exitDoorStiltVillage-=-0-=-.png",
+      "name": "exitDoorStiltVillage"
+    },
+    {
+      "file": "exitDoorSwamp-=-0-=-.png",
+      "name": "exitDoorSwamp"
+    },
+    {
+      "file": "exitDoorSwampHeart-=-0-=-.png",
+      "name": "exitDoorSwampHeart"
+    },
+    {
+      "file": "exitDoorTumulus-=-0-=-.png",
+      "name": "exitDoorTumulus"
+    },
+    {
+      "file": "hingeCorruptedDoor-=-0-=-.png",
+      "name": "hingeCorruptedDoor"
+    },
+    {
+      "file": "hingeSmallDoor-=-0-=-.png",
+      "name": "hingeSmallDoor"
+    },
+    {
+      "file": "monsterDoorBack-=-0-=-.png",
+      "name": "monsterDoorBack"
+    },
+    {
+      "file": "monsterDoorBackBot-=-0-=-.png",
+      "name": "monsterDoorBackBot"
+    },
+    {
+      "file": "monsterDoorBackGlow-=-0-=-.png",
+      "name": "monsterDoorBackGlow"
+    },
+    {
+      "file": "monsterDoorBackTop-=-0-=-.png",
+      "name": "monsterDoorBackTop"
+    },
+    {
+      "file": "monsterDoorCircle-=-0-=-.png",
+      "name": "monsterDoorCircle"
+    },
+    {
+      "file": "monsterDoorCircleShadow-=-0-=-.png",
+      "name": "monsterDoorCircleShadow"
+    },
+    {
+      "file": "monsterDoorFront-=-0-=-.png",
+      "name": "monsterDoorFront"
+    },
+    {
+      "file": "monsterDoorGlow-=-0-=-.png",
+      "name": "monsterDoorGlow"
+    },
+    {
+      "file": "monsterDoorOpenedA-=-0-=-.png",
+      "name": "monsterDoorOpenedA"
+    },
+    {
+      "file": "monsterDoorOpenedB-=-0-=-.png",
+      "name": "monsterDoorOpenedB"
+    },
+    {
+      "file": "smallDoor-=-0-=-.png",
+      "name": "smallDoor"
+    },
+    {
+      "file": "smallDoorMetaFront-=-0-=-.png",
+      "name": "smallDoorMetaFront"
+    }
+  ],
+  "floor_decorations": [
+    {
+      "file": "billot-=-0-=-.png",
+      "name": "billot"
+    },
+    {
+      "file": "bloodStamp_1-=-0-=-.png",
+      "name": "bloodStamp_1"
+    },
+    {
+      "file": "bridgeJunk-=-0-=-.png",
+      "name": "bridgeJunk"
+    },
+    {
+      "file": "floorjunk_0-=-0-=-.png",
+      "name": "floorjunk_0"
+    },
+    {
+      "file": "floorjunk_1-=-0-=-.png",
+      "name": "floorjunk_1"
+    },
+    {
+      "file": "floorjunk_10-=-0-=-.png",
+      "name": "floorjunk_10"
+    },
+    {
+      "file": "floorjunk_11-=-0-=-.png",
+      "name": "floorjunk_11"
+    },
+    {
+      "file": "floorjunk_12-=-0-=-.png",
+      "name": "floorjunk_12"
+    },
+    {
+      "file": "floorjunk_13-=-0-=-.png",
+      "name": "floorjunk_13"
+    },
+    {
+      "file": "floorjunk_14-=-0-=-.png",
+      "name": "floorjunk_14"
+    },
+    {
+      "file": "floorjunk_15-=-0-=-.png",
+      "name": "floorjunk_15"
+    },
+    {
+      "file": "floorjunk_16-=-0-=-.png",
+      "name": "floorjunk_16"
+    },
+    {
+      "file": "floorjunk_17-=-0-=-.png",
+      "name": "floorjunk_17"
+    },
+    {
+      "file": "floorjunk_18-=-0-=-.png",
+      "name": "floorjunk_18"
+    },
+    {
+      "file": "floorjunk_19-=-0-=-.png",
+      "name": "floorjunk_19"
+    },
+    {
+      "file": "floorjunk_2-=-0-=-.png",
+      "name": "floorjunk_2"
+    },
+    {
+      "file": "floorjunk_20-=-0-=-.png",
+      "name": "floorjunk_20"
+    },
+    {
+      "file": "floorjunk_21-=-0-=-.png",
+      "name": "floorjunk_21"
+    },
+    {
+      "file": "floorjunk_22-=-0-=-.png",
+      "name": "floorjunk_22"
+    },
+    {
+      "file": "floorjunk_23-=-0-=-.png",
+      "name": "floorjunk_23"
+    },
+    {
+      "file": "floorjunk_24-=-0-=-.png",
+      "name": "floorjunk_24"
+    },
+    {
+      "file": "floorjunk_25-=-0-=-.png",
+      "name": "floorjunk_25"
+    },
+    {
+      "file": "floorjunk_26-=-0-=-.png",
+      "name": "floorjunk_26"
+    },
+    {
+      "file": "floorjunk_27-=-0-=-.png",
+      "name": "floorjunk_27"
+    },
+    {
+      "file": "floorjunk_28-=-0-=-.png",
+      "name": "floorjunk_28"
+    },
+    {
+      "file": "floorjunk_29-=-0-=-.png",
+      "name": "floorjunk_29"
+    },
+    {
+      "file": "floorjunk_3-=-0-=-.png",
+      "name": "floorjunk_3"
+    },
+    {
+      "file": "floorjunk_30-=-0-=-.png",
+      "name": "floorjunk_30"
+    },
+    {
+      "file": "floorjunk_31-=-0-=-.png",
+      "name": "floorjunk_31"
+    },
+    {
+      "file": "floorjunk_32-=-0-=-.png",
+      "name": "floorjunk_32"
+    },
+    {
+      "file": "floorjunk_33-=-0-=-.png",
+      "name": "floorjunk_33"
+    },
+    {
+      "file": "floorjunk_34-=-0-=-.png",
+      "name": "floorjunk_34"
+    },
+    {
+      "file": "floorjunk_35-=-0-=-.png",
+      "name": "floorjunk_35"
+    },
+    {
+      "file": "floorjunk_36-=-0-=-.png",
+      "name": "floorjunk_36"
+    },
+    {
+      "file": "floorjunk_37-=-0-=-.png",
+      "name": "floorjunk_37"
+    },
+    {
+      "file": "floorjunk_38-=-0-=-.png",
+      "name": "floorjunk_38"
+    },
+    {
+      "file": "floorjunk_39-=-0-=-.png",
+      "name": "floorjunk_39"
+    },
+    {
+      "file": "floorjunk_4-=-0-=-.png",
+      "name": "floorjunk_4"
+    },
+    {
+      "file": "floorjunk_40-=-0-=-.png",
+      "name": "floorjunk_40"
+    },
+    {
+      "file": "floorjunk_41-=-0-=-.png",
+      "name": "floorjunk_41"
+    },
+    {
+      "file": "floorjunk_42-=-0-=-.png",
+      "name": "floorjunk_42"
+    },
+    {
+      "file": "floorjunk_5-=-0-=-.png",
+      "name": "floorjunk_5"
+    },
+    {
+      "file": "floorjunk_6-=-0-=-.png",
+      "name": "floorjunk_6"
+    },
+    {
+      "file": "floorjunk_7-=-0-=-.png",
+      "name": "floorjunk_7"
+    },
+    {
+      "file": "floorjunk_8-=-0-=-.png",
+      "name": "floorjunk_8"
+    },
+    {
+      "file": "floorjunk_9-=-0-=-.png",
+      "name": "floorjunk_9"
+    },
+    {
+      "file": "floorStamp_0-=-0-=-.png",
+      "name": "floorStamp_0"
+    },
+    {
+      "file": "floorStamp_1-=-0-=-.png",
+      "name": "floorStamp_1"
+    },
+    {
+      "file": "floorStamp_10-=-0-=-.png",
+      "name": "floorStamp_10"
+    },
+    {
+      "file": "floorStamp_11-=-0-=-.png",
+      "name": "floorStamp_11"
+    },
+    {
+      "file": "floorStamp_12-=-0-=-.png",
+      "name": "floorStamp_12"
+    },
+    {
+      "file": "floorStamp_13-=-0-=-.png",
+      "name": "floorStamp_13"
+    },
+    {
+      "file": "floorStamp_14-=-0-=-.png",
+      "name": "floorStamp_14"
+    },
+    {
+      "file": "floorStamp_15-=-0-=-.png",
+      "name": "floorStamp_15"
+    },
+    {
+      "file": "floorStamp_16-=-0-=-.png",
+      "name": "floorStamp_16"
+    },
+    {
+      "file": "floorStamp_17-=-0-=-.png",
+      "name": "floorStamp_17"
+    },
+    {
+      "file": "floorStamp_18-=-0-=-.png",
+      "name": "floorStamp_18"
+    },
+    {
+      "file": "floorStamp_19-=-0-=-.png",
+      "name": "floorStamp_19"
+    },
+    {
+      "file": "floorStamp_2-=-0-=-.png",
+      "name": "floorStamp_2"
+    },
+    {
+      "file": "floorStamp_20-=-0-=-.png",
+      "name": "floorStamp_20"
+    },
+    {
+      "file": "floorStamp_21-=-0-=-.png",
+      "name": "floorStamp_21"
+    },
+    {
+      "file": "floorStamp_3-=-0-=-.png",
+      "name": "floorStamp_3"
+    },
+    {
+      "file": "floorStamp_4-=-0-=-.png",
+      "name": "floorStamp_4"
+    },
+    {
+      "file": "floorStamp_5-=-0-=-.png",
+      "name": "floorStamp_5"
+    },
+    {
+      "file": "floorStamp_6-=-0-=-.png",
+      "name": "floorStamp_6"
+    },
+    {
+      "file": "floorStamp_7-=-0-=-.png",
+      "name": "floorStamp_7"
+    },
+    {
+      "file": "floorStamp_8-=-0-=-.png",
+      "name": "floorStamp_8"
+    },
+    {
+      "file": "floorStamp_9-=-0-=-.png",
+      "name": "floorStamp_9"
+    },
+    {
+      "file": "judasSeat-=-0-=-.png",
+      "name": "judasSeat"
+    },
+    {
+      "file": "spawnerJunk-=-0-=-.png",
+      "name": "spawnerJunk"
+    }
+  ],
+  "pillars": [
+    {
+      "file": "blackBeam_topLeft_0-=-0-=-.png",
+      "name": "blackBeam_topLeft_0"
+    },
+    {
+      "file": "blackBeam_topRight_0-=-0-=-.png",
+      "name": "blackBeam_topRight_0"
+    },
+    {
+      "file": "fillerp_0-=-0-=-.png",
+      "name": "fillerp_0"
+    },
+    {
+      "file": "filler_19-=-0-=-.png",
+      "name": "filler_19"
+    },
+    {
+      "file": "filler_4-=-0-=-.png",
+      "name": "filler_4"
+    },
+    {
+      "file": "filler_5-=-0-=-.png",
+      "name": "filler_5"
+    },
+    {
+      "file": "littleBlackBeam_topLeft_0-=-0-=-.png",
+      "name": "littleBlackBeam_topLeft_0"
+    },
+    {
+      "file": "littleBlackBeam_topRight_0-=-0-=-.png",
+      "name": "littleBlackBeam_topRight_0"
+    },
+    {
+      "file": "PrisonwoodenBeam-=-0-=-.png",
+      "name": "PrisonwoodenBeam"
+    },
+    {
+      "file": "spawnerPillar-=-0-=-.png",
+      "name": "spawnerPillar"
+    },
+    {
+      "file": "spawnerRoof-=-0-=-.png",
+      "name": "spawnerRoof"
+    },
+    {
+      "file": "spawnerRoofDeco-=-0-=-.png",
+      "name": "spawnerRoofDeco"
+    },
+    {
+      "file": "spawnerWindow-=-0-=-.png",
+      "name": "spawnerWindow"
+    }
+  ],
+  "plants": [
+    {
+      "file": "BruceShroom-=-0-=-.png",
+      "name": "BruceShroom"
+    },
+    {
+      "file": "giantMushroomBroken-=-0-=-.png",
+      "name": "giantMushroomBroken"
+    },
+    {
+      "file": "glowingMushroom_0-=-0-=-.png",
+      "name": "glowingMushroom_0"
+    },
+    {
+      "file": "glowingMushroom_1-=-0-=-.png",
+      "name": "glowingMushroom_1"
+    },
+    {
+      "file": "glowingMushroom_2-=-0-=-.png",
+      "name": "glowingMushroom_2"
+    },
+    {
+      "file": "glowingMushroom_3-=-0-=-.png",
+      "name": "glowingMushroom_3"
+    },
+    {
+      "file": "glowingMushroom_4-=-0-=-.png",
+      "name": "glowingMushroom_4"
+    },
+    {
+      "file": "grass-=-0-=-.png",
+      "name": "grass"
+    },
+    {
+      "file": "leaf_0-=-0-=-.png",
+      "name": "leaf_0"
+    },
+    {
+      "file": "leaf_1-=-0-=-.png",
+      "name": "leaf_1"
+    },
+    {
+      "file": "leaf_2-=-0-=-.png",
+      "name": "leaf_2"
+    },
+    {
+      "file": "leaf_3-=-0-=-.png",
+      "name": "leaf_3"
+    },
+    {
+      "file": "leaf_4-=-0-=-.png",
+      "name": "leaf_4"
+    },
+    {
+      "file": "leaf_5-=-0-=-.png",
+      "name": "leaf_5"
+    },
+    {
+      "file": "leaf_6-=-0-=-.png",
+      "name": "leaf_6"
+    },
+    {
+      "file": "lettuceDestroyed-=-0-=-.png",
+      "name": "lettuceDestroyed"
+    },
+    {
+      "file": "lettuceDestroyedB-=-0-=-.png",
+      "name": "lettuceDestroyedB"
+    },
+    {
+      "file": "paralaxLianeA-=-0-=-.png",
+      "name": "paralaxLianeA"
+    },
+    {
+      "file": "paralaxLianeB-=-0-=-.png",
+      "name": "paralaxLianeB"
+    },
+    {
+      "file": "roofMoss_0-=-0-=-.png",
+      "name": "roofMoss_0"
+    },
+    {
+      "file": "roofMoss_1-=-0-=-.png",
+      "name": "roofMoss_1"
+    },
+    {
+      "file": "roofMoss_2-=-0-=-.png",
+      "name": "roofMoss_2"
+    }
+  ],
+  "chains": [
+    {
+      "file": "cageChain-=-0-=-.png",
+      "name": "cageChain"
+    },
+    {
+      "file": "chainAnchor-=-0-=-.png",
+      "name": "chainAnchor"
+    },
+    {
+      "file": "chainBot_0-=-0-=-.png",
+      "name": "chainBot_0"
+    },
+    {
+      "file": "chainBot_1-=-0-=-.png",
+      "name": "chainBot_1"
+    },
+    {
+      "file": "chainBot_2-=-0-=-.png",
+      "name": "chainBot_2"
+    },
+    {
+      "file": "chainBot_3-=-0-=-.png",
+      "name": "chainBot_3"
+    },
+    {
+      "file": "chainDown-=-0-=-.png",
+      "name": "chainDown"
+    },
+    {
+      "file": "chainLight-=-0-=-.png",
+      "name": "chainLight"
+    },
+    {
+      "file": "chainShadow-=-0-=-.png",
+      "name": "chainShadow"
+    },
+    {
+      "file": "chainTile-=-0-=-.png",
+      "name": "chainTile"
+    },
+    {
+      "file": "chainUp-=-0-=-.png",
+      "name": "chainUp"
+    },
+    {
+      "file": "chain_0-=-0-=-.png",
+      "name": "chain_0"
+    },
+    {
+      "file": "maillon-=-0-=-.png",
+      "name": "maillon"
+    },
+    {
+      "file": "suspendedCage-=-0-=-.png",
+      "name": "suspendedCage"
+    }
+  ],
+  "alchemy": [
+    {
+      "file": "fioleA-=-0-=-.png",
+      "name": "fioleA"
+    },
+    {
+      "file": "fioleABroken_0-=-0-=-.png",
+      "name": "fioleABroken_0"
+    },
+    {
+      "file": "fioleABroken_1-=-0-=-.png",
+      "name": "fioleABroken_1"
+    },
+    {
+      "file": "fioleAliquidGreen-=-0-=-.png",
+      "name": "fioleAliquidGreen"
+    },
+    {
+      "file": "fioleAliquidGreenPurple-=-0-=-.png",
+      "name": "fioleAliquidGreenPurple"
+    },
+    {
+      "file": "fioleAliquidMeta-=-0-=-.png",
+      "name": "fioleAliquidMeta"
+    },
+    {
+      "file": "fioleAliquidNoColor-=-0-=-.png",
+      "name": "fioleAliquidNoColor"
+    },
+    {
+      "file": "fioleAliquidPurple-=-0-=-.png",
+      "name": "fioleAliquidPurple"
+    },
+    {
+      "file": "fioleAliquidRed-=-0-=-.png",
+      "name": "fioleAliquidRed"
+    },
+    {
+      "file": "fioleAliquidRedGreen-=-0-=-.png",
+      "name": "fioleAliquidRedGreen"
+    },
+    {
+      "file": "fioleAliquidRedPurple-=-0-=-.png",
+      "name": "fioleAliquidRedPurple"
+    },
+    {
+      "file": "fioleB-=-0-=-.png",
+      "name": "fioleB"
+    },
+    {
+      "file": "fioleBBroken_0-=-0-=-.png",
+      "name": "fioleBBroken_0"
+    },
+    {
+      "file": "fioleBBroken_1-=-0-=-.png",
+      "name": "fioleBBroken_1"
+    },
+    {
+      "file": "fioleBliquidGreen-=-0-=-.png",
+      "name": "fioleBliquidGreen"
+    },
+    {
+      "file": "fioleBliquidGreenPurple-=-0-=-.png",
+      "name": "fioleBliquidGreenPurple"
+    },
+    {
+      "file": "fioleBliquidMeta-=-0-=-.png",
+      "name": "fioleBliquidMeta"
+    },
+    {
+      "file": "fioleBliquidNoColor-=-0-=-.png",
+      "name": "fioleBliquidNoColor"
+    },
+    {
+      "file": "fioleBliquidPurple-=-0-=-.png",
+      "name": "fioleBliquidPurple"
+    },
+    {
+      "file": "fioleBliquidRed-=-0-=-.png",
+      "name": "fioleBliquidRed"
+    },
+    {
+      "file": "fioleBliquidRedGreen-=-0-=-.png",
+      "name": "fioleBliquidRedGreen"
+    },
+    {
+      "file": "fioleBliquidRedPurple-=-0-=-.png",
+      "name": "fioleBliquidRedPurple"
+    },
+    {
+      "file": "fioleC-=-0-=-.png",
+      "name": "fioleC"
+    },
+    {
+      "file": "fioleCBroken_0-=-0-=-.png",
+      "name": "fioleCBroken_0"
+    },
+    {
+      "file": "fioleCBroken_1-=-0-=-.png",
+      "name": "fioleCBroken_1"
+    },
+    {
+      "file": "fioleCliquidGreen-=-0-=-.png",
+      "name": "fioleCliquidGreen"
+    },
+    {
+      "file": "fioleCliquidGreenPurple-=-0-=-.png",
+      "name": "fioleCliquidGreenPurple"
+    },
+    {
+      "file": "fioleCliquidMeta-=-0-=-.png",
+      "name": "fioleCliquidMeta"
+    },
+    {
+      "file": "fioleCliquidNoColor-=-0-=-.png",
+      "name": "fioleCliquidNoColor"
+    },
+    {
+      "file": "fioleCliquidPurple-=-0-=-.png",
+      "name": "fioleCliquidPurple"
+    },
+    {
+      "file": "fioleCliquidRed-=-0-=-.png",
+      "name": "fioleCliquidRed"
+    },
+    {
+      "file": "fioleCliquidRedGreen-=-0-=-.png",
+      "name": "fioleCliquidRedGreen"
+    },
+    {
+      "file": "fioleCliquidRedPurple-=-0-=-.png",
+      "name": "fioleCliquidRedPurple"
+    },
+    {
+      "file": "metaStoneOn1-=-0-=-.png",
+      "name": "metaStoneOn1"
+    },
+    {
+      "file": "metaStoneOn2-=-0-=-.png",
+      "name": "metaStoneOn2"
+    },
+    {
+      "file": "metaStoneOn3-=-0-=-.png",
+      "name": "metaStoneOn3"
+    },
+    {
+      "file": "metaStoneOn4-=-0-=-.png",
+      "name": "metaStoneOn4"
+    },
+    {
+      "file": "metaStoneOn5-=-0-=-.png",
+      "name": "metaStoneOn5"
+    }
+  ],
+  "portals": [
+    {
+      "file": "godraysArcheTriainingRoom-=-0-=-.png",
+      "name": "godraysArcheTriainingRoom"
+    },
+    {
+      "file": "PortalBackOut_0-=-0-=-.png",
+      "name": "PortalBackOut_0"
+    },
+    {
+      "file": "TailorScissorLight-=-0-=-.png",
+      "name": "TailorScissorLight"
+    },
+    {
+      "file": "whitePixel-=-0-=-.png",
+      "name": "whitePixel"
+    }
+  ],
+  "platforms": [
+    {
+      "file": "ladderFloor-=-0-=-.png",
+      "name": "ladderFloor"
+    },
+    {
+      "file": "ladderHole-=-0-=-.png",
+      "name": "ladderHole"
+    },
+    {
+      "file": "ladderPlatform-=-0-=-.png",
+      "name": "ladderPlatform"
+    },
+    {
+      "file": "ladderWall-=-0-=-.png",
+      "name": "ladderWall"
+    },
+    {
+      "file": "spawnerDecoPlatform-=-0-=-.png",
+      "name": "spawnerDecoPlatform"
+    },
+    {
+      "file": "stairs-=-0-=-.png",
+      "name": "stairs"
+    },
+    {
+      "file": "stairsCornerTrBot-=-0-=-.png",
+      "name": "stairsCornerTrBot"
+    },
+    {
+      "file": "stairsCorner_0-=-0-=-.png",
+      "name": "stairsCorner_0"
+    },
+    {
+      "file": "stairsCorner_1-=-0-=-.png",
+      "name": "stairsCorner_1"
+    },
+    {
+      "file": "stairsTrTop-=-0-=-.png",
+      "name": "stairsTrTop"
+    },
+    {
+      "file": "stairs_0-=-0-=-.png",
+      "name": "stairs_0"
+    },
+    {
+      "file": "stairs_1-=-0-=-.png",
+      "name": "stairs_1"
+    },
+    {
+      "file": "woodenCornerLeft-=-0-=-.png",
+      "name": "woodenCornerLeft"
+    },
+    {
+      "file": "woodenCornerRight-=-0-=-.png",
+      "name": "woodenCornerRight"
+    },
+    {
+      "file": "woodenPlatform_0-=-0-=-.png",
+      "name": "woodenPlatform_0"
+    },
+    {
+      "file": "woodenPlatform_1-=-0-=-.png",
+      "name": "woodenPlatform_1"
+    },
+    {
+      "file": "woodenPlatform_2-=-0-=-.png",
+      "name": "woodenPlatform_2"
+    },
+    {
+      "file": "woodenPlatform_3-=-0-=-.png",
+      "name": "woodenPlatform_3"
+    },
+    {
+      "file": "woodenPlatform_4-=-0-=-.png",
+      "name": "woodenPlatform_4"
+    },
+    {
+      "file": "woodenPlatform_left-=-0-=-.png",
+      "name": "woodenPlatform_left"
+    },
+    {
+      "file": "woodenPlatform_right-=-0-=-.png",
+      "name": "woodenPlatform_right"
+    }
+  ],
+  "webs": [
+    {
+      "file": "webBigBL-=-0-=-.png",
+      "name": "webBigBL"
+    },
+    {
+      "file": "webBigBR-=-0-=-.png",
+      "name": "webBigBR"
+    },
+    {
+      "file": "webBigTL-=-0-=-.png",
+      "name": "webBigTL"
+    },
+    {
+      "file": "webBigTR-=-0-=-.png",
+      "name": "webBigTR"
+    },
+    {
+      "file": "webMediumBL-=-0-=-.png",
+      "name": "webMediumBL"
+    },
+    {
+      "file": "webMediumBR-=-0-=-.png",
+      "name": "webMediumBR"
+    },
+    {
+      "file": "webMediumTL-=-0-=-.png",
+      "name": "webMediumTL"
+    },
+    {
+      "file": "webMediumTR-=-0-=-.png",
+      "name": "webMediumTR"
+    },
+    {
+      "file": "webSmallBL-=-0-=-.png",
+      "name": "webSmallBL"
+    },
+    {
+      "file": "webSmallBR-=-0-=-.png",
+      "name": "webSmallBR"
+    },
+    {
+      "file": "webSmallTL-=-0-=-.png",
+      "name": "webSmallTL"
+    },
+    {
+      "file": "webSmallTR-=-0-=-.png",
+      "name": "webSmallTR"
+    }
+  ]
+}
