@@ -136,8 +136,8 @@ public:
 	void hanging();
     void climbing();
     void climbedge();
-    void AtkcloseCombatBow();
-    void AtkdualBow();
+    void closeCombatBow();
+    void dualBow();
     void crossbowShoot();
     void changeStateByWeapon(Weapon* weapon);
     void whenOnAttackKey(Weapon* w);

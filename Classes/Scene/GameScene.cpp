@@ -437,7 +437,6 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     {
         auto node = (maskA & WEAPON) ? nodeA : nodeB;
         _player->_nearbyWeapon = dynamic_cast<WeaponNode*>(node);
-        _player->showPickupTip(true);
     }
 
 
@@ -454,9 +453,6 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
     if ((maskA & WEAPON && maskB & PLAYER_BODY) || (maskB & WEAPON && maskA & PLAYER_BODY))
     {
         if (_player) 
-        {
             _player->_nearbyWeapon = nullptr; // 取消标记，防止隔空捡取
-            _player->showPickupTip(false);    // 隐藏提示
-        }
     }
 }

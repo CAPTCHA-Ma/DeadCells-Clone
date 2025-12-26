@@ -31,6 +31,9 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Weapon.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\WeaponNode.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
@@ -67,9 +70,6 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\People\WeaponNode.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.h">
@@ -100,6 +100,9 @@
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Weapon.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\WeaponNode.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.h">
@@ -31305,6 +31308,33 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\StartMenu\StartMenuBackGround.jpg">
       <Filter>Resources\Graph\StartMenu</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\BackStabber.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\BaseballBat.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\BroadSword.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\LightningShield.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\OvenAxe.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\ParryShield.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\closeCombatBow.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\crossbow.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Weapon\dualBow.png">
+      <Filter>Resources\Graph\Weapon</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\Zombie\atkA-=-0-=-.png">
       <Filter>Resources\Graph\Zombie</Filter>
     </ClInclude>
@@ -32247,9 +32277,6 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\xml\string.xml">
       <Filter>Resources\xml</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\People\WeaponNode.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Code\Cocos2dx\DeadCells\CMakeLists.txt" />
@@ -32280,6 +32307,9 @@
     </Filter>
     <Filter Include="Resources\Graph\StartMenu">
       <UniqueIdentifier>{795DABA1-3752-34BD-A4B3-D78040DCA6D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Graph\Weapon">
+      <UniqueIdentifier>{A385C602-5B04-3D60-93A7-77785581C7BD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Graph\Zombie">
       <UniqueIdentifier>{89E3FCB4-20E9-3440-B835-D26766E0CD1A}</UniqueIdentifier>

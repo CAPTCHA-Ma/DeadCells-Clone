@@ -210,10 +210,6 @@ void PlayerLayer::struck(float attackPower, cocos2d::Vec2 sourcePos)
     }
     _player->struck(attackPower);
 }
-void PlayerLayer::showPickupTip(bool visible, Vec2 pos)
-{
-    CCLOG("Pickup Tip: %s", visible ? "SHOW" : "HIDE");
-}
 void PlayerLayer::getNewWeapon()
 {
     if (!_nearbyWeapon || !_player) 
@@ -234,9 +230,6 @@ void PlayerLayer::getNewWeapon()
         auto jump = JumpBy::create(0.4f, Vec2(xDir, 0), 40, 1);
         droppedNode->runAction(jump);
     }
-
-    this->showPickupTip(false); 
-    CCLOG("Weapon Exchanged Success!");
 }
 void PlayerLayer::executePickup()
 {
@@ -246,22 +239,19 @@ void PlayerLayer::executePickup()
     Weapon* newWeapon = _nearbyWeapon->pickUp();
     _nearbyWeapon = nullptr; 
 
-    // 3. 交换武器数据，获取旧武器
+
     Weapon* oldWeapon = _player->getNewWeapon(newWeapon);
 
-    // 4. 如果有丢下的旧武器，生成新的掉落物
+
     if (oldWeapon)
     {
         auto droppedNode = WeaponNode::create(oldWeapon, dropPos);
-        this->getParent()->addChild(droppedNode); // 添加到地图层
+        this->getParent()->addChild(droppedNode);
 
-        // 视觉效果：向玩家背后方向弹开
         float xDir = (_player->_direction == MoveDirection::RIGHT) ? -50.0f : 50.0f;
         auto jump = JumpBy::create(0.4f, Vec2(xDir, 0), 40, 1);
         droppedNode->runAction(jump);
     }
-
-    CCLOG("Equipped new weapon via E key!");
 }
 void PlayerLayer::update(float dt)
 {

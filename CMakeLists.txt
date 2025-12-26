@@ -67,6 +67,7 @@ list(APPEND GAME_SOURCE
      Classes/People/Shield.cpp
      Classes/People/Sword.cpp
      Classes/People/Weapon.cpp
+     Classes/People/WeaponNode.cpp
      Classes/People/Zombie.cpp
      Classes/People/Arrow.cpp
      Classes/People/Bomb.cpp
@@ -92,6 +93,7 @@ list(APPEND GAME_HEADER
      Classes/People/Shield.h
      Classes/People/Sword.h
      Classes/People/Weapon.h
+     Classes/People/WeaponNode.h
      Classes/People/Zombie.h
      Classes/People/Arrow.h
      Classes/People/Bomb.h

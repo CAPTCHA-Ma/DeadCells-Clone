@@ -15,7 +15,9 @@ public:
     bool _isDropping = false, _isBelowLadder = false, _isAboveLadder = false, _isContactBottom = false, _isPassingPlatform = false;
     ActionState getCurrentState() const { return _player->_state; };
     cocos2d::Vec2 GetVelo();
-
+    WeaponNode* _nearbyWeapon;
+    void getNewWeapon();
+    void executePickup();
 private:
     cocos2d::Sprite* _pickupTip = nullptr; // 捡取提示图标
     Player* _player;
