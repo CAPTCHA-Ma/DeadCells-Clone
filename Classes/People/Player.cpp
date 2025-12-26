@@ -48,18 +48,44 @@ void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
 void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
 {
     auto currentBody = this->getPhysicsBody();
-    if (currentBody)
+    if (!currentBody)
     {
-        currentBody->removeAllShapes();
-        auto newShape = PhysicsShapeBox::create(size, PhysicsMaterial(0.1f, 0.0f, 0.5f), offset);
-        currentBody->addShape(newShape);
-    }
-    else {
-        auto body = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 0.0f, 0.5f), offset);
-        this->setPhysicsBody(body);
+        currentBody = PhysicsBody::create();
+        this->setPhysicsBody(currentBody);
     }
 
-    setupBodyProperties(this->getPhysicsBody());
+    currentBody->removeAllShapes();
+
+    float skin = 1.5f;
+
+    float w = (size.width / 2.0f) - skin;
+    float h = (size.height / 2.0f) - skin;
+
+    if (w < 0.1f) w = 0.1f;
+    if (h < 0.1f) h = 0.1f;
+
+    float chamfer = 5.0f;
+
+    if (chamfer > w) chamfer = w;
+    if (chamfer > h) chamfer = h;
+
+    Vec2 points[8] = {
+        Vec2(-w + chamfer, -h), 
+        Vec2(w - chamfer, -h),  
+        Vec2(w, -h + chamfer), 
+        Vec2(w, h - chamfer),  
+        Vec2(w - chamfer, h), 
+        Vec2(-w + chamfer, h), 
+        Vec2(-w, h - chamfer), 
+        Vec2(-w, -h + chamfer)  
+    };
+
+    auto material = PhysicsMaterial(0.1f, 0.0f, 0.0f);
+    auto shape = PhysicsShapePolygon::create(points, 8, material, offset);
+
+    currentBody->addShape(shape);
+
+    setupBodyProperties(currentBody);
 }
 void Player::createNormalBody()
 {
@@ -152,8 +178,6 @@ void Player::jumpUp()
         return;
     }
 
-	CCLOG("JUMPING UP!\n");
-
     auto body = this->getPhysicsBody();
     if (!body)
         return;
@@ -173,8 +197,6 @@ void Player::rollStart()
 void Player::hanging()
 {
 
-    CCLOG("HANGING!\n");
-
     auto body = this->getPhysicsBody();
     if (!body) return;
 
@@ -186,9 +208,20 @@ void Player::hanging()
 void Player::climbing()
 {
 
-	CCLOG("CLIMBING!\n");
-
     this->giveVelocityY(_climbSpeed);
+
+}
+
+void Player::climbedge()
+{
+
+    CCLOG("CHANGE!\n");
+
+    auto body = this->getPhysicsBody();
+    if (!body) return;
+
+    body->setVelocity(Vec2(0, _climbSpeed));
+    body->setGravityEnable(false);
 
 }
 
@@ -262,6 +295,7 @@ void Player::changeState(ActionState newState)
         case ActionState::dead:this->dead(); break;
 		case ActionState::hanging:this->hanging(); break;
 		case ActionState::climbing:this->climbing(); break;
+        case ActionState::climbedge:this->climbedge();  break;
 
         case ActionState::atkA:this->createAttackBox(); break;
         case ActionState::atkB:this->createAttackBox(); break;

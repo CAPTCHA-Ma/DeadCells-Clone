@@ -24,6 +24,7 @@ enum class ActionState
     crouch,     // 下蹲
     dead,
     climbing,
+    climbedge,
     hanging,
 
     atkA,   // 徒手攻击 (或通用攻击)
@@ -72,6 +73,7 @@ static std::unordered_map<ActionState, StateConfig> StateTable =
     { ActionState::crouch,                                  { true,  1, true } },
     { ActionState::dead,                                    { true,  100, false }},
 	{ ActionState::climbing,                                 { true,  99, true  } },
+	{ ActionState::climbedge,                               { true,  99, false  } },
 	{ ActionState::hanging,                                 { true,  98, false  } },
 
     //攻击
@@ -133,6 +135,7 @@ public:
     void crouch();
 	void hanging();
     void climbing();
+    void climbedge();
     void AtkcloseCombatBow();
     void AtkdualBow();
     void crossbowShoot();

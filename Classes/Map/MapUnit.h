@@ -45,21 +45,6 @@ public:
 
 };
 
-class CorridorData
-{
-public:
-
-    
-
-};
-
-class MapUnit : public cocos2d::Node
-{
-
-
-
-};
-
 struct RoomData
 {
 

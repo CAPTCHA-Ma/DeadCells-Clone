@@ -13,6 +13,7 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
         scene->_mapGenerator = generator;
         scene->autorelease();
         scene->init();
+        scene->getPhysicsWorld()->setSubsteps(5);
 
         scene->GenMapData();
 
@@ -105,16 +106,16 @@ void GameScene::RenderMap()
     _mapContainer->addChild(_player);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
-	auto monster = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
-	_monsters.pushBack(monster);
-	_mapContainer->addChild(monster);
+	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
+	_monsters.pushBack(monster3);
+	_mapContainer->addChild(monster3);
 
     int counter = 0;
     for (auto roomData : rooms) 
     {
 
         CCLOG("%d\n", ++counter);
-        auto node = RoomNode::create(roomData);
+        auto node = RoomNode::create(roomData, this->monster);
         _mapContainer->addChild(node);
 
     }
@@ -207,6 +208,7 @@ void GameScene::RenderMap()
                     if (playerBody->getVelocity().y > 0.5)
                     {
 
+						_player->_isPassingPlatform = true;
                         solve.ignore();
 
                     }
@@ -231,6 +233,13 @@ void GameScene::RenderMap()
 
                 //CCLOG("NOTBELOWLADDER!\n");
                 _player->_isBelowLadder = false;
+
+            }
+
+            if (bodyA->getCategoryBitmask() == PLATFORM || bodyB->getCategoryBitmask() == PLATFORM)
+            {
+
+				_player->_isPassingPlatform = false;
 
             }
 
