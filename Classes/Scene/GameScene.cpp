@@ -8,7 +8,7 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
     {
 
 		scene->getPhysicsWorld()->setGravity(Vec2(0, -980.f));
-		scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+		// scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);  // 关闭调试绘制
 
         scene->_mapGenerator = generator;
         scene->autorelease();
