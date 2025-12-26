@@ -80,7 +80,15 @@ void PlayerLayer::setupEventListeners()
                     {
                         break;
 					}
-                    else if (_downPressed)
+
+                    if (_isPassingPlatform)
+                    {
+
+                        _player->changeState(ActionState::climbedge);
+
+                    }
+
+                    if (_downPressed)
                     {
 
                         if (_isDropping) break;
@@ -223,6 +231,15 @@ void PlayerLayer::update(float dt)
             _player->changeState(ActionState::idle);
 
         }
+
+    }
+
+    if (_player->_state == ActionState::climbedge && !_isPassingPlatform)
+    {
+
+		body->setGravityEnable(true);
+        body->setVelocity(Vec2::ZERO);
+        _player->changeState(ActionState::idle);
 
     }
 
