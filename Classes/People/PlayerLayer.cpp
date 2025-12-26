@@ -31,6 +31,15 @@ bool PlayerLayer::init(cocos2d::Vec2 pos)
 
     return true;
 }
+
+cocos2d::Vec2 PlayerLayer::GetVelo()
+{
+    
+	auto body = _player->getPhysicsBody();
+	return body->getVelocity();
+
+}
+
 void PlayerLayer::setupEventListeners()
 {
     auto listener = EventListenerKeyboard::create();
@@ -55,7 +64,29 @@ void PlayerLayer::setupEventListeners()
                     _player->changeDirection(MoveDirection::RIGHT);
                     _player->changeState(ActionState::run);
                     break;
+                case EventKeyboard::KeyCode::KEY_W://ÅÊÅÀ
+					_player->_directionY = UpDownDirection::UP;
+                    if (_isBelowLadder)
+                    {
+
+                        _player->changeState(ActionState::hanging);
+                        _player->changeState(ActionState::climbing);
+
+                    }
+					break;
                 case EventKeyboard::KeyCode::KEY_SPACE://ÌøÔ¾
+
+                    if (_player->_state == ActionState::climbing || _player->_state == ActionState::hanging)
+                    {
+                        break;
+					}
+
+                    if (_isPassingPlatform)
+                    {
+
+                        _player->changeState(ActionState::climbedge);
+
+                    }
 
                     if (_downPressed)
                     {
@@ -77,7 +108,20 @@ void PlayerLayer::setupEventListeners()
                     _player->whenOnAttackKey(_player->_subWeapon);
                     break;
                 case EventKeyboard::KeyCode::KEY_S://ÏÂ¶×
-					_downPressed = true;
+
+                    _player->_directionY = UpDownDirection::DOWN;
+                    _downPressed = true;
+                    if (_isAboveLadder || _player->_state == ActionState::hanging)
+                    {
+
+						CCLOG("change to climbing\n");
+
+                        _player->changeState(ActionState::hanging);
+                        _player->changeState(ActionState::climbing);
+                        break;
+
+                    }
+
                     _player->changeState(ActionState::crouch);
                     break;
                 case EventKeyboard::KeyCode::KEY_L://¹ö¶¯
@@ -116,11 +160,32 @@ void PlayerLayer::setupEventListeners()
             }
             else if (keyCode == EventKeyboard::KeyCode::KEY_S)
             {
+				_player->_directionY = UpDownDirection::NONE;
                 _downPressed = false;
                 if (_player->_state == ActionState::crouch)
                 {
                     _player->changeState(ActionState::idle);
                 }
+
+                if (_player->_state == ActionState::climbing)
+                {
+
+					_player->changeState(ActionState::hanging);
+                    
+				}
+
+            }
+            else if (keyCode == EventKeyboard::KeyCode::KEY_W)
+            {
+
+                _player->_directionY = UpDownDirection::NONE;
+                if (_player->_state == ActionState::climbing)
+                {
+
+                    _player->changeState(ActionState::hanging);
+
+                }
+
             }
         };
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
@@ -205,6 +270,37 @@ void PlayerLayer::update(float dt)
     {
         _player->update(dt);
         return;
+    }
+
+    if (_player->_state == ActionState::climbing || _player->_state == ActionState::hanging)
+    {
+
+        if (body->getVelocity().y < 0.1f && _isContactBottom)
+        {
+
+            body->setVelocity(Vec2(0, 0));
+            body->setGravityEnable(true);
+			_player->changeState(ActionState::idle);
+
+		}
+
+        if (body->getVelocity().y > 0.1f && !(_isAboveLadder || _isBelowLadder))
+        {
+
+            body->setGravityEnable(true);
+            _player->changeState(ActionState::idle);
+
+        }
+
+    }
+
+    if (_player->_state == ActionState::climbedge && !_isPassingPlatform)
+    {
+
+		body->setGravityEnable(true);
+        body->setVelocity(Vec2::ZERO);
+        _player->changeState(ActionState::idle);
+
     }
 
     if (_leftPressed && !_rightPressed)

@@ -12,11 +12,10 @@ public:
     void struck(float attackPower, cocos2d::Vec2 sourcePos);
     float getFinalAttack() { return _player->getFinalAttributes().attack; };
     bool isInvincible() { return _player->_invincible; };
-    void executePickup();
-    void getNewWeapon();
-    void showPickupTip(bool visible, cocos2d::Vec2 pos = cocos2d::Vec2::ZERO);
-    bool _isDropping = false;
-    WeaponNode* _nearbyWeapon = nullptr; // 记录当前脚下的武器
+    bool _isDropping = false, _isBelowLadder = false, _isAboveLadder = false, _isContactBottom = false, _isPassingPlatform = false;
+    ActionState getCurrentState() const { return _player->_state; };
+    cocos2d::Vec2 GetVelo();
+
 private:
     cocos2d::Sprite* _pickupTip = nullptr; // 捡取提示图标
     Player* _player;

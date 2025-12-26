@@ -20,6 +20,7 @@ bool Player::init()
     _runSpeed = 200.0f;
     _jumpSpeed = 500.0f;
     _rollSpeed = 600.0f;
+	_climbSpeed = 100.0f;
     _state = ActionState::idle;
     _direction = MoveDirection::RIGHT;
     this->setOriginalAttributes(BasicAttributes(100, 10, 10));
@@ -41,24 +42,50 @@ void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
     body->setRotationEnable(false);
     body->setGravityEnable(true);
     body->setCategoryBitmask(PLAYER_BODY);
-    body->setCollisionBitmask(GROUND | PLATFORM | LADDER);
-    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER | WEAPON);
+    body->setCollisionBitmask(GROUND | PLATFORM | LADDER | MIX);
+    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER | MIX | GROUND);
 }
 void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
 {
     auto currentBody = this->getPhysicsBody();
-    if (currentBody)
+    if (!currentBody)
     {
-        currentBody->removeAllShapes();
-        auto newShape = PhysicsShapeBox::create(size, PhysicsMaterial(0.1f, 0.0f, 0.5f), offset);
-        currentBody->addShape(newShape);
-    }
-    else {
-        auto body = PhysicsBody::createBox(size, PhysicsMaterial(0.1f, 0.0f, 0.5f), offset);
-        this->setPhysicsBody(body);
+        currentBody = PhysicsBody::create();
+        this->setPhysicsBody(currentBody);
     }
 
-    setupBodyProperties(this->getPhysicsBody());
+    currentBody->removeAllShapes();
+
+    float skin = 1.5f;
+
+    float w = (size.width / 2.0f) - skin;
+    float h = (size.height / 2.0f) - skin;
+
+    if (w < 0.1f) w = 0.1f;
+    if (h < 0.1f) h = 0.1f;
+
+    float chamfer = 5.0f;
+
+    if (chamfer > w) chamfer = w;
+    if (chamfer > h) chamfer = h;
+
+    Vec2 points[8] = {
+        Vec2(-w + chamfer, -h), 
+        Vec2(w - chamfer, -h),  
+        Vec2(w, -h + chamfer), 
+        Vec2(w, h - chamfer),  
+        Vec2(w - chamfer, h), 
+        Vec2(-w + chamfer, h), 
+        Vec2(-w, h - chamfer), 
+        Vec2(-w, -h + chamfer)  
+    };
+
+    auto material = PhysicsMaterial(0.1f, 0.0f, 0.0f);
+    auto shape = PhysicsShapePolygon::create(points, 8, material, offset);
+
+    currentBody->addShape(shape);
+
+    setupBodyProperties(currentBody);
 }
 void Player::createNormalBody()
 {
@@ -73,6 +100,11 @@ void Player::giveVelocityX(float speed)
 {
     int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
     this->getPhysicsBody()->setVelocity(Vec2(speed * dir, this->getPhysicsBody()->getVelocity().y));
+}
+void Player::giveVelocityY(float speed)
+{
+	int dir = (_directionY == UpDownDirection::UP) ? 1 : -1;
+    this->getPhysicsBody()->setVelocity(Vec2(0, speed * dir));
 }
 void Player::changeDirection(MoveDirection dir)
 {
@@ -132,6 +164,7 @@ void Player::update(float dt)
         this->changeState(ActionState::idle);
     else if (!this->isOnGround() && _state != ActionState::rollStart)
         this->changeState(ActionState::jumpDown);
+
 }
 //*******************************************************************
 //*******************************************************************
@@ -173,6 +206,38 @@ void Player::rollStart()
         return;
     this->giveVelocityX(_rollSpeed);
 }
+
+void Player::hanging()
+{
+
+    auto body = this->getPhysicsBody();
+    if (!body) return;
+
+	body->setVelocity(Vec2(0, 0));
+    body->setGravityEnable(false);
+
+}
+
+void Player::climbing()
+{
+
+    this->giveVelocityY(_climbSpeed);
+
+}
+
+void Player::climbedge()
+{
+
+    CCLOG("CHANGE!\n");
+
+    auto body = this->getPhysicsBody();
+    if (!body) return;
+
+    body->setVelocity(Vec2(0, _climbSpeed));
+    body->setGravityEnable(false);
+
+}
+
 void Player::crouch()
 {
 }
@@ -271,6 +336,9 @@ void Player::changeState(ActionState newState)
         case ActionState::rollStart:this->rollStart(); break;
         case ActionState::crouch:this->crouch(); break;
         case ActionState::dead:this->dead(); break;
+		case ActionState::hanging:this->hanging(); break;
+		case ActionState::climbing:this->climbing(); break;
+        case ActionState::climbedge:this->climbedge();  break;
 
         case ActionState::atkA:this->createAttackBox(); break;
         case ActionState::atkB:this->createAttackBox(); break;
@@ -349,6 +417,10 @@ void Player::changeStateByWeapon(Weapon* weapon)
 bool Player::whetherCanChangeToNewState(ActionState newState) const
 {
 
+    if (newState == ActionState::hanging)
+        return true;
+    if (_state == ActionState::hanging && newState == ActionState::jumpUp)
+		return true;
     if (newState == ActionState::idle)
         return true;
     if (isAttackState(_state) && isAttackState(newState))

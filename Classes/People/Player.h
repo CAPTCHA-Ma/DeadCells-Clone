@@ -1,4 +1,3 @@
-// Player.h
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 #include "cocos2d.h"
@@ -25,6 +24,9 @@ enum class ActionState
     jumpUp,
     crouch,     // 下蹲
     dead,
+    climbing,
+    climbedge,
+    hanging,
 
     atkA,   // 徒手攻击 (或通用攻击)
     atkB,
@@ -66,11 +68,13 @@ static std::unordered_map<ActionState, StateConfig> StateTable =
     { ActionState::walk,                                    { true,  1, true  } },
     { ActionState::run,                                     { true,  1, true  } },
     { ActionState::rollStart,                               { true,  2, false } },
-    { ActionState::jumpDown,                                { true, 99, true } },
+    { ActionState::jumpDown,                                { true, 97, true } },
     { ActionState::jumpUp,                                  { true,  2, false } },
     { ActionState::crouch,                                  { true,  1, true } },
     { ActionState::dead,                                    { true,  100, false }},
-
+	{ ActionState::climbing,                                 { true,  99, true  } },
+	{ ActionState::climbedge,                               { true,  99, false  } },
+	{ ActionState::hanging,                                 { true,  98, false  } },
 
     //攻击
     { ActionState::atkA,                                    { true, 3, false } },
@@ -114,6 +118,7 @@ public:
     bool Player::init() override;
     void changeDirection(MoveDirection dir);
 	void giveVelocityX(float speed);
+	void giveVelocityY(float speed);
 	void set0VelocityX();
 	void set0VelocityY();
     bool isOnGround() const;
@@ -128,8 +133,11 @@ public:
     void jumpUp();
     void jumpDown();
     void crouch();
-    void closeCombatBow();
-    void dualBow();
+	void hanging();
+    void climbing();
+    void climbedge();
+    void AtkcloseCombatBow();
+    void AtkdualBow();
     void crossbowShoot();
     void changeStateByWeapon(Weapon* weapon);
     void whenOnAttackKey(Weapon* w);
@@ -158,8 +166,10 @@ protected:
 	float _runSpeed; // 水平移动速度
 	float _rollSpeed; // 滚动速度
 	float _jumpSpeed; // 跳跃初速度
+	float _climbSpeed; // 爬升速度
     ActionState _state;
-	MoveDirection _direction;
+    MoveDirection _direction;
+    UpDownDirection _directionY = UpDownDirection::NONE;
     cocos2d::Vec2 _velocity; // 用于跳跃和重力的速度向量
     Weapon* _mainWeapon;// 主武器
     Weapon* _subWeapon;// 副武器
