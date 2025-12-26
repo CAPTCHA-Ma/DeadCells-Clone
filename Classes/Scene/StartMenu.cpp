@@ -3,7 +3,7 @@
 #include "ui/CocosGUI.h"
 #include "Res/strings.h"
 #include "AudioEngine.h"
-#include "Prison.h"
+
 USING_NS_CC;
 
 bool StartMenu::init()

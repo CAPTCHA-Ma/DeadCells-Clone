@@ -82,7 +82,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 
 					cateBitMask = GROUND;
 					colBitMask = PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
-					conBitMask = ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
+					conBitMask = ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW | PLAYER_BODY;
 
 					break;
 
@@ -98,13 +98,23 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 
 				case LADDER:
 
+					width = 1;
+
 					while (y + height < sz.height && layerCategory[y + height][x] == LADDER && !visited[y + height][x]) height++;
 
 					cateBitMask = LADDER;
-					colBitMask = 0;
+					colBitMask = PLAYER_BODY;
 					conBitMask = PLAYER_BODY;
 
 					break;
+
+				case MIX:
+
+					width = 1;
+
+					cateBitMask = MIX;
+					colBitMask = PLAYER_BODY;
+					conBitMask = PLAYER_BODY;
 
 				default:
 					break;
@@ -123,6 +133,12 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 			physicsBody->setCategoryBitmask(cateBitMask);
 			physicsBody->setCollisionBitmask(colBitMask);
 			physicsBody->setContactTestBitmask(conBitMask);
+			if (layerCategory[y][x] == LADDER)
+			{
+
+				for (auto& shape : physicsBody->getShapes())  shape->setSensor(true);
+
+			}
 
 			auto node = Node::create();
 			node->setPhysicsBody(physicsBody);
@@ -270,11 +286,13 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 		node->setPosition((Vec2(x + width / 2.0f, y + height / 2.0f) - origin) * 24);
 		corridorContainer->addChild(node);
 
-		for (int row = 0; row < height; ++row) {
-			for (int col = 0; col < width; ++col) {
-				groundTiles.erase(Vec2(x + col, y + row));
-			}
+		for (int row = 0; row < height; ++row) 
+		{
+
+			for (int col = 0; col < width; ++col) groundTiles.erase(Vec2(x + col, y + row));
+			
 		}
+
 	}
 
 	return corridorContainer;
@@ -315,7 +333,13 @@ bool RoomNode::init(MapUnitData* data)
 					ValueMap propsMap = properties.asValueMap();
 					std::string tileType = propsMap.at("cate").asString();
 
-					if (tileType == "DOOR") layerCategory[Size.height - y - 1][x] = PhysicsCategory::GROUND;
+					if (tileType == "DOOR")
+					{
+
+						layerCategory[Size.height - y - 1][x] = PhysicsCategory::GROUND;
+						CCLOG("FIND!\n");
+
+					}
 
 				}
 
@@ -338,11 +362,11 @@ bool RoomNode::init(MapUnitData* data)
 
 			Vec2 pos = q.front() + dir[i];
 			if (pos.x < 0 || pos.x >= Size.width || pos.y < 0 || pos.y >= Size.height) continue;
-			if (!visited[Size.height - pos.y - 1][pos.x] && layerCategory[Size.height - pos.y - 1][pos.x] == PhysicsCategory::GROUND)
+			if (!visited[pos.y][pos.x] && layerCategory[pos.y][pos.x] == PhysicsCategory::GROUND)
 			{
 
-				visited[Size.height - pos.y - 1][pos.x] = true;
-				layerCategory[Size.height - pos.y - 1][pos.x] = PhysicsCategory::AIR;
+				visited[pos.y][pos.x] = true;
+				layerCategory[pos.y][pos.x] = PhysicsCategory::AIR;
 				q.push(pos);
 
 			}
@@ -363,6 +387,8 @@ bool RoomNode::init(MapUnitData* data)
 
 			Vec2 tileCoord = Vec2(x, y);
 			int gid = colLayer->getTileGIDAt(tileCoord);
+
+			if (layerCategory[Size.height - y - 1][x] == PhysicsCategory::GROUND) continue;
 
 			if (gid)
 			{
@@ -400,12 +426,40 @@ bool RoomNode::init(MapUnitData* data)
 
 	}
 
+	for (int x = 0; x < Size.width; x++)
+	{
+
+		for (int y = 1; y < Size.height; y++)
+		{
+
+			if (layerCategory[y][x] == PhysicsCategory::LADDER && layerCategory[y - 1][x] == PhysicsCategory::GROUND)
+			{
+				layerCategory[y - 1][x] = PhysicsCategory::MIX;
+			}
+
+			if (layerCategory[y - 1][x] == PhysicsCategory::LADDER && layerCategory[y][x] == PhysicsCategory::GROUND)
+			{
+				layerCategory[y][x] = PhysicsCategory::MIX;
+			}
+
+			if (layerCategory[y][x] == PhysicsCategory::LADDER && layerCategory[y - 1][x] == PhysicsCategory::PLATFORM)
+			{
+				layerCategory[y - 1][x] = PhysicsCategory::MIX;
+			}
+
+			if (layerCategory[y - 1][x] == PhysicsCategory::LADDER && layerCategory[y][x] == PhysicsCategory::PLATFORM)
+			{
+				layerCategory[y][x] = PhysicsCategory::MIX;
+			}
+
+		}
+
+	}
+
 	GenBody(layerCategory, tmx);
 
 	if (data->nextRoom.size())
 	{
-
-		CCLOG("GENCOR!\n");
 
 		std::vector<std::vector<Vec2>> paths;
 
@@ -418,8 +472,6 @@ bool RoomNode::init(MapUnitData* data)
 
 		if (paths.size())
 		{
-
-			CCLOG("ADD!\n");
 
 			Node* layer = GenCorridor(paths, data->obstacle.lowLeft);
 			this->addChild(layer);

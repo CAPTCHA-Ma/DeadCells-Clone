@@ -4,7 +4,7 @@
  <tileset firstgid="8" source="lnk.tsx"/>
  <layer id="1" name="col" width="119" height="55">
   <data encoding="base64" compression="zlib">
-   eJzt1bEOgzAQREGT///oFFREsaUg4w3crDQdxVmvYGutbQAAAAG9pe9CW7StqLf0XWiLthWNlr4NbdG2mtHSt6Et2lYzWvo2tEXbakZL33bl22xfupG2a5fupu1/TtvnTtvn7s5tXwvvX2nW7nZv6n5tta3oqqXfxf5vnCX9Fo5mLv0WtK3iW5+zS7+FeW0/v02/hd9795a+EwAAAAAAAACAWt7BpxbA
+   eJzt2MGOgkAURNFG//+f3YqBBhuwIu9UchYms3jt3ZiZWmsTAABAwNrSd6Et2la0tvRdaIu2FfWWvg1t0baa3tK3oS3aVtNb+ja0RdvqHm/StxxlrT03PqcbaTu+rbZLS3fTdt9G2h6Ztr+btvedtvt3h9+YV35X/3Zv6n5tta3oqqXfxfz/MEel38LcmUu/BW2rWOozuvRbOK/t59+m38L3vdeWvhMAAAAAAAAAgFpewV4W6A==
   </data>
  </layer>
  <objectgroup id="3" name="obj">
