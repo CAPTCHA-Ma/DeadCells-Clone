@@ -83,6 +83,13 @@ void PlayerLayer::setupEventListeners()
                 case EventKeyboard::KeyCode::KEY_L://滚动
                     _player->changeState(ActionState::rollStart);
                     break;
+                case EventKeyboard::KeyCode::KEY_Q://交换主副武器
+                    _player->swapWeapon();
+                    break;
+                case EventKeyboard::KeyCode::KEY_E: // 拾取武器
+                    if (_nearbyWeapon != nullptr)
+                        this->getNewWeapon();
+                    break;
                 default:
                     break;
             }
@@ -137,6 +144,59 @@ void PlayerLayer::struck(float attackPower, cocos2d::Vec2 sourcePos)
         _player->changeDirection(MoveDirection::LEFT);
     }
     _player->struck(attackPower);
+}
+void PlayerLayer::showPickupTip(bool visible, Vec2 pos)
+{
+    CCLOG("Pickup Tip: %s", visible ? "SHOW" : "HIDE");
+}
+void PlayerLayer::getNewWeapon()
+{
+    if (!_nearbyWeapon || !_player) 
+        return;
+
+    Vec2 dropPos = _nearbyWeapon->getPosition();
+    Weapon* newWpData = _nearbyWeapon->pickUp();
+    _nearbyWeapon = nullptr; 
+    Weapon* oldWpData = _player->getNewWeapon(newWpData);
+    if (oldWpData)
+    {
+        auto droppedNode = WeaponNode::create(oldWpData, dropPos);
+        if (this->getParent())
+        {
+            this->getParent()->addChild(droppedNode);
+        }
+        float xDir = (_player->_direction == MoveDirection::RIGHT) ? -50.0f : 50.0f;
+        auto jump = JumpBy::create(0.4f, Vec2(xDir, 0), 40, 1);
+        droppedNode->runAction(jump);
+    }
+
+    this->showPickupTip(false); 
+    CCLOG("Weapon Exchanged Success!");
+}
+void PlayerLayer::executePickup()
+{
+    if (!_nearbyWeapon || !_player) 
+        return;
+    Vec2 dropPos = _nearbyWeapon->getPosition();
+    Weapon* newWeapon = _nearbyWeapon->pickUp();
+    _nearbyWeapon = nullptr; 
+
+    // 3. 交换武器数据，获取旧武器
+    Weapon* oldWeapon = _player->getNewWeapon(newWeapon);
+
+    // 4. 如果有丢下的旧武器，生成新的掉落物
+    if (oldWeapon)
+    {
+        auto droppedNode = WeaponNode::create(oldWeapon, dropPos);
+        this->getParent()->addChild(droppedNode); // 添加到地图层
+
+        // 视觉效果：向玩家背后方向弹开
+        float xDir = (_player->_direction == MoveDirection::RIGHT) ? -50.0f : 50.0f;
+        auto jump = JumpBy::create(0.4f, Vec2(xDir, 0), 40, 1);
+        droppedNode->runAction(jump);
+    }
+
+    CCLOG("Equipped new weapon via E key!");
 }
 void PlayerLayer::update(float dt)
 {

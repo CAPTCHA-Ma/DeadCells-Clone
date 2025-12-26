@@ -22,8 +22,8 @@ bool Player::init()
     _rollSpeed = 600.0f;
     _state = ActionState::idle;
     _direction = MoveDirection::RIGHT;
-    this->setOriginalAttributes(BasicAttributes({ 100, 10, 10 }));
-    this->setFinalAttributes(BasicAttributes({ 100, 100, 100 }));
+    this->setOriginalAttributes(BasicAttributes(100, 10, 10));
+    this->setFinalAttributes(BasicAttributes(100, 100, 100));
 
 
     this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
@@ -42,7 +42,7 @@ void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
     body->setGravityEnable(true);
     body->setCategoryBitmask(PLAYER_BODY);
     body->setCollisionBitmask(GROUND | PLATFORM | LADDER);
-    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER);
+    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER | WEAPON);
 }
 void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
 {
@@ -101,6 +101,29 @@ bool Player::isOnGround() const
 {
     return abs(this->getPhysicsBody()->getVelocity().y) < 1.0f;
 }
+void Player::updateFinalAttributes()
+{
+    BasicAttributes original = this->getOriginalAttributes();
+    BasicAttributes newAttrs = original;
+    if (_mainWeapon)
+    {
+        BasicAttributes wa = _mainWeapon->getWeaponAttributes();
+        newAttrs.attack += wa.attack;
+        newAttrs.defense += wa.defense;
+    }
+
+    if (_subWeapon)
+    {
+        BasicAttributes sa = _subWeapon->getWeaponAttributes();
+        newAttrs.attack += sa.attack;
+        newAttrs.defense += sa.defense;
+    }
+    BasicAttributes currentFinal = this->getFinalAttributes();
+    float currentHP = currentFinal.health;
+    newAttrs.health = currentHP;
+    this->setFinalAttributes(newAttrs);
+    CCLOG("updateFinalAttributes: attack=%f, defense=%f, health=%f", newAttrs.attack, newAttrs.defense, newAttrs.health);
+}
 void Player::update(float dt)
 {
     // 应用重力
@@ -114,16 +137,6 @@ void Player::update(float dt)
 //*******************************************************************
 //*******************************************************************
 //动作
-void Player::getWeapon(Weapon* w)
-{
-    if (!_mainWeapon)
-        _mainWeapon = w;
-    else if (!_subWeapon)
-        _subWeapon = w;
-    this->setFinalAttributes({ this->getOriginalAttributes().health + w->getWeaponAttributes().health,
-                               this->getOriginalAttributes().attack + w->getWeaponAttributes().attack,
-                               this->getOriginalAttributes().defense + w->getWeaponAttributes().defense });
-}
 void Player::idle()
 {
     this->set0VelocityX();
@@ -163,11 +176,11 @@ void Player::rollStart()
 void Player::crouch()
 {
 }
-void Player::AtkcloseCombatBow()
+void Player::closeCombatBow()
 {
     this->idle();
 }
-void Player::AtkdualBow()
+void Player::dualBow()
 {
 }
 void Player::crossbowShoot()
@@ -184,6 +197,36 @@ void Player::dead()
 void Player::lethalHit()
 {
     this->set0VelocityX();
+}
+void Player::swapWeapon() // 交换主副武器
+{
+    auto mid = _mainWeapon;
+    _mainWeapon = _subWeapon; 
+    _subWeapon = mid;
+
+    this->updateFinalAttributes();
+    this->changeState(ActionState::idle);
+    CCLOG("Swapped Main and Sub weapons");
+}
+
+Weapon* Player::getNewWeapon(Weapon* newWeapon)
+{
+    Weapon* oldWeapon = nullptr;
+    if (!_mainWeapon) 
+    {
+        _mainWeapon = newWeapon;
+    }
+    else
+    {
+        oldWeapon = _mainWeapon;
+        _mainWeapon = newWeapon;
+    }
+
+    this->updateFinalAttributes();
+    _animationCache.clear();
+    this->changeState(ActionState::idle);
+
+    return oldWeapon;
 }
 void Player::shootArrow()
 {
@@ -244,8 +287,8 @@ void Player::changeState(ActionState newState)
         case ActionState::AtkOvenAxeB:this->createAttackBox(); break;
         case ActionState::AtkOvenAxeC:this->createAttackBox(); break;
 
-        case ActionState::AtkcloseCombatBow:this->AtkcloseCombatBow(); break;
-        case ActionState::AtkdualBow:this->AtkdualBow(); break;
+        case ActionState::closeCombatBow:this->closeCombatBow(); break;
+        case ActionState::dualBow:this->dualBow(); break;
         case ActionState::crossbowShoot:this->crossbowShoot(); break;
 
         case ActionState::blockEndLightningShield:this->createShieldParryBox(); break;
@@ -285,9 +328,9 @@ void Player::changeStateByWeapon(Weapon* weapon)
     if (bow)
     {
         if (bow->getBowType() == Bow::BowType::closeCombatBow)
-            changeState(ActionState::AtkcloseCombatBow);
+            changeState(ActionState::closeCombatBow);
         else if (bow->getBowType() == Bow::BowType::dualBow)
-            changeState(ActionState::AtkdualBow);
+            changeState(ActionState::dualBow);
         else if (bow->getBowType() == Bow::BowType::crossbow)
             changeState(ActionState::crossbowShoot);
         return;
@@ -396,10 +439,10 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::AtkOvenAxeA:      anim = createAnim("AtkOvenAxeA", 38, 1.0f); break;
         case ActionState::AtkOvenAxeB:      anim = createAnim("AtkOvenAxeB", 40, 1.0f); break;
         case ActionState::AtkOvenAxeC:      anim = createAnim("AtkOvenAxeC", 48, 1.0f); break;
-        case ActionState::AtkcloseCombatBow:anim = createAnim("closeCombatBow", 25, 0.3f); break;
-        case ActionState::AtkdualBow:       anim = createAnim("dualBow", 25, 0.3f); break;
+        case ActionState::closeCombatBow   :anim = createAnim("closeCombatBow", 25, 0.3f); break;
+        case ActionState::dualBow:       anim = createAnim("dualBow", 25, 0.3f); break;
         case ActionState::crossbowShoot:    anim = createAnim("crossbowShoot", 11, 0.3f); break;
-        case ActionState::lethalHit:       anim = createAnim("lethalHit", 1, 1.0f); break;
+        case ActionState::lethalHit:        anim = createAnim("lethalHit", 1, 1.0f); break;
         case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 1.0f); break;
         case ActionState::lethalSlam:       anim = createAnim("lethalSlam", 17, 1.0f); break;
         case ActionState::blockEndLightningShield: anim = createAnim("blockEndLightningShield", 9, 0.2f); break;
@@ -445,7 +488,7 @@ void Player::actionWhenEnding(ActionState state)
         return;
     }
 
-    if (state == ActionState::crossbowShoot || state == ActionState::AtkcloseCombatBow || state == ActionState::AtkdualBow)
+    if (state == ActionState::crossbowShoot || state == ActionState::closeCombatBow || state == ActionState::dualBow)
     {
         this->shootArrow();
         //this->throwBomb();
@@ -521,7 +564,6 @@ void Player::struck(float attackPower)
     auto attributes = this->getFinalAttributes();
     attributes.health -= attackPower * (100 - attributes.defense) / 100;
 
-    this->setFinalAttributes(attributes);
 
     CCLOG("Player HP: %f", this->getFinalAttributes().health);
 
@@ -562,18 +604,13 @@ void Player::createAttackBox()
     _attackNode->setPosition(Vec2(pictureWidth / 2 + dir * pictureWidth / 6, pictureHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
-    //获取方向偏移
-
-
-
     auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 3, pictureHeight / 6), PhysicsMaterial(0, 0, 0));
     attackBody->setDynamic(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);
-    attackBody->setCollisionBitmask(0);            // 严禁设为 1，否则会推开怪物
-    attackBody->setContactTestBitmask(ENEMY_BODY); // 只检测怪物受击
+    attackBody->setCollisionBitmask(0); 
+    attackBody->setContactTestBitmask(ENEMY_BODY); 
 
     _attackNode->setPhysicsBody(attackBody);
-
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),
         CallFunc::create([this]() { this->removeAttackBox(); }),

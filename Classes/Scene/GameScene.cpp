@@ -96,12 +96,21 @@ void GameScene::RenderMap()
 
     Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 24)) * 24;
     _player = PlayerLayer::create(startDir);
-    auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
+
+
+    auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
+    _mapContainer->addChild(swordNode);
+
+    auto bowNode = WeaponNode::createBow(Bow::BowType::crossbow, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
+    _mapContainer->addChild(bowNode);
+
+
+   /* auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
     auto _monster2 = MonsterLayer::create(MonsterCategory::Grenadier, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
     monster.pushBack(_monster1);
     monster.pushBack(_monster2);
     _mapContainer->addChild(_monster1);
-    _mapContainer->addChild(_monster2);
+    _mapContainer->addChild(_monster2);*/
     _mapContainer->addChild(_player);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
@@ -143,7 +152,7 @@ void GameScene::RenderMap()
             return true;
 
         };
-
+    contactListener->onContactSeparate = CC_CALLBACK_1(GameScene::onContactSeparate, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
     this->scheduleUpdate();
@@ -299,5 +308,30 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             bomb->explode();
     }
 
+    if ((maskA & WEAPON && maskB & PLAYER_BODY) || (maskA & PLAYER_BODY && maskB & WEAPON))
+    {
+        auto node = (maskA & WEAPON) ? nodeA : nodeB;
+        _player->_nearbyWeapon = dynamic_cast<WeaponNode*>(node);
+        _player->showPickupTip(true);
+    }
+
+
     return true;
+}
+void GameScene::onContactSeparate(PhysicsContact& contact)
+{
+    auto bodyA = contact.getShapeA()->getBody();
+    auto bodyB = contact.getShapeB()->getBody();
+    int maskA = bodyA->getCategoryBitmask();
+    int maskB = bodyB->getCategoryBitmask();
+
+    // 当玩家离开武器的感应范围
+    if ((maskA & WEAPON && maskB & PLAYER_BODY) || (maskB & WEAPON && maskA & PLAYER_BODY))
+    {
+        if (_player) 
+        {
+            _player->_nearbyWeapon = nullptr; // 取消标记，防止隔空捡取
+            _player->showPickupTip(false);    // 隐藏提示
+        }
+    }
 }

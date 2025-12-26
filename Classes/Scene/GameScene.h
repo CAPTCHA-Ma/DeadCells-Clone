@@ -9,7 +9,6 @@
 #include "Res/strings.h"
 #include "People/Grenadier.h"
 #include "People/Monster.h"
-
 class GameScene : public cocos2d::Scene
 {
 public:
@@ -22,7 +21,7 @@ private:
     void GenMapData();
     void RenderMap();
     bool onContactBegin(PhysicsContact& contact);
-
+    void onContactSeparate(PhysicsContact& contact);
     Vector<MonsterLayer*> monster;
     MapGenerator* _mapGenerator = nullptr;
     cocos2d::Node* _mapContainer = nullptr;
@@ -30,5 +29,6 @@ private:
 	cocos2d::Sprite* _loadingSprite = nullptr;
     PlayerLayer* _player = nullptr;
 	cocos2d::Vector<MonsterLayer*> _monsters;
+    cocos2d::Vector<WeaponNode*> _weapons;
 
 };

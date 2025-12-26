@@ -67,6 +67,9 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\People\WeaponNode.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\AppDelegate.h">
@@ -32243,6 +32246,9 @@
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\xml\string.xml">
       <Filter>Resources\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\People\WeaponNode.h">
+      <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

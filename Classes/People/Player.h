@@ -3,6 +3,7 @@
 #define __PLAYER_H__
 #include "cocos2d.h"
 #include <unordered_map>
+#include "WeaponNode.h"
 #include "Weapon.h" 
 #include "FlyingObject.h"
 #include "Arrow.h"
@@ -30,25 +31,24 @@ enum class ActionState
 
     atkBackStabber,
 
-
     AtkBaseballBatA,
     AtkBaseballBatB,
     AtkBaseballBatC,
     AtkBaseballBatD,
     AtkBaseballBatE,
 
-
     atkBroadSwordA,
     atkBroadSwordB,
     atkBroadSwordC,
-
 
     AtkOvenAxeA,
     AtkOvenAxeB,
     AtkOvenAxeC,
 
-    AtkcloseCombatBow,
-    AtkdualBow,
+
+
+    closeCombatBow,
+    dualBow,
     crossbowShoot,
 
     blockEndLightningShield,
@@ -94,8 +94,8 @@ static std::unordered_map<ActionState, StateConfig> StateTable =
     { ActionState::AtkOvenAxeB,                             { true, 3, false } },
     { ActionState::AtkOvenAxeC,                             { true, 3, false } },
 
-    { ActionState::AtkcloseCombatBow,                       { true, 3, false } },
-    { ActionState::AtkdualBow,                              { true, 3, false } },
+    { ActionState::closeCombatBow,                         { true, 3, false } },
+    { ActionState::dualBow,                                { true, 3, false } },
     { ActionState::crossbowShoot,                           { true, 3, false } },
 
     { ActionState::blockEndLightningShield,                 { true, 3, false } },
@@ -128,22 +128,23 @@ public:
     void jumpUp();
     void jumpDown();
     void crouch();
-    void AtkcloseCombatBow();
-    void AtkdualBow();
+    void closeCombatBow();
+    void dualBow();
     void crossbowShoot();
     void changeStateByWeapon(Weapon* weapon);
     void whenOnAttackKey(Weapon* w);
     void actionWhenEnding(ActionState state);
     void dead();
     void lethalHit();
-
+    void swapWeapon();
+    Weapon* getNewWeapon(Weapon* newWeapon);
     //动画
     void changeState(ActionState newState);
 	bool whetherCanChangeToNewState(ActionState newState) const;
     void playAnimation(ActionState state, bool loop);
 
 	//攻击及武器系统
-    void getWeapon(Weapon* w);
+    void updateFinalAttributes();
     void struck(float attackPower);
     void shootArrow();
     void throwBomb();
