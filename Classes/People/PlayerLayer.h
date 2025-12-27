@@ -18,10 +18,8 @@ public:
     void setNearbyWeapon(WeaponNode* weaponNode) { _nearbyWeapon = weaponNode; };
     WeaponNode* getNearbyWeapon() const { return _nearbyWeapon; };
     void getNewWeapon();
-    
-
 private:
-    cocos2d::Sprite* _pickupTip = nullptr; // 捡取提示图标
+    cocos2d::Sprite* _pickupTip = nullptr;
     Player* _player;
     bool _leftPressed = false;
     bool _rightPressed = false;

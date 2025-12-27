@@ -61,7 +61,9 @@ enum PhysicsCategory
     LADDER = 1 << 10, // 梯子
     PLATFORM = 1 << 11, // 平台
     AIR = 1 << 12, // 空气
-    MIX = 1 << 13
+    MIX = 1 << 13,
+	INTERACTABLE = 1 << 14
+
 };
 
 

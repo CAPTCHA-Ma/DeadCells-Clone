@@ -22,6 +22,7 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
     }
 
     CC_SAFE_DELETE(scene);
+
     return nullptr;
 
 }
@@ -66,7 +67,6 @@ bool GameScene::init()
     listener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
-
     return true;
 
 }
@@ -93,11 +93,10 @@ void GameScene::RenderMap()
     if (_loadingLabel) _loadingLabel->removeFromParent();
 	if (_loadingSprite) _loadingSprite->removeFromParent();
 
-    auto rooms = _mapGenerator->GetRooms();
+    auto& rooms = _mapGenerator->GetRooms();
 
     Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 24)) * 24;
     _player = PlayerLayer::create(startDir);
-
 
     auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
     _mapContainer->addChild(swordNode);
@@ -106,12 +105,6 @@ void GameScene::RenderMap()
     _mapContainer->addChild(bowNode);
 
 
-  /*  auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
-    auto _monster2 = MonsterLayer::create(MonsterCategory::Grenadier, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
-    monster.pushBack(_monster1);
-    monster.pushBack(_monster2);
-    _mapContainer->addChild(_monster1);
-    _mapContainer->addChild(_monster2);*/
     _mapContainer->addChild(_player);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
@@ -129,11 +122,119 @@ void GameScene::RenderMap()
 
     }
 
+    auto keyListener = EventListenerKeyboard::create();
+    keyListener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(keyListener, this);
 
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-    contactListener->onContactPreSolve = CC_CALLBACK_2(GameScene::onContactPreSolve, this);
+    // 移除原来的 Lambda，改为绑定成员函数
     contactListener->onContactSeparate = CC_CALLBACK_1(GameScene::onContactSeparate, this);
+    // PreSolve 比较特殊，通常用 Lambda 比较方便，但如果逻辑复杂也可以移出去
+
+    contactListener->onContactPreSolve = [this](PhysicsContact& contact, PhysicsContactPreSolve& solve) 
+        {
+
+            auto bodyA = contact.getShapeA()->getBody();
+            auto bodyB = contact.getShapeB()->getBody();
+
+            if (bodyA->getCategoryBitmask() == MIX || bodyB->getCategoryBitmask() == MIX)
+            {
+
+                PhysicsBody* playerBody = nullptr;
+                PhysicsBody* mixBody = nullptr;
+                if (bodyA->getCategoryBitmask() == PLAYER_BODY && bodyB->getCategoryBitmask() == MIX)
+                {
+                    playerBody = bodyA;
+                    mixBody = bodyB;
+                }
+                else if (bodyB->getCategoryBitmask() == PLAYER_BODY && bodyA->getCategoryBitmask() == MIX)
+                {
+                    playerBody = bodyB;
+                    mixBody = bodyA;
+                }
+
+                if (playerBody && mixBody)
+                {
+
+                    if (playerBody->getPosition().y > mixBody->getPosition().y + 10)
+                    {
+
+                        if (!_player->_isBelowLadder) _player->_isAboveLadder = true;
+                        else _player->_isContactBottom = true;
+
+                    }
+                    else _player->_isAboveLadder = true;
+
+                }
+
+                solve.ignore();
+
+
+            }
+
+            if (bodyA->getCategoryBitmask() == GROUND || bodyB->getCategoryBitmask() == GROUND)
+            {
+
+                if (_player->getCurrentState() == ActionState::climbing || _player->getCurrentState() == ActionState::hanging)
+                {
+
+                    if (_player->GetVelo().y > 0.1f && _player->_isBelowLadder) solve.ignore();
+                    if (_player->GetVelo().y < -0.1f && _player->_isAboveLadder) solve.ignore();
+
+                    return true;
+
+                }
+
+            }
+
+            if (bodyA->getCategoryBitmask() == PLATFORM || bodyB->getCategoryBitmask() == PLATFORM)
+            {
+
+                if (_player->getCurrentState() == ActionState::climbing || _player->getCurrentState() == ActionState::hanging)
+                {
+
+                    if (_player->GetVelo().y > 0.1f && _player->_isBelowLadder) solve.ignore();
+                    if (_player->GetVelo().y < -0.1f && _player->_isAboveLadder) solve.ignore();
+
+                    return true;
+
+                }
+
+                PhysicsBody* playerBody = nullptr;
+                PhysicsBody* platformBody = nullptr;
+
+                if (bodyA->getCategoryBitmask() == PLAYER_BODY && bodyB->getCategoryBitmask() == PLATFORM) {
+                    playerBody = bodyA;
+                    platformBody = bodyB;
+                }
+                else if (bodyB->getCategoryBitmask() == PLAYER_BODY && bodyA->getCategoryBitmask() == PLATFORM) {
+                    playerBody = bodyB;
+                    platformBody = bodyA;
+                }
+
+                if (playerBody && platformBody)
+                {
+
+                    if (playerBody->getVelocity().y > 0.5)
+                    {
+
+						_player->_isPassingPlatform = true;
+                        solve.ignore();
+
+                    }
+                    else if (_player->_isDropping) solve.ignore();
+
+                }
+
+            }
+
+            if (bodyA->getCategoryBitmask() == LADDER || bodyB->getCategoryBitmask() == LADDER) _player->_isBelowLadder = true;
+                
+            return true;
+
+        };
+
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
     this->scheduleUpdate();
@@ -175,6 +276,29 @@ void GameScene::update(float dt)
     }
 
 }
+
+void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
+{
+
+    if (keyCode == EventKeyboard::KeyCode::KEY_E && _currentInteractNode != nullptr)
+    {
+        
+        std::string name = _currentInteractNode->getName();
+
+        if (name == "ExitDoor")
+        {
+            auto scene = GameOver::createScene();
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
+        }
+        else if (name == "Chest")
+        {
+            CCLOG("Open Chest!");
+            // 这里以后写开启宝箱的逻辑，比如播放动画、生成掉落物
+             _currentInteractNode->removeFromParent();
+        }
+    }
+}
+
 bool GameScene::onContactBegin(PhysicsContact& contact)
 {
     auto bodyA = contact.getShapeA()->getBody();
@@ -183,8 +307,18 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     int maskB = bodyB->getCategoryBitmask();
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
-    if (!nodeA || !nodeB) 
-        return true;
+
+    if (!nodeA || !nodeB) return true;
+
+    if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
+    {
+
+        auto targetNode = (maskA == INTERACTABLE) ? nodeA : nodeB;
+        if (targetNode)  _currentInteractNode = targetNode;
+        
+    }
+
+    // 获取碰撞发生的大致位置
     Vec2 contactPoint = contact.getContactData()->points[0];
     // 玩家攻击怪物
     //近战攻击
@@ -411,8 +545,24 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
         _player->_isPassingPlatform = false;
     }
 
+    if (bodyA->getCategoryBitmask() == LADDER || bodyB->getCategoryBitmask() == LADDER)
+    {
+
+        //CCLOG("NOTBELOWLADDER!\n");
+        _player->_isBelowLadder = false;
+
+    }
+
+    if (bodyA->getCategoryBitmask() == PLATFORM || bodyB->getCategoryBitmask() == PLATFORM)
+    {
+
+        _player->_isPassingPlatform = false;
+
+    }
+
     if (bodyA->getCategoryBitmask() == MIX || bodyB->getCategoryBitmask() == MIX)
     {
+
         PhysicsBody* playerBody = nullptr;
         PhysicsBody* mixBody = nullptr;
         if (bodyA->getCategoryBitmask() == PLAYER_BODY && bodyB->getCategoryBitmask() == MIX)
@@ -427,9 +577,33 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
         }
         if (playerBody && mixBody)
         {
+
             _player->_isContactBottom = false;
             _player->_isAboveLadder = false;
 
         }
+
     }
+
+    if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
+        _currentInteractNode = nullptr;
+
+    if ((maskA & WEAPON && maskB & PLAYER_BODY) || (maskB & WEAPON && maskA & PLAYER_BODY))
+    {
+        if (_player) 
+            _player->_nearbyWeapon = nullptr;
+    }
+}
+
+GameScene::~GameScene()
+{
+
+    if (_mapGenerator)
+    {
+        delete _mapGenerator;
+        _mapGenerator = nullptr;
+    }
+
+    Director::getInstance()->getTextureCache()->removeUnusedTextures();
+
 }

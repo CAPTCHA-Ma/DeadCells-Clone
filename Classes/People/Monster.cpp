@@ -49,7 +49,7 @@ void Monster::dead()
     {
         _body->setVelocity(Vec2::ZERO);
         _body->setContactTestBitmask(0);
-        _body->setCollisionBitmask(GROUND); 
+        _body->setCollisionBitmask(GROUND | PLATFORM | MIX); 
     }
     auto parentLayer = dynamic_cast<Layer*>(this->getParent());
     if (parentLayer) 

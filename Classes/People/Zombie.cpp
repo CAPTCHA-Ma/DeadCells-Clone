@@ -38,7 +38,7 @@ bool Zombie::init()
     this->setPhysicsBody(_body);
 
     _body->setCategoryBitmask(ENEMY_BODY);
-    _body->setCollisionBitmask(GROUND);
+    _body->setCollisionBitmask(GROUND | PLATFORM | MIX);
     _body->setContactTestBitmask(PLAYER_ATTACK|PLAYER_ARROW);
 
 

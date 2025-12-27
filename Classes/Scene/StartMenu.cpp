@@ -50,8 +50,8 @@ bool StartMenu::init()
 		{
 
 			auto prisonGen = new PrisonMapGen();
-			auto scene = GameScene::createWithGenerator(prisonGen);
-			Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
+			auto prisonScene = GameScene::createWithGenerator(prisonGen);
+			Director::getInstance()->replaceScene(TransitionFade::create(1.0f, prisonScene));
 
 		});
 

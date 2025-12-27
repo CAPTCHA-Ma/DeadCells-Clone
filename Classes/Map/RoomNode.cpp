@@ -4,10 +4,13 @@ RoomNode* RoomNode::create(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _m
 {
 
 	auto node = new RoomNode();
-	if (node && node->init(data, _monsters)) return node;
+	if (node && node->init(data, _monsters))
+	{
+		node->autorelease();
+		return node;
+	}
 
 	CC_SAFE_DELETE(node);
-
 	return nullptr;
 
 }
@@ -91,7 +94,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 					while (x + width < sz.width && layerCategory[y][x + width] == PLATFORM && !visited[y][x + width]) width++;
 
 					cateBitMask = PLATFORM;
-					colBitMask = PLAYER_BODY | ENEMY_BODY;
+					colBitMask = PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
 					conBitMask = PLAYER_BODY;
 
 					break;
@@ -113,7 +116,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 					width = 1;
 
 					cateBitMask = MIX;
-					colBitMask = PLAYER_BODY;
+					colBitMask = PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
 					conBitMask = PLAYER_BODY;
 
 				default:
@@ -448,16 +451,16 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	tmx->setAnchorPoint(Vec2::ZERO);
 
-	Size Size = tmx->getMapSize();
-	std::vector<std::vector<PhysicsCategory>> layerCategory(int(Size.height), std::vector<PhysicsCategory>(int(Size.width)));
-	std::vector<std::vector<bool>> visited(int(Size.height), std::vector<bool>(int(Size.width), false));
+	Size size = tmx->getMapSize();
+	std::vector<std::vector<PhysicsCategory>> layerCategory(int(size.height), std::vector<PhysicsCategory>(int(size.width)));
+	std::vector<std::vector<bool>> visited(int(size.height), std::vector<bool>(int(size.width), false));
 
 	auto lnkLayer = tmx->getLayer("lnk");
 
-	for (int x = 0; x < Size.width; x++)
+	for (int x = 0; x < size.width; x++)
 	{
 
-		for (int y = 0; y < Size.height; y++)
+		for (int y = 0; y < size.height; y++)
 		{
 
 			Vec2 tileCoord = Vec2(x, y);
@@ -476,7 +479,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 					if (tileType == "DOOR")
 					{
 
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::GROUND;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::GROUND;
 						CCLOG("FIND!\n");
 
 					}
@@ -501,7 +504,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 		{
 
 			Vec2 pos = q.front() + dir[i];
-			if (pos.x < 0 || pos.x >= Size.width || pos.y < 0 || pos.y >= Size.height) continue;
+			if (pos.x < 0 || pos.x >= size.width || pos.y < 0 || pos.y >= size.height) continue;
 			if (!visited[pos.y][pos.x] && layerCategory[pos.y][pos.x] == PhysicsCategory::GROUND)
 			{
 
@@ -519,16 +522,16 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	auto colLayer = tmx->getLayer("col");
 
-	for (int x = 0; x < Size.width; x++)
+	for (int x = 0; x < size.width; x++)
 	{
 
-		for (int y = 0; y < Size.height; y++)
+		for (int y = 0; y < size.height; y++)
 		{
 
 			Vec2 tileCoord = Vec2(x, y);
 			int gid = colLayer->getTileGIDAt(tileCoord);
 
-			if (layerCategory[Size.height - y - 1][x] == PhysicsCategory::GROUND) continue;
+			if (layerCategory[size.height - y - 1][x] == PhysicsCategory::GROUND) continue;
 
 			if (gid)
 			{
@@ -543,24 +546,24 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 					if (tileType == "GROUND")
 					{
 
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::GROUND;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::GROUND;
 
 					}
 					else if (tileType == "LADDER")
 					{
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::LADDER;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::LADDER;
 					}
 					else if (tileType == "PLATFORM")
 					{
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::PLATFORM;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::PLATFORM;
 					}
-					else layerCategory[Size.height - y - 1][x] = PhysicsCategory::AIR;
+					else layerCategory[size.height - y - 1][x] = PhysicsCategory::AIR;
 
 				}
-				else layerCategory[Size.height - y - 1][x] = PhysicsCategory::AIR;
+				else layerCategory[size.height - y - 1][x] = PhysicsCategory::AIR;
 
 			}
-			else layerCategory[Size.height - y - 1][x] = PhysicsCategory::AIR;
+			else layerCategory[size.height - y - 1][x] = PhysicsCategory::AIR;
 
 		}
 
@@ -622,10 +625,10 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
-	for (int x = 0; x < Size.width; x++)
+	for (int x = 0; x < size.width; x++)
 	{
 
-		for (int y = 1; y < Size.height; y++)
+		for (int y = 1; y < size.height; y++)
 		{
 
 			if (layerCategory[y][x] == PhysicsCategory::LADDER && layerCategory[y - 1][x] == PhysicsCategory::GROUND)
@@ -674,6 +677,54 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 		}
 
+	}
+
+	auto objectGroup = tmx->getObjectGroup("markers");
+
+	if (objectGroup) {
+		auto& objects = objectGroup->getObjects();
+		for (auto& obj : objects) {
+			cocos2d::ValueMap& dict = obj.asValueMap();
+
+			std::string type = dict["type"].asString();
+			float x = dict["x"].asFloat();
+			float y = dict["y"].asFloat();
+			float w = dict["width"].asFloat();
+			float h = dict["height"].asFloat();
+
+			if (type == "ExitDoor")
+			{
+				auto node = Node::create();
+
+				node->setName("ExitDoor");
+
+				auto physicsBody = PhysicsBody::createBox(Size(w, h));
+				physicsBody->setDynamic(false);       
+				physicsBody->setGravityEnable(false); 
+
+				physicsBody->setCategoryBitmask(INTERACTABLE);
+				physicsBody->setCollisionBitmask(PLAYER_BODY); 
+				physicsBody->setContactTestBitmask(PLAYER_BODY); 
+
+				for (auto shape : physicsBody->getShapes()) {
+					shape->setSensor(true);
+				}
+
+				node->setPhysicsBody(physicsBody);
+
+				node->setPosition(x + w / 2, y + h / 2);
+
+				tmx->addChild(node);
+			}
+
+			else if (type == "Chest")
+			{
+				auto node = Node::create();
+				node->setName("Chest");
+				
+				tmx->addChild(node);
+			}
+		}
 	}
 
 	if (data->roomtype == Type::combat)

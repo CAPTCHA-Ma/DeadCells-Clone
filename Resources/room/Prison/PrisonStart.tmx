@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" width="119" height="55" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="2">
+<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" width="119" height="55" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="4">
  <tileset firstgid="1" source="col.tsx"/>
  <tileset firstgid="8" source="lnk.tsx"/>
  <layer id="1" name="col" width="119" height="55">
@@ -7,12 +7,13 @@
    eJzt2MGOgkAURNFG//+f3YqBBhuwIu9UchYms3jt3ZiZWmsTAABAwNrSd6Et2la0tvRdaIu2FfWWvg1t0baa3tK3oS3aVtNb+ja0RdvqHm/StxxlrT03PqcbaTu+rbZLS3fTdt9G2h6Ztr+btvedtvt3h9+YV35X/3Zv6n5tta3oqqXfxfz/MEel38LcmUu/BW2rWOozuvRbOK/t59+m38L3vdeWvhMAAAAAAAAAgFpewV4W6A==
   </data>
  </layer>
- <objectgroup id="3" name="obj">
-  <object id="1" name="startPos" x="876" y="733"/>
- </objectgroup>
  <layer id="2" name="lnk" width="119" height="55">
   <data encoding="base64" compression="zlib">
    eJzt0cEJAEAIBDG/9t+wFdzzENakgoGpAgAAAAAAAAAAAACAt94O4Btvc3mby9tc3gIAAAAAAAAAAAAAwG0Djk8ALg==
   </data>
  </layer>
+ <objectgroup id="3" name="markers">
+  <object id="1" name="startPos" x="876" y="733"/>
+  <object id="3" name="ExitDoor" type="ExitDoor" x="1257" y="585" width="52.5" height="52"/>
+ </objectgroup>
 </map>

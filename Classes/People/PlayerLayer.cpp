@@ -132,6 +132,7 @@ void PlayerLayer::setupEventListeners()
                     _player->swapWeapon();
                     break;
                 case EventKeyboard::KeyCode::KEY_E: // Ê°È¡ÎäÆ÷
+
                     if (_nearbyWeapon)
                         this->getNewWeapon();
                     break;
@@ -235,6 +236,7 @@ void PlayerLayer::getNewWeapon()
         }
     }
 }
+
 void PlayerLayer::update(float dt)
 {
     auto body = _player->getPhysicsBody();

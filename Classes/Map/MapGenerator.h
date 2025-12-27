@@ -13,7 +13,14 @@ struct AStarNode {
 class MapGenerator 
 {
 public:
-    virtual ~MapGenerator() {}
+
+    ~MapGenerator() 
+    {
+    
+        for (MapUnitData* room : _rooms) delete room;
+        _rooms.clear();
+
+    }
     virtual void Generate() = 0;
     virtual void GenRoomPos() = 0;
     virtual bool FindPath(std::vector<std::vector<int>>& mapArray,

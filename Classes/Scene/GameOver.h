@@ -1,5 +1,10 @@
 #pragma once
 #include "cocos2d.h"
+#include "Res/strings.h"
+#include "StartMenu.h"
+#include "ui/CocosGUI.h"
+#include "GameScene.h"
+#include "Prison.h"
 
 class GameOver : public cocos2d::Scene
 {
