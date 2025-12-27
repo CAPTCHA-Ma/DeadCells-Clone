@@ -94,13 +94,13 @@ void GameScene::RenderMap()
     _player = PlayerLayer::create(startDir);
 
     auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
-    _mapContainer->addChild(swordNode);
+    _mapContainer->addChild(swordNode, 50);
 	swordNode->setPrice(1000);
 
     auto bowNode = WeaponNode::createBow(Bow::BowType::crossbow, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
     _mapContainer->addChild(bowNode, 50);  // z-order 50
 
-    _mapContainer->addChild(_player);
+    _mapContainer->addChild(_player, 100);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
 	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
