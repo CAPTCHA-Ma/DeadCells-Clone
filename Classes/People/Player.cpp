@@ -12,7 +12,7 @@ const float GRAVITY = 980.0f;
 //*******************************************************************
 //*******************************************************************
 //*******************************************************************
-//初始化
+//初始化a
 bool Player::init()
 {
     if (!Sprite::initWithFile("Graph/Player/idle_00-=-0-=-.png", Rect(0, 0, pictureWidth, pictureHeight)))
@@ -220,9 +220,7 @@ void Player::hanging()
 
 void Player::climbing()
 {
-
     this->giveVelocityY(_climbSpeed);
-
 }
 
 void Player::climbedge()
@@ -274,24 +272,13 @@ void Player::swapWeapon() // 交换主副武器
     CCLOG("Swapped Main and Sub weapons");
 }
 
-Weapon* Player::getNewWeapon(Weapon* newWeapon)
+void Player::getNewWeapon(Weapon* newWeapon)
 {
-    Weapon* oldWeapon = nullptr;
-    if (!_mainWeapon) 
-    {
-        _mainWeapon = newWeapon;
-    }
-    else
-    {
-        oldWeapon = _mainWeapon;
-        _mainWeapon = newWeapon;
-    }
-
-    this->updateFinalAttributes();
+    _mainWeapon = newWeapon;
     _animationCache.clear();
+    this->updateFinalAttributes();
     this->changeState(ActionState::idle);
-
-    return oldWeapon;
+    CCLOG("Weapon Upgraded! New Attack: %f", _finalAttributes.attack);
 }
 void Player::shootArrow()
 {
@@ -323,6 +310,13 @@ void Player::changeState(ActionState newState)
         return;
     if (_state == ActionState::lethalFall && newState != ActionState::lethalSlam)
         return;
+    //if (_state == ActionState::rollStart)
+    //{
+    //    _invincible = false;
+    //    this->setOpacity(255);
+    //    this->stopActionByTag(2001); // 停止无敌时间计时器
+    //    this->createNormalBody();    // 强制恢复正常受击框
+    //}
     if (_state == newState)
         return;
     if (!whetherCanChangeToNewState(newState))
@@ -514,7 +508,7 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::closeCombatBow   :anim = createAnim("closeCombatBow", 25, 0.3f); break;
         case ActionState::dualBow:       anim = createAnim("dualBow", 25, 0.3f); break;
         case ActionState::crossbowShoot:    anim = createAnim("crossbowShoot", 11, 0.3f); break;
-        case ActionState::lethalHit:        anim = createAnim("lethalHit", 1, 1.0f); break;
+        case ActionState::lethalHit:        anim = createAnim("lethalHit", 1, 0.25f); break;
         case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 1.0f); break;
         case ActionState::lethalSlam:       anim = createAnim("lethalSlam", 17, 1.0f); break;
         case ActionState::blockEndLightningShield: anim = createAnim("blockEndLightningShield", 9, 0.2f); break;
@@ -533,19 +527,24 @@ void Player::whenOnAttackKey(Weapon* w)
 {
     if (isAttackState(_state))
     {
-        _comboInput = true;
+        if (w == _currentAttackingWeapon) 
+        {
+            _comboInput = true;
+        }
         return;
     }
+
+    _currentAttackingWeapon = w;
     _comboStep = 1;
     _comboInput = false;
+
     this->set0VelocityX();
     this->changeStateByWeapon(w);
 }
 
 void Player::actionWhenEnding(ActionState state)
 {
-    if (state == ActionState::lethalFall)
-    {
+    if (state == ActionState::lethalFall){
         if (this->getPhysicsBody()) {
             this->getPhysicsBody()->setVelocity(Vec2::ZERO);
             this->getPhysicsBody()->setGravityEnable(false);
@@ -553,21 +552,16 @@ void Player::actionWhenEnding(ActionState state)
         this->changeState(ActionState::lethalSlam);
         return;
     }
-    if (state == ActionState::lethalSlam)
-    {
+    if (state == ActionState::lethalSlam){
         CCLOG("DEAD ANIMATION FINISHED - SHOW UI");
-        // 可以在这里发送一个自定义事件，通知 GameScene 弹出结算界面
         return;
     }
 
-    if (state == ActionState::crossbowShoot || state == ActionState::closeCombatBow || state == ActionState::dualBow)
-    {
+    if (state == ActionState::crossbowShoot || state == ActionState::closeCombatBow || state == ActionState::dualBow){
         this->shootArrow();
-        //this->throwBomb();
     }
-    // --- 连招衔接判定 ---
-    if (_comboInput)
-    {
+    //连招衔接判定
+    if (_comboInput) {
         ActionState nextState = ActionState::idle;
 
         if (state == ActionState::atkA) nextState = ActionState::atkB;
@@ -579,9 +573,7 @@ void Player::actionWhenEnding(ActionState state)
         else if (state == ActionState::atkBroadSwordB)  nextState = ActionState::atkBroadSwordC;
         else if (state == ActionState::AtkOvenAxeA)     nextState = ActionState::AtkOvenAxeB;
         else if (state == ActionState::AtkOvenAxeB)     nextState = ActionState::AtkOvenAxeC;
-
-        if (nextState != ActionState::idle)
-        {
+        if (nextState != ActionState::idle) {
             _comboStep++;
             _comboInput = false;
             this->changeState(nextState);
@@ -590,29 +582,26 @@ void Player::actionWhenEnding(ActionState state)
     }
     _comboStep = 0;
     _comboInput = false;
-    if (_state != ActionState::lethalFall && _state != ActionState::lethalSlam)
+    if (state == ActionState::rollStart)
     {
-        if (state == ActionState::rollStart)
-        {
-            _invincible = false;
-            this->setOpacity(255);
-            this->createNormalBody();
-        }
+        _invincible = false;
+        this->setOpacity(255);
+        this->createNormalBody();
+    }
 
-        if (!this->isOnGround()) {
-            this->changeState(ActionState::jumpDown);
-        }
-        else {
-            this->changeState(ActionState::idle);
-        }
-        if (!this->isOnGround())
-        {
-            this->changeState(ActionState::jumpDown);
-        }
-        else
-        {
-            this->changeState(ActionState::idle);
-        }
+    if (!this->isOnGround()) {
+        this->changeState(ActionState::jumpDown);
+    }
+    else {
+        this->changeState(ActionState::idle);
+    }
+    if (!this->isOnGround())
+    {
+        this->changeState(ActionState::jumpDown);
+    }
+    else
+    {
+        this->changeState(ActionState::idle);
     }
 }
 bool Player::isAttackState(ActionState s) const
@@ -635,10 +624,6 @@ void Player::struck(float attackPower)
 {
     auto attributes = this->getFinalAttributes();
     attributes.health -= attackPower * (100 - attributes.defense) / 100;
-
-
-    CCLOG("Player HP: %f", this->getFinalAttributes().health);
-
     if (this->getFinalAttributes().health <= 0)
         this->dead();
     else
@@ -664,8 +649,7 @@ void Player::startRollInvincible(float time)
 
 void Player::createRollBox()
 {
-    // 动态获取翻滚动画的时间，确保逻辑与表现同步
-    float duration = 0.3f; // 对应 getAnimation 里的 rollStart 时间
+    float duration = 0.3f; 
     startRollInvincible(duration);
 }
 void Player::createAttackBox()
@@ -698,10 +682,6 @@ void Player::createShieldParryBox()
     _attackNode->setPosition(Vec2(pictureWidth / 2 + dir * pictureWidth / 6, pictureHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
-    //获取方向偏移
-
-
-
     auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 3, pictureHeight / 6), PhysicsMaterial(0, 0, 0));
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
@@ -710,7 +690,6 @@ void Player::createShieldParryBox()
     attackBody->setContactTestBitmask(ENEMY_BODY);
     _attackNode->setPhysicsBody(attackBody);
 
-    //延长显示时间以便调试 (例如 0.5s)
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),
         CallFunc::create([this]() { this->removeAttackBox(); }),

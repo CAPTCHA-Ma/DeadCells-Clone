@@ -20,8 +20,6 @@ private:
 
     void GenMapData();
     void RenderMap();
-    bool onContactBegin(PhysicsContact& contact);
-    void onContactSeparate(PhysicsContact& contact);
     Vector<MonsterLayer*> monster;
     MapGenerator* _mapGenerator = nullptr;
     cocos2d::Node* _mapContainer = nullptr;
@@ -30,5 +28,10 @@ private:
     PlayerLayer* _player = nullptr;
 	cocos2d::Vector<MonsterLayer*> _monsters;
     cocos2d::Vector<WeaponNode*> _weapons;
-
+private:
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
+    bool onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::PhysicsContactPreSolve& solve);
+    void onContactSeparate(cocos2d::PhysicsContact& contact);
+    void handlePlayerWeaponContact(cocos2d::Node* nodeA, cocos2d::Node* nodeB, bool isBegin);
+    void handleLadderAndPlatformLogic(cocos2d::PhysicsBody* a, cocos2d::PhysicsBody* b, cocos2d::PhysicsContactPreSolve& solve);
 };

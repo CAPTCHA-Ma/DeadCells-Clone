@@ -20,13 +20,6 @@ WeaponNode* WeaponNode::createShield(Shield::ShieldType type, cocos2d::Vec2 pos)
     auto shieldData = new (std::nothrow) Shield(type);
     return WeaponNode::create(shieldData, pos);
 }
-Weapon* WeaponNode::pickUp() 
-{
-    Weapon* temp = _weapon;
-    _weapon = nullptr; 
-    this->removeFromParent();
-    return temp;
-}
 WeaponNode* WeaponNode::create(Weapon* weapon, cocos2d::Vec2 pos)
 {
     if (!weapon) 
@@ -43,7 +36,6 @@ WeaponNode* WeaponNode::create(Weapon* weapon, cocos2d::Vec2 pos)
 bool WeaponNode::init(Weapon* weapon, cocos2d::Vec2 pos)
 {
     std::string texturePath = "";
-
     if (auto sword = dynamic_cast<Sword*>(weapon))
     {
         switch (sword->getSwordType()) 
@@ -71,28 +63,28 @@ bool WeaponNode::init(Weapon* weapon, cocos2d::Vec2 pos)
             case Shield::ShieldType::ParryShield:     texturePath = "Graph/Weapon/ParryShield.png"; break;
         }
     }
-
-    // 2. 初始化 Sprite
     if (!Sprite::initWithFile(texturePath))
     {
         Sprite::initWithFile("Graph/Weapon/BackStabber.png");
     }
-
-
     this->_weapon = weapon;
     this->setPosition(pos);
 
-    // 设置物理体
     auto body = PhysicsBody::createBox(this->getContentSize());
-    body->setDynamic(false);
-    body->setCategoryBitmask(WEAPON);   
-    body->setCollisionBitmask(0);             // 不阻挡角色走动
-    body->setContactTestBitmask(PLAYER_BODY); // 允许触发碰撞回调
+    body->setGravityEnable(true);
+    body->setDynamic(true);
+    body->setCategoryBitmask(WEAPON);
+    body->setCollisionBitmask(GROUND);
+    body->setContactTestBitmask(PLAYER_BODY | GROUND);
     this->setPhysicsBody(body);
 
-    // 添加表现动画
-    auto moveUp = MoveBy::create(1.0f, Vec2(0, 8));
-    this->runAction(RepeatForever::create(Sequence::create(moveUp, moveUp->reverse(), nullptr)));
-
     return true;
+}
+//捡取武器，返回Weapon指针
+Weapon* WeaponNode::pickUp()
+{
+    Weapon* temp = _weapon;
+    _weapon = nullptr;
+    this->removeFromParent();
+    return temp;
 }

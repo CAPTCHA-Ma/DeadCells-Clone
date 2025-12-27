@@ -116,13 +116,14 @@ public:
 
     CREATE_FUNC(Player);
     bool Player::init() override;
-    void changeDirection(MoveDirection dir);
+    void changeDirection(MoveDirection dir);//改变方向
 	void giveVelocityX(float speed);
 	void giveVelocityY(float speed);
-	void set0VelocityX();
-	void set0VelocityY();
+	void set0VelocityX();//X速度置0
+	void set0VelocityY();//Y速度置0
     bool isOnGround() const;
     bool isLethalState() const { return _state == ActionState::lethalHit || _state == ActionState::lethalFall || _state == ActionState::lethalSlam; };
+    ActionState getCurrentState() const { return _state; };
 	void update(float dt);
 
     //动作
@@ -144,14 +145,16 @@ public:
     void actionWhenEnding(ActionState state);
     void dead();
     void lethalHit();
+    Weapon* getMainWeapon() const { return _mainWeapon; };
     void swapWeapon();
-    Weapon* getNewWeapon(Weapon* newWeapon);
+    void getNewWeapon(Weapon* newWeapon);
     //动画
     void changeState(ActionState newState);
 	bool whetherCanChangeToNewState(ActionState newState) const;
     void playAnimation(ActionState state, bool loop);
 
 	//攻击及武器系统
+    Weapon* _currentAttackingWeapon = nullptr; // 记录当前发起攻击的武器
     void updateFinalAttributes();
     void struck(float attackPower);
     void shootArrow();

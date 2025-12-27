@@ -11,7 +11,7 @@
 #include <map>
 class WeaponNode : public cocos2d::Sprite {
 public:
-    // 传入具体的 Weapon 指针，方便捡起时直接交给玩家
+
     static WeaponNode* create(Weapon* weaponData, cocos2d::Vec2 pos);
     static WeaponNode* createSword(Sword::SwordType type, cocos2d::Vec2 pos);
     static WeaponNode* createBow(Bow::BowType type, cocos2d::Vec2 pos);

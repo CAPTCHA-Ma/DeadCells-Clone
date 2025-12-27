@@ -4,9 +4,7 @@ enum class MoveDirection
 {
     LEFT,
     RIGHT
-
 };
-
 enum class UpDownDirection
 {
 
@@ -15,7 +13,6 @@ enum class UpDownDirection
     DOWN
 
 };
-
 struct BasicAttributes
 {
     float health;//ÉúÃüÖµ

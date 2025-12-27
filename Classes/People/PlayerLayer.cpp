@@ -52,17 +52,18 @@ void PlayerLayer::setupEventListeners()
                 return;
             switch (keyCode)
             {
-                case EventKeyboard::KeyCode::KEY_A://×óÒÆ
+                case EventKeyboard::KeyCode::KEY_A:
                     _leftPressed = true;
-                    _rightPressed = false;
                     _player->changeDirection(MoveDirection::LEFT);
-                    _player->changeState(ActionState::run);
+                    if (_player->_state != ActionState::jumpUp && _player->_state != ActionState::jumpDown)
+                        _player->changeState(ActionState::run);
                     break;
-                case EventKeyboard::KeyCode::KEY_D://ÓÒÒÆ
+
+                case EventKeyboard::KeyCode::KEY_D:
                     _rightPressed = true;
-                    _leftPressed = false;
                     _player->changeDirection(MoveDirection::RIGHT);
-                    _player->changeState(ActionState::run);
+                    if (_player->_state != ActionState::jumpUp && _player->_state != ActionState::jumpDown)
+                        _player->changeState(ActionState::run);
                     break;
                 case EventKeyboard::KeyCode::KEY_W://ÅÊÅÀ
 					_player->_directionY = UpDownDirection::UP;
@@ -131,7 +132,7 @@ void PlayerLayer::setupEventListeners()
                     _player->swapWeapon();
                     break;
                 case EventKeyboard::KeyCode::KEY_E: // Ê°È¡ÎäÆ÷
-                    if (_nearbyWeapon != nullptr)
+                    if (_nearbyWeapon)
                         this->getNewWeapon();
                     break;
                 default:
@@ -212,45 +213,26 @@ void PlayerLayer::struck(float attackPower, cocos2d::Vec2 sourcePos)
 }
 void PlayerLayer::getNewWeapon()
 {
-    if (!_nearbyWeapon || !_player) 
+    if (!_nearbyWeapon || !_nearbyWeapon->getParent() || !_player)
         return;
-
     Vec2 dropPos = _nearbyWeapon->getPosition();
-    Weapon* newWpData = _nearbyWeapon->pickUp();
-    _nearbyWeapon = nullptr; 
-    Weapon* oldWpData = _player->getNewWeapon(newWpData);
+    WeaponNode* weaponNodeToRemove = _nearbyWeapon;
+    Weapon* newWpData = weaponNodeToRemove->pickUp();
+
+
+    _nearbyWeapon = nullptr;
+    Weapon* oldWpData = _player->getMainWeapon();
+    _player->getNewWeapon(newWpData);
     if (oldWpData)
     {
         auto droppedNode = WeaponNode::create(oldWpData, dropPos);
         if (this->getParent())
         {
             this->getParent()->addChild(droppedNode);
+            float xOffset = (_player->_direction == MoveDirection::RIGHT) ? -40.0f : 40.0f;
+            auto jump = JumpBy::create(0.4f, Vec2(xOffset, -10), 30, 1);
+            droppedNode->runAction(jump);
         }
-        float xDir = (_player->_direction == MoveDirection::RIGHT) ? -50.0f : 50.0f;
-        auto jump = JumpBy::create(0.4f, Vec2(xDir, 0), 40, 1);
-        droppedNode->runAction(jump);
-    }
-}
-void PlayerLayer::executePickup()
-{
-    if (!_nearbyWeapon || !_player) 
-        return;
-    Vec2 dropPos = _nearbyWeapon->getPosition();
-    Weapon* newWeapon = _nearbyWeapon->pickUp();
-    _nearbyWeapon = nullptr; 
-
-
-    Weapon* oldWeapon = _player->getNewWeapon(newWeapon);
-
-
-    if (oldWeapon)
-    {
-        auto droppedNode = WeaponNode::create(oldWeapon, dropPos);
-        this->getParent()->addChild(droppedNode);
-
-        float xDir = (_player->_direction == MoveDirection::RIGHT) ? -50.0f : 50.0f;
-        auto jump = JumpBy::create(0.4f, Vec2(xDir, 0), 40, 1);
-        droppedNode->runAction(jump);
     }
 }
 void PlayerLayer::update(float dt)
