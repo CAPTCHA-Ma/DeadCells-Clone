@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="Win32"/>
+	</Configurations>
+	<Folder Name="/CMakePredefinedTargets/">
+		<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="473524a6-2247-328e-9c4a-09397a663956" DefaultStartup="true">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="clipper/ext_clipper.vcxproj"/>
+			<BuildDependency Project="ConvertUTF/ext_convertUTF.vcxproj"/>
+			<BuildDependency Project="edtaa3func/ext_edtaa3func.vcxproj"/>
+			<BuildDependency Project="md5/ext_md5.vcxproj"/>
+			<BuildDependency Project="poly2tri/ext_poly2tri.vcxproj"/>
+			<BuildDependency Project="recast/ext_recast.vcxproj"/>
+			<BuildDependency Project="tinyxml2/ext_tinyxml2.vcxproj"/>
+			<BuildDependency Project="unzip/ext_unzip.vcxproj"/>
+			<BuildDependency Project="xxhash/ext_xxhash.vcxproj"/>
+			<BuildDependency Project="xxtea/ext_xxtea.vcxproj"/>
+			<BuildDependency Project="external.vcxproj"/>
+			<Build Solution="Debug|*" Project="false"/>
+			<Build Solution="Release|*" Project="false"/>
+			<Build Solution="MinSizeRel|*" Project="false"/>
+			<Build Solution="RelWithDebInfo|*" Project="false"/>
+		</Project>
+		<Project Path="../../ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ca916f9f-d0c4-317f-86ce-acb70b8b6ec0"/>
+	</Folder>
+	<Folder Name="/External/">
+		<Project Path="clipper/ext_clipper.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="005870a0-5870-3ed8-9d73-b2497d26ea3a">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="ConvertUTF/ext_convertUTF.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5601b682-dcb8-3afc-a569-e5fb55d06633">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="edtaa3func/ext_edtaa3func.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="28d76500-0696-3568-be9f-06334ddc072e">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="md5/ext_md5.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="5c8d102e-bdd8-3930-81fa-7b51cf49d9cb">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="poly2tri/ext_poly2tri.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="4788774a-d7ff-314c-a27c-18cd9b98710d">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="recast/ext_recast.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2022f160-a25c-366b-8a33-b96b5dee6a0b">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="tinyxml2/ext_tinyxml2.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="db714cb5-4c93-32d1-89db-4347aa1389ca">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="unzip/ext_unzip.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="e739c81e-a499-3c2c-8e60-ccdee718d967">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="xxhash/ext_xxhash.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ed8367f0-b7ba-372a-9a68-5ef08571382b">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="xxtea/ext_xxtea.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ed0e80f9-5192-3980-be19-4b6cb333c613">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+		</Project>
+		<Project Path="external.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="61e1ac14-ae2f-3f6a-ac8f-db405c7841f9">
+			<BuildDependency Project="../../ZERO_CHECK.vcxproj"/>
+			<BuildDependency Project="clipper/ext_clipper.vcxproj"/>
+			<BuildDependency Project="ConvertUTF/ext_convertUTF.vcxproj"/>
+			<BuildDependency Project="edtaa3func/ext_edtaa3func.vcxproj"/>
+			<BuildDependency Project="md5/ext_md5.vcxproj"/>
+			<BuildDependency Project="poly2tri/ext_poly2tri.vcxproj"/>
+			<BuildDependency Project="recast/ext_recast.vcxproj"/>
+			<BuildDependency Project="tinyxml2/ext_tinyxml2.vcxproj"/>
+			<BuildDependency Project="unzip/ext_unzip.vcxproj"/>
+			<BuildDependency Project="xxhash/ext_xxhash.vcxproj"/>
+			<BuildDependency Project="xxtea/ext_xxtea.vcxproj"/>
+		</Project>
+	</Folder>
+</Solution>

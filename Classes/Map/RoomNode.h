@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "MapUnit.h"
+#include "TileRenderer.h"
 #include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
@@ -15,4 +16,6 @@ public:
 	static RoomNode* create(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters);
 	bool init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters);
 
+private:
+	TileRenderer* _tileRenderer = nullptr;
 };

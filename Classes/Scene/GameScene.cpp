@@ -94,18 +94,18 @@ void GameScene::RenderMap()
     _player = PlayerLayer::create(startDir);
 
     auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
-    _mapContainer->addChild(swordNode);
+    _mapContainer->addChild(swordNode, 50);  // z-order 50
 
     auto bowNode = WeaponNode::createBow(Bow::BowType::crossbow, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
-    _mapContainer->addChild(bowNode);
+    _mapContainer->addChild(bowNode, 50);  // z-order 50
 
 
-    _mapContainer->addChild(_player);
+    _mapContainer->addChild(_player, 100);  // z-order 100 ç¡®ä¿åœ¨åœ°å›¾ä¸Šé¢
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
 	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
 	_monsters.pushBack(monster3);
-	_mapContainer->addChild(monster3);
+	_mapContainer->addChild(monster3, 100);  // z-order 100 ç¡®ä¿åœ¨åœ°å›¾ä¸Šé¢
 
     int counter = 0;
     for (auto roomData : rooms) 
@@ -113,7 +113,7 @@ void GameScene::RenderMap()
 
         CCLOG("%d\n", ++counter);
         auto node = RoomNode::create(roomData, this->monster);
-        _mapContainer->addChild(node);
+        _mapContainer->addChild(node, 0);  // z-order 0 ä½œä¸ºåœ°å›¾å±‚
 
     }
 
@@ -154,8 +154,8 @@ void GameScene::update(float dt)
 
         if (m && m->isReadyToRemove())
         {
-            mLayer->removeFromParent(); // ´ÓäÖÈ¾Ê÷ÒÆ³ý
-            it = monster.erase(it);      // ´Ó Vector ÒÆ³ý
+            mLayer->removeFromParent(); // ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½Æ³ï¿½
+            it = monster.erase(it);      // ï¿½ï¿½ Vector ï¿½Æ³ï¿½
             CCLOG("Monster Safely Deleted");
         }
         else
@@ -184,7 +184,7 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
         else if (name == "Chest")
         {
             CCLOG("Open Chest!");
-            // ÕâÀïÒÔºóÐ´¿ªÆô±¦ÏäµÄÂß¼­£¬±ÈÈç²¥·Å¶¯»­¡¢Éú³ÉµôÂäÎï
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç²¥ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
              _currentInteractNode->removeFromParent();
         }
     }
@@ -217,10 +217,10 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         
     }
 
-    // »ñÈ¡Åö×²·¢ÉúµÄ´óÖÂÎ»ÖÃ
+    // ï¿½ï¿½È¡ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½Î»ï¿½ï¿½
     Vec2 contactPoint = contact.getContactData()->points[0];
-    // Íæ¼Ò¹¥»÷¹ÖÎï
-    //½üÕ½¹¥»÷
+    // ï¿½ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½
     if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
         auto enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
@@ -230,7 +230,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             monster->struck(_player->getFinalAttack());
         }
     }
-    // Íæ¼Ò¼ýÊ¸
+    // ï¿½ï¿½Ò¼ï¿½Ê¸
     if ((maskA & PLAYER_ARROW && maskB & ENEMY_BODY) || (maskB & PLAYER_ARROW && maskA & ENEMY_BODY))
     {
         auto arrowNode = (maskA & PLAYER_ARROW) ? nodeA : nodeB;
@@ -247,8 +247,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // ¹ÖÎï¹¥»÷Íæ¼Ò
-    // ¹ÖÎï½üÕ½
+    // ï¿½ï¿½ï¿½ï¹¥ï¿½ï¿½ï¿½ï¿½ï¿½
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Õ½
     if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
     {
         auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
@@ -262,7 +262,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             _player->struck(damage, sourcePos); 
         }
     }
-    //¹ÖÎïÕ¨µ¯
+    //ï¿½ï¿½ï¿½ï¿½Õ¨ï¿½ï¿½
     if ((maskA & ENEMY_BOMB && maskB & PLAYER_BODY) || (maskB & ENEMY_BOMB && maskA & PLAYER_BODY))
     {
         auto bombNode = (maskA & ENEMY_BOMB) ? nodeA : nodeB;
@@ -277,7 +277,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // ¹ÖÎï¼ýÊ¸
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸
     if ((maskA & ENEMY_ARROW && maskB & PLAYER_BODY) || (maskB & ENEMY_ARROW && maskA & PLAYER_BODY))
     {
         auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
@@ -292,7 +292,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    //»·¾³Åö×² 
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×² 
     if ((maskA & GROUND || maskB & GROUND))
     {
         auto otherNode = (maskA & GROUND) ? nodeB : nodeA;

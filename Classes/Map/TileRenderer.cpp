@@ -1,10 +1,10 @@
 #include "TileRenderer.h"
 
-// Z层级
-const int Z_BACKGROUND = -200;
-const int Z_TERRAIN = 0;
-const int Z_DECORATION = 50;
-const int Z_FOREGROUND = 200;
+// Z层级 - 都设为负数确保在人物下面
+const int Z_BACKGROUND = -300;
+const int Z_TERRAIN = -200;
+const int Z_DECORATION = -150;
+const int Z_FOREGROUND = -100;
 
 TileRenderer* TileRenderer::create(const std::string& themeName) {
     auto renderer = new TileRenderer();

@@ -1,0 +1,1605 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      閫傜敤浜?.NET Framework MSBuild 鐗堟湰 18.0.5+e22287bf1
+      鐢熸垚鍚姩鏃堕棿涓?2025/12/27 15:25:39銆?
+      
+      鑺傜偣 1 涓婄殑椤圭洰鈥淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\4.2.1\\CompilerIdC\\CompilerIdC.vcxproj鈥?榛樿鐩爣)銆?
+      PrepareForBuild:
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\鈥濄€?
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\CompilerIdC.tlog\\鈥濄€?
+      InitializeBuildStatus:
+        姝ｅ湪鍒涘缓鈥淒ebug\\CompilerIdC.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdC.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+      ClCompile:
+        D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TC /analyze- /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\4.2.1\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\Hostx64\\x86\\cl.exe
+      FinalizeBuildStatus:
+        姝ｅ湪鍒犻櫎鏂囦欢鈥淒ebug\\CompilerIdC.tlog\\unsuccessfulbuild鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+      宸插畬鎴愮敓鎴愰」鐩€淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\4.2.1\\CompilerIdC\\CompilerIdC.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+      
+      宸叉垚鍔熺敓鎴愩€?
+          0 涓鍛?
+          0 涓敊璇?
+      
+      宸茬敤鏃堕棿 00:00:01.62
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/Administrator/Desktop/修改/DeadCells-Clone/build/CMakeFiles/4.2.1/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+    searched_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/link.com"
+    found: "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+    searched_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lld-link.com"
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lld-link.exe"
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files/nodejs/lld-link.com"
+      - "C:/Program Files/nodejs/lld-link.exe"
+      - "C:/Program Files/nodejs/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Users/Administrator/.dotnet/tools/lld-link.com"
+      - "C:/Users/Administrator/.dotnet/tools/lld-link.exe"
+      - "C:/Users/Administrator/.dotnet/tools/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/lld-link"
+      - "C:/Users/Administrator/AppData/Roaming/npm/lld-link.com"
+      - "C:/Users/Administrator/AppData/Roaming/npm/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Roaming/npm/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+    searched_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/link.com"
+    found: "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "program"
+    variable: "CMAKE_MT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mt"
+    candidate_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+    searched_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/mt.com"
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/mt.exe"
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/mt"
+      - "C:/Windows/System32/mt.com"
+      - "C:/Windows/System32/mt.exe"
+      - "C:/Windows/System32/mt"
+      - "C:/Windows/mt.com"
+      - "C:/Windows/mt.exe"
+      - "C:/Windows/mt"
+      - "C:/Windows/System32/wbem/mt.com"
+      - "C:/Windows/System32/wbem/mt.exe"
+      - "C:/Windows/System32/wbem/mt"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt"
+      - "C:/Windows/System32/OpenSSH/mt.com"
+      - "C:/Windows/System32/OpenSSH/mt.exe"
+      - "C:/Windows/System32/OpenSSH/mt"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
+      - "C:/Program Files/dotnet/mt.com"
+      - "C:/Program Files/dotnet/mt.exe"
+      - "C:/Program Files/dotnet/mt"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt"
+      - "C:/Program Files/CMake/bin/mt.com"
+      - "C:/Program Files/CMake/bin/mt.exe"
+      - "C:/Program Files/CMake/bin/mt"
+      - "C:/Program Files/Git/cmd/mt.com"
+      - "C:/Program Files/Git/cmd/mt.exe"
+      - "C:/Program Files/Git/cmd/mt"
+      - "C:/Program Files/nodejs/mt.com"
+      - "C:/Program Files/nodejs/mt.exe"
+      - "C:/Program Files/nodejs/mt"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/mt.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/mt"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/mt.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/mt"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/mt.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/mt"
+      - "C:/Users/Administrator/.dotnet/tools/mt.com"
+      - "C:/Users/Administrator/.dotnet/tools/mt.exe"
+      - "C:/Users/Administrator/.dotnet/tools/mt"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/mt.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/mt"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/mt.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/mt.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/mt"
+      - "C:/Users/Administrator/AppData/Roaming/npm/mt.com"
+      - "C:/Users/Administrator/AppData/Roaming/npm/mt.exe"
+      - "C:/Users/Administrator/AppData/Roaming/npm/mt"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lib"
+    candidate_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+    searched_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lib.com"
+    found: "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      閫傜敤浜?.NET Framework MSBuild 鐗堟湰 18.0.5+e22287bf1
+      鐢熸垚鍚姩鏃堕棿涓?2025/12/27 15:25:41銆?
+      
+      鑺傜偣 1 涓婄殑椤圭洰鈥淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\4.2.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
+      PrepareForBuild:
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\鈥濄€?
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\CompilerIdCXX.tlog\\鈥濄€?
+      InitializeBuildStatus:
+        姝ｅ湪鍒涘缓鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+      ClCompile:
+        D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TP /analyze- /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\4.2.1\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\Hostx64\\x86\\cl.exe
+      FinalizeBuildStatus:
+        姝ｅ湪鍒犻櫎鏂囦欢鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濄€?
+        姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+      宸插畬鎴愮敓鎴愰」鐩€淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\4.2.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+      
+      宸叉垚鍔熺敓鎴愩€?
+          0 涓鍛?
+          0 涓敊璇?
+      
+      宸茬敤鏃堕棿 00:00:01.02
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/Administrator/Desktop/修改/DeadCells-Clone/build/CMakeFiles/4.2.1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+    searched_directories:
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lld-link.com"
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lld-link.exe"
+      - "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x86/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files/nodejs/lld-link.com"
+      - "C:/Program Files/nodejs/lld-link.exe"
+      - "C:/Program Files/nodejs/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Users/Administrator/.dotnet/tools/lld-link.com"
+      - "C:/Users/Administrator/.dotnet/tools/lld-link.exe"
+      - "C:/Users/Administrator/.dotnet/tools/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/lld-link"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/lld-link.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/lld-link"
+      - "C:/Users/Administrator/AppData/Roaming/npm/lld-link.com"
+      - "C:/Users/Administrator/AppData/Roaming/npm/lld-link.exe"
+      - "C:/Users/Administrator/AppData/Roaming/npm/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:580 (enable_language)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC.cmake:553 (__windows_compiler_msvc_enable_rc)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeCInformation.cmake:48 (include)"
+      - "CMakeLists.txt:30 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "rc"
+    candidate_directories:
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/DeadCells/bin/"
+      - "C:/Program Files (x86)/DeadCells/sbin/"
+      - "C:/Program Files (x86)/DeadCells/"
+    searched_directories:
+      - "C:/Windows/System32/rc.com"
+      - "C:/Windows/System32/rc.exe"
+      - "C:/Windows/System32/rc"
+      - "C:/Windows/rc.com"
+      - "C:/Windows/rc.exe"
+      - "C:/Windows/rc"
+      - "C:/Windows/System32/wbem/rc.com"
+      - "C:/Windows/System32/wbem/rc.exe"
+      - "C:/Windows/System32/wbem/rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc"
+      - "C:/Windows/System32/OpenSSH/rc.com"
+      - "C:/Windows/System32/OpenSSH/rc.exe"
+      - "C:/Windows/System32/OpenSSH/rc"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/rc.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/rc.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/rc"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc"
+      - "C:/Program Files/dotnet/rc.com"
+      - "C:/Program Files/dotnet/rc.exe"
+      - "C:/Program Files/dotnet/rc"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Program Files/Git/cmd/rc.com"
+      - "C:/Program Files/Git/cmd/rc.exe"
+      - "C:/Program Files/Git/cmd/rc"
+      - "C:/Program Files/nodejs/rc.com"
+      - "C:/Program Files/nodejs/rc.exe"
+      - "C:/Program Files/nodejs/rc"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/rc.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/rc"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/rc.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/rc"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/rc.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/rc"
+      - "C:/Users/Administrator/.dotnet/tools/rc.com"
+      - "C:/Users/Administrator/.dotnet/tools/rc.exe"
+      - "C:/Users/Administrator/.dotnet/tools/rc"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/rc.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/rc"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/rc.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/rc.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/rc"
+      - "C:/Users/Administrator/AppData/Roaming/npm/rc.com"
+      - "C:/Users/Administrator/AppData/Roaming/npm/rc.exe"
+      - "C:/Users/Administrator/AppData/Roaming/npm/rc"
+      - "C:/Program Files/bin/rc.com"
+      - "C:/Program Files/bin/rc.exe"
+      - "C:/Program Files/bin/rc"
+      - "C:/Program Files/sbin/rc.com"
+      - "C:/Program Files/sbin/rc.exe"
+      - "C:/Program Files/sbin/rc"
+      - "C:/Program Files/rc.com"
+      - "C:/Program Files/rc.exe"
+      - "C:/Program Files/rc"
+      - "C:/Program Files (x86)/bin/rc.com"
+      - "C:/Program Files (x86)/bin/rc.exe"
+      - "C:/Program Files (x86)/bin/rc"
+      - "C:/Program Files (x86)/sbin/rc.com"
+      - "C:/Program Files (x86)/sbin/rc.exe"
+      - "C:/Program Files (x86)/sbin/rc"
+      - "C:/Program Files (x86)/rc.com"
+      - "C:/Program Files (x86)/rc.exe"
+      - "C:/Program Files (x86)/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Program Files/CMake/sbin/rc.com"
+      - "C:/Program Files/CMake/sbin/rc.exe"
+      - "C:/Program Files/CMake/sbin/rc"
+      - "C:/Program Files/CMake/rc.com"
+      - "C:/Program Files/CMake/rc.exe"
+      - "C:/Program Files/CMake/rc"
+      - "C:/Program Files (x86)/DeadCells/bin/rc.com"
+      - "C:/Program Files (x86)/DeadCells/bin/rc.exe"
+      - "C:/Program Files (x86)/DeadCells/bin/rc"
+      - "C:/Program Files (x86)/DeadCells/sbin/rc.com"
+      - "C:/Program Files (x86)/DeadCells/sbin/rc.exe"
+      - "C:/Program Files (x86)/DeadCells/sbin/rc"
+      - "C:/Program Files (x86)/DeadCells/rc.com"
+      - "C:/Program Files (x86)/DeadCells/rc.exe"
+      - "C:/Program Files (x86)/DeadCells/rc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/DeadCells"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/DeadCells"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:30 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-0twpjf"
+      binary: "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-0twpjf"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Administrator/Desktop/修改/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-0twpjf'
+        
+        Run Build Command(s): D:/VS/IDE/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_1d897.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=18.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 18.0.5+e22287bf1
+        鐢熸垚鍚姩鏃堕棿涓?2025/12/27 15:25:43銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0twpjf\\cmTC_1d897.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          姝ｅ湪鍒涘缓鐩綍鈥淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0twpjf\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_1d897.dir\\Debug\\cmTC_1d897.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_1d897.dir\\Debug\\cmTC_1d897.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_1d897.dir\\Debug\\cmTC_1d897.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_1d897.dir\\Debug\\\\" /Fd"cmTC_1d897.dir\\Debug\\vc145.pdb" /external:W3 /TC /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          鐢ㄤ簬 x86 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.50.35721 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_1d897.dir\\Debug\\\\" /Fd"cmTC_1d897.dir\\Debug\\vc145.pdb" /external:W3 /TC /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\link.exe /OUT:"C:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0twpjf\\Debug\\cmTC_1d897.exe" /INCREMENTAL /ILK:"cmTC_1d897.dir\\Debug\\cmTC_1d897.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Administrator/Desktop/淇敼/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-0twpjf/Debug/cmTC_1d897.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Administrator/Desktop/淇敼/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-0twpjf/Debug/cmTC_1d897.lib" /MACHINE:X86  /machine:X86 cmTC_1d897.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_1d897.vcxproj -> C:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0twpjf\\Debug\\cmTC_1d897.exe
+        FinalizeBuildStatus:
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_1d897.dir\\Debug\\cmTC_1d897.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_1d897.dir\\Debug\\cmTC_1d897.tlog\\cmTC_1d897.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0twpjf\\cmTC_1d897.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+        
+        宸叉垚鍔熺敓鎴愩€?
+            0 涓鍛?
+            0 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:01.04
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/HostX64/x86/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      Running the C compiler's linker: "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/HostX64/x86/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.50.35721.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:30 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-7osqtb"
+      binary: "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-7osqtb"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:X86"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Administrator/Desktop/修改/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-7osqtb'
+        
+        Run Build Command(s): D:/VS/IDE/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_9b0d6.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=18.0 /v:n
+        閫傜敤浜?.NET Framework MSBuild 鐗堟湰 18.0.5+e22287bf1
+        鐢熸垚鍚姩鏃堕棿涓?2025/12/27 15:25:44銆?
+        
+        鑺傜偣 1 涓婄殑椤圭洰鈥淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7osqtb\\cmTC_9b0d6.vcxproj鈥?榛樿鐩爣)銆?
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          姝ｅ湪鍒涘缓鐩綍鈥淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7osqtb\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_9b0d6.dir\\Debug\\cmTC_9b0d6.tlog\\鈥濄€?
+        InitializeBuildStatus:
+          姝ｅ湪鍒涘缓鈥渃mTC_9b0d6.dir\\Debug\\cmTC_9b0d6.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_9b0d6.dir\\Debug\\cmTC_9b0d6.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+        ClCompile:
+          D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_9b0d6.dir\\Debug\\\\" /Fd"cmTC_9b0d6.dir\\Debug\\vc145.pdb" /external:W3 /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          鐢ㄤ簬 x86 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.50.35721 鐗?
+          鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_9b0d6.dir\\Debug\\\\" /Fd"cmTC_9b0d6.dir\\Debug\\vc145.pdb" /external:W3 /TP /analyze- /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          D:\\VS\\IDE\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x86\\link.exe /OUT:"C:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7osqtb\\Debug\\cmTC_9b0d6.exe" /INCREMENTAL /ILK:"cmTC_9b0d6.dir\\Debug\\cmTC_9b0d6.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Administrator/Desktop/淇敼/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-7osqtb/Debug/cmTC_9b0d6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Administrator/Desktop/淇敼/DeadCells-Clone/build/CMakeFiles/CMakeScratch/TryCompile-7osqtb/Debug/cmTC_9b0d6.lib" /MACHINE:X86  /machine:X86 cmTC_9b0d6.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_9b0d6.vcxproj -> C:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7osqtb\\Debug\\cmTC_9b0d6.exe
+        FinalizeBuildStatus:
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_9b0d6.dir\\Debug\\cmTC_9b0d6.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_9b0d6.dir\\Debug\\cmTC_9b0d6.tlog\\cmTC_9b0d6.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淐:\\Users\\Administrator\\Desktop\\淇敼\\DeadCells-Clone\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7osqtb\\cmTC_9b0d6.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+        
+        宸叉垚鍔熺敓鎴愩€?
+            0 涓鍛?
+            0 涓敊璇?
+        
+        宸茬敤鏃堕棿 00:00:01.04
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/HostX64/x86/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      Running the CXX compiler's linker: "D:/VS/IDE/VC/Tools/MSVC/14.50.35717/bin/HostX64/x86/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.50.35721.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cocos2d/cmake/Modules/CocosBuildSet.cmake:17 (find_program)"
+      - "CMakeLists.txt:42 (include)"
+    mode: "program"
+    variable: "PYTHON_COMMAND"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "python2"
+      - "python"
+    candidate_directories:
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/DeadCells/bin/"
+      - "C:/Program Files (x86)/DeadCells/sbin/"
+      - "C:/Program Files (x86)/DeadCells/"
+    searched_directories:
+      - "C:/Windows/System32/python2.com"
+      - "C:/Windows/System32/python2.exe"
+      - "C:/Windows/System32/python2"
+      - "C:/Windows/python2.com"
+      - "C:/Windows/python2.exe"
+      - "C:/Windows/python2"
+      - "C:/Windows/System32/wbem/python2.com"
+      - "C:/Windows/System32/wbem/python2.exe"
+      - "C:/Windows/System32/wbem/python2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/python2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/python2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/python2"
+      - "C:/Windows/System32/OpenSSH/python2.com"
+      - "C:/Windows/System32/OpenSSH/python2.exe"
+      - "C:/Windows/System32/OpenSSH/python2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/python2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/python2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/python2"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/python2.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/python2.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/python2"
+      - "C:/Program Files/dotnet/python2.com"
+      - "C:/Program Files/dotnet/python2.exe"
+      - "C:/Program Files/dotnet/python2"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/python2.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/python2.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/python2"
+      - "C:/Program Files/CMake/bin/python2.com"
+      - "C:/Program Files/CMake/bin/python2.exe"
+      - "C:/Program Files/CMake/bin/python2"
+      - "C:/Program Files/Git/cmd/python2.com"
+      - "C:/Program Files/Git/cmd/python2.exe"
+      - "C:/Program Files/Git/cmd/python2"
+      - "C:/Program Files/nodejs/python2.com"
+      - "C:/Program Files/nodejs/python2.exe"
+      - "C:/Program Files/nodejs/python2"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/python2.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/python2.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/python2"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/python2.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/python2.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/python2"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/python2.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/python2.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/python2"
+      - "C:/Users/Administrator/.dotnet/tools/python2.com"
+      - "C:/Users/Administrator/.dotnet/tools/python2.exe"
+      - "C:/Users/Administrator/.dotnet/tools/python2"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/python2.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/python2.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/python2"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/python2.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/python2.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/python2"
+      - "C:/Users/Administrator/AppData/Roaming/npm/python2.com"
+      - "C:/Users/Administrator/AppData/Roaming/npm/python2.exe"
+      - "C:/Users/Administrator/AppData/Roaming/npm/python2"
+      - "C:/Program Files/bin/python2.com"
+      - "C:/Program Files/bin/python2.exe"
+      - "C:/Program Files/bin/python2"
+      - "C:/Program Files/sbin/python2.com"
+      - "C:/Program Files/sbin/python2.exe"
+      - "C:/Program Files/sbin/python2"
+      - "C:/Program Files/python2.com"
+      - "C:/Program Files/python2.exe"
+      - "C:/Program Files/python2"
+      - "C:/Program Files (x86)/bin/python2.com"
+      - "C:/Program Files (x86)/bin/python2.exe"
+      - "C:/Program Files (x86)/bin/python2"
+      - "C:/Program Files (x86)/sbin/python2.com"
+      - "C:/Program Files (x86)/sbin/python2.exe"
+      - "C:/Program Files (x86)/sbin/python2"
+      - "C:/Program Files (x86)/python2.com"
+      - "C:/Program Files (x86)/python2.exe"
+      - "C:/Program Files (x86)/python2"
+      - "C:/Program Files/CMake/bin/python2.com"
+      - "C:/Program Files/CMake/bin/python2.exe"
+      - "C:/Program Files/CMake/bin/python2"
+      - "C:/Program Files/CMake/sbin/python2.com"
+      - "C:/Program Files/CMake/sbin/python2.exe"
+      - "C:/Program Files/CMake/sbin/python2"
+      - "C:/Program Files/CMake/python2.com"
+      - "C:/Program Files/CMake/python2.exe"
+      - "C:/Program Files/CMake/python2"
+      - "C:/Program Files (x86)/DeadCells/bin/python2.com"
+      - "C:/Program Files (x86)/DeadCells/bin/python2.exe"
+      - "C:/Program Files (x86)/DeadCells/bin/python2"
+      - "C:/Program Files (x86)/DeadCells/sbin/python2.com"
+      - "C:/Program Files (x86)/DeadCells/sbin/python2.exe"
+      - "C:/Program Files (x86)/DeadCells/sbin/python2"
+      - "C:/Program Files (x86)/DeadCells/python2.com"
+      - "C:/Program Files (x86)/DeadCells/python2.exe"
+      - "C:/Program Files (x86)/DeadCells/python2"
+      - "C:/Windows/System32/python.com"
+      - "C:/Windows/System32/python.exe"
+      - "C:/Windows/System32/python"
+      - "C:/Windows/python.com"
+      - "C:/Windows/python.exe"
+      - "C:/Windows/python"
+      - "C:/Windows/System32/wbem/python.com"
+      - "C:/Windows/System32/wbem/python.exe"
+      - "C:/Windows/System32/wbem/python"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/python.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/python.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/python"
+      - "C:/Windows/System32/OpenSSH/python.com"
+      - "C:/Windows/System32/OpenSSH/python.exe"
+      - "C:/Windows/System32/OpenSSH/python"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/python.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/python.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/python"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/python.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/python.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/python"
+      - "C:/Program Files/dotnet/python.com"
+      - "C:/Program Files/dotnet/python.exe"
+      - "C:/Program Files/dotnet/python"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/python.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/python.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/python"
+      - "C:/Program Files/CMake/bin/python.com"
+      - "C:/Program Files/CMake/bin/python.exe"
+      - "C:/Program Files/CMake/bin/python"
+      - "C:/Program Files/Git/cmd/python.com"
+      - "C:/Program Files/Git/cmd/python.exe"
+      - "C:/Program Files/Git/cmd/python"
+      - "C:/Program Files/nodejs/python.com"
+      - "C:/Program Files/nodejs/python.exe"
+      - "C:/Program Files/nodejs/python"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/python.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/python.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/python"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/python.com"
+    found: "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/python.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/DeadCells"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/DeadCells"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "cocos2d/cmake/Modules/CocosBuildSet.cmake:18 (find_program)"
+      - "CMakeLists.txt:42 (include)"
+    mode: "program"
+    variable: "COCOS_COMMAND"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "NAME"
+      - "cocos"
+    candidate_directories:
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Administrator/.dotnet/tools/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/"
+      - "C:/Users/Administrator/AppData/Roaming/npm/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/DeadCells/bin/"
+      - "C:/Program Files (x86)/DeadCells/sbin/"
+      - "C:/Program Files (x86)/DeadCells/"
+      - "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/cocos2d/tools/cocos2d-console/bin/"
+    searched_directories:
+      - "C:/Windows/System32/NAME.com"
+      - "C:/Windows/System32/NAME.exe"
+      - "C:/Windows/System32/NAME"
+      - "C:/Windows/NAME.com"
+      - "C:/Windows/NAME.exe"
+      - "C:/Windows/NAME"
+      - "C:/Windows/System32/wbem/NAME.com"
+      - "C:/Windows/System32/wbem/NAME.exe"
+      - "C:/Windows/System32/wbem/NAME"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/NAME.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/NAME.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/NAME"
+      - "C:/Windows/System32/OpenSSH/NAME.com"
+      - "C:/Windows/System32/OpenSSH/NAME.exe"
+      - "C:/Windows/System32/OpenSSH/NAME"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/NAME.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/NAME.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/NAME"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/NAME.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/NAME.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/NAME"
+      - "C:/Program Files/dotnet/NAME.com"
+      - "C:/Program Files/dotnet/NAME.exe"
+      - "C:/Program Files/dotnet/NAME"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/NAME.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/NAME.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/NAME"
+      - "C:/Program Files/CMake/bin/NAME.com"
+      - "C:/Program Files/CMake/bin/NAME.exe"
+      - "C:/Program Files/CMake/bin/NAME"
+      - "C:/Program Files/Git/cmd/NAME.com"
+      - "C:/Program Files/Git/cmd/NAME.exe"
+      - "C:/Program Files/Git/cmd/NAME"
+      - "C:/Program Files/nodejs/NAME.com"
+      - "C:/Program Files/nodejs/NAME.exe"
+      - "C:/Program Files/nodejs/NAME"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/NAME.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/NAME.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/NAME"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/NAME.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/NAME.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/NAME"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/NAME.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/NAME.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/NAME"
+      - "C:/Users/Administrator/.dotnet/tools/NAME.com"
+      - "C:/Users/Administrator/.dotnet/tools/NAME.exe"
+      - "C:/Users/Administrator/.dotnet/tools/NAME"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/NAME.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/NAME.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/NAME"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/NAME.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/NAME.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/NAME"
+      - "C:/Users/Administrator/AppData/Roaming/npm/NAME.com"
+      - "C:/Users/Administrator/AppData/Roaming/npm/NAME.exe"
+      - "C:/Users/Administrator/AppData/Roaming/npm/NAME"
+      - "C:/Program Files/bin/NAME.com"
+      - "C:/Program Files/bin/NAME.exe"
+      - "C:/Program Files/bin/NAME"
+      - "C:/Program Files/sbin/NAME.com"
+      - "C:/Program Files/sbin/NAME.exe"
+      - "C:/Program Files/sbin/NAME"
+      - "C:/Program Files/NAME.com"
+      - "C:/Program Files/NAME.exe"
+      - "C:/Program Files/NAME"
+      - "C:/Program Files (x86)/bin/NAME.com"
+      - "C:/Program Files (x86)/bin/NAME.exe"
+      - "C:/Program Files (x86)/bin/NAME"
+      - "C:/Program Files (x86)/sbin/NAME.com"
+      - "C:/Program Files (x86)/sbin/NAME.exe"
+      - "C:/Program Files (x86)/sbin/NAME"
+      - "C:/Program Files (x86)/NAME.com"
+      - "C:/Program Files (x86)/NAME.exe"
+      - "C:/Program Files (x86)/NAME"
+      - "C:/Program Files/CMake/bin/NAME.com"
+      - "C:/Program Files/CMake/bin/NAME.exe"
+      - "C:/Program Files/CMake/bin/NAME"
+      - "C:/Program Files/CMake/sbin/NAME.com"
+      - "C:/Program Files/CMake/sbin/NAME.exe"
+      - "C:/Program Files/CMake/sbin/NAME"
+      - "C:/Program Files/CMake/NAME.com"
+      - "C:/Program Files/CMake/NAME.exe"
+      - "C:/Program Files/CMake/NAME"
+      - "C:/Program Files (x86)/DeadCells/bin/NAME.com"
+      - "C:/Program Files (x86)/DeadCells/bin/NAME.exe"
+      - "C:/Program Files (x86)/DeadCells/bin/NAME"
+      - "C:/Program Files (x86)/DeadCells/sbin/NAME.com"
+      - "C:/Program Files (x86)/DeadCells/sbin/NAME.exe"
+      - "C:/Program Files (x86)/DeadCells/sbin/NAME"
+      - "C:/Program Files (x86)/DeadCells/NAME.com"
+      - "C:/Program Files (x86)/DeadCells/NAME.exe"
+      - "C:/Program Files (x86)/DeadCells/NAME"
+      - "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/cocos2d/tools/cocos2d-console/bin/NAME.com"
+      - "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/cocos2d/tools/cocos2d-console/bin/NAME.exe"
+      - "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/cocos2d/tools/cocos2d-console/bin/NAME"
+      - "C:/Windows/System32/cocos.com"
+      - "C:/Windows/System32/cocos.exe"
+      - "C:/Windows/System32/cocos"
+      - "C:/Windows/cocos.com"
+      - "C:/Windows/cocos.exe"
+      - "C:/Windows/cocos"
+      - "C:/Windows/System32/wbem/cocos.com"
+      - "C:/Windows/System32/wbem/cocos.exe"
+      - "C:/Windows/System32/wbem/cocos"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cocos.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cocos.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/cocos"
+      - "C:/Windows/System32/OpenSSH/cocos.com"
+      - "C:/Windows/System32/OpenSSH/cocos.exe"
+      - "C:/Windows/System32/OpenSSH/cocos"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/cocos.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/cocos.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/cocos"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/cocos.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/cocos.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/cocos"
+      - "C:/Program Files/dotnet/cocos.com"
+      - "C:/Program Files/dotnet/cocos.exe"
+      - "C:/Program Files/dotnet/cocos"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/cocos.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/cocos.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/cocos"
+      - "C:/Program Files/CMake/bin/cocos.com"
+      - "C:/Program Files/CMake/bin/cocos.exe"
+      - "C:/Program Files/CMake/bin/cocos"
+      - "C:/Program Files/Git/cmd/cocos.com"
+      - "C:/Program Files/Git/cmd/cocos.exe"
+      - "C:/Program Files/Git/cmd/cocos"
+      - "C:/Program Files/nodejs/cocos.com"
+      - "C:/Program Files/nodejs/cocos.exe"
+      - "C:/Program Files/nodejs/cocos"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/cocos.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/cocos.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/Scripts/cocos"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/cocos.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/cocos.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Python/Python310/cocos"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/cocos.com"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/cocos.exe"
+      - "C:/Users/Administrator/AppData/Local/Microsoft/WindowsApps/cocos"
+      - "C:/Users/Administrator/.dotnet/tools/cocos.com"
+      - "C:/Users/Administrator/.dotnet/tools/cocos.exe"
+      - "C:/Users/Administrator/.dotnet/tools/cocos"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/cocos.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/cocos.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Kiro/bin/cocos"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/cocos.com"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/cocos.exe"
+      - "C:/Users/Administrator/AppData/Local/Programs/Windsurf/bin/cocos"
+      - "C:/Users/Administrator/AppData/Roaming/npm/cocos.com"
+      - "C:/Users/Administrator/AppData/Roaming/npm/cocos.exe"
+      - "C:/Users/Administrator/AppData/Roaming/npm/cocos"
+      - "C:/Program Files/bin/cocos.com"
+      - "C:/Program Files/bin/cocos.exe"
+      - "C:/Program Files/bin/cocos"
+      - "C:/Program Files/sbin/cocos.com"
+      - "C:/Program Files/sbin/cocos.exe"
+      - "C:/Program Files/sbin/cocos"
+      - "C:/Program Files/cocos.com"
+      - "C:/Program Files/cocos.exe"
+      - "C:/Program Files/cocos"
+      - "C:/Program Files (x86)/bin/cocos.com"
+      - "C:/Program Files (x86)/bin/cocos.exe"
+      - "C:/Program Files (x86)/bin/cocos"
+      - "C:/Program Files (x86)/sbin/cocos.com"
+      - "C:/Program Files (x86)/sbin/cocos.exe"
+      - "C:/Program Files (x86)/sbin/cocos"
+      - "C:/Program Files (x86)/cocos.com"
+      - "C:/Program Files (x86)/cocos.exe"
+      - "C:/Program Files (x86)/cocos"
+      - "C:/Program Files/CMake/bin/cocos.com"
+      - "C:/Program Files/CMake/bin/cocos.exe"
+      - "C:/Program Files/CMake/bin/cocos"
+      - "C:/Program Files/CMake/sbin/cocos.com"
+      - "C:/Program Files/CMake/sbin/cocos.exe"
+      - "C:/Program Files/CMake/sbin/cocos"
+      - "C:/Program Files/CMake/cocos.com"
+      - "C:/Program Files/CMake/cocos.exe"
+      - "C:/Program Files/CMake/cocos"
+      - "C:/Program Files (x86)/DeadCells/bin/cocos.com"
+      - "C:/Program Files (x86)/DeadCells/bin/cocos.exe"
+      - "C:/Program Files (x86)/DeadCells/bin/cocos"
+      - "C:/Program Files (x86)/DeadCells/sbin/cocos.com"
+      - "C:/Program Files (x86)/DeadCells/sbin/cocos.exe"
+      - "C:/Program Files (x86)/DeadCells/sbin/cocos"
+      - "C:/Program Files (x86)/DeadCells/cocos.com"
+      - "C:/Program Files (x86)/DeadCells/cocos.exe"
+      - "C:/Program Files (x86)/DeadCells/cocos"
+      - "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/cocos2d/tools/cocos2d-console/bin/cocos.com"
+      - "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/cocos2d/tools/cocos2d-console/bin/cocos.exe"
+      - "C:/Users/Administrator/Desktop/\u4fee\u6539/DeadCells-Clone/cocos2d/tools/cocos2d-console/bin/cocos"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\windows\\system32"
+        - "C:\\windows"
+        - "C:\\windows\\System32\\Wbem"
+        - "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\Administrator\\.dotnet\\tools"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Kiro\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Windsurf\\bin"
+        - "C:\\Users\\Administrator\\AppData\\Roaming\\npm"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/DeadCells"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/DeadCells"
+...
