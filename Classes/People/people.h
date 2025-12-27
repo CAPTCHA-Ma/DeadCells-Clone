@@ -50,7 +50,6 @@ enum PhysicsCategory
     PLAYER_BODY = 1 << 0,  // 玩家物理身体
     PLAYER_ATTACK = 1 << 1,  // 玩家攻击判定框
     PLAYER_ARROW = 1 << 3,  // 玩家射出的箭
-    WEAPON = 1 << 14,
 
     ENEMY_BODY = 1 << 4,  // 敌人物理身体
     ENEMY_ATTACK = 1 << 5,  // 敌人攻击判定框
@@ -62,7 +61,8 @@ enum PhysicsCategory
     PLATFORM = 1 << 11, // 平台
     AIR = 1 << 12, // 空气
     MIX = 1 << 13,
-	INTERACTABLE = 1 << 14
+    WEAPON = 1 << 14,
+	INTERACTABLE = 1 << 15
 
 };
 

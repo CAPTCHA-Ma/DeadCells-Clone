@@ -24,6 +24,7 @@ private:
     void GenMapData();
     void RenderMap();
     bool onContactBegin(PhysicsContact& contact);
+    bool onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::PhysicsContactPreSolve& solve);
     void onContactSeparate(PhysicsContact& contact);
     void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
     Vector<MonsterLayer*> monster;

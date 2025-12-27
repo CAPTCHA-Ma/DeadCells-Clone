@@ -62,11 +62,6 @@ bool GameScene::init()
     _mapContainer = Node::create();
     this->addChild(_mapContainer);
 
-
-    auto listener = EventListenerPhysicsContact::create();
-    listener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
     return true;
 
 }
@@ -128,116 +123,12 @@ void GameScene::RenderMap()
 
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-    // 移除原来的 Lambda，改为绑定成员函数
+    contactListener->onContactPreSolve = CC_CALLBACK_2(GameScene::onContactPreSolve, this);
     contactListener->onContactSeparate = CC_CALLBACK_1(GameScene::onContactSeparate, this);
-    // PreSolve 比较特殊，通常用 Lambda 比较方便，但如果逻辑复杂也可以移出去
-
-    contactListener->onContactPreSolve = [this](PhysicsContact& contact, PhysicsContactPreSolve& solve) 
-        {
-
-            auto bodyA = contact.getShapeA()->getBody();
-            auto bodyB = contact.getShapeB()->getBody();
-
-            if (bodyA->getCategoryBitmask() == MIX || bodyB->getCategoryBitmask() == MIX)
-            {
-
-                PhysicsBody* playerBody = nullptr;
-                PhysicsBody* mixBody = nullptr;
-                if (bodyA->getCategoryBitmask() == PLAYER_BODY && bodyB->getCategoryBitmask() == MIX)
-                {
-                    playerBody = bodyA;
-                    mixBody = bodyB;
-                }
-                else if (bodyB->getCategoryBitmask() == PLAYER_BODY && bodyA->getCategoryBitmask() == MIX)
-                {
-                    playerBody = bodyB;
-                    mixBody = bodyA;
-                }
-
-                if (playerBody && mixBody)
-                {
-
-                    if (playerBody->getPosition().y > mixBody->getPosition().y + 10)
-                    {
-
-                        if (!_player->_isBelowLadder) _player->_isAboveLadder = true;
-                        else _player->_isContactBottom = true;
-
-                    }
-                    else _player->_isAboveLadder = true;
-
-                }
-
-                solve.ignore();
-
-
-            }
-
-            if (bodyA->getCategoryBitmask() == GROUND || bodyB->getCategoryBitmask() == GROUND)
-            {
-
-                if (_player->getCurrentState() == ActionState::climbing || _player->getCurrentState() == ActionState::hanging)
-                {
-
-                    if (_player->GetVelo().y > 0.1f && _player->_isBelowLadder) solve.ignore();
-                    if (_player->GetVelo().y < -0.1f && _player->_isAboveLadder) solve.ignore();
-
-                    return true;
-
-                }
-
-            }
-
-            if (bodyA->getCategoryBitmask() == PLATFORM || bodyB->getCategoryBitmask() == PLATFORM)
-            {
-
-                if (_player->getCurrentState() == ActionState::climbing || _player->getCurrentState() == ActionState::hanging)
-                {
-
-                    if (_player->GetVelo().y > 0.1f && _player->_isBelowLadder) solve.ignore();
-                    if (_player->GetVelo().y < -0.1f && _player->_isAboveLadder) solve.ignore();
-
-                    return true;
-
-                }
-
-                PhysicsBody* playerBody = nullptr;
-                PhysicsBody* platformBody = nullptr;
-
-                if (bodyA->getCategoryBitmask() == PLAYER_BODY && bodyB->getCategoryBitmask() == PLATFORM) {
-                    playerBody = bodyA;
-                    platformBody = bodyB;
-                }
-                else if (bodyB->getCategoryBitmask() == PLAYER_BODY && bodyA->getCategoryBitmask() == PLATFORM) {
-                    playerBody = bodyB;
-                    platformBody = bodyA;
-                }
-
-                if (playerBody && platformBody)
-                {
-
-                    if (playerBody->getVelocity().y > 0.5)
-                    {
-
-						_player->_isPassingPlatform = true;
-                        solve.ignore();
-
-                    }
-                    else if (_player->_isDropping) solve.ignore();
-
-                }
-
-            }
-
-            if (bodyA->getCategoryBitmask() == LADDER || bodyB->getCategoryBitmask() == LADDER) _player->_isBelowLadder = true;
-                
-            return true;
-
-        };
-
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
     this->scheduleUpdate();
+
 }
 
 void GameScene::update(float dt)
@@ -310,11 +201,19 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
     if (!nodeA || !nodeB) return true;
 
+    CCLOG("??\n");
+
     if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
     {
 
         auto targetNode = (maskA == INTERACTABLE) ? nodeA : nodeB;
-        if (targetNode)  _currentInteractNode = targetNode;
+        if (targetNode)
+        {
+
+            CCLOG("!\n");
+            _currentInteractNode = targetNode;
+
+        }
         
     }
 
@@ -585,14 +484,6 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
 
     }
 
-    if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
-        _currentInteractNode = nullptr;
-
-    if ((maskA & WEAPON && maskB & PLAYER_BODY) || (maskB & WEAPON && maskA & PLAYER_BODY))
-    {
-        if (_player) 
-            _player->_nearbyWeapon = nullptr;
-    }
 }
 
 GameScene::~GameScene()
