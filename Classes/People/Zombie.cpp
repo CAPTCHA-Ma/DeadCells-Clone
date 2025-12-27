@@ -2,6 +2,10 @@
 USING_NS_CC;
 const float targetWidth = 64.0f;
 const float targetHeight = 120.0f;
+const float moveSpeed = 150.0f; //移动速度
+const float attackRange = 50.0f; //攻击范围
+const float DetectionRange = 200.0f;//跟踪范围
+const BasicAttributes basicAttribute = {100.0f,100.0f,0.0f };
 //*******************************************************************
 //*******************************************************************
 //*******************************************************************
@@ -17,33 +21,21 @@ bool Zombie::init()
         return false;
 
     this->addChild(_sprite);
-    this->setMonsterAttributes({ 100,100,0 });
+    this->setCurrentAttributes(basicAttribute);
+    this->setMaxHealth(basicAttribute.health);
     _state = ZombieState::idle;
     _direction = MoveDirection::RIGHT;
-    _moveSpeed = 150.0f;
+    _moveSpeed = moveSpeed;
     _runSpeed = 2 * _moveSpeed;
-    _attackRange = 100.0f;
+    _attackRange = attackRange;
 
-    _body = PhysicsBody::createBox(
-        Size(targetWidth / 3, targetHeight / 3),
-        PhysicsMaterial(0.1f, 0.0f, 0.5f),
-        Vec2(0, targetHeight / 6)
+    this->createBody(
+        Size(targetWidth / 3.0f, targetHeight / 3.0f),
+        Vec2(0, targetHeight / 6.0f)
     );
-
-    _body->setDynamic(true);
-    _body->setRotationEnable(false);
-    _body->setGravityEnable(true);
-    _body->setVelocity(Vec2::ZERO);
-
-    this->setPhysicsBody(_body);
-
-    _body->setCategoryBitmask(ENEMY_BODY);
-    _body->setCollisionBitmask(GROUND);
-    _body->setContactTestBitmask(PLAYER_ATTACK|PLAYER_ARROW);
-
-
+    this->setupHPBar();    // 1. 必须手动调用初始化血条
+    this->scheduleUpdate(); // 2. 必须开启 update 才能处理缩放和逻辑
     playAnimation(ZombieState::idle, true);
-
     return true;
 }
 void Zombie::onDead()
@@ -122,16 +114,15 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
     if (_aiTickTimer >= 0.2f)
     {
         _aiTickTimer = 0.0f;
-        if (distX <= _attackRange && distY < 10.0f)
+        if (distX <= _attackRange && distY < 1.0f)
         {
-            // 攻击前修正一次朝向，确保正对玩家
             _direction = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
             int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
             _sprite->setFlippedX(dir == -1);
             this->changeState(ZombieState::atkA);
         }
         // 判断 B: 是否在追踪范围内
-        else if (distX <= 200.0f && distY < 200.0f)
+        else if (distX <= DetectionRange && distY < 1.0f)
         {
             MoveDirection newDir = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
             if (_direction != newDir)
@@ -140,7 +131,6 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
             }
             this->changeState(ZombieState::run);
         }
-        // 判断 C: 距离太远，歇着
         else
         {
             this->changeState(ZombieState::idle);
@@ -247,7 +237,10 @@ void Zombie::playAnimation(ZombieState state, bool loop)
 }
 void Zombie::createAttackBox()
 {
-    removeAttackBox();
+    this->removeAttackBox();
+
+    // [关键] 近战怪物每次攻击前清理名单
+    this->clearHitTargets();
 
     _attackNode = Node::create();
     float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;

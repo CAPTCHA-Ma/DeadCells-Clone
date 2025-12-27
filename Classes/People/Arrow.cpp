@@ -2,10 +2,10 @@
 USING_NS_CC;
 const float targetWidth = 50.0f;
 const float targetHeight = 25.0f;
-Arrow* Arrow::create(bool fromPlayer)
+Arrow* Arrow::create(bool fromPlayer,float attackPower)
 {
 	Arrow* pRet = new(std::nothrow) Arrow(); 
-		if (pRet && pRet->init(fromPlayer)) 
+		if (pRet && pRet->init(fromPlayer,attackPower)) 
 		{ 
 			pRet->autorelease(); 
 			return pRet; 
@@ -17,7 +17,7 @@ Arrow* Arrow::create(bool fromPlayer)
 			return nullptr; 
 		}
 }
-bool Arrow::init(bool fromPlayer)
+bool Arrow::init(bool fromPlayer, float attackPower)
 {
     if (!Sprite::initWithFile("Graph/FlyingObject/heavyArrow-=-0-=-.png"))
         return false;
@@ -42,7 +42,7 @@ bool Arrow::init(bool fromPlayer)
         hurtbody->setCollisionBitmask(PhysicsCategory::GROUND);
         hurtbody->setContactTestBitmask(PLAYER_BODY | GROUND);
     }
-
+	this->setAttackPower(attackPower);
     this->setPhysicsBody(hurtbody);
     this->runAction(Sequence::create(DelayTime::create(8.0f), RemoveSelf::create(), nullptr));
 

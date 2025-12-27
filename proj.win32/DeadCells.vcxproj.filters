@@ -34,9 +34,6 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\WeaponNode.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.cpp">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Arrow.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
@@ -50,6 +47,12 @@
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Grenadier.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.cpp">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\DeadArcher.cpp">
       <Filter>Source Files\Classes\People</Filter>
     </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Monster.cpp">
@@ -105,9 +108,6 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\WeaponNode.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.h">
-      <Filter>Source Files\Classes\People</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Arrow.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
@@ -118,6 +118,12 @@
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\FlyingObject.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\DeadArcher.h">
+      <Filter>Source Files\Classes\People</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Zombie.h">
       <Filter>Source Files\Classes\People</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\People\Grenadier.h">
@@ -32058,6 +32064,1149 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\objecttypes.json">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleA-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleABroken_0-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleABroken_1-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidGreen-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidGreenPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidMeta-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidNoColor-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidRed-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidRedGreen-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleAliquidRedPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleB-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBBroken_0-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBBroken_1-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidGreen-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidGreenPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidMeta-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidNoColor-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidRed-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidRedGreen-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleBliquidRedPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleC-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCBroken_0-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCBroken_1-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidGreen-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidGreenPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidMeta-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidNoColor-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidRed-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidRedGreen-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\fioleCliquidRedPurple-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\metaStoneOn1-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\metaStoneOn2-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\metaStoneOn3-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\metaStoneOn4-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\alchemy\metaStoneOn5-=-0-=-.png">
+      <Filter>Resources\prison\alchemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\cageChain-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainAnchor-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainBot_0-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainBot_1-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainBot_2-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainBot_3-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainDown-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainLight-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainShadow-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainTile-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chainUp-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\chain_0-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\maillon-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\chains\suspendedCage-=-0-=-.png">
+      <Filter>Resources\prison\chains</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\decoration_config.json">
+      <Filter>Resources\prison</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\bigDoor_0-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\bigDoor_1-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\bigDoor_2-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\bigDoor_3-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\bigDoor_4-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\bigDoor_5-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoor-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorAncientTemple-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorBridge-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorCemetery-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorGreenhouse-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorOssuary-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorPrisonCourtyard-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorPrisonDepths-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorPurpleGarden-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorSewerShort-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorStiltVillage-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorSwamp-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorSwampHeart-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\exitDoorTumulus-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\hingeCorruptedDoor-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\hingeSmallDoor-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorBack-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorBackBot-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorBackGlow-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorBackTop-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorCircle-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorCircleShadow-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorFront-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorGlow-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorOpenedA-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\monsterDoorOpenedB-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\smallDoor-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\doors\smallDoorMetaFront-=-0-=-.png">
+      <Filter>Resources\prison\doors</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\billot-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\bloodStamp_1-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\bridgeJunk-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_0-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_1-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_10-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_11-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_12-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_13-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_14-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_15-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_16-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_17-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_18-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_19-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_2-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_20-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_21-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_3-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_4-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_5-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_6-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_7-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_8-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorStamp_9-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_0-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_1-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_10-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_11-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_12-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_13-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_14-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_15-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_16-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_17-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_18-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_19-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_2-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_20-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_21-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_22-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_23-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_24-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_25-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_26-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_27-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_28-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_29-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_3-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_30-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_31-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_32-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_33-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_34-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_35-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_36-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_37-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_38-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_39-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_4-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_40-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_41-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_42-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_5-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_6-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_7-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_8-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\floorjunk_9-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\judasSeat-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\floor_decorations\spawnerJunk-=-0-=-.png">
+      <Filter>Resources\prison\floor_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\armoryCorpsTrainingRoom-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\armoryDomeTrainingRoom-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\armory_corps-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\armory_dome-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\bigSword-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\dummy_0-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\dummy_1-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\gardenerGonePathSprite-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\gardenerGoneSprite-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\gardenerSprite-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\homonculusFlush-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\prisonFountain-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\skeletonSheet-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\skeletonSpawn-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\snakeLandmark-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\switchCopper-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\switchCopper_off-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\tailorRoom1-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\tailorRoom2-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\tailorRoom3-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\tpStoneDown-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\landmarks\tpStoneUp-=-0-=-.png">
+      <Filter>Resources\prison\landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\npcs\aspectsNPCstuffs-=-0-=-.png">
+      <Filter>Resources\prison\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\npcs\leftShoulder-=-0-=-.png">
+      <Filter>Resources\prison\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\npcs\railing_0-=-0-=-.png">
+      <Filter>Resources\prison\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\npcs\railing_1-=-0-=-.png">
+      <Filter>Resources\prison\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\npcs\railing_2-=-0-=-.png">
+      <Filter>Resources\prison\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\npcs\railing_3-=-0-=-.png">
+      <Filter>Resources\prison\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\npcs\rightHeadSide_0-=-0-=-.png">
+      <Filter>Resources\prison\npcs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\PrisonwoodenBeam-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\blackBeam_topLeft_0-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\blackBeam_topRight_0-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\filler_19-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\filler_4-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\filler_5-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\fillerp_0-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\littleBlackBeam_topLeft_0-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\littleBlackBeam_topRight_0-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\spawnerPillar-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\spawnerRoof-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\spawnerRoofDeco-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\pillars\spawnerWindow-=-0-=-.png">
+      <Filter>Resources\prison\pillars</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\BruceShroom-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\giantMushroomBroken-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\glowingMushroom_0-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\glowingMushroom_1-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\glowingMushroom_2-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\glowingMushroom_3-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\glowingMushroom_4-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\grass-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\leaf_0-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\leaf_1-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\leaf_2-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\leaf_3-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\leaf_4-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\leaf_5-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\leaf_6-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\lettuceDestroyed-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\lettuceDestroyedB-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\paralaxLianeA-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\paralaxLianeB-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\roofMoss_0-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\roofMoss_1-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\plants\roofMoss_2-=-0-=-.png">
+      <Filter>Resources\prison\plants</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\ladderFloor-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\ladderHole-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\ladderPlatform-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\ladderWall-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\spawnerDecoPlatform-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\stairs-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\stairsCornerTrBot-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\stairsCorner_0-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\stairsCorner_1-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\stairsTrTop-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\stairs_0-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\stairs_1-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenCornerLeft-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenCornerRight-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenPlatform_0-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenPlatform_1-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenPlatform_2-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenPlatform_3-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenPlatform_4-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenPlatform_left-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\platforms\woodenPlatform_right-=-0-=-.png">
+      <Filter>Resources\prison\platforms</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\portals\PortalBackOut_0-=-0-=-.png">
+      <Filter>Resources\prison\portals</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\portals\TailorScissorLight-=-0-=-.png">
+      <Filter>Resources\prison\portals</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\portals\godraysArcheTriainingRoom-=-0-=-.png">
+      <Filter>Resources\prison\portals</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\portals\whitePixel-=-0-=-.png">
+      <Filter>Resources\prison\portals</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\texture_manifest.json">
+      <Filter>Resources\prison</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_4-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_5-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_6-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_7-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_8-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\backWall_9-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ceiling_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ceiling_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ceiling_2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ceiling_3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\dirt-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\groundCells-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\groundCellsAdd-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\groundFoliage_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\groundFoliage_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\groundNunchuckLoreRoom-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\groundNunchuckLoreRoomcorner-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_left_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_left_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_right_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\ground_right_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStamp0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStamp1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStamp2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStamp3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStampCorner-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStampEdge-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStampSide0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStampSide1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStampSide2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\rockStampSide3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneStamp_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneStamp_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneStamp_2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneStamp_3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneStamp_4-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneStamp_5-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneWall_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneWall_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneWall_2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\stoneWall_3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\tpRock_0-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\tpRock_1-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\tpRock_2-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tiles\tpRock_3-=-0-=-.png">
+      <Filter>Resources\prison\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_chains.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_floor_decorations.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_plants.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_platforms.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_tiles.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_tiles_sheet.png">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_tiles_sheet.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_wall_decorations.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\tilesets\prison_webs.tsx">
+      <Filter>Resources\prison\tilesets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\alccoveParalaxeA-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\alccoveParalaxeB-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\alchemyAlcove-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\alchemyAlcoveMask-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\alchemyBibli-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\alcovePillar-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\archeSmall-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\archeTrainingRoom-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\bannerBig-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\bannerRoomBot-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\bannerRoomTiled-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\bannerRoomTop-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\prionSmallWindow-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\prisonBigAlcove-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\shelf_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\shelf_1-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampCeilingBig_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampCeilingMedium_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampCeilingSmall_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampCeilingSmall_1-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallBig_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallBig_1-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallBig_2-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallBig_3-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallBig_4-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallBig_5-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallMedium_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallMedium_1-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallMedium_2-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallMedium_3-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallMedium_4-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallMedium_5-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallSmall_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallSmall_1-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallSmall_2-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallSmall_3-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallSmall_4-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\stampWallSmall_5-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\tableauNoir-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallBed-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_0-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_1-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_10-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_11-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_12-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_13-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_14-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_15-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_16-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_17-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_18-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_2-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_3-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_4-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_5-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_6-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_7-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_8-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\wallJunk_9-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\wall_decorations\weaponDeco-=-0-=-.png">
+      <Filter>Resources\prison\wall_decorations</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webBigBL-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webBigBR-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webBigTL-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webBigTR-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webMediumBL-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webMediumBR-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webMediumTL-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webMediumTR-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webSmallBL-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webSmallBR-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webSmallTL-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\prison\webs\webSmallTR-=-0-=-.png">
+      <Filter>Resources\prison\webs</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
     </ClInclude>
@@ -32319,6 +33468,51 @@
     </Filter>
     <Filter Include="Resources\music">
       <UniqueIdentifier>{76020580-5A32-397E-B45F-15CC178753DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison">
+      <UniqueIdentifier>{11551657-5C6B-38A8-A2C5-7F32625F4D78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\alchemy">
+      <UniqueIdentifier>{F5560FB8-A62E-39AC-857F-49758BFE7F32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\chains">
+      <UniqueIdentifier>{C426AEB5-D604-300F-BB60-469198621A1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\doors">
+      <UniqueIdentifier>{DCFC011C-06A9-3F9D-9BBA-6578BD9A8D1A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\floor_decorations">
+      <UniqueIdentifier>{7CD65064-61D0-32BC-9DB1-D1C3B6AA18CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\landmarks">
+      <UniqueIdentifier>{B954CDC4-133A-30F9-8354-9668A257668C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\npcs">
+      <UniqueIdentifier>{FD3DA0A4-5E78-3698-953A-A7AC329392B3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\pillars">
+      <UniqueIdentifier>{5EAB6F82-1D08-3867-9134-DB8F46557327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\plants">
+      <UniqueIdentifier>{DDB86300-5C61-3761-A081-0133E28E5FC5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\platforms">
+      <UniqueIdentifier>{E429EC4D-1D44-38CD-97A0-A32ECD6F9C9E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\portals">
+      <UniqueIdentifier>{E3D5CEFA-3DDF-342E-9417-7FFD580CCAA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\tiles">
+      <UniqueIdentifier>{79BB7C7E-F95D-30EA-9719-F2BB5308B179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\tilesets">
+      <UniqueIdentifier>{9CBF5E37-74EE-3A37-9358-08EBC5818B3E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\wall_decorations">
+      <UniqueIdentifier>{197E3C4D-1714-39B7-A973-C8AC9C6BC92A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\prison\webs">
+      <UniqueIdentifier>{E587E1A7-FFC5-3C77-8097-FA3624667066}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\res">
       <UniqueIdentifier>{395FBFF1-012C-3E1D-833A-A1D0F0F1B395}</UniqueIdentifier>

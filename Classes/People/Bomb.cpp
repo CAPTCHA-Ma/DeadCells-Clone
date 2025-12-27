@@ -2,7 +2,22 @@
 USING_NS_CC;
 const float targetWidth = 30.0f;
 const float targetHeight = 30.0f;
-bool Bomb::init()
+Bomb* Bomb::create(float attackPower)
+{
+    Bomb* pRet = new(std::nothrow) Bomb();
+    if (pRet && pRet->init(attackPower))
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = nullptr;
+        return nullptr;
+    }
+}
+bool Bomb::init(float attackPower)
 {
 	if (!Sprite::initWithFile("Graph/FlyingObject/oilBomb-=-0-=-.png"))
 		return false;
@@ -14,7 +29,7 @@ bool Bomb::init()
     body->setCategoryBitmask(PhysicsCategory::ENEMY_BOMB);
     body->setCollisionBitmask(PhysicsCategory::GROUND); 
     body->setContactTestBitmask(PhysicsCategory::PLAYER_BODY | PhysicsCategory::GROUND);
-
+    this->setAttackPower(attackPower);
     this->setPhysicsBody(body);
     return true;
 }
@@ -29,7 +44,7 @@ void Bomb::run(cocos2d::Vec2 targetPos)
     Vec2 currentPos = this->getPosition();
     float dx = targetPos.x - currentPos.x;
     float dy = targetPos.y - currentPos.y;
-    float h = 20.0f;
+    float h = 10.0f;
     if (dy > 0) h = dy + 50.0f;
     float vy = sqrt(2 * g * h);
     float discriminant = vy * vy - 2 * g * dy;

@@ -1,7 +1,11 @@
 #include "Grenadier.h"
+USING_NS_CC;
 const float targetWidth = 140.0f;
 const float targetHeight = 200.0f;
-USING_NS_CC;
+const float moveSpeed = 50.0f; //移动速度
+const float attackRange = 300.0f;//攻击范围
+const float DetectionRange = 500.0f;//跟踪范围
+const BasicAttributes basicAttribute = {100.0f,100.0f,0.0f };
 //*******************************************************************
 //*******************************************************************
 //*******************************************************************
@@ -14,30 +18,20 @@ bool Grenadier::init()
     _sprite = Sprite::create("Graph/Grenadier/idle_00-=-0-=-.png");
     if (!_sprite)
         return false;
-
     this->addChild(_sprite);
-    this->setMonsterAttributes({ 100,100,0 });
+    this->setCurrentAttributes(basicAttribute);
+    this->setMaxHealth(basicAttribute.health);
     _state = GrenadierState::idle;
     _direction = MoveDirection::RIGHT;
-    _moveSpeed = 150.0f;
-    _attackRange = 1000.0f;
-
-    _body = PhysicsBody::createBox(Size(targetWidth / 3, targetHeight / 3),PhysicsMaterial(0.1f, 0.0f, 0.5f),Vec2(0, targetHeight / 6));
-
-    _body->setDynamic(true);
-    _body->setRotationEnable(false);
-    _body->setGravityEnable(true);
-    _body->setVelocity(Vec2::ZERO);
-
-    this->setPhysicsBody(_body);
-
-    _body->setCategoryBitmask(ENEMY_BODY);
-    _body->setCollisionBitmask(GROUND);
-    _body->setContactTestBitmask(PLAYER_ATTACK | PLAYER_ARROW); 
-
-
+    _moveSpeed = moveSpeed;
+    _attackRange = attackRange;
+    this->createBody(
+        Size(targetWidth / 3.0f, targetHeight / 3.0f),
+        Vec2(0, targetHeight / 6.0f)
+    );
+    this->setupHPBar();    // 1. 必须手动调用初始化血条
+    this->scheduleUpdate(); // 2. 必须开启 update 才能处理缩放和逻辑
     playAnimation(GrenadierState::idle, true);
-
     return true;
 }
 //*******************************************************************
@@ -56,7 +50,8 @@ void Grenadier::idle()
 }
 void Grenadier::attack()
 {
-    auto bomb = Bomb::create();
+    float power = this->getFinalAttack();
+    auto bomb = Bomb::create(power);
     if (!bomb)
         return;
     bomb->setPosition(this->getPosition() + Vec2(0, 40));
@@ -115,7 +110,7 @@ void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
     if (_aiTickTimer >= 0.2f)
     {
         _aiTickTimer = 0.0f;
-        if (distX <= _attackRange && distY < 10.0f)
+        if (distX <= _attackRange && distY < 2.0f)
         {
             _direction = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
             int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
@@ -124,7 +119,8 @@ void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
 
             this->changeState(GrenadierState::atk);
         }
-        else if (distX <= 200.0f && distY < 200.0f)
+        //跟踪
+        else if (distX <= DetectionRange && distY < 2.0f)
         {
             MoveDirection newDir = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
             if (_direction != newDir)

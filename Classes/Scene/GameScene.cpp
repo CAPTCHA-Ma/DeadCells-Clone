@@ -106,18 +106,18 @@ void GameScene::RenderMap()
     _mapContainer->addChild(bowNode);
 
 
-  /*  auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
+    //auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(35, 22)) * 24);
     auto _monster2 = MonsterLayer::create(MonsterCategory::Grenadier, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
-    monster.pushBack(_monster1);
+    auto _monster3 = MonsterLayer::create(MonsterCategory::DeadArcher, (rooms[0]->obstacle.lowLeft + Vec2(35, 22)) * 24);
+   // monster.pushBack(_monster1);
     monster.pushBack(_monster2);
-    _mapContainer->addChild(_monster1);
-    _mapContainer->addChild(_monster2);*/
+    monster.pushBack(_monster3);
+   // _mapContainer->addChild(_monster1);
+    _mapContainer->addChild(_monster2);
+    _mapContainer->addChild(_monster3);
     _mapContainer->addChild(_player);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
-	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
-	_monsters.pushBack(monster3);
-	_mapContainer->addChild(monster3);
 
     int counter = 0;
     for (auto roomData : rooms) 
@@ -190,11 +190,26 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     //近战攻击
     if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
-        auto enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
-        auto monster = dynamic_cast<Monster*>(enemyNode);
+        Node* enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
+
+        // 向上查找 Monster 实例
+        Monster* monster = nullptr;
+        Node* checkNode = enemyNode;
+        while (checkNode != nullptr) {
+            monster = dynamic_cast<Monster*>(checkNode);
+            if (monster) break;
+            checkNode = checkNode->getParent();
+        }
+
         if (monster && !monster->isDead())
         {
-            monster->struck(_player->getFinalAttack());
+            if (_player->isMonsterAlreadyHit(monster)) {
+                return true;
+            }
+            _player->recordMonsterHit(monster);
+            float damage = _player->getFinalAttack();
+            CCLOG("New Melee Hit! Monster: %p, Damage: %f", monster, damage);
+            monster->struck(damage);
         }
     }
     // 玩家箭矢
@@ -203,14 +218,20 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         auto arrowNode = (maskA & PLAYER_ARROW) ? nodeA : nodeB;
         auto enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
         auto arrow = dynamic_cast<Arrow*>(arrowNode);
-        auto monster = dynamic_cast<Monster*>(enemyNode);
-
+        Monster* monster = nullptr;
+        Node* checkNode = enemyNode;
+        while (checkNode != nullptr) {
+            monster = dynamic_cast<Monster*>(checkNode);
+            if (monster) break;
+            checkNode = checkNode->getParent();
+        }
         if (arrow && !arrow->hasHit())
         {
             arrow->hit();
-            if (monster && !monster->isDead()) 
+            if (monster && !monster->isDead())
             {
-                monster->struck(_player->getFinalAttack());
+                monster->struck(arrow->getAttackPower());
+                CCLOG("Player Arrow Hit! Damage: %f", arrow->getAttackPower());
             }
         }
     }
@@ -219,14 +240,24 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
     {
         auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
-        if (_player && !_player->isInvincible())
+        auto playerNode = (maskA & PLAYER_BODY) ? nodeA : nodeB;
+
+        // 尝试获取攻击发起者（无论是 Zombie 还是远程怪物的攻击框）
+        auto monster = dynamic_cast<Monster*>(attackNode->getParent());
+        auto player = dynamic_cast<Player*>(playerNode);
+
+        if (monster && player)
         {
-            auto monster = dynamic_cast<Monster*>(attackNode->getParent());
-            float damage = monster ? monster->getFinalAttack() : 10.0f;
+            if (monster->hasHitTarget(player)) 
+            {
+                return true;
+            }
+            monster->recordHitTarget(player);
 
-
-            Vec2 sourcePos = attackNode->getParent()->convertToWorldSpace(attackNode->getPosition());
-            _player->struck(damage, sourcePos); 
+            if (!player->isInvincible())
+            {
+                player->struck(monster->getFinalAttack());
+            }
         }
     }
     //怪物炸弹
@@ -237,10 +268,12 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         if (bomb && !bomb->isExploded())
         {
             Vec2 sourcePos = bomb->getParent()->convertToWorldSpace(bomb->getPosition());
+            float damage = bomb->getAttackPower();
             bomb->explode();
             if (_player && !_player->isInvincible())
             {
-                _player->struck(20.0f, sourcePos);
+                _player->struck(damage, sourcePos);
+                CCLOG("Monster Bomb Hit! Damage: %f", damage);
             }
         }
     }
@@ -249,13 +282,17 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     {
         auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
         auto arrow = dynamic_cast<Arrow*>(arrowNode);
+
         if (arrow && !arrow->hasHit())
         {
             Vec2 sourcePos = arrow->getParent()->convertToWorldSpace(arrow->getPosition());
+            float damage = arrow->getAttackPower();
             arrow->hit();
+
             if (_player && !_player->isInvincible())
             {
-                _player->struck(15.0f, sourcePos);
+                _player->struck(damage, sourcePos);
+                CCLOG("Enemy Arrow Hit! Damage: %f", damage);
             }
         }
     }

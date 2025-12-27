@@ -68,12 +68,13 @@ list(APPEND GAME_SOURCE
      Classes/People/Sword.cpp
      Classes/People/Weapon.cpp
      Classes/People/WeaponNode.cpp
-     Classes/People/Zombie.cpp
      Classes/People/Arrow.cpp
      Classes/People/Bomb.cpp
      Classes/People/Bow.cpp
      Classes/People/FlyingObject.cpp
      Classes/People/Grenadier.cpp
+     Classes/People/Zombie.cpp
+     Classes/People/DeadArcher.cpp
      Classes/People/Monster.cpp
      Classes/People/MonsterLayer.cpp
 
@@ -94,11 +95,12 @@ list(APPEND GAME_HEADER
      Classes/People/Sword.h
      Classes/People/Weapon.h
      Classes/People/WeaponNode.h
-     Classes/People/Zombie.h
      Classes/People/Arrow.h
      Classes/People/Bomb.h
      Classes/People/Bow.h
      Classes/People/FlyingObject.h
+     Classes/People/DeadArcher.h
+     Classes/People/Zombie.h
      Classes/People/Grenadier.h
      Classes/People/Monster.h
      Classes/People/MonsterLayer.h

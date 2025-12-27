@@ -28,12 +28,15 @@ public:
     virtual bool init() override;
     virtual void idle() override;
     virtual void onDead() override;
+    virtual bool isAttackState() override { return _state == ZombieState::atkA; };
     void atkA();
     virtual void walk() override;
     void run();
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) override;
     void changeState(ZombieState newState);
     void playAnimation(ZombieState state, bool loop);
+
+
 private:
     std::unordered_map<ZombieState, cocos2d::Animation*> _animCache;
     float _attackRange; // ¹¥»÷·¶Î§

@@ -3,10 +3,9 @@
 #include "cocos2d.h"
 #include <unordered_map>
 #include "WeaponNode.h"
+#include "Monster.h"
 #include "Weapon.h" 
-#include "FlyingObject.h"
 #include "Arrow.h"
-#include "Bomb.h"
 struct StateConfig
 {
     bool canBeInterrupted;
@@ -152,20 +151,20 @@ public:
     void changeState(ActionState newState);
 	bool whetherCanChangeToNewState(ActionState newState) const;
     void playAnimation(ActionState state, bool loop);
-
+    bool gameEnding = false;
 	//攻击及武器系统
     Weapon* _currentAttackingWeapon = nullptr; // 记录当前发起攻击的武器
-    void updateFinalAttributes();
+    float getFinalAttack() const;
     void struck(float attackPower);
-    void shootArrow();
-    void throwBomb();
-    bool _invincible = false;
+    void shootArrow() ;
 
-
+    bool isInvincible() const { return _invincible; };
+    void setupHPBar();
+    void updateHPBar();
 protected:
-	CC_SYNTHESIZE(BasicAttributes, _originalAttributes, OriginalAttributes);//初始属性只与等级有关
-	CC_SYNTHESIZE(BasicAttributes, _finalAttributes, FinalAttributes);//最终属性与装备有关
-
+	CC_SYNTHESIZE(BasicAttributes, _currentAttributes, CurrentAttributes);//最终属性与装备有关
+    CC_SYNTHESIZE(float, _maxHealth, MaxHealth);//最大生命值
+    
 	float _runSpeed; // 水平移动速度
 	float _rollSpeed; // 滚动速度
 	float _jumpSpeed; // 跳跃初速度
@@ -186,8 +185,8 @@ protected:
 
 private:
     //动画
-
-   
+    bool _invincible = false;
+    cocos2d::DrawNode* _hpBarNode = nullptr;
     cocos2d::Animation* createAnim(const std::string& name, int frameCount, float delay) const;
     cocos2d::Animation* getAnimation(ActionState state);
     std::unordered_map<ActionState, cocos2d::Animation*> _animationCache;
@@ -195,6 +194,7 @@ private:
 	//攻击判定
     cocos2d::Node* _attackNode = nullptr;
     cocos2d::Node* _hurtNode = nullptr;
+    std::set<Monster*> _hitMonsters; // 存放当前动作已击中的怪物指针
 
     void updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset);
     void setupBodyProperties(cocos2d::PhysicsBody* body);

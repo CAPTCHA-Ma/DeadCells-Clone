@@ -5,8 +5,8 @@
 class Arrow : public FlyingObject
 {
 public:
-	static Arrow* create(bool fromPlayer);
-    bool init(bool fromPlayer);
+	static Arrow* create(bool fromPlayer, float attackPower);
+    bool init(bool fromPlayer, float attackPower);
 	virtual void run(cocos2d::Vec2 targetPos) override;
 	void hit();
 	bool hasHit() { return _hasHit; };

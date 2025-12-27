@@ -7,6 +7,11 @@ const float pictureWidth = 250.0f;
 const float pictureHeight = 250.0f;
 const float bodyWidth = 100.0f;
 const float bodyHeight = 150.0f;
+const float runSpeed = 200.0f;
+const float jumpSpeed = 500.0f;
+const float rollSpeed = 500.0f;
+const float climbSpeed = 100.0f;
+const BasicAttributes basicAttribute = { 100,0,50 };
 USING_NS_CC;
 const float GRAVITY = 980.0f;
 //*******************************************************************
@@ -17,14 +22,14 @@ bool Player::init()
 {
     if (!Sprite::initWithFile("Graph/Player/idle_00-=-0-=-.png", Rect(0, 0, pictureWidth, pictureHeight)))
         return false;
-    _runSpeed = 200.0f;
-    _jumpSpeed = 500.0f;
-    _rollSpeed = 600.0f;
-	_climbSpeed = 100.0f;
+    _runSpeed = runSpeed;
+    _jumpSpeed = jumpSpeed;
+    _rollSpeed = rollSpeed;
+	_climbSpeed = climbSpeed;
     _state = ActionState::idle;
     _direction = MoveDirection::RIGHT;
-    this->setOriginalAttributes(BasicAttributes(100, 10, 10));
-    this->setFinalAttributes(BasicAttributes(100, 100, 100));
+    this->setCurrentAttributes(basicAttribute);
+    this->setMaxHealth(basicAttribute.health);
 
 
     this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
@@ -33,8 +38,42 @@ bool Player::init()
 
 
     playAnimation(ActionState::idle, true);
+    this->setupHPBar();
     this->scheduleUpdate();
     return true;
+}
+void Player::setupHPBar()
+{
+    if (_hpBarNode) return;
+
+    _hpBarNode = cocos2d::DrawNode::create();
+    float spriteHeight = bodyHeight * 1;
+    _hpBarNode->setPosition(cocos2d::Vec2(pictureWidth/2, spriteHeight+50));
+
+    this->addChild(_hpBarNode, 10);
+    updateHPBar();
+}
+
+void Player::updateHPBar()
+{
+    if (!_hpBarNode) return;
+    _hpBarNode->clear();
+
+    float width = 40.0f;  // 血条总宽度
+    float height = 5.0f;  // 血条高度
+    float percent = _currentAttributes.health / _maxHealth;
+    percent = std::max(0.0f, std::min(1.0f, percent));
+    _hpBarNode->drawSolidRect(
+        cocos2d::Vec2(-width / 2, -height / 2),
+        cocos2d::Vec2(width / 2, height / 2),
+        cocos2d::Color4F(0, 0, 0, 0.5f)
+    );
+    cocos2d::Color4F barColor = (percent > 0.3f) ? cocos2d::Color4F::GREEN : cocos2d::Color4F::RED;
+    _hpBarNode->drawSolidRect(
+        cocos2d::Vec2(-width / 2, -height / 2),
+        cocos2d::Vec2(-width / 2 + (width * percent), height / 2),
+        barColor
+    );
 }
 void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
 {
@@ -132,29 +171,6 @@ void Player::set0VelocityY()
 bool Player::isOnGround() const
 {
     return abs(this->getPhysicsBody()->getVelocity().y) < 1.0f;
-}
-void Player::updateFinalAttributes()
-{
-    BasicAttributes original = this->getOriginalAttributes();
-    BasicAttributes newAttrs = original;
-    if (_mainWeapon)
-    {
-        BasicAttributes wa = _mainWeapon->getWeaponAttributes();
-        newAttrs.attack += wa.attack;
-        newAttrs.defense += wa.defense;
-    }
-
-    if (_subWeapon)
-    {
-        BasicAttributes sa = _subWeapon->getWeaponAttributes();
-        newAttrs.attack += sa.attack;
-        newAttrs.defense += sa.defense;
-    }
-    BasicAttributes currentFinal = this->getFinalAttributes();
-    float currentHP = currentFinal.health;
-    newAttrs.health = currentHP;
-    this->setFinalAttributes(newAttrs);
-    CCLOG("updateFinalAttributes: attack=%f, defense=%f, health=%f", newAttrs.attack, newAttrs.defense, newAttrs.health);
 }
 void Player::update(float dt)
 {
@@ -266,8 +282,6 @@ void Player::swapWeapon() // 交换主副武器
     auto mid = _mainWeapon;
     _mainWeapon = _subWeapon; 
     _subWeapon = mid;
-
-    this->updateFinalAttributes();
     this->changeState(ActionState::idle);
     CCLOG("Swapped Main and Sub weapons");
 }
@@ -276,29 +290,28 @@ void Player::getNewWeapon(Weapon* newWeapon)
 {
     _mainWeapon = newWeapon;
     _animationCache.clear();
-    this->updateFinalAttributes();
     this->changeState(ActionState::idle);
-    CCLOG("Weapon Upgraded! New Attack: %f", _finalAttributes.attack);
 }
 void Player::shootArrow()
 {
+    float weaponPower = 0.0f;
+    if (_currentAttackingWeapon) 
+    {
+        weaponPower = _currentAttackingWeapon->getWeaponAttackPower();
+    }
+    else
+    {
+        weaponPower = _mainWeapon->getWeaponAttackPower();
+    }
+    float totalAttack = this->getCurrentAttributes().attack + weaponPower;
     int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-    auto arrow = dynamic_cast<Arrow*>(FlyingObject::create(FlyType::Arrow, true));
-    arrow->setPosition(this->getPosition() + Vec2(0, 50));
-    if (!arrow)
-        return;
-    this->getParent()->addChild(arrow);
-    arrow->run(Vec2(dir, 0));
-}
-void Player::throwBomb()
-{
-    int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
-    auto bomb = dynamic_cast<Bomb*>(FlyingObject::create(FlyType::Bomb, true));
-    bomb->setPosition(this->getPosition() + Vec2(0, 50));
-    if (!bomb)
-        return;
-    this->getParent()->addChild(bomb);
-    bomb->run(Vec2(20, 5));
+    auto arrow = Arrow::create(true, totalAttack);
+    if (arrow) 
+    {
+        arrow->setPosition(this->getPosition() + Vec2(0, 50));
+        this->getParent()->addChild(arrow);
+        arrow->run(Vec2(dir, 0));
+    }
 }
 //*******************************************************************
 //*******************************************************************
@@ -553,7 +566,7 @@ void Player::actionWhenEnding(ActionState state)
         return;
     }
     if (state == ActionState::lethalSlam){
-        CCLOG("DEAD ANIMATION FINISHED - SHOW UI");
+        gameEnding = true;
         return;
     }
 
@@ -620,14 +633,38 @@ bool Player::isAttackState(ActionState s) const
         s == ActionState::AtkOvenAxeC ||
         s == ActionState::AtkBaseballBatE;
 }
+float Player::getFinalAttack() const
+{
+    float baseAtk = this->getCurrentAttributes().attack; 
+    float weaponAtk = 0.0f;
+    if (_currentAttackingWeapon)
+    {
+        weaponAtk = _currentAttackingWeapon->getWeaponAttackPower();
+    }
+    else
+    {
+        weaponAtk = 0.0f;
+    }
+
+    return baseAtk + weaponAtk;
+}
 void Player::struck(float attackPower)
 {
-    auto attributes = this->getFinalAttributes();
-    attributes.health -= attackPower * (100 - attributes.defense) / 100;
-    if (this->getFinalAttributes().health <= 0)
+    auto attributes = this->getCurrentAttributes();
+    float damage = attackPower * (100 - attributes.defense) / 100;
+    attributes.health -= damage;
+    this->setCurrentAttributes(attributes);
+
+    if (_currentAttributes.health <= 0) 
+    {
+        _currentAttributes.health = 0;
         this->dead();
-    else
+    }
+    else {
         this->changeState(ActionState::lethalHit);
+    }
+
+    updateHPBar(); 
 }
 void Player::startRollInvincible(float time)
 {
@@ -689,6 +726,7 @@ void Player::createShieldParryBox()
     attackBody->setCollisionBitmask(0);
     attackBody->setContactTestBitmask(ENEMY_BODY);
     _attackNode->setPhysicsBody(attackBody);
+
 
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),

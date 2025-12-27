@@ -4,7 +4,6 @@
 #include "cocos2d.h"
 #include <string>
 #include <map>
-#include "People.h"
 
 class Weapon
 {
@@ -22,7 +21,7 @@ public:
     // 静态工厂方法
     static Weapon* create(WeaponCategory category);
     CC_SYNTHESIZE(WeaponCategory, _category, Category);
-	CC_SYNTHESIZE(BasicAttributes, _weaponAttributes, WeaponAttributes);
+	CC_SYNTHESIZE(float, _weaponAttackPower, WeaponAttackPower);
 
 protected:
     Weapon(WeaponCategory category);

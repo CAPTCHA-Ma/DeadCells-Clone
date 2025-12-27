@@ -28,10 +28,8 @@ bool PlayerLayer::init(cocos2d::Vec2 pos)
 
     this->setupEventListeners();
     this->scheduleUpdate();
-
     return true;
 }
-
 cocos2d::Vec2 PlayerLayer::GetVelo()
 {
     
@@ -103,9 +101,11 @@ void PlayerLayer::setupEventListeners()
                     else _player->changeState(ActionState::jumpUp);
                     break;
                 case EventKeyboard::KeyCode::KEY_J://主武器攻击
+                    this->clearHitMonsters(); // [核心] 清空本轮攻击的打击名单
                     _player->whenOnAttackKey(_player->_mainWeapon);
                     break;
                 case EventKeyboard::KeyCode::KEY_K://副武器攻击
+                    this->clearHitMonsters(); // [核心] 清空本轮攻击的打击名单
                     _player->whenOnAttackKey(_player->_subWeapon);
                     break;
                 case EventKeyboard::KeyCode::KEY_S://下蹲
@@ -205,7 +205,7 @@ void PlayerLayer::struck(float attackPower, cocos2d::Vec2 sourcePos)
     {
         _player->changeDirection(MoveDirection::RIGHT);
     }
-    else 
+    else
     {
         _player->changeDirection(MoveDirection::LEFT);
     }

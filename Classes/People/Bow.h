@@ -15,6 +15,7 @@ public:
     static Bow* create(int subTypeIndex);
 	BowType getBowType();
     Bow(BowType type);
+    CC_SYNTHESIZE(float, _boomAttackPower, WeaponAttackPower);
 private:
     
     BowType _type;

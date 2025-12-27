@@ -32,6 +32,4 @@ private:
     bool onContactBegin(cocos2d::PhysicsContact& contact);
     bool onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::PhysicsContactPreSolve& solve);
     void onContactSeparate(cocos2d::PhysicsContact& contact);
-    void handlePlayerWeaponContact(cocos2d::Node* nodeA, cocos2d::Node* nodeB, bool isBegin);
-    void handleLadderAndPlatformLogic(cocos2d::PhysicsBody* a, cocos2d::PhysicsBody* b, cocos2d::PhysicsContactPreSolve& solve);
 };

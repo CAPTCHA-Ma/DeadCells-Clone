@@ -10,6 +10,8 @@ public:
 	void update(float dt,cocos2d::Vec2 playerPos);
 	void struck(float attackPower);
 	Monster* getMonster();
+
+
 private:
 	bool init(MonsterCategory category, cocos2d::Vec2 pos);
 	Monster* _monster;

@@ -1,5 +1,8 @@
 #include "Sword.h"
-
+const float backStabberAttackPower = 30.0f;
+const float baseballBatAttackPower = 40.0f;
+const float broadSwordAttackPower =  50.0f;
+const float OvenAxeAttackPower    =    50.0f;
 Sword* Sword::create(int subTypeIndex)
 {
     Sword* s = new Sword((SwordType)subTypeIndex);
@@ -11,13 +14,15 @@ Sword::Sword(SwordType type)
     switch (type)
     {
         case SwordType::BackStabber:
-			this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
+            this->setWeaponAttackPower(backStabberAttackPower);
             break;
 		case SwordType::BaseballBat:
-            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
+            this->setWeaponAttackPower(baseballBatAttackPower);
             break;
 		case SwordType::BroadSword:
-            this->setWeaponAttributes(BasicAttributes({ 0, 30, 0 }));
+            this->setWeaponAttackPower(broadSwordAttackPower);
+        case SwordType::OvenAxe:
+            this->setWeaponAttackPower(OvenAxeAttackPower);
             break;
     }
 }

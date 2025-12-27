@@ -30,6 +30,7 @@ public:
     virtual void walk() override;
     virtual void onDead() override;
     virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) override;
+    virtual bool isAttackState() override { return _state == GrenadierState::atk; };
     void changeState(GrenadierState newState);
     void playAnimation(GrenadierState state, bool loop);
 private:

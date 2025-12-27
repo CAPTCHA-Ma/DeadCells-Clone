@@ -8,37 +8,55 @@
 enum class MonsterCategory
 {
     Grenadier,
-    Zombie
+    Zombie,
+    DeadArcher
 };
 class Monster : public cocos2d::Sprite
 {
 public:
+    bool isDead() const { return _isDead; }
+    bool isReadyToRemove() const { return _isReadyToRemove; }
     virtual bool init() = 0;
     virtual void idle()=0;     
 	virtual void walk() = 0; 
     virtual void onDead() = 0;
+    virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) = 0;
     void struck(float attackPower);
 	void dead();
-    virtual void ai(float dt, cocos2d::Vec2 playerWorldPos) = 0;
-    float getFinalAttack() { return _monsterAttributes.attack; };
+    float getFinalAttack() { return _currentAttributes.attack; };
     static Monster* create(MonsterCategory category);
     MonsterCategory getMonsterType();
+
+    const BasicAttributes& getAttributes() const { return _currentAttributes; }
+
+    void clearHitTargets() { _hitTargets.clear(); }
+    void recordHitTarget(cocos2d::Node* target) { _hitTargets.insert(target); }
+    bool hasHitTarget(cocos2d::Node* target) const {
+        return _hitTargets.find(target) != _hitTargets.end();
+    }
+
+    void update(float dt);
 protected:
-    CC_SYNTHESIZE(BasicAttributes, _monsterAttributes, MonsterAttributes);
+    std::set<cocos2d::Node*> _hitTargets;
+    void setupHPBar();
+    void updateHPBar();
+    cocos2d::DrawNode* _hpBarNode = nullptr;
+    CC_SYNTHESIZE(BasicAttributes, _currentAttributes, CurrentAttributes);
+    CC_SYNTHESIZE(float, _maxHealth, MaxHealth);
     MonsterCategory _type;
+    virtual bool isAttackState() = 0;
     bool _isDead = false;
     bool _isReadyToRemove = false; // 新增：标记动画播放完毕，可以从容器删除
+
     cocos2d::Sprite* _sprite = nullptr;
     cocos2d::PhysicsBody* _body = nullptr;
 
     cocos2d::Node* _attackNode = nullptr;
-    cocos2d::Node* _hurtNode = nullptr;
+   
     virtual void createAttackBox()=0;
     void removeAttackBox();
-    
-public:
-    bool isDead() const { return _isDead; }
-    bool isReadyToRemove() const { return _isReadyToRemove; }
+    void createBody(const cocos2d::Size& size, const cocos2d::Vec2& offset);
+
 };
 
 

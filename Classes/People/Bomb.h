@@ -5,8 +5,8 @@
 class Bomb : public FlyingObject
 {
 public:
-	CREATE_FUNC(Bomb);
-	bool init();
+	static Bomb* create(float attackPower);
+	bool init(float attackPower);
 	virtual void run(cocos2d::Vec2 targetPos) override;
 	void explode();
 	bool isExploded() const { return _isExploded; }
