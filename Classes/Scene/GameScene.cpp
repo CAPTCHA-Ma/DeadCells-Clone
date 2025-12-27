@@ -94,13 +94,13 @@ void GameScene::RenderMap()
     _player = PlayerLayer::create(startDir);
 
     auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
-    _mapContainer->addChild(swordNode, 50);  // z-order 50
+    _mapContainer->addChild(swordNode);
+	swordNode->setPrice(1000);
 
     auto bowNode = WeaponNode::createBow(Bow::BowType::crossbow, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
     _mapContainer->addChild(bowNode, 50);  // z-order 50
 
-
-    _mapContainer->addChild(_player, 100);
+    _mapContainer->addChild(_player);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
 	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
@@ -201,23 +201,15 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
     if (!nodeA || !nodeB) return true;
 
-    CCLOG("??\n");
-
     if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
     {
 
         auto targetNode = (maskA == INTERACTABLE) ? nodeA : nodeB;
-        if (targetNode)
-        {
-
-            CCLOG("!\n");
-            _currentInteractNode = targetNode;
-
-        }
+        if (targetNode) _currentInteractNode = targetNode;
         
     }
 
-    // ��ȡ��ײ�����Ĵ���λ��
+    // 获取碰撞发生的大致位置
     Vec2 contactPoint = contact.getContactData()->points[0];
     // ��ҹ�������
     //��ս����
@@ -420,7 +412,6 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
 
-
     WeaponNode* weapon = dynamic_cast<WeaponNode*>(nodeA);
     if (!weapon)
         weapon = dynamic_cast<WeaponNode*>(nodeB);
@@ -431,9 +422,13 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
         CCLOG("Weapon out of range, pointer cleared.");
     }
 
+    if (maskA == INTERACTABLE || maskB == INTERACTABLE)
+    {
 
+        _currentInteractNode = nullptr;
 
-    //
+    }
+    
     if (maskA & LADDER || maskB & LADDER)
     {
         _player->_isBelowLadder = false;
@@ -447,7 +442,6 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
     if (bodyA->getCategoryBitmask() == LADDER || bodyB->getCategoryBitmask() == LADDER)
     {
 
-        //CCLOG("NOTBELOWLADDER!\n");
         _player->_isBelowLadder = false;
 
     }

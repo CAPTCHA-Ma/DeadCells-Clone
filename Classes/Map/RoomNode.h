@@ -8,6 +8,10 @@
 #include <random>
 #include "People/MonsterLayer.h"
 #include "People/Monster.h"
+#include "People/WeaponNode.h"
+#include "People/Sword.h"
+#include "People/Bow.h"
+#include "People/Shield.h"
 
 class RoomNode : public cocos2d::Node
 {

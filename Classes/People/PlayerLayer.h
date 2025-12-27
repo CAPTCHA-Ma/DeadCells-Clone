@@ -18,6 +18,17 @@ public:
     void setNearbyWeapon(WeaponNode* weaponNode) { _nearbyWeapon = weaponNode; };
     WeaponNode* getNearbyWeapon() const { return _nearbyWeapon; };
     void getNewWeapon();
+
+    int getGold() const { return _gold; }
+    void addGold(int amount) { _gold += amount; }
+    bool spendGold(int amount) {
+        if (_gold >= amount) {
+            _gold -= amount;
+            return true;
+        }
+        return false;
+    }
+
 private:
     cocos2d::Sprite* _pickupTip = nullptr;
     Player* _player;
@@ -26,6 +37,8 @@ private:
 	bool _downPressed = false;
     void setupEventListeners();
     WeaponNode* _nearbyWeapon = nullptr;
+    int _gold = 0;
+
 };
 
 #endif // __PLAYER_LAYER_H__

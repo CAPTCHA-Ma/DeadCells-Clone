@@ -758,14 +758,49 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 				tmx->addChild(node);
 			}
 
-			else if (type == "Chest")
+			if (type == "Chest")
 			{
 				auto node = Node::create();
 				node->setName("Chest");
 				
 				tmx->addChild(node);
 			}
+
+			if (type == "GOODS")
+			{
+				WeaponNode* goodsNode = nullptr;
+
+				int category = cocos2d::RandomHelper::random_int(0, 2);
+
+				if (category == 0) 
+				{
+					int typeIdx = cocos2d::RandomHelper::random_int(0, 3);
+					goodsNode = WeaponNode::createSword(static_cast<Sword::SwordType>(typeIdx), Vec2(x + w / 2, y + h / 2));
+				}
+				else if (category == 1) 
+				{
+					int typeIdx = cocos2d::RandomHelper::random_int(0, 2);
+					goodsNode = WeaponNode::createBow(static_cast<Bow::BowType>(typeIdx), Vec2(x + w / 2, y + h / 2));
+				}
+				else 
+				{
+					int typeIdx = cocos2d::RandomHelper::random_int(0, 1);
+					goodsNode = WeaponNode::createShield(static_cast<Shield::ShieldType>(typeIdx), Vec2(x + w / 2, y + h / 2));
+				}
+
+				if (goodsNode)
+				{
+					int price = cocos2d::RandomHelper::random_int(10, 30) * 100;
+
+					goodsNode->setPrice(price);
+
+					tmx->addChild(goodsNode);
+				}
+
+			}
+
 		}
+
 	}
 
 	if (data->roomtype == Type::combat)

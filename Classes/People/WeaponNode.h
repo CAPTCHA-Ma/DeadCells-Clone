@@ -20,7 +20,13 @@ public:
     Weapon* pickUp();
     Weapon* getWeapon() const { return _weapon; }
     ~WeaponNode();
+    void setPrice(int price);
+    int getPrice() const { return _price; }
+
 private:
-    Weapon* _weapon; // 存储武器的具体属性
+    Weapon* _weapon; 
+    int _price = 0; 
+    cocos2d::Label* _priceLabel = nullptr; 
+
 };
 #endif

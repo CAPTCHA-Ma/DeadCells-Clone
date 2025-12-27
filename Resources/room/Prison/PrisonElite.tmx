@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" width="19" height="20" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="8">
+<map version="1.4" tiledversion="1.4.0" orientation="orthogonal" renderorder="right-down" width="19" height="20" tilewidth="24" tileheight="24" infinite="0" nextlayerid="4" nextobjectid="9">
  <tileset firstgid="1" source="lnk.tsx"/>
  <tileset firstgid="9" source="col.tsx"/>
  <layer id="1" name="col" width="19" height="20">
@@ -12,5 +12,7 @@
    eJxjYBgFo2AUUAKYqGjOqFmkmTUKSAMALLAAFQ==
   </data>
  </layer>
- <objectgroup id="3" name="markers" opacity="0.5"/>
+ <objectgroup id="3" name="markers" opacity="0.5">
+  <object id="8" name="ELITE" type="ELITE" x="216.055" y="311.891" width="22.683" height="22.683"/>
+ </objectgroup>
 </map>

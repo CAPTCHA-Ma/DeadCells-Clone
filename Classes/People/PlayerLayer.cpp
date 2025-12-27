@@ -134,7 +134,52 @@ void PlayerLayer::setupEventListeners()
                 case EventKeyboard::KeyCode::KEY_E: // Ê°È¡ÎäÆ÷
 
                     if (_nearbyWeapon)
-                        this->getNewWeapon();
+                    {
+                        int cost = _nearbyWeapon->getPrice();
+
+                        if (cost == 0)
+                        {
+                            this->getNewWeapon();
+                        }
+                        else
+                        {
+                            if (this->_gold >= cost)
+                            {
+                                this->_gold -= cost;
+                                this->getNewWeapon();
+                            }
+                            else 
+                            {
+
+                                if (_nearbyWeapon->getChildByName("NoMoneyTip"))
+                                {
+                                    _nearbyWeapon->removeChildByName("NoMoneyTip");
+                                }
+
+								auto tipLabel = Label::createWithTTF("Not Enough Gold!", "fonts/fusion-pixel.ttf", 18);
+
+                                tipLabel->setColor(Color3B::RED);
+                                tipLabel->enableOutline(Color4B::WHITE, 1);
+                                tipLabel->setName("NoMoneyTip");
+
+                                tipLabel->setPosition(Vec2(_nearbyWeapon->getContentSize().width / 2,
+                                    _nearbyWeapon->getContentSize().height + 60));
+
+                                tipLabel->setGlobalZOrder(9999);
+
+                                _nearbyWeapon->addChild(tipLabel);
+
+                                float duration = 1.0f;
+                                auto moveUp = MoveBy::create(duration, Vec2(0, 30));
+                                auto fadeOut = FadeOut::create(duration);
+                                auto spawn = Spawn::create(moveUp, fadeOut, nullptr);
+                                auto remove = RemoveSelf::create();
+
+                                tipLabel->runAction(Sequence::create(spawn, remove, nullptr));
+                            }
+                        }
+
+                    }
                     break;
                 default:
                     break;
