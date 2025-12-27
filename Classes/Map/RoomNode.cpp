@@ -1,13 +1,17 @@
 #include "RoomNode.h"
+#include "TileRenderer.h"
 
 RoomNode* RoomNode::create(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters)
 {
 
 	auto node = new RoomNode();
-	if (node && node->init(data, _monsters)) return node;
+	if (node && node->init(data, _monsters))
+	{
+		node->autorelease();
+		return node;
+	}
 
 	CC_SAFE_DELETE(node);
-
 	return nullptr;
 
 }
@@ -91,7 +95,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 					while (x + width < sz.width && layerCategory[y][x + width] == PLATFORM && !visited[y][x + width]) width++;
 
 					cateBitMask = PLATFORM;
-					colBitMask = PLAYER_BODY | ENEMY_BODY;
+					colBitMask = PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
 					conBitMask = PLAYER_BODY;
 
 					break;
@@ -113,7 +117,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 					width = 1;
 
 					cateBitMask = MIX;
-					colBitMask = PLAYER_BODY;
+					colBitMask = PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW;
 					conBitMask = PLAYER_BODY;
 
 				default:
@@ -162,6 +166,7 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 	Node* corridorContainer = Node::create();
 
 	std::unordered_map<Vec2, int, Vec2Hash, Vec2Equal> globalTiles;
+	std::unordered_set<Vec2, Vec2Hash, Vec2Equal> airTiles;
 
 	for (const auto& path : paths) 
 	{
@@ -172,7 +177,11 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 			for (int dy = -2; dy <= 2; ++dy) 
 			{
 
-				for (int dx = -2; dx <= 2; ++dx) globalTiles[Vec2(pos.x + dx, pos.y + dy)] = 0; 
+				for (int dx = -2; dx <= 2; ++dx) {
+					Vec2 tilePos(pos.x + dx, pos.y + dy);
+					globalTiles[tilePos] = 0;
+					airTiles.insert(tilePos);
+				}
 
 			}
 		}
@@ -238,10 +247,26 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 	for (auto it = globalTiles.begin(); it != globalTiles.end(); ++it) 
 	{
 
-		if (it->second == 1) groundTiles.insert(it->first);
+		if (it->second == 1) {
+			groundTiles.insert(it->first);
+			airTiles.erase(it->first);
+		}
 	}
 	
 	globalTiles.clear();
+	
+	// Add background wall textures to corridor air areas
+	for (const Vec2& airPos : airTiles) {
+		int variant = RandomHelper::random_int(0, 5);
+		std::string bgPath = "prison/tiles/backWall_" + std::to_string(variant) + "-=-0-=-.png";
+		auto bgSprite = Sprite::create(bgPath);
+		if (bgSprite) {
+			bgSprite->setContentSize(Size(24, 24));
+			Vec2 spritePos = (airPos - origin) * 24 + Vec2(12, 12);
+			bgSprite->setPosition(spritePos);
+			corridorContainer->addChild(bgSprite, -10);
+		}
+	}
 
 	const int PLATFORM_INTERVAL = 4; 
 	const int PLATFORM_WIDTH = 48; 
@@ -305,6 +330,13 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 
 						node->setPosition(finalPos * 24);
 						corridorContainer->addChild(node);
+						
+						// Add platform texture
+						auto platformSprite = Sprite::create("prison/platforms/woodenPlatform_0-=-0-=-.png");
+						if (platformSprite) {
+							platformSprite->setPosition(finalPos * 24);
+							corridorContainer->addChild(platformSprite, -1);
+						}
 					}
 				}
 			}
@@ -354,11 +386,23 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 		node->setPosition((Vec2(x + width / 2.0f, y + height / 2.0f) - origin) * 24);
 		corridorContainer->addChild(node);
 
+		// Add corridor textures
 		for (int row = 0; row < height; ++row) 
 		{
-
-			for (int col = 0; col < width; ++col) groundTiles.erase(Vec2(x + col, y + row));
-			
+			for (int col = 0; col < width; ++col) 
+			{
+				// Use background wall texture
+				std::string tilePath = "prison/tiles/backWall_" + std::to_string(RandomHelper::random_int(0, 5)) + "-=-0-=-.png";
+				auto tileSprite = Sprite::create(tilePath);
+				if (tileSprite) {
+					tileSprite->setContentSize(Size(24, 24));
+					Vec2 tilePos = (Vec2(x + col, y + row) - origin) * 24 + Vec2(12, 12);
+					tileSprite->setPosition(tilePos);
+					corridorContainer->addChild(tileSprite, -1);
+				}
+				
+				groundTiles.erase(Vec2(x + col, y + row));
+			}
 		}
 
 	}
@@ -430,7 +474,7 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 		auto monsterLayer = MonsterLayer::create(type, pixelPos);
 		if (monsterLayer)
 		{
-			owner->addChild(monsterLayer);   
+			owner->addChild(monsterLayer, 100);
 			_monsters.pushBack(monsterLayer); 
 		}
 
@@ -448,16 +492,16 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	tmx->setAnchorPoint(Vec2::ZERO);
 
-	Size Size = tmx->getMapSize();
-	std::vector<std::vector<PhysicsCategory>> layerCategory(int(Size.height), std::vector<PhysicsCategory>(int(Size.width)));
-	std::vector<std::vector<bool>> visited(int(Size.height), std::vector<bool>(int(Size.width), false));
+	Size size = tmx->getMapSize();
+	std::vector<std::vector<PhysicsCategory>> layerCategory(int(size.height), std::vector<PhysicsCategory>(int(size.width)));
+	std::vector<std::vector<bool>> visited(int(size.height), std::vector<bool>(int(size.width), false));
 
 	auto lnkLayer = tmx->getLayer("lnk");
 
-	for (int x = 0; x < Size.width; x++)
+	for (int x = 0; x < size.width; x++)
 	{
 
-		for (int y = 0; y < Size.height; y++)
+		for (int y = 0; y < size.height; y++)
 		{
 
 			Vec2 tileCoord = Vec2(x, y);
@@ -476,7 +520,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 					if (tileType == "DOOR")
 					{
 
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::GROUND;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::GROUND;
 						CCLOG("FIND!\n");
 
 					}
@@ -501,7 +545,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 		{
 
 			Vec2 pos = q.front() + dir[i];
-			if (pos.x < 0 || pos.x >= Size.width || pos.y < 0 || pos.y >= Size.height) continue;
+			if (pos.x < 0 || pos.x >= size.width || pos.y < 0 || pos.y >= size.height) continue;
 			if (!visited[pos.y][pos.x] && layerCategory[pos.y][pos.x] == PhysicsCategory::GROUND)
 			{
 
@@ -519,16 +563,16 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	auto colLayer = tmx->getLayer("col");
 
-	for (int x = 0; x < Size.width; x++)
+	for (int x = 0; x < size.width; x++)
 	{
 
-		for (int y = 0; y < Size.height; y++)
+		for (int y = 0; y < size.height; y++)
 		{
 
 			Vec2 tileCoord = Vec2(x, y);
 			int gid = colLayer->getTileGIDAt(tileCoord);
 
-			if (layerCategory[Size.height - y - 1][x] == PhysicsCategory::GROUND) continue;
+			if (layerCategory[size.height - y - 1][x] == PhysicsCategory::GROUND) continue;
 
 			if (gid)
 			{
@@ -543,24 +587,24 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 					if (tileType == "GROUND")
 					{
 
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::GROUND;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::GROUND;
 
 					}
 					else if (tileType == "LADDER")
 					{
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::LADDER;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::LADDER;
 					}
 					else if (tileType == "PLATFORM")
 					{
-						layerCategory[Size.height - y - 1][x] = PhysicsCategory::PLATFORM;
+						layerCategory[size.height - y - 1][x] = PhysicsCategory::PLATFORM;
 					}
-					else layerCategory[Size.height - y - 1][x] = PhysicsCategory::AIR;
+					else layerCategory[size.height - y - 1][x] = PhysicsCategory::AIR;
 
 				}
-				else layerCategory[Size.height - y - 1][x] = PhysicsCategory::AIR;
+				else layerCategory[size.height - y - 1][x] = PhysicsCategory::AIR;
 
 			}
-			else layerCategory[Size.height - y - 1][x] = PhysicsCategory::AIR;
+			else layerCategory[size.height - y - 1][x] = PhysicsCategory::AIR;
 
 		}
 
@@ -622,10 +666,10 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
-	for (int x = 0; x < Size.width; x++)
+	for (int x = 0; x < size.width; x++)
 	{
 
-		for (int y = 1; y < Size.height; y++)
+		for (int y = 1; y < size.height; y++)
 		{
 
 			if (layerCategory[y][x] == PhysicsCategory::LADDER && layerCategory[y - 1][x] == PhysicsCategory::GROUND)
@@ -676,9 +720,133 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
+	auto objectGroup = tmx->getObjectGroup("markers");
+
+	if (objectGroup) {
+		auto& objects = objectGroup->getObjects();
+		for (auto& obj : objects) {
+			cocos2d::ValueMap& dict = obj.asValueMap();
+
+			std::string type = dict["type"].asString();
+			float x = dict["x"].asFloat();
+			float y = dict["y"].asFloat();
+			float w = dict["width"].asFloat();
+			float h = dict["height"].asFloat();
+
+			if (type == "ExitDoor")
+			{
+				auto node = Node::create();
+
+				node->setName("ExitDoor");
+
+				auto physicsBody = PhysicsBody::createBox(Size(w, h));
+				physicsBody->setDynamic(false);       
+				physicsBody->setGravityEnable(false); 
+
+				physicsBody->setCategoryBitmask(INTERACTABLE);
+				physicsBody->setCollisionBitmask(PLAYER_BODY); 
+				physicsBody->setContactTestBitmask(PLAYER_BODY); 
+
+				for (auto shape : physicsBody->getShapes()) {
+					shape->setSensor(true);
+				}
+
+				node->setPhysicsBody(physicsBody);
+
+				node->setPosition(x + w / 2, y + h / 2);
+
+				tmx->addChild(node);
+			}
+
+			if (type == "Chest")
+			{
+				auto node = Node::create();
+				node->setName("Chest");
+				
+				tmx->addChild(node);
+			}
+
+			if (type == "GOODS")
+			{
+				WeaponNode* goodsNode = nullptr;
+
+				int category = cocos2d::RandomHelper::random_int(0, 2);
+
+				if (category == 0) 
+				{
+					int typeIdx = cocos2d::RandomHelper::random_int(0, 3);
+					goodsNode = WeaponNode::createSword(static_cast<Sword::SwordType>(typeIdx), Vec2(x + w / 2, y + h / 2));
+				}
+				else if (category == 1) 
+				{
+					int typeIdx = cocos2d::RandomHelper::random_int(0, 2);
+					goodsNode = WeaponNode::createBow(static_cast<Bow::BowType>(typeIdx), Vec2(x + w / 2, y + h / 2));
+				}
+				else 
+				{
+					int typeIdx = cocos2d::RandomHelper::random_int(0, 1);
+					goodsNode = WeaponNode::createShield(static_cast<Shield::ShieldType>(typeIdx), Vec2(x + w / 2, y + h / 2));
+				}
+
+				if (goodsNode)
+				{
+					int price = cocos2d::RandomHelper::random_int(10, 30) * 100;
+
+					goodsNode->setPrice(price);
+
+					tmx->addChild(goodsNode);
+				}
+
+			}
+
+		}
+
+	}
+
 	if (data->roomtype == Type::combat)
 	{
 		GenMonster(this, _monsters, layerCategory);
+	}
+
+	// Hide collision layer
+	if (colLayer) {
+		colLayer->setVisible(false);
+	}
+	
+	// Hide link layer
+	if (lnkLayer) {
+		lnkLayer->setVisible(false);
+	}
+
+	// Create TileRenderer for game textures
+	_tileRenderer = TileRenderer::create("prison");
+	if (_tileRenderer) {
+		// Convert PhysicsCategory to TileType
+		std::vector<std::vector<TileType>> tileData(int(size.height), std::vector<TileType>(int(size.width)));
+		for (int y = 0; y < size.height; y++) {
+			for (int x = 0; x < size.width; x++) {
+				switch (layerCategory[y][x]) {
+					case PhysicsCategory::GROUND:
+						tileData[y][x] = TileType::GROUND;
+						break;
+					case PhysicsCategory::PLATFORM:
+						tileData[y][x] = TileType::PLATFORM;
+						break;
+					case PhysicsCategory::LADDER:
+						tileData[y][x] = TileType::LADDER;
+						break;
+					case PhysicsCategory::MIX:
+						tileData[y][x] = TileType::GROUND;
+						break;
+					default:
+						tileData[y][x] = TileType::AIR;
+						break;
+				}
+			}
+		}
+		
+		_tileRenderer->renderFromCollisionLayer(tmx, tileData);
+		tmx->addChild(_tileRenderer, -100);
 	}
 
 	return true;

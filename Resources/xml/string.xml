@@ -10,5 +10,11 @@
     <key>exit_text</key>
     <string>退出游戏</string>
 
+	<key>restart_text</key>
+	<string>重新开始</string>
+
+	<key>back_to_menu_text</key>
+	<string>返回菜单</string>
+
 </dict>
 </plist>

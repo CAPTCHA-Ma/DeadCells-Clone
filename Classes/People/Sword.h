@@ -1,4 +1,3 @@
-// SwordWeapon.h (ÐÞÕýºó)
 #ifndef __SWORD_H__
 #define __SWORD_H__
 

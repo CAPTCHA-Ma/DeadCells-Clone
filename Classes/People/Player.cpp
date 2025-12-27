@@ -81,8 +81,8 @@ void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
     body->setRotationEnable(false);
     body->setGravityEnable(true);
     body->setCategoryBitmask(PLAYER_BODY);
-    body->setCollisionBitmask(GROUND | PLATFORM | LADDER | MIX);
-    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER | MIX | GROUND | WEAPON);
+    body->setCollisionBitmask(GROUND | PLATFORM | LADDER | MIX | INTERACTABLE);
+    body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER | MIX | GROUND | WEAPON | INTERACTABLE);
 }
 void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
 {

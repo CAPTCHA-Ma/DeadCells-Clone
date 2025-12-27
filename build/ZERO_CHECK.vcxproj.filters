@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Administrator\Desktop\修改\DeadCells-Clone\build\CMakeFiles\2fb701d862d32b7ef8a994f402477141\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{36685127-31FC-31D6-9597-6A3D1CF0DEF6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

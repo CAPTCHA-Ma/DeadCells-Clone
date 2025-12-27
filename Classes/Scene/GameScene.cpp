@@ -22,6 +22,7 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
     }
 
     CC_SAFE_DELETE(scene);
+
     return nullptr;
 
 }
@@ -61,12 +62,6 @@ bool GameScene::init()
     _mapContainer = Node::create();
     this->addChild(_mapContainer);
 
-
-    auto listener = EventListenerPhysicsContact::create();
-    listener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
-
     return true;
 
 }
@@ -93,31 +88,24 @@ void GameScene::RenderMap()
     if (_loadingLabel) _loadingLabel->removeFromParent();
 	if (_loadingSprite) _loadingSprite->removeFromParent();
 
-    auto rooms = _mapGenerator->GetRooms();
+    auto& rooms = _mapGenerator->GetRooms();
 
     Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 24)) * 24;
     _player = PlayerLayer::create(startDir);
 
-
     auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
-    _mapContainer->addChild(swordNode);
+    _mapContainer->addChild(swordNode, 50);
+	swordNode->setPrice(1000);
 
     auto bowNode = WeaponNode::createBow(Bow::BowType::crossbow, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
-    _mapContainer->addChild(bowNode);
+    _mapContainer->addChild(bowNode, 50);  // z-order 50
 
-
-    //auto _monster1 = MonsterLayer::create(MonsterCategory::Zombie, (rooms[0]->obstacle.lowLeft + Vec2(35, 22)) * 24);
-    auto _monster2 = MonsterLayer::create(MonsterCategory::Grenadier, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
-    auto _monster3 = MonsterLayer::create(MonsterCategory::DeadArcher, (rooms[0]->obstacle.lowLeft + Vec2(35, 22)) * 24);
-   // monster.pushBack(_monster1);
-    monster.pushBack(_monster2);
-    monster.pushBack(_monster3);
-   // _mapContainer->addChild(_monster1);
-    _mapContainer->addChild(_monster2);
-    _mapContainer->addChild(_monster3);
-    _mapContainer->addChild(_player);
+    _mapContainer->addChild(_player, 100);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
+	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
+	_monsters.pushBack(monster3);
+	_mapContainer->addChild(monster3, 100);
 
     int counter = 0;
     for (auto roomData : rooms) 
@@ -125,10 +113,13 @@ void GameScene::RenderMap()
 
         CCLOG("%d\n", ++counter);
         auto node = RoomNode::create(roomData, this->monster);
-        _mapContainer->addChild(node);
+        _mapContainer->addChild(node, 0);
 
     }
 
+    auto keyListener = EventListenerKeyboard::create();
+    keyListener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(keyListener, this);
 
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
@@ -137,6 +128,7 @@ void GameScene::RenderMap()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
     this->scheduleUpdate();
+
 }
 
 void GameScene::update(float dt)
@@ -162,8 +154,8 @@ void GameScene::update(float dt)
 
         if (m && m->isReadyToRemove())
         {
-            mLayer->removeFromParent(); // 从渲染树移除
-            it = monster.erase(it);      // 从 Vector 移除
+            mLayer->removeFromParent(); // ??????????
+            it = monster.erase(it);      // ?? Vector ???
             CCLOG("Monster Safely Deleted");
         }
         else
@@ -175,6 +167,29 @@ void GameScene::update(float dt)
     }
 
 }
+
+void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
+{
+
+    if (keyCode == EventKeyboard::KeyCode::KEY_E && _currentInteractNode != nullptr)
+    {
+        
+        std::string name = _currentInteractNode->getName();
+
+        if (name == "ExitDoor")
+        {
+            auto scene = GameOver::createScene();
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
+        }
+        else if (name == "Chest")
+        {
+            CCLOG("Open Chest!");
+            // TODO: Add chest opening logic
+             _currentInteractNode->removeFromParent();
+        }
+    }
+}
+
 bool GameScene::onContactBegin(PhysicsContact& contact)
 {
     auto bodyA = contact.getShapeA()->getBody();
@@ -183,11 +198,21 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     int maskB = bodyB->getCategoryBitmask();
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
-    if (!nodeA || !nodeB) 
-        return true;
+
+    if (!nodeA || !nodeB) return true;
+
+    if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
+    {
+
+        auto targetNode = (maskA == INTERACTABLE) ? nodeA : nodeB;
+        if (targetNode) _currentInteractNode = targetNode;
+        
+    }
+
+    // 获取碰撞发生的大致位置
     Vec2 contactPoint = contact.getContactData()->points[0];
-    // 玩家攻击怪物
-    //近战攻击
+    // ??????????
+    //???????
     if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
         Node* enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
@@ -235,8 +260,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // 怪物攻击玩家
-    // 怪物近战
+    // ???﹥?????
+    // ??????
     if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
     {
         auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
@@ -260,7 +285,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    //怪物炸弹
+    //???????
     if ((maskA & ENEMY_BOMB && maskB & PLAYER_BODY) || (maskB & ENEMY_BOMB && maskA & PLAYER_BODY))
     {
         auto bombNode = (maskA & ENEMY_BOMB) ? nodeA : nodeB;
@@ -277,7 +302,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // 怪物箭矢
+    // ??????
     if ((maskA & ENEMY_ARROW && maskB & PLAYER_BODY) || (maskB & ENEMY_ARROW && maskA & PLAYER_BODY))
     {
         auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
@@ -296,7 +321,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    //环境碰撞 
+    //??????? 
     if ((maskA & GROUND || maskB & GROUND))
     {
         auto otherNode = (maskA & GROUND) ? nodeB : nodeA;
@@ -424,7 +449,6 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
 
-
     WeaponNode* weapon = dynamic_cast<WeaponNode*>(nodeA);
     if (!weapon)
         weapon = dynamic_cast<WeaponNode*>(nodeB);
@@ -435,9 +459,13 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
         CCLOG("Weapon out of range, pointer cleared.");
     }
 
+    if (maskA == INTERACTABLE || maskB == INTERACTABLE)
+    {
 
+        _currentInteractNode = nullptr;
 
-    //
+    }
+    
     if (maskA & LADDER || maskB & LADDER)
     {
         _player->_isBelowLadder = false;
@@ -448,8 +476,23 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
         _player->_isPassingPlatform = false;
     }
 
+    if (bodyA->getCategoryBitmask() == LADDER || bodyB->getCategoryBitmask() == LADDER)
+    {
+
+        _player->_isBelowLadder = false;
+
+    }
+
+    if (bodyA->getCategoryBitmask() == PLATFORM || bodyB->getCategoryBitmask() == PLATFORM)
+    {
+
+        _player->_isPassingPlatform = false;
+
+    }
+
     if (bodyA->getCategoryBitmask() == MIX || bodyB->getCategoryBitmask() == MIX)
     {
+
         PhysicsBody* playerBody = nullptr;
         PhysicsBody* mixBody = nullptr;
         if (bodyA->getCategoryBitmask() == PLAYER_BODY && bodyB->getCategoryBitmask() == MIX)
@@ -464,9 +507,25 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
         }
         if (playerBody && mixBody)
         {
+
             _player->_isContactBottom = false;
             _player->_isAboveLadder = false;
 
         }
+
     }
+
+}
+
+GameScene::~GameScene()
+{
+
+    if (_mapGenerator)
+    {
+        delete _mapGenerator;
+        _mapGenerator = nullptr;
+    }
+
+    Director::getInstance()->getTextureCache()->removeUnusedTextures();
+
 }

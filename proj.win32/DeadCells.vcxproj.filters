@@ -13,6 +13,9 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\GameScene.cpp">
       <Filter>Source Files\Classes\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\GameOver.cpp">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.cpp">
       <Filter>Source Files\Classes\Res</Filter>
     </ClCompile>
@@ -67,6 +70,9 @@
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\RoomNode.cpp">
       <Filter>Source Files\Classes\Map</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\TileRenderer.cpp">
+      <Filter>Source Files\Classes\Map</Filter>
+    </ClCompile>
     <ClCompile Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
     </ClCompile>
@@ -85,6 +91,9 @@
       <Filter>Source Files\Classes\Scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\GameScene.h">
+      <Filter>Source Files\Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Scene\GameOver.h">
       <Filter>Source Files\Classes\Scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Res\strings.h">
@@ -145,6 +154,9 @@
       <Filter>Source Files\Classes\Map</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\RoomNode.h">
+      <Filter>Source Files\Classes\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Classes\Map\TileRenderer.h">
       <Filter>Source Files\Classes\Map</Filter>
     </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\main.h">

@@ -88,3 +88,32 @@ Weapon* WeaponNode::pickUp()
     this->removeFromParent();
     return temp;
 }
+
+void WeaponNode::setPrice(int price)
+{
+    _price = price;
+
+    if (_price > 0)
+    {
+        if (!_priceLabel)
+        {
+            _priceLabel = Label::createWithTTF(std::to_string(_price), "fonts/fusion-pixel.ttf", 16);
+            _priceLabel->setPosition(Vec2(this->getContentSize().width / 2, this->getContentSize().height + 20));
+            _priceLabel->setColor(Color3B::YELLOW);
+            _priceLabel->enableOutline(Color4B::BLACK, 1);
+            this->addChild(_priceLabel);
+        }
+        else
+        {
+            _priceLabel->setString(std::to_string(_price));
+        }
+    }
+    else
+    {
+        if (_priceLabel)
+        {
+            _priceLabel->removeFromParent();
+            _priceLabel = nullptr;
+        }
+    }
+}

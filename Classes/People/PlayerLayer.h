@@ -18,6 +18,16 @@ public:
     void setNearbyWeapon(WeaponNode* weaponNode) { _nearbyWeapon = weaponNode; };
     WeaponNode* getNearbyWeapon() const { return _nearbyWeapon; };
     void getNewWeapon();
+
+    int getGold() const { return _gold; }
+    void addGold(int amount) { _gold += amount; }
+    bool spendGold(int amount) {
+        if (_gold >= amount) {
+            _gold -= amount;
+            return true;
+        }
+        return false;
+    }
     bool gameEnding() const { return _player->gameEnding; };
 
     void recordMonsterHit(Monster* monster) {if (monster) _hitMonsters.insert(monster); }
@@ -25,13 +35,15 @@ public:
     void clearHitMonsters() {_hitMonsters.clear(); }
 
 private:
-  
+    cocos2d::Sprite* _pickupTip = nullptr; // 捡取提示图标
     Player* _player;
     bool _leftPressed = false;
     bool _rightPressed = false;
 	bool _downPressed = false;
     void setupEventListeners();
     WeaponNode* _nearbyWeapon = nullptr;
+    int _gold = 0;
+
     std::set<Monster*> _hitMonsters; // 打击名单
 
 };

@@ -60,6 +60,7 @@ list(APPEND GAME_SOURCE
      Classes/Scene/StartMenu.cpp
      Classes/Scene/Prison.cpp
      Classes/Scene/GameScene.cpp
+     Classes/Scene/GameOver.cpp
      Classes/Res/strings.cpp
 
      Classes/People/PlayerLayer.cpp
@@ -77,9 +78,11 @@ list(APPEND GAME_SOURCE
      Classes/People/DeadArcher.cpp
      Classes/People/Monster.cpp
      Classes/People/MonsterLayer.cpp
+     Classes/People/WeaponNode.cpp
 
      Classes/Map/MapUnit.cpp
      Classes/Map/RoomNode.cpp
+     Classes/Map/TileRenderer.cpp
 
      )
 list(APPEND GAME_HEADER
@@ -87,6 +90,7 @@ list(APPEND GAME_HEADER
      Classes/Scene/StartMenu.h
      Classes/Scene/Prison.h
      Classes/Scene/GameScene.h
+     Classes/Scene/GameOver.h
      Classes/Res/strings.h
 
      Classes/People/PlayerLayer.h
@@ -105,10 +109,12 @@ list(APPEND GAME_HEADER
      Classes/People/Monster.h
      Classes/People/MonsterLayer.h
      Classes/People/people.h
+     Classes/People/WeaponNode.h
 
      Classes/Map/MapGenerator.h
      Classes/Map/MapUnit.h
      Classes/Map/RoomNode.h
+     Classes/Map/TileRenderer.h
      
      )
 

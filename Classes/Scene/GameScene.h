@@ -9,17 +9,24 @@
 #include "Res/strings.h"
 #include "People/Grenadier.h"
 #include "People/Monster.h"
+#include "GameOver.h"
+
 class GameScene : public cocos2d::Scene
 {
 public:
     static GameScene* createWithGenerator(MapGenerator* generator);
     virtual bool init() override;
     virtual void update(float dt) override;
+	~GameScene();
 
 private:
 
     void GenMapData();
     void RenderMap();
+    bool onContactBegin(PhysicsContact& contact);
+    bool onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::PhysicsContactPreSolve& solve);
+    void onContactSeparate(PhysicsContact& contact);
+    void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
     Vector<MonsterLayer*> monster;
     MapGenerator* _mapGenerator = nullptr;
     cocos2d::Node* _mapContainer = nullptr;
@@ -28,6 +35,8 @@ private:
     PlayerLayer* _player = nullptr;
 	cocos2d::Vector<MonsterLayer*> _monsters;
     cocos2d::Vector<WeaponNode*> _weapons;
+    cocos2d::Node* _currentInteractNode = nullptr;
+
 private:
     bool onContactBegin(cocos2d::PhysicsContact& contact);
     bool onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::PhysicsContactPreSolve& solve);
