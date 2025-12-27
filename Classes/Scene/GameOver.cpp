@@ -48,7 +48,7 @@ bool GameOver::init()
 	Exitlabel->enableGlow(Color4B::WHITE);
 
 	ExitButton->addClickEventListener([](Ref* sender) {
-		// 退出游戏
+		// Exit game
 		Director::getInstance()->end();
 		});
 
@@ -64,7 +64,7 @@ bool GameOver::init()
 	BackToMenulabel->enableGlow(Color4B::WHITE);
 
 	BackToMenuButton->addClickEventListener([](Ref* sender) {
-		// 退出游戏
+		// Back to menu
 		auto StartMenuScene = StartMenu::create();
 		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, StartMenuScene));
 		});

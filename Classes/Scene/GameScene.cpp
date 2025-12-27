@@ -100,12 +100,12 @@ void GameScene::RenderMap()
     _mapContainer->addChild(bowNode, 50);  // z-order 50
 
 
-    _mapContainer->addChild(_player, 100);  // z-order 100 确保在地图上面
+    _mapContainer->addChild(_player, 100);
 	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
 	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
 	_monsters.pushBack(monster3);
-	_mapContainer->addChild(monster3, 100);  // z-order 100 确保在地图上面
+	_mapContainer->addChild(monster3, 100);
 
     int counter = 0;
     for (auto roomData : rooms) 
@@ -113,7 +113,7 @@ void GameScene::RenderMap()
 
         CCLOG("%d\n", ++counter);
         auto node = RoomNode::create(roomData, this->monster);
-        _mapContainer->addChild(node, 0);  // z-order 0 作为地图层
+        _mapContainer->addChild(node, 0);
 
     }
 
@@ -184,7 +184,7 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
         else if (name == "Chest")
         {
             CCLOG("Open Chest!");
-            // �����Ժ�д����������߼������粥�Ŷ��������ɵ�����
+            // TODO: Add chest opening logic
              _currentInteractNode->removeFromParent();
         }
     }

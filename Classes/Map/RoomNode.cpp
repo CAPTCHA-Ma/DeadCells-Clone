@@ -166,7 +166,7 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 	Node* corridorContainer = Node::create();
 
 	std::unordered_map<Vec2, int, Vec2Hash, Vec2Equal> globalTiles;
-	std::unordered_set<Vec2, Vec2Hash, Vec2Equal> airTiles;  // 走廊空气区域
+	std::unordered_set<Vec2, Vec2Hash, Vec2Equal> airTiles;
 
 	for (const auto& path : paths) 
 	{
@@ -180,7 +180,7 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 				for (int dx = -2; dx <= 2; ++dx) {
 					Vec2 tilePos(pos.x + dx, pos.y + dy);
 					globalTiles[tilePos] = 0;
-					airTiles.insert(tilePos);  // 记录空气区域
+					airTiles.insert(tilePos);
 				}
 
 			}
@@ -249,13 +249,13 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 
 		if (it->second == 1) {
 			groundTiles.insert(it->first);
-			airTiles.erase(it->first);  // 地面不是空气
+			airTiles.erase(it->first);
 		}
 	}
 	
 	globalTiles.clear();
 	
-	// 为走廊空气区域添加背景墙贴图
+	// Add background wall textures to corridor air areas
 	for (const Vec2& airPos : airTiles) {
 		int variant = RandomHelper::random_int(0, 5);
 		std::string bgPath = "prison/tiles/backWall_" + std::to_string(variant) + "-=-0-=-.png";
@@ -264,7 +264,7 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 			bgSprite->setContentSize(Size(24, 24));
 			Vec2 spritePos = (airPos - origin) * 24 + Vec2(12, 12);
 			bgSprite->setPosition(spritePos);
-			corridorContainer->addChild(bgSprite, -10);  // 背景层，z-order更低
+			corridorContainer->addChild(bgSprite, -10);
 		}
 	}
 
@@ -331,7 +331,7 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 						node->setPosition(finalPos * 24);
 						corridorContainer->addChild(node);
 						
-						// 为平台添加贴图
+						// Add platform texture
 						auto platformSprite = Sprite::create("prison/platforms/woodenPlatform_0-=-0-=-.png");
 						if (platformSprite) {
 							platformSprite->setPosition(finalPos * 24);
@@ -386,12 +386,12 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 		node->setPosition((Vec2(x + width / 2.0f, y + height / 2.0f) - origin) * 24);
 		corridorContainer->addChild(node);
 
-		// 为走廊添加贴图
+		// Add corridor textures
 		for (int row = 0; row < height; ++row) 
 		{
 			for (int col = 0; col < width; ++col) 
 			{
-				// 使用背景墙贴图
+				// Use background wall texture
 				std::string tilePath = "prison/tiles/backWall_" + std::to_string(RandomHelper::random_int(0, 5)) + "-=-0-=-.png";
 				auto tileSprite = Sprite::create(tilePath);
 				if (tileSprite) {
@@ -474,7 +474,7 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 		auto monsterLayer = MonsterLayer::create(type, pixelPos);
 		if (monsterLayer)
 		{
-			owner->addChild(monsterLayer, 100);   // z-order 100 确保在地图上面
+			owner->addChild(monsterLayer, 100);
 			_monsters.pushBack(monsterLayer); 
 		}
 
@@ -773,20 +773,20 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 		GenMonster(this, _monsters, layerCategory);
 	}
 
-	// 隐藏碰撞层（col层只用于碰撞检测，不显示）
+	// Hide collision layer
 	if (colLayer) {
 		colLayer->setVisible(false);
 	}
 	
-	// 隐藏链接层
+	// Hide link layer
 	if (lnkLayer) {
 		lnkLayer->setVisible(false);
 	}
 
-	// 创建 TileRenderer 渲染真正的游戏贴图
+	// Create TileRenderer for game textures
 	_tileRenderer = TileRenderer::create("prison");
 	if (_tileRenderer) {
-		// 将 PhysicsCategory 转换为 TileType
+		// Convert PhysicsCategory to TileType
 		std::vector<std::vector<TileType>> tileData(int(size.height), std::vector<TileType>(int(size.width)));
 		for (int y = 0; y < size.height; y++) {
 			for (int x = 0; x < size.width; x++) {
@@ -801,7 +801,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 						tileData[y][x] = TileType::LADDER;
 						break;
 					case PhysicsCategory::MIX:
-						tileData[y][x] = TileType::GROUND;  // MIX 当作 GROUND 处理
+						tileData[y][x] = TileType::GROUND;
 						break;
 					default:
 						tileData[y][x] = TileType::AIR;
@@ -811,7 +811,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 		}
 		
 		_tileRenderer->renderFromCollisionLayer(tmx, tileData);
-		tmx->addChild(_tileRenderer, -100);  // z-order 设为 -100 确保在人物和怪物下面
+		tmx->addChild(_tileRenderer, -100);
 	}
 
 	return true;
