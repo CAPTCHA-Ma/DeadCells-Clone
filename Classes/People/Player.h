@@ -194,7 +194,7 @@ private:
 	//攻击判定
     cocos2d::Node* _attackNode = nullptr;
     cocos2d::Node* _hurtNode = nullptr;
-    std::set<Monster*> _hitMonsters; // 存放当前动作已击中的怪物指针
+    std::set<Monster*> _hitMonsters; 
 
     void updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset);
     void setupBodyProperties(cocos2d::PhysicsBody* body);

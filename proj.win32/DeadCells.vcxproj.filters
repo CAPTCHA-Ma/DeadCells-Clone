@@ -165,6 +165,822 @@
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\proj.win32\resource.h">
       <Filter>Source Files\proj.win32</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\archerRise_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_12-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_13-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_14-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_15-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_16-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_17-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_18-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_19-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_20-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_21-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_22-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\breach_23-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbA_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbB_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbIdleA_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\climbIdleB_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\endClimb_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\endClimb_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\endClimb_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\endClimb_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\endClimb_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\endClimb_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\fall_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_12-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_13-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_14-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_15-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_16-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_17-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_18-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_19-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_20-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_21-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_22-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_23-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_24-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_25-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_26-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_27-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_28-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_29-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_30-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_31-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_32-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_33-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_34-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_35-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_36-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_37-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_38-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_39-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_40-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_41-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_42-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_43-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_44-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\idle_45-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\land_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shootObjective_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_12-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_13-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_14-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_15-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_16-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_17-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_18-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_19-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_20-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\shoot_21-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stunIlde_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stunIlde_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stunIlde_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stunIlde_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stunIlde_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stunIlde_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stunIlde_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_12-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_13-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_14-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_15-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_16-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_17-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_18-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_19-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_20-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_21-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_22-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_23-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_24-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_25-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_26-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_27-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_28-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_29-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_30-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_31-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_32-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_33-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_34-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_35-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_36-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_37-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_38-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\stun_39-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkA_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkB_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_12-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_13-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_14-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_15-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_16-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_17-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_18-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleA_19-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_12-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_13-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_14-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_15-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_16-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_17-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_18-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walkIdleB_19-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_00-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_01-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_02-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_03-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_04-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_05-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_06-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_07-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_08-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_09-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_10-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_11-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_12-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_13-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_14-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_15-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_16-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_17-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_18-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_19-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_20-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_21-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_22-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_23-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_24-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_25-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_26-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_27-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\DeadArcher\walk_28-=-0-=-.png">
+      <Filter>Resources\Graph\DeadArcher</Filter>
+    </ClInclude>
     <ClInclude Include="D:\Code\Cocos2dx\DeadCells\Resources\Graph\FlyingObject\heavyArrow-=-0-=-.png">
       <Filter>Resources\Graph\FlyingObject</Filter>
     </ClInclude>
@@ -33453,6 +34269,9 @@
     </Filter>
     <Filter Include="Resources\Graph">
       <UniqueIdentifier>{2FBDA5A6-AAD2-3806-A522-7BCF8FC95FF3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Graph\DeadArcher">
+      <UniqueIdentifier>{9549A23B-A10E-31ED-9EB1-2D29280EE12D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Graph\FlyingObject">
       <UniqueIdentifier>{7595A777-BDE3-3AC4-924B-2AD335A6BF3B}</UniqueIdentifier>

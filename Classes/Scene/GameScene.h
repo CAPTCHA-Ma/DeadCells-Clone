@@ -18,9 +18,7 @@ public:
     virtual bool init() override;
     virtual void update(float dt) override;
 	~GameScene();
-
 private:
-
     void GenMapData();
     void RenderMap();
     bool onContactBegin(PhysicsContact& contact);
@@ -36,9 +34,4 @@ private:
 	cocos2d::Vector<MonsterLayer*> _monsters;
     cocos2d::Vector<WeaponNode*> _weapons;
     cocos2d::Node* _currentInteractNode = nullptr;
-
-private:
-    bool onContactBegin(cocos2d::PhysicsContact& contact);
-    bool onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::PhysicsContactPreSolve& solve);
-    void onContactSeparate(cocos2d::PhysicsContact& contact);
 };

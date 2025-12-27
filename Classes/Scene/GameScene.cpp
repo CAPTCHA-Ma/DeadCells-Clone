@@ -68,7 +68,6 @@ bool GameScene::init()
 
 void GameScene::GenMapData() 
 {
-    
     std::thread renderThread([this](){
         
         this->_mapGenerator->Generate();
@@ -78,7 +77,6 @@ void GameScene::GenMapData()
             });
 
         });
-
     renderThread.detach();
 }
 
@@ -86,7 +84,7 @@ void GameScene::RenderMap()
 {
 
     if (_loadingLabel) _loadingLabel->removeFromParent();
-	if (_loadingSprite) _loadingSprite->removeFromParent();
+    if (_loadingSprite) _loadingSprite->removeFromParent();
 
     auto& rooms = _mapGenerator->GetRooms();
 
@@ -95,20 +93,20 @@ void GameScene::RenderMap()
 
     auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
     _mapContainer->addChild(swordNode, 50);
-	swordNode->setPrice(1000);
+    swordNode->setPrice(1000);
 
     auto bowNode = WeaponNode::createBow(Bow::BowType::crossbow, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
-    _mapContainer->addChild(bowNode, 50);  // z-order 50
+    _mapContainer->addChild(bowNode, 50);  
 
     _mapContainer->addChild(_player, 100);
-	_mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
+    _mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
-	auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
-	_monsters.pushBack(monster3);
-	_mapContainer->addChild(monster3, 100);
+    auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
+    _monsters.pushBack(monster3);
+    _mapContainer->addChild(monster3, 100);
 
     int counter = 0;
-    for (auto roomData : rooms) 
+    for (auto roomData : rooms)
     {
 
         CCLOG("%d\n", ++counter);
@@ -137,8 +135,8 @@ void GameScene::update(float dt)
     if (!_player || !_mapContainer) return;
 
     Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto player = _player->getChildByName("Player");
-	Vec2 playerPos = player->getPosition();
+    auto player = _player->getChildByName("Player");
+    Vec2 playerPos = player->getPosition();
 
     Vec2 currentPos = _mapContainer->getPosition();
     _mapContainer->setPosition(currentPos.lerp(visibleSize / 2 - Size(playerPos), 0.1f));
@@ -154,8 +152,8 @@ void GameScene::update(float dt)
 
         if (m && m->isReadyToRemove())
         {
-            mLayer->removeFromParent(); // ??????????
-            it = monster.erase(it);      // ?? Vector ???
+            mLayer->removeFromParent();
+            it = monster.erase(it);     
             CCLOG("Monster Safely Deleted");
         }
         else
@@ -209,10 +207,10 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         
     }
 
-    // »ñÈ¡Åö×²·¢ÉúµÄ´óÖÂÎ»ÖÃ
+    // èŽ·å–ç¢°æ’žå‘ç”Ÿçš„å¤§è‡´ä½ç½?
     Vec2 contactPoint = contact.getContactData()->points[0];
-    // ??????????
-    //???????
+    // ï¿½ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
+    //ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½
     if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
         Node* enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
@@ -237,7 +235,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             monster->struck(damage);
         }
     }
-    // Íæ¼Ò¼ýÊ¸
+    // ï¿½ï¿½Ò¼ï¿½Ê?
     if ((maskA & PLAYER_ARROW && maskB & ENEMY_BODY) || (maskB & PLAYER_ARROW && maskA & ENEMY_BODY))
     {
         auto arrowNode = (maskA & PLAYER_ARROW) ? nodeA : nodeB;
@@ -260,8 +258,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // ???©ƒ?????
-    // ??????
+    // ï¿½ï¿½ï¿½ï¹¥ï¿½ï¿½ï¿½ï¿½ï¿?
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Õ?
     if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
     {
         auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
@@ -285,7 +283,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    //???????
+    //ï¿½ï¿½ï¿½ï¿½Õ¨ï¿½ï¿½
     if ((maskA & ENEMY_BOMB && maskB & PLAYER_BODY) || (maskB & ENEMY_BOMB && maskA & PLAYER_BODY))
     {
         auto bombNode = (maskA & ENEMY_BOMB) ? nodeA : nodeB;
@@ -302,7 +300,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // ??????
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ê?
     if ((maskA & ENEMY_ARROW && maskB & PLAYER_BODY) || (maskB & ENEMY_ARROW && maskA & PLAYER_BODY))
     {
         auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
@@ -321,7 +319,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    //??????? 
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×² 
     if ((maskA & GROUND || maskB & GROUND))
     {
         auto otherNode = (maskA & GROUND) ? nodeB : nodeA;

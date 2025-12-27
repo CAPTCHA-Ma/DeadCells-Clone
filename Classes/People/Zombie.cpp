@@ -210,17 +210,12 @@ cocos2d::Animation* Zombie::createAnim(const std::string& name, int frameCount, 
 }
 void Zombie::playAnimation(ZombieState state, bool loop)
 {
-    if (!_sprite) return; // 确保精灵存在
-
-    // 停止 _sprite 上的旧动作
+    if (!_sprite) return;
     _sprite->stopActionByTag(1001);
-
     Animation* anim = getAnimation(state);
     if (!anim) return;
-
     auto animate = Animate::create(anim);
     Action* action = nullptr;
-
     if (loop) {
         action = RepeatForever::create(animate);
     }
@@ -231,31 +226,23 @@ void Zombie::playAnimation(ZombieState state, bool loop)
             }
             }), nullptr);
     }
-
     action->setTag(1001);
-    _sprite->runAction(action); // 修改这里：让 _sprite 动起来
+    _sprite->runAction(action); 
 }
 void Zombie::createAttackBox()
 {
     this->removeAttackBox();
-
-    // [关键] 近战怪物每次攻击前清理名单
     this->clearHitTargets();
-
     _attackNode = Node::create();
     float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
     this->addChild(_attackNode, 10);
-
     auto attackBody = PhysicsBody::createBox(cocos2d::Size(targetWidth*2/3, targetHeight / 6), PhysicsMaterial(0, 0, 0),Vec2(dir*targetWidth/6,targetHeight/6));
-
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(ENEMY_ATTACK);
     attackBody->setCollisionBitmask(0);
     attackBody->setContactTestBitmask(PLAYER_BODY);
     _attackNode->setPhysicsBody(attackBody);
-
-
     _attackNode->runAction(Sequence::create(
         DelayTime::create(0.5f),
         CallFunc::create([this]() { this->removeAttackBox(); }),
