@@ -13,8 +13,8 @@
   </data>
  </layer>
  <objectgroup id="3" name="markers" opacity="0.5">
-  <object id="9" name="GOODS" type="GOODS" x="240.667" y="648" width="47.3333" height="47.3333"/>
-  <object id="11" name="GOODS" type="GOODS" x="431.333" y="649.333" width="46.6667" height="46"/>
-  <object id="12" name="GOODS" type="GOODS" x="624" y="648" width="46.6667" height="47.3333"/>
+  <object id="9" name="GOODS" type="GOODS" x="240.667" y="644" width="47.3333" height="47.3333"/>
+  <object id="11" name="GOODS" type="GOODS" x="431.333" y="645.333" width="46.6667" height="46"/>
+  <object id="12" name="GOODS" type="GOODS" x="624" y="643.333" width="46.6667" height="47.3333"/>
  </objectgroup>
 </map>

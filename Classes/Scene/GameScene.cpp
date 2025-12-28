@@ -105,11 +105,9 @@ void GameScene::RenderMap()
     monster.pushBack(monster3);
     _mapContainer->addChild(monster3, 100);
 
-    int counter = 0;
     for (auto roomData : rooms)
     {
 
-        CCLOG("%d\n", ++counter);
         auto node = RoomNode::create(roomData, this->monster);
         _mapContainer->addChild(node, 0);
 
@@ -132,6 +130,16 @@ void GameScene::RenderMap()
 void GameScene::update(float dt)
 {
     if (!_player || !_mapContainer) return;
+
+    if (_player->gameEnding())
+    {
+        
+		auto GameOverScene = GameOver::createScene();
+		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, GameOverScene));
+        return;
+
+	}
+
     Size visibleSize = Director::getInstance()->getVisibleSize();
     auto playerNode = _player->getChildByName("Player");
     if (playerNode) {
@@ -162,8 +170,7 @@ void GameScene::update(float dt)
         if (m->isReadyToRemove())
         {
             mLayer->removeFromParent();
-            it = monster.erase(it);
-            CCLOG("Monster %p removed from list.", m);
+            it = monster.erase(it);     
         }
         else
         {
@@ -185,11 +192,12 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
             auto scene = GameOver::createScene();
             Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
         }
-        else if (name == "Chest")
+        else if (name == "REVIVE")
         {
-            CCLOG("Open Chest!");
-            // TODO: Add chest opening logic
              _currentInteractNode->removeFromParent();
+
+             _player->healthUp();
+
         }
     }
 }
@@ -444,7 +452,6 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
     if (weapon && _player)
     {
         _player->setNearbyWeapon(nullptr);
-        CCLOG("Weapon out of range, pointer cleared.");
     }
 
     if (maskA == INTERACTABLE || maskB == INTERACTABLE)

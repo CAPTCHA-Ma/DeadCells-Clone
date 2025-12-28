@@ -440,8 +440,8 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 	std::vector<Vec2> spawnPoints;
 	const float minDistance = 5.0f; 
 	
-	int maxMonsters = std::max(1, (int)candidates.size() / 8);
-	maxMonsters = std::min(maxMonsters, 5);
+	int maxMonsters = std::max(1, (int)candidates.size() / 10);
+	maxMonsters = std::min(maxMonsters, 4);
 
 	for (const auto& pos : candidates)
 	{
@@ -467,7 +467,7 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 	for (const auto& sp : spawnPoints)
 	{
 		
-		MonsterCategory type = (RandomHelper::random_int(0, 1) == 0) ? MonsterCategory::Zombie : MonsterCategory::Grenadier;
+		MonsterCategory type = static_cast<MonsterCategory>(RandomHelper::random_int(0, 2));
 
 		Vec2 pixelPos = Vec2(sp.x * 24 + 12, sp.y * 24 + 12);
 
@@ -517,13 +517,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 					ValueMap propsMap = properties.asValueMap();
 					std::string tileType = propsMap.at("cate").asString();
 
-					if (tileType == "DOOR")
-					{
-
-						layerCategory[size.height - y - 1][x] = PhysicsCategory::GROUND;
-						CCLOG("FIND!\n");
-
-					}
+					if (tileType == "DOOR") layerCategory[size.height - y - 1][x] = PhysicsCategory::GROUND;
 
 				}
 
@@ -758,16 +752,36 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 				tmx->addChild(node);
 			}
 
-			if (type == "Chest")
+			if (type == "REVIVE")
 			{
 				auto node = Node::create();
-				node->setName("Chest");
-				
+				node->setName("REVIVE");
+
+				auto physicsBody = PhysicsBody::createBox(Size(w, h));
+				physicsBody->setDynamic(false);
+				physicsBody->setGravityEnable(false);
+
+				physicsBody->setCategoryBitmask(INTERACTABLE);
+				physicsBody->setCollisionBitmask(PLAYER_BODY);
+				physicsBody->setContactTestBitmask(PLAYER_BODY);
+
+				for (auto shape : physicsBody->getShapes()) {
+					shape->setSensor(true);
+				}
+
+				node->setPhysicsBody(physicsBody);
+
+				node->setPosition(x + w / 2, y + h / 2);
+
 				tmx->addChild(node);
+				
 			}
 
 			if (type == "GOODS")
 			{
+
+				CCLOG("FINDGOODS\n");
+
 				WeaponNode* goodsNode = nullptr;
 
 				int category = cocos2d::RandomHelper::random_int(0, 2);
@@ -794,7 +808,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 					goodsNode->setPrice(price);
 
-					tmx->addChild(goodsNode);
+					tmx->addChild(goodsNode, 50);
 				}
 
 			}

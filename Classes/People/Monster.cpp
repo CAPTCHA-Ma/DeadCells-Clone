@@ -69,7 +69,7 @@ void Monster::createBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
     _body->setGravityEnable(true);
     _body->setVelocity(Vec2::ZERO);
     _body->setCategoryBitmask(ENEMY_BODY);
-    _body->setCollisionBitmask(GROUND);
+    _body->setCollisionBitmask(GROUND | PLATFORM | MIX);
     _body->setContactTestBitmask(PLAYER_ATTACK | PLAYER_ARROW);
 }
 

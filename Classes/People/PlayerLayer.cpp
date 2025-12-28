@@ -77,6 +77,16 @@ bool PlayerLayer::spendGold(int amount) {
     return false;
 }
 
+void PlayerLayer::healthUp()
+{
+
+    auto attrs = _player->getCurrentAttributes();
+    attrs.health = _player->getMaxHealth();
+    _player->setCurrentAttributes(attrs);
+    _player->updateHPBar();
+
+}
+
 // --- ¼üÅÌÊÂ¼ş ---
 void PlayerLayer::setupEventListeners() {
     auto listener = EventListenerKeyboard::create();

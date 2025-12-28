@@ -14,6 +14,6 @@
  </layer>
  <objectgroup id="3" name="markers">
   <object id="1" name="startPos" x="876" y="733"/>
-  <object id="3" name="ExitDoor" type="ExitDoor" x="1257" y="585" width="52.5" height="52"/>
+  <object id="3" name="GOODS" type="GOODS" x="1257" y="585" width="52.5" height="52"/>
  </objectgroup>
 </map>
