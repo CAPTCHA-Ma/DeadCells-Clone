@@ -71,8 +71,8 @@ bool WeaponNode::init(Weapon* weapon, cocos2d::Vec2 pos)
     this->setPosition(pos);
 
     auto body = PhysicsBody::createBox(this->getContentSize());
-    body->setGravityEnable(true);
-    body->setDynamic(true);
+    body->setGravityEnable(false);
+    body->setDynamic(false);
     body->setCategoryBitmask(WEAPON);
     body->setCollisionBitmask(GROUND);
     body->setContactTestBitmask(PLAYER_BODY | GROUND);

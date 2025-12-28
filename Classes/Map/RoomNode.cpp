@@ -319,7 +319,7 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 						auto physicsBody = PhysicsBody::createBox(Size(PLATFORM_WIDTH, PLATFORM_HEIGHT), PhysicsMaterial(0.1f, 0.0f, 0.0f));
 						physicsBody->setDynamic(false);
 						physicsBody->setCategoryBitmask(PLATFORM);
-						physicsBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY);
+						physicsBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW);
 						physicsBody->setContactTestBitmask(PLAYER_BODY);
 
 						auto node = Node::create();
@@ -379,7 +379,8 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 		auto physicsBody = PhysicsBody::createBox(Size(width * 24, height * 24), PhysicsMaterial(0.1f, 0.0f, 0.0f));
 		physicsBody->setDynamic(false);
 		physicsBody->setCategoryBitmask(GROUND);
-		physicsBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY);
+		physicsBody->setCollisionBitmask(PLAYER_BODY | ENEMY_BODY | ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW | WEAPON);
+		physicsBody->setContactTestBitmask(ENEMY_BOMB | PLAYER_ARROW | ENEMY_ARROW | PLAYER_BODY | WEAPON);
 
 		auto node = Node::create();
 		node->setPhysicsBody(physicsBody);
@@ -780,8 +781,6 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 			if (type == "GOODS")
 			{
 
-				CCLOG("FINDGOODS\n");
-
 				WeaponNode* goodsNode = nullptr;
 
 				int category = cocos2d::RandomHelper::random_int(0, 2);
@@ -808,9 +807,27 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 					goodsNode->setPrice(price);
 
-					CCLOG("ADDNODE!\n");
-
 					tmx->addChild(goodsNode, 100);
+
+				}
+
+			}
+
+			if (type == "ELITE")
+			{
+
+				MonsterCategory type = static_cast<MonsterCategory>(RandomHelper::random_int(0, 2));
+
+				Vec2 pixelPos = Vec2(x + w / 2, y + h / 2);
+
+				auto monsterLayer = MonsterLayer::create(type, pixelPos);
+				if (monsterLayer)
+				{
+					this->addChild(monsterLayer, 100);
+					auto monster = monsterLayer->getMonster();
+					monster->setCurrentAttributes(monster->getCurrentAttributes() * 2);
+					monster->setMaxHealth(monster->getMaxHealth() * 2);
+					_monsters.pushBack(monsterLayer);
 				}
 
 			}

@@ -78,6 +78,13 @@ void Monster::update(float dt)
     if (_hpBarNode) {
         _hpBarNode->setScaleX(this->getScaleX() > 0 ? 1.0f : -1.0f);
     }
+
+    if (_stunTimer > 0.0f)
+    {
+        _stunTimer -= dt;
+        if (_stunTimer < 0.0f) _stunTimer = 0.0f;
+    }
+
 }
 void Monster::setupHPBar()
 {
@@ -121,10 +128,18 @@ void Monster::struck(float attackPower)
 {
     if (_isDead) return; // 已经死掉的怪不再处理伤害
 
+    _stunTimer = 0.3f;
+
+    this->removeAttackBox();
+
+    if (_body) {
+        _body->setVelocity(Vec2(0, _body->getVelocity().y));
+    }
+
     _currentAttributes.health -= attackPower;
     if (_currentAttributes.health <= 0) {
         _currentAttributes.health = 0;
-        this->dead(); 
+        this->dead();
     }
     updateHPBar();
 }

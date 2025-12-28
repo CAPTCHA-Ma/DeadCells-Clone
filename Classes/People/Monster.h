@@ -26,6 +26,7 @@ public:
     float getFinalAttack() { return _currentAttributes.attack; };
     static Monster* create(MonsterCategory category);
     MonsterCategory getMonsterType();
+    bool isStunned() const { return _stunTimer > 0.0f; }
 
     const BasicAttributes& getAttributes() const { return _currentAttributes; }
 
@@ -50,7 +51,7 @@ public:
 protected:
     DeathCallback _deathCallback = nullptr;
 
-
+    float _stunTimer = 0.0f;
     std::set<cocos2d::Node*> _hitTargets;
     void setupHPBar();
     void updateHPBar();

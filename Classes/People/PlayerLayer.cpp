@@ -280,7 +280,7 @@ void PlayerLayer::getNewWeapon()
 {
     if (!_nearbyWeapon || !_nearbyWeapon->getParent() || !_player)
         return;
-    Vec2 dropPos = _nearbyWeapon->getPosition();
+    Vec2 dropPos = _player->getPosition();
     WeaponNode* weaponNodeToRemove = _nearbyWeapon;
     Weapon* newWpData = weaponNodeToRemove->pickUp();
 
@@ -295,7 +295,7 @@ void PlayerLayer::getNewWeapon()
         {
             this->getParent()->addChild(droppedNode);
             float xOffset = (_player->_direction == MoveDirection::RIGHT) ? -40.0f : 40.0f;
-            auto jump = JumpBy::create(0.4f, Vec2(xOffset, -10), 30, 1);
+            auto jump = JumpBy::create(0.4f, Vec2(xOffset, 20), 30, 1);
             droppedNode->runAction(jump);
         }
     }

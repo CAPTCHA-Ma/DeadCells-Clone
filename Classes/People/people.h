@@ -41,6 +41,14 @@ struct BasicAttributes
 
     // ÒÆ¶¯¸³ÖµÔËËã·û
     BasicAttributes& operator=(BasicAttributes&& other) noexcept = default;
+
+    BasicAttributes& operator*(int value)
+    {
+
+        return BasicAttributes(health *value, attack * value, defense * value);
+
+    }
+
 };
 enum PhysicsCategory
 {

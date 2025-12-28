@@ -101,10 +101,6 @@ void GameScene::RenderMap()
     _mapContainer->addChild(_player, 100);
     _mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
-    //auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
-    //monster.pushBack(monster3);
-    //_mapContainer->addChild(monster3, 100);
-
     for (auto roomData : rooms)
     {
 
@@ -426,7 +422,6 @@ bool GameScene::onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::Phy
         if (_player->getCurrentState() == ActionState::climbing || _player->getCurrentState() == ActionState::hanging)
         {
 
-            if (_player->GetVelo().y < -0.1f && !_player->_isContactBottom) solve.ignore();
             if (_player->GetVelo().y > 0.1f && _player->_isBelowLadder) solve.ignore();
             if (_player->GetVelo().y < -0.1f && _player->_isAboveLadder) solve.ignore();
 

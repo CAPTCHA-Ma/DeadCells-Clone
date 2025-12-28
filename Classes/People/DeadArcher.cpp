@@ -97,6 +97,16 @@ void DeadArcher::ai(float dt, cocos2d::Vec2 playerWorldPos)
 {
     if (_isDead)
         return;
+
+    if (this->isStunned())
+    {
+        // 如果当前不在 idle 状态，强制切回 idle (表现为被打断)
+        if (_state != DeadArcherState::idle) {
+            this->changeState(DeadArcherState::idle);
+        }
+        return; // 直接返回，不进行追击或攻击判断
+    }
+
     if (_state == DeadArcherState::shoot)
         return;
 

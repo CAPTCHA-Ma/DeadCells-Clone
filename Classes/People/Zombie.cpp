@@ -2,7 +2,7 @@
 USING_NS_CC;
 const float targetWidth = 64.0f;
 const float targetHeight = 120.0f;
-const float moveSpeed = 150.0f; //移动速度
+const float moveSpeed = 100.0f; //移动速度
 const float attackRange = 50.0f; //攻击范围
 const float DetectionRange = 200.0f;//跟踪范围
 const BasicAttributes basicAttribute = {100.0f,100.0f,0.0f };
@@ -101,6 +101,21 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
 {
     if (_isDead)
         return;
+
+    if (this->isStunned())
+    {
+        // 如果当前不在 idle 状态，强制切回 idle (表现为被打断)
+        if (_state != ZombieState::idle) {
+            this->changeState(ZombieState::idle);
+        }
+        return; // 直接返回，不进行追击或攻击判断
+    }
+
+    if (_state == ZombieState::atkA)
+        return;
+
+    _aiTickTimer += dt;
+
     if (_state == ZombieState::atkA)
         return;
 
