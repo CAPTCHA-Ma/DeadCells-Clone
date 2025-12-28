@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
-<dict>
-    <key>start_game_text</key>
-    <string>开始游戏</string>
+	<dict>
+		<key>start_game_text</key>
+		<string>开始游戏</string>
 
-    <key>loading_text</key>
-    <string>加载中...</string>
+		<key>loading_text</key>
+		<string>加载中...</string>
 
-    <key>exit_text</key>
-    <string>退出游戏</string>
+		<key>exit_text</key>
+		<string>退出游戏</string>
 
-	<key>restart_text</key>
-	<string>重新开始</string>
+		<key>restart_text</key>
+		<string>重新开始</string>
 
-	<key>back_to_menu_text</key>
-	<string>返回菜单</string>
+		<key>back_to_menu_text</key>
+		<string>返回菜单</string>
 
-</dict>
+		<key>help_menu</key>
+		<string>操作说明</string>
+
+<key>game_instructions</key>
+<string>
+WASD : 移动
+Space : 跳跃 / 二段跳 / 跳下梯子 / 翻越平台
+J : 主武器攻击 / 主盾弹反
+K : 副武器攻击 / 副盾弹反
+L : 冲刺
+Q : 切换主副武器
+E : 交互
+</string>
+
+	</dict>
 </plist>
