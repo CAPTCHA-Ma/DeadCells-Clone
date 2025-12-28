@@ -165,6 +165,7 @@ void GameScene::update(float dt)
         {
             _player->addGold(500);
             m->setGoldAwarded(true); 
+			_player->healthUp(20);
             CCLOG("Money added from Monster %p. Total Gold: %d", m, _player->getGold());
         }
         if (m->isReadyToRemove())
@@ -196,7 +197,7 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
         {
              _currentInteractNode->removeFromParent();
 
-             _player->healthUp();
+             _player->healthUp(100);
 
         }
     }
@@ -425,6 +426,7 @@ bool GameScene::onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::Phy
         if (_player->getCurrentState() == ActionState::climbing || _player->getCurrentState() == ActionState::hanging)
         {
 
+            if (_player->GetVelo().y < -0.1f && !_player->_isContactBottom) solve.ignore();
             if (_player->GetVelo().y > 0.1f && _player->_isBelowLadder) solve.ignore();
             if (_player->GetVelo().y < -0.1f && _player->_isAboveLadder) solve.ignore();
 

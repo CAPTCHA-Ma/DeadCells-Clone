@@ -14,7 +14,7 @@ class MapGenerator
 {
 public:
 
-    ~MapGenerator() 
+    virtual ~MapGenerator()
     {
     
         for (MapUnitData* room : _rooms) delete room;

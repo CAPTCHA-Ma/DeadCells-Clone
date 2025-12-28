@@ -808,7 +808,9 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 					goodsNode->setPrice(price);
 
-					tmx->addChild(goodsNode, 50);
+					CCLOG("ADDNODE!\n");
+
+					tmx->addChild(goodsNode, 100);
 				}
 
 			}

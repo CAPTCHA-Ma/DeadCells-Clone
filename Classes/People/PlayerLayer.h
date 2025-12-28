@@ -21,7 +21,7 @@ public:
     float getFinalAttack() const { return _player->getFinalAttack(); }
     bool isInvincible() const { return _player->isInvincible(); }
     bool gameEnding() const { return _player->gameEnding; }
-    void healthUp();
+    void healthUp(int value);
 
     // Õ½¶·Âß¼­
     void struck(float attackPower, cocos2d::Vec2 sourcePos);
@@ -56,6 +56,8 @@ private:
     WeaponNode* _nearbyWeapon = nullptr;
     cocos2d::Sprite* _pickupTip = nullptr;
 
+    int _jumpCount = 0; 
+    const int _maxJumpCount = 2;  
     bool _leftPressed = false;
     bool _rightPressed = false;
     bool _downPressed = false;

@@ -77,11 +77,13 @@ bool PlayerLayer::spendGold(int amount) {
     return false;
 }
 
-void PlayerLayer::healthUp()
+void PlayerLayer::healthUp(int value)
 {
 
     auto attrs = _player->getCurrentAttributes();
-    attrs.health = _player->getMaxHealth();
+    int newHealth = attrs.health + value, maxHealth = _player->getMaxHealth();
+	if (newHealth > maxHealth) newHealth = maxHealth;
+    attrs.health = newHealth;
     _player->setCurrentAttributes(attrs);
     _player->updateHPBar();
 
@@ -120,15 +122,65 @@ void PlayerLayer::setupEventListeners() {
                 break;
 
             case EventKeyboard::KeyCode::KEY_SPACE:
-                if (_player->_state == ActionState::climbing || _player->_state == ActionState::hanging) break;
-                if (_isPassingPlatform) _player->changeState(ActionState::climbedge);
+                if (_player->_state == ActionState::climbing || _player->_state == ActionState::hanging)
+                {
+
+                    auto body = _player->getPhysicsBody();
+
+                    if (body)
+                    {
+
+                        body->setGravityEnable(true);
+
+                        float jumpStrength = 350.0f; 
+                        body->setVelocity(Vec2(body->getVelocity().x, jumpStrength));
+
+                        _player->changeState(ActionState::jumpUp);
+
+                        _jumpCount = 1;
+
+                    }
+
+                    break; 
+
+                }
+                if (_isPassingPlatform)
+                {
+
+                    _player->changeState(ActionState::climbedge);
+                    break;
+
+                }
 
                 if (_downPressed) {
                     if (_isDropping) break;
                     _isDropping = true;
                     this->scheduleOnce([this](float dt) { _isDropping = false; }, 0.3f, "reset_drop_flag");
                 } else {
-                    _player->changeState(ActionState::jumpUp);
+
+                    bool canJump = false;
+
+                    if (_player->_state == ActionState::idle || _player->_state == ActionState::run) {
+                        canJump = true;
+                        _jumpCount = 1; 
+                    }
+                    else if (_jumpCount < _maxJumpCount && _jumpCount > 0) {
+                        canJump = true;
+                        _jumpCount++; 
+                    }
+
+                    if (canJump) {
+                        auto body = _player->getPhysicsBody();
+                        if (body) 
+                        {
+
+                            float jumpStrength = 450.0f; 
+                            body->setVelocity(Vec2(body->getVelocity().x, jumpStrength));
+
+                            _player->changeState(ActionState::jumpUp);
+                        }
+                    }
+
                 }
                 break;
 
@@ -293,6 +345,11 @@ void PlayerLayer::update(float dt) {
         if (_player->_state == ActionState::jumpDown || _player->_state == ActionState::jumpUp) {
             _player->set0VelocityX();
         }
+    }
+
+    // ÌøÔ¾¼ÆÊý
+    if (_player->_state == ActionState::idle || _player->_state == ActionState::run) {
+        _jumpCount = 0;
     }
 
     _player->update(dt);
