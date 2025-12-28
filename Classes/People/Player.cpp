@@ -11,7 +11,7 @@ const float runSpeed = 200.0f;
 const float jumpSpeed = 500.0f;
 const float rollSpeed = 500.0f;
 const float climbSpeed = 100.0f;
-const BasicAttributes basicAttribute = { 100,0,50 };
+const BasicAttributes basicAttribute = { 100,0,90 };
 USING_NS_CC;
 const float GRAVITY = 980.0f;
 //*******************************************************************

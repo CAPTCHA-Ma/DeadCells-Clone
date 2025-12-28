@@ -21,6 +21,7 @@ public:
     float getFinalAttack() const { return _player->getFinalAttack(); }
     bool isInvincible() const { return _player->isInvincible(); }
     bool gameEnding() const { return _player->gameEnding; }
+    void healthUp();
 
     // Õ½¶·Âß¼­
     void struck(float attackPower, cocos2d::Vec2 sourcePos);

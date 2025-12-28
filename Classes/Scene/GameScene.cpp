@@ -105,11 +105,9 @@ void GameScene::RenderMap()
     _monsters.pushBack(monster3);
     _mapContainer->addChild(monster3, 100);
 
-    int counter = 0;
     for (auto roomData : rooms)
     {
 
-        CCLOG("%d\n", ++counter);
         auto node = RoomNode::create(roomData, this->monster);
         _mapContainer->addChild(node, 0);
 
@@ -134,6 +132,15 @@ void GameScene::update(float dt)
 
     if (!_player || !_mapContainer) return;
 
+    if (_player->gameEnding())
+    {
+        
+		auto GameOverScene = GameOver::createScene();
+		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, GameOverScene));
+        return;
+
+	}
+
     Size visibleSize = Director::getInstance()->getVisibleSize();
     auto player = _player->getChildByName("Player");
     Vec2 playerPos = player->getPosition();
@@ -154,7 +161,6 @@ void GameScene::update(float dt)
         {
             mLayer->removeFromParent();
             it = monster.erase(it);     
-            CCLOG("Monster Safely Deleted");
         }
         else
         {
@@ -179,11 +185,12 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
             auto scene = GameOver::createScene();
             Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
         }
-        else if (name == "Chest")
+        else if (name == "REVIVE")
         {
-            CCLOG("Open Chest!");
-            // TODO: Add chest opening logic
              _currentInteractNode->removeFromParent();
+
+             _player->healthUp();
+
         }
     }
 }
@@ -207,10 +214,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         
     }
 
-    // 获取碰撞发生的大致位�?
     Vec2 contactPoint = contact.getContactData()->points[0];
-    // ��ҹ�������?
-    //��ս����
+
     if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
         Node* enemyNode = (maskA & ENEMY_BODY) ? nodeA : nodeB;
@@ -235,7 +240,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             monster->struck(damage);
         }
     }
-    // ��Ҽ��?
+
     if ((maskA & PLAYER_ARROW && maskB & ENEMY_BODY) || (maskB & PLAYER_ARROW && maskA & ENEMY_BODY))
     {
         auto arrowNode = (maskA & PLAYER_ARROW) ? nodeA : nodeB;
@@ -258,8 +263,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // ���﹥�����?
-    // ������?
+
     if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
     {
         auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
@@ -283,7 +287,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    //����ը��
+
     if ((maskA & ENEMY_BOMB && maskB & PLAYER_BODY) || (maskB & ENEMY_BOMB && maskA & PLAYER_BODY))
     {
         auto bombNode = (maskA & ENEMY_BOMB) ? nodeA : nodeB;
@@ -300,7 +304,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    // ������?
+
     if ((maskA & ENEMY_ARROW && maskB & PLAYER_BODY) || (maskB & ENEMY_ARROW && maskA & PLAYER_BODY))
     {
         auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
@@ -319,7 +323,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
-    //������ײ 
+
     if ((maskA & GROUND || maskB & GROUND))
     {
         auto otherNode = (maskA & GROUND) ? nodeB : nodeA;
@@ -454,7 +458,6 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
     if (weapon && _player)
     {
         _player->setNearbyWeapon(nullptr);
-        CCLOG("Weapon out of range, pointer cleared.");
     }
 
     if (maskA == INTERACTABLE || maskB == INTERACTABLE)

@@ -13,7 +13,7 @@
   </data>
  </layer>
  <objectgroup id="3" name="markers" opacity="0.5">
-  <object id="6" name="Chest" type="Chest" x="144" y="264" width="168" height="120">
+  <object id="6" name="REVIVE" type="REVIVE" x="144" y="264" width="168" height="120">
    <properties>
     <property name="xr" value="0"/>
     <property name="yr" value="0"/>
