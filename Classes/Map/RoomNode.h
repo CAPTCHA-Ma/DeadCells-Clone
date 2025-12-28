@@ -13,6 +13,7 @@
 #include "People/Bow.h"
 #include "People/Shield.h"
 
+// 单元房间生成类
 class RoomNode : public cocos2d::Node
 {
 public:

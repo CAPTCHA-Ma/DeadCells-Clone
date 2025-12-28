@@ -4,12 +4,14 @@
 
 USING_NS_CC;
 
+// A*寻路所需的节点结构体
 struct AStarNode {
-    int g = 0, f = 0, h = 0, lastDir = -1, height = 0;
-    bool IsOccupied = false, extra = false;
+    int g = 0, f = 0, h = 0, last_dir = -1, height = 0;
+    bool is_occupied = false, extra = false;
     Vec2 last = Vec2::ZERO;
 };
 
+// 地图生成方法抽象基类
 class MapGenerator 
 {
 public:
@@ -23,14 +25,15 @@ public:
     }
     virtual void Generate() = 0;
     virtual void GenRoomPos() = 0;
-    virtual bool FindPath(std::vector<std::vector<int>>& mapArray,
-        std::vector<std::vector<AStarNode>>& AStarGraph,
-        Vec2 startPos, Vec2 endPos,
+    virtual bool FindPath(std::vector<std::vector<int>>& map_array,
+        std::vector<std::vector<AStarNode>>& a_star_graph,
+        Vec2 start_pos, Vec2 end_pos,
         std::vector<Vec2>& path) = 0;
     std::vector<class MapUnitData*>& GetRooms() { return _rooms; }
 
 protected:
     
+	// 计算启发式函数H值（曼哈顿距离）
     void CalH(const Vec2& pos, const Vec2& endPos, std::vector<std::vector<AStarNode>>& graph) 
     {
 
@@ -38,6 +41,7 @@ protected:
 
     }
 
+	// 判断位置是否越界
     bool IsOut(const Vec2& pos, const std::vector<std::vector<AStarNode>>& graph) 
     {
 
@@ -49,6 +53,7 @@ protected:
 
     }
 
+	// 优先队列比较器，用于A*算法
     struct compare 
     {
 
@@ -66,7 +71,9 @@ protected:
 
     };
 
+	// 存储房间数据的容器
     std::vector<class MapUnitData*> _rooms;
+	// 管理地图信息的指针
     class MapDataManager* mDM = nullptr;
 
 };

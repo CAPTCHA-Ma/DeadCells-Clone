@@ -1,5 +1,6 @@
 #include "GameScene.h"
 
+// 接受一个地图生成器并创建游戏场景
 GameScene* GameScene::createWithGenerator(MapGenerator* generator) 
 {
 
@@ -27,6 +28,7 @@ GameScene* GameScene::createWithGenerator(MapGenerator* generator)
 
 }
 
+// 创建加载动画
 bool GameScene::init() 
 {
 
@@ -66,13 +68,16 @@ bool GameScene::init()
 
 }
 
+// 根据地图生成器生成地图数据
 void GameScene::GenMapData() 
 {
     std::thread renderThread([this](){
         
+        // 生成地图数据
         this->_mapGenerator->Generate();
 
         Director::getInstance()->getScheduler()->performFunctionInCocosThread([this]() {
+            // 渲染游戏地图
             this->RenderMap();
             });
 
@@ -80,6 +85,7 @@ void GameScene::GenMapData()
     renderThread.detach();
 }
 
+// 渲染游戏地图
 void GameScene::RenderMap()
 {
 
@@ -88,19 +94,13 @@ void GameScene::RenderMap()
 
     auto& rooms = _mapGenerator->GetRooms();
 
-    Vec2 startDir = (rooms[0]->obstacle.lowLeft + Vec2(30, 24)) * 24;
+    Vec2 startDir = (rooms[0]->obstacle.low_left + Vec2(30, 24)) * 24;
     _player = PlayerLayer::create(startDir);
-
-    auto swordNode = WeaponNode::createSword(Sword::SwordType::BackStabber, (rooms[0]->obstacle.lowLeft + Vec2(40, 22)) * 24);
-    _mapContainer->addChild(swordNode, 50);
-    swordNode->setPrice(1000);
-
-    auto bowNode = WeaponNode::createBow(Bow::BowType::crossbow, (rooms[0]->obstacle.lowLeft + Vec2(30, 22)) * 24);
-    _mapContainer->addChild(bowNode, 50);  
 
     _mapContainer->addChild(_player, 100);
     _mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
+	// 渲染房间
     for (auto roomData : rooms)
     {
 
@@ -109,10 +109,12 @@ void GameScene::RenderMap()
 
     }
 
+	// 设置键盘事件监听器
     auto keyListener = EventListenerKeyboard::create();
     keyListener->onKeyPressed = CC_CALLBACK_2(GameScene::onKeyPressed, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(keyListener, this);
 
+	// 设置物理碰撞事件监听器
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
     contactListener->onContactPreSolve = CC_CALLBACK_2(GameScene::onContactPreSolve, this);
@@ -123,10 +125,12 @@ void GameScene::RenderMap()
 
 }
 
+// 每帧更新游戏逻辑
 void GameScene::update(float dt)
 {
     if (!_player || !_mapContainer) return;
 
+	// 检查游戏结束状态
     if (_player->gameEnding())
     {
         
@@ -136,6 +140,7 @@ void GameScene::update(float dt)
 
 	}
 
+    // 镜头跟随
     Size visibleSize = Director::getInstance()->getVisibleSize();
     auto playerNode = _player->getChildByName("Player");
     if (playerNode) {
@@ -143,6 +148,8 @@ void GameScene::update(float dt)
         Vec2 currentPos = _mapContainer->getPosition();
         _mapContainer->setPosition(currentPos.lerp(visibleSize / 2 - Size(playerPos), 0.1f));
     }
+
+	// 更新怪物状态
     for (auto it = monster.begin(); it != monster.end(); )
     {
         MonsterLayer* mLayer = *it;
@@ -174,8 +181,12 @@ void GameScene::update(float dt)
             mLayer->update(dt, _player->getPlayerWorldPosition());
             ++it;
         }
+
     } 
+
 }
+
+// 处理按键事件
 void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
 {
 
@@ -184,11 +195,13 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
         
         std::string name = _currentInteractNode->getName();
 
+		// 结束当前场景并切换到游戏结束场景
         if (name == "ExitDoor")
         {
             auto scene = GameOver::createScene();
             Director::getInstance()->replaceScene(TransitionFade::create(1.0f, scene));
         }
+        // 回血点
         else if (name == "REVIVE")
         {
              _currentInteractNode->removeFromParent();
@@ -196,10 +209,15 @@ void GameScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
              _player->healthUp(100);
 
         }
+
     }
+
 }
+
+// 处理物理碰撞开始事件
 bool GameScene::onContactBegin(PhysicsContact& contact)
 {
+
     auto bodyA = contact.getShapeA()->getBody();
     auto bodyB = contact.getShapeB()->getBody();
     int maskA = bodyA->getCategoryBitmask();
@@ -208,6 +226,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     auto nodeB = bodyB->getNode();
 
     if (!nodeA || !nodeB) return true;
+
     if (maskA == SHIELD || maskB == SHIELD) 
     {
         auto otherBody = (maskA == SHIELD) ? bodyB : bodyA;
@@ -252,11 +271,13 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
         return false; // 盾牌框不需要产生真实的物理排斥，只做判定
     }
+
     if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
     {
         auto targetNode = (maskA == INTERACTABLE) ? nodeA : nodeB;
         if (targetNode) _currentInteractNode = targetNode;
     }
+
     Vec2 contactPoint = contact.getContactData()->points[0];
     if ((maskA & PLAYER_ATTACK && maskB & ENEMY_BODY) || (maskB & PLAYER_ATTACK && maskA & ENEMY_BODY))
     {
@@ -280,6 +301,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             monster->struck(damage);
         }
     }
+
     if ((maskA & PLAYER_ARROW && maskB & ENEMY_BODY) || (maskB & PLAYER_ARROW && maskA & ENEMY_BODY))
     {
         auto arrowNode = (maskA & PLAYER_ARROW) ? nodeA : nodeB;
@@ -302,6 +324,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
+
     if ((maskA & ENEMY_ATTACK && maskB & PLAYER_BODY) || (maskB & ENEMY_ATTACK && maskA & PLAYER_BODY))
     {
         auto attackNode = (maskA & ENEMY_ATTACK) ? nodeA : nodeB;
@@ -324,6 +347,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
+
     if ((maskA & ENEMY_BOMB && maskB & PLAYER_BODY) || (maskB & ENEMY_BOMB && maskA & PLAYER_BODY))
     {
         auto bombNode = (maskA & ENEMY_BOMB) ? nodeA : nodeB;
@@ -340,6 +364,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
+
     if ((maskA & ENEMY_ARROW && maskB & PLAYER_BODY) || (maskB & ENEMY_ARROW && maskA & PLAYER_BODY))
     {
         auto arrowNode = (maskA & ENEMY_ARROW) ? nodeA : nodeB;
@@ -358,6 +383,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             }
         }
     }
+
     if ((maskA & GROUND || maskB & GROUND))
     {
         auto otherNode = (maskA & GROUND) ? nodeB : nodeA;
@@ -376,8 +402,11 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
     return true;
 }
+
+// 处理物理碰撞预处理事件
 bool GameScene::onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::PhysicsContactPreSolve& solve)
 {
+
     auto bodyA = contact.getShapeA()->getBody();
     auto bodyB = contact.getShapeB()->getBody();
 
@@ -476,8 +505,11 @@ bool GameScene::onContactPreSolve(cocos2d::PhysicsContact& contact, cocos2d::Phy
 
     return true;
 }
+
+// 处理物理碰撞分离事件
 void GameScene::onContactSeparate(PhysicsContact& contact)
 {
+
     auto bodyA = contact.getShapeA()->getBody();
     auto bodyB = contact.getShapeB()->getBody();
     int maskA = bodyA->getCategoryBitmask();
@@ -552,6 +584,7 @@ void GameScene::onContactSeparate(PhysicsContact& contact)
 
 }
 
+// 析构函数，清理资源
 GameScene::~GameScene()
 {
 

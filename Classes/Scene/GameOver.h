@@ -6,6 +6,7 @@
 #include "GameScene.h"
 #include "Prison.h"
 
+// 游戏结束场景类，显示游戏结束选项
 class GameOver : public cocos2d::Scene
 {
 public:

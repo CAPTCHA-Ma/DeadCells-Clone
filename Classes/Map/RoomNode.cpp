@@ -1,21 +1,7 @@
 #include "RoomNode.h"
 #include "TileRenderer.h"
 
-RoomNode* RoomNode::create(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters)
-{
-
-	auto node = new RoomNode();
-	if (node && node->init(data, _monsters))
-	{
-		node->autorelease();
-		return node;
-	}
-
-	CC_SAFE_DELETE(node);
-	return nullptr;
-
-}
-
+// unordered_map, unordered_set所需哈希与比较函数
 struct Vec2Hash
 {
 
@@ -40,12 +26,30 @@ struct Vec2Equal
 
 } eq;
 
+// 创建单元房间Node
+RoomNode* RoomNode::create(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters)
+{
+
+	auto node = new RoomNode();
+	if (node && node->init(data, _monsters))
+	{
+		node->autorelease();
+		return node;
+	}
+
+	CC_SAFE_DELETE(node);
+	return nullptr;
+
+}
+
+// 创建碰撞体
 void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Node* layer)
 {
 
 	Size sz = Size(layerCategory[0].size(), layerCategory.size());
 	std::vector<std::vector<bool>> visited(int(sz.height), std::vector<bool>(int(sz.width), false));
 
+	// 遍历数组 贪心合并碰撞体
 	for (int y = 0; y < sz.height; ++y)
 	{
 
@@ -125,6 +129,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 
 			}
 
+			// 标记已访问
 			for (int y0 = y; y0 < y + height; ++y0)
 			{
 
@@ -132,6 +137,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 
 			}
 
+			// 创建碰撞体
 			auto physicsBody = PhysicsBody::createBox(Size(width * 24, height * 24), PhysicsMaterial(0.1f, 0.0f, 0.0f));
 			physicsBody->setDynamic(false);
 			physicsBody->setCategoryBitmask(cateBitMask);
@@ -160,6 +166,7 @@ void GenBody(const std::vector<std::vector<PhysicsCategory>>& layerCategory, Nod
 
 }
 
+// 生成走廊
 Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 {
 
@@ -409,8 +416,10 @@ Node* GenCorridor(std::vector<std::vector<Vec2>>& paths, Vec2& origin)
 	}
 
 	return corridorContainer;
+
 }
 
+// 怪物生成算法
 void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const std::vector<std::vector<PhysicsCategory>>& layerCategory)
 {
 
@@ -418,6 +427,7 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 	int height = layerCategory.size();
 	int width = layerCategory[0].size();
 
+	// 寻找所有候选点 GROUND上方有三格AIR
 	for (int y = 0; y < height - 2; ++y) 
 	{
 		for (int x = 0; x < width; ++x)
@@ -425,7 +435,8 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 			if (layerCategory[y][x] == PhysicsCategory::GROUND)
 			{
 				if (layerCategory[y + 1][x] == PhysicsCategory::AIR &&
-					layerCategory[y + 2][x] == PhysicsCategory::AIR)
+					layerCategory[y + 2][x] == PhysicsCategory::AIR &&
+					layerCategory[y + 3][x] == PhysicsCategory::AIR)
 				{
 					candidates.push_back(Vec2(x, y + 1));
 				}
@@ -435,6 +446,7 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 
 	if (candidates.empty()) return;
 
+	// 打乱候选点顺序
 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	std::shuffle(candidates.begin(), candidates.end(), std::default_random_engine(seed));
 
@@ -444,6 +456,7 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 	int maxMonsters = std::max(1, (int)candidates.size() / 10);
 	maxMonsters = std::min(maxMonsters, 4);
 
+	// 选择生成点 保持最小距离
 	for (const auto& pos : candidates)
 	{
 		if (spawnPoints.size() >= maxMonsters) break;
@@ -459,12 +472,11 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 			}
 		}
 
-		if (!tooClose)
-		{
-			spawnPoints.push_back(pos);
-		}
+		if (!tooClose) spawnPoints.push_back(pos);
+		
 	}
 
+	// 在生成点创建怪物
 	for (const auto& sp : spawnPoints)
 	{
 		
@@ -483,13 +495,15 @@ void GenMonster(Node* owner, cocos2d::Vector<MonsterLayer*>& _monsters, const st
 
 }
 
+// 创建单元房间Node
 bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters)
 {
 
+	// 读取tmx信息
 	auto tmx = TMXTiledMap::create(data->name);
 	this->addChild(tmx);
 	this->setAnchorPoint(Vec2::ZERO);
-	this->setPosition(data->obstacle.lowLeft * 24);
+	this->setPosition(data->obstacle.low_left * 24);
 
 	tmx->setAnchorPoint(Vec2::ZERO);
 
@@ -497,6 +511,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 	std::vector<std::vector<PhysicsCategory>> layerCategory(int(size.height), std::vector<PhysicsCategory>(int(size.width)));
 	std::vector<std::vector<bool>> visited(int(size.height), std::vector<bool>(int(size.width), false));
 
+	// 处理lnk层 将未选择的门设为GROUND
 	auto lnkLayer = tmx->getLayer("lnk");
 
 	for (int x = 0; x < size.width; x++)
@@ -529,8 +544,8 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 	}
 
 	std::queue<Vec2> q;
-	if (data->chosenEntrance != -1) q.push(data->entrance[data->chosenEntrance]);
-	if (data->chosenExit != -1) q.push(data->exit[data->chosenExit]);
+	if (data->chosen_entrance != -1) q.push(data->entrance[data->chosen_entrance]);
+	if (data->chosen_exit != -1) q.push(data->exit[data->chosen_exit]);
 	Vec2 dir[4] = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 
 	while (!q.empty())
@@ -556,6 +571,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
+	// 处理col层 修改碰撞类别数组
 	auto colLayer = tmx->getLayer("col");
 
 	for (int x = 0; x < size.width; x++)
@@ -605,12 +621,13 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
-	if (data->chosenEntrance != -1)
+	// 如果入口或出口在上下两侧 则生成平台 以便跳上跳下
+	if (data->chosen_entrance != -1)
 	{
 
-		Vec2 EntranceDir = data->entrance[data->chosenEntrance];
+		Vec2 EntranceDir = data->entrance[data->chosen_entrance];
 		
-		if (EntranceDir.y == 0 || EntranceDir.y == data->obstacle.upperRight.y - data->obstacle.lowLeft.y)
+		if (EntranceDir.y == 0 || EntranceDir.y == data->obstacle.upper_right.y - data->obstacle.low_left.y)
 		{
 
 			int w = RandomHelper::random_int(0, 1), p = 0;
@@ -633,12 +650,12 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
-	if (data->chosenExit != -1)
+	if (data->chosen_exit != -1)
 	{
 
-		Vec2 ExitDir = data->exit[data->chosenExit];
+		Vec2 ExitDir = data->exit[data->chosen_exit];
 
-		if (ExitDir.y == 0 || ExitDir.y == data->obstacle.upperRight.y - data->obstacle.lowLeft.y)
+		if (ExitDir.y == 0 || ExitDir.y == data->obstacle.upper_right.y - data->obstacle.low_left.y)
 		{
 
 			int w = RandomHelper::random_int(0, 1), p = 0;
@@ -661,6 +678,7 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
+	// 将梯子上下的GROUND或PLATFORM改为MIX 便于爬梯子
 	for (int x = 0; x < size.width; x++)
 	{
 
@@ -691,30 +709,33 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
+	// 生成碰撞体
 	GenBody(layerCategory, tmx);
 
-	if (data->nextRoom.size())
+	// 如果存在后续走廊 则生成走廊
+	if (data->next_room.size())
 	{
 
 		std::vector<std::vector<Vec2>> paths;
 
-		for (MapUnitData* nextRoom : data->nextRoom)
+		for (MapUnitData* next_room : data->next_room)
 		{
 
-			if (nextRoom->path.size()) paths.push_back(nextRoom->path);
+			if (next_room->path.size()) paths.push_back(next_room->path);
 
 		}
 
 		if (paths.size())
 		{
 
-			Node* layer = GenCorridor(paths, data->obstacle.lowLeft);
+			Node* layer = GenCorridor(paths, data->obstacle.low_left);
 			this->addChild(layer);
 
 		}
 
 	}
 
+	// 读取对象层 生成交互物体
 	auto objectGroup = tmx->getObjectGroup("markers");
 
 	if (objectGroup) {
@@ -836,7 +857,8 @@ bool RoomNode::init(MapUnitData* data, cocos2d::Vector<MonsterLayer*>& _monsters
 
 	}
 
-	if (data->roomtype == Type::combat)
+	// 如果是战斗房间 则生成怪物
+	if (data->room_type == Type::combat)
 	{
 		GenMonster(this, _monsters, layerCategory);
 	}

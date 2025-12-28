@@ -5,10 +5,10 @@
 bool IsBoxOverLap(Box box, Box other)
 {
 
-    if (other.lowLeft.x > box.upperRight.x ||
-        other.upperRight.x < box.lowLeft.x ||
-        other.lowLeft.y > box.upperRight.y ||
-        other.upperRight.y < box.lowLeft.y) return false;
+    if (other.low_left.x > box.upper_right.x ||
+        other.upper_right.x < box.low_left.x ||
+        other.low_left.y > box.upper_right.y ||
+        other.upper_right.y < box.low_left.y) return false;
     else return true;
 
 }
@@ -25,8 +25,8 @@ bool IsRoomOverLap(MapUnitData* room, MapUnitData* other)
 void MapUnitData::ChangePosition()
 {
 
-    obstacle.lowLeft += velocity;
-    obstacle.upperRight += velocity;
+    obstacle.low_left += velocity;
+    obstacle.upper_right += velocity;
 
     center += velocity;
 	velocity = Vec2::ZERO;

@@ -3,6 +3,7 @@
 
 USING_NS_CC;
 
+// 创建游戏结束场景
 cocos2d::Scene* GameOver::createScene()
 {
 
@@ -10,6 +11,7 @@ cocos2d::Scene* GameOver::createScene()
 
 }
 
+// 初始化游戏结束场景
 bool GameOver::init() 
 {
 
@@ -48,7 +50,6 @@ bool GameOver::init()
 	Exitlabel->enableGlow(Color4B::WHITE);
 
 	ExitButton->addClickEventListener([](Ref* sender) {
-		// Exit game
 		Director::getInstance()->end();
 		});
 
@@ -64,7 +65,6 @@ bool GameOver::init()
 	BackToMenulabel->enableGlow(Color4B::WHITE);
 
 	BackToMenuButton->addClickEventListener([](Ref* sender) {
-		// Back to menu
 		auto StartMenuScene = StartMenu::create();
 		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, StartMenuScene));
 		});

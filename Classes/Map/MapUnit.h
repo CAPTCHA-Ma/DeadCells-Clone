@@ -24,7 +24,7 @@ enum class Direction
 struct Box
 {
 
-    Vec2 lowLeft, upperRight;
+    Vec2 low_left, upper_right;
 
 };
 
@@ -32,14 +32,14 @@ class MapUnitData
 {
 public:
 
-	Type roomtype;
+	Type room_type;
 	std::string name;
     std::vector<Vec2> entrance, exit, path;
     Vec2 center = Vec2::ZERO, velocity = Vec2::ZERO;
-	int chosenEntrance = -1, chosenExit = -1;
+	int chosen_entrance = -1, chosen_exit = -1;
 	Box obstacle;
-	MapUnitData* preRoom = nullptr;
-    std::vector<MapUnitData*> nextRoom;
+	MapUnitData* pre_room = nullptr;
+    std::vector<MapUnitData*> next_room;
 
     void ChangePosition();
 

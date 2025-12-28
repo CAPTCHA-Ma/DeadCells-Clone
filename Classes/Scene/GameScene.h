@@ -11,6 +11,7 @@
 #include "People/Monster.h"
 #include "GameOver.h"
 
+// 游戏场景类，负责地图生成、渲染和游戏逻辑处理
 class GameScene : public cocos2d::Scene
 {
 public:
@@ -31,6 +32,6 @@ private:
     cocos2d::Label* _loadingLabel = nullptr; 
 	cocos2d::Sprite* _loadingSprite = nullptr;
     PlayerLayer* _player = nullptr;
-    cocos2d::Vector<WeaponNode*> _weapons;
     cocos2d::Node* _currentInteractNode = nullptr;
+
 };

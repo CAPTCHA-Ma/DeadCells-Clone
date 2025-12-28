@@ -67,8 +67,8 @@ bool StartMenu::init()
 	Exitlabel->enableShadow();
 	Exitlabel->enableGlow(Color4B::WHITE);
 
+	// 退出游戏
 	ExitButton->addClickEventListener([](Ref* sender) {
-		// 退出游戏
 		Director::getInstance()->end();
 		});
 
