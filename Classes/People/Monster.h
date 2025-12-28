@@ -36,7 +36,21 @@ public:
     }
 
     void update(float dt);
+
+    //金币奖励
+    using DeathCallback = std::function<void(int)>;
+    void setDeathCallback(DeathCallback cb) { _deathCallback = cb; }
+
 protected:
+    bool _goldAwarded = false; // 新增：金币是否已发放的标记
+
+public:
+    bool isGoldAwarded() const { return _goldAwarded; }
+    void setGoldAwarded(bool awarded) { _goldAwarded = awarded; }
+protected:
+    DeathCallback _deathCallback = nullptr;
+
+
     std::set<cocos2d::Node*> _hitTargets;
     void setupHPBar();
     void updateHPBar();

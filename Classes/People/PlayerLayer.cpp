@@ -27,7 +27,24 @@ bool PlayerLayer::init(Vec2 pos) {
 
     return true;
 }
+// 在 PlayerLayer.cpp 中添加/修改
+void PlayerLayer::addGold(int amount) {
+    _gold += amount;
+    if (_player) {
+        _player->updateGoldDisplay(_gold); // 同步更新玩家头顶的金币显示
+    }
+}
 
+bool PlayerLayer::reduceGold(int amount) {
+    if (_gold >= amount) {
+        _gold -= amount;
+        if (_player) {
+            _player->updateGoldDisplay(_gold); // 扣钱后立即更新显示
+        }
+        return true;
+    }
+    return false; // 钱不够
+}
 // --- 战斗判定辅助 ---
 void PlayerLayer::recordMonsterHit(Monster* monster) {
     if (monster) _hitMonsters.insert(monster);
@@ -133,54 +150,36 @@ void PlayerLayer::setupEventListeners() {
             case EventKeyboard::KeyCode::KEY_Q:
                 _player->swapWeapon();
                 break;
-
             case EventKeyboard::KeyCode::KEY_E:
                 if (_nearbyWeapon)
                 {
                     int cost = _nearbyWeapon->getPrice();
-
                     if (cost == 0)
                     {
                         this->getNewWeapon();
+                        CCLOG("Picked up free weapon");
                     }
                     else
                     {
-                        if (this->_gold >= cost)
+                        if (this->reduceGold(cost)) 
                         {
-                            this->_gold -= cost;
                             this->getNewWeapon();
+                            CCLOG("Purchased weapon for %d gold", cost);
                         }
                         else
                         {
-
                             if (_nearbyWeapon->getChildByName("NoMoneyTip"))
-                            {
                                 _nearbyWeapon->removeChildByName("NoMoneyTip");
-                            }
-
                             auto tipLabel = Label::createWithTTF("Not Enough Gold!", "fonts/fusion-pixel.ttf", 18);
-
                             tipLabel->setColor(Color3B::RED);
-                            tipLabel->enableOutline(Color4B::WHITE, 1);
                             tipLabel->setName("NoMoneyTip");
-
                             tipLabel->setPosition(Vec2(_nearbyWeapon->getContentSize().width / 2,
                                 _nearbyWeapon->getContentSize().height + 60));
-
-                            tipLabel->setGlobalZOrder(9999);
-
                             _nearbyWeapon->addChild(tipLabel);
-
-                            float duration = 1.0f;
-                            auto moveUp = MoveBy::create(duration, Vec2(0, 30));
-                            auto fadeOut = FadeOut::create(duration);
-                            auto spawn = Spawn::create(moveUp, fadeOut, nullptr);
-                            auto remove = RemoveSelf::create();
-
-                            tipLabel->runAction(Sequence::create(spawn, remove, nullptr));
+                            auto spawn = Spawn::create(MoveBy::create(1.0f, Vec2(0, 30)), FadeOut::create(1.0f), nullptr);
+                            tipLabel->runAction(Sequence::create(spawn, RemoveSelf::create(), nullptr));
                         }
                     }
-
                 }
                 break;
             default:
@@ -209,7 +208,7 @@ void PlayerLayer::setupEventListeners() {
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
-// --- 逻辑处理 ---
+//逻辑处理
 void PlayerLayer::struck(float attackPower, Vec2 sourcePos) {
     float diffX = sourcePos.x - getPlayerWorldPosition().x;
     _player->changeDirection(diffX > 0 ? MoveDirection::RIGHT : MoveDirection::LEFT);

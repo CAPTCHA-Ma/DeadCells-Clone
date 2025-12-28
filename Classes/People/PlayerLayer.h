@@ -35,7 +35,8 @@ public:
     WeaponNode* getNearbyWeapon() const { return _nearbyWeapon; }
     void getNewWeapon();
     int getGold() const { return _gold; }
-    void addGold(int amount) { _gold += amount; }
+    void PlayerLayer::addGold(int amount);
+    bool PlayerLayer::reduceGold(int amount);
     bool spendGold(int amount);
 
     // 梯子与平台物理状态标识
@@ -48,7 +49,6 @@ public:
 private:
     PlayerLayer() = default;
     ~PlayerLayer() = default;
-
     void setupEventListeners();
 
     Player* _player = nullptr;

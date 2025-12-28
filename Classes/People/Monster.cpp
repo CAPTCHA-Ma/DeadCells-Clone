@@ -119,10 +119,12 @@ void Monster::updateHPBar()
 }
 void Monster::struck(float attackPower)
 {
+    if (_isDead) return; // 已经死掉的怪不再处理伤害
+
     _currentAttributes.health -= attackPower;
     if (_currentAttributes.health <= 0) {
         _currentAttributes.health = 0;
-        this->dead();
+        this->dead(); 
     }
     updateHPBar();
 }
@@ -130,23 +132,15 @@ void Monster::dead()
 {
     if (_isDead) return;
     _isDead = true;
+
     this->stopAllActions();
-    if (_sprite) 
-        _sprite->stopAllActions();
-
-
-    if (_body) 
+    if (_sprite) _sprite->stopAllActions();
+    if (_body)
     {
         _body->setVelocity(Vec2::ZERO);
         _body->setContactTestBitmask(0);
-        _body->setCollisionBitmask(GROUND | PLATFORM | MIX); 
+        _body->setCollisionBitmask(GROUND | PLATFORM | MIX);
     }
-    auto parentLayer = dynamic_cast<Layer*>(this->getParent());
-    if (parentLayer) 
-    {
-        parentLayer->unscheduleUpdate();
-    }
-
-    onDead();
+    onDead(); 
 }
 

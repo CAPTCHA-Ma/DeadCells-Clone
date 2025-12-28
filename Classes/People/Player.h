@@ -182,8 +182,10 @@ protected:
     bool _canCombo;                             // 当前是否允许连招
 	int _comboStep = 0;                         // 当前连招步骤
 
-
+    void setupGoldLabel();
+    void updateGoldDisplay(int totalGold);
 private:
+    cocos2d::Label* _goldLabelNode = nullptr; // 用于显示金币的文本节点
     //动画
     bool _invincible = false;
     cocos2d::DrawNode* _hpBarNode = nullptr;

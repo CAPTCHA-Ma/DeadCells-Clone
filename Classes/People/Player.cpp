@@ -38,9 +38,42 @@ bool Player::init()
 
 
     playAnimation(ActionState::idle, true);
+    this->setupGoldLabel();
     this->setupHPBar();
     this->scheduleUpdate();
     return true;
+}
+void Player::setupGoldLabel()
+{
+    if (_goldLabelNode) return;
+
+    // 创建 Label，使用你项目中已有的字体
+    _goldLabelNode = cocos2d::Label::createWithTTF("0", "fonts/fusion-pixel.ttf", 18);
+
+    // 获取血条的位置作为参考
+    float spriteHeight = bodyHeight * 1;
+    // 设在血条上方（血条在 spriteHeight+50，金币设在 +70）
+    _goldLabelNode->setPosition(cocos2d::Vec2(pictureWidth / 2, spriteHeight + 70));
+
+    _goldLabelNode->setColor(cocos2d::Color3B::YELLOW); // 金币用黄色
+    // 加上简单的黑色轮廓，防止在亮色背景下看不清
+    _goldLabelNode->enableOutline(cocos2d::Color4B::BLACK, 1);
+
+    this->addChild(_goldLabelNode, 11); // 层级略高于血条
+}
+void Player::updateGoldDisplay(int totalGold)
+{
+    if (!_goldLabelNode) {
+        setupGoldLabel(); // 如果还没初始化则初始化
+    }
+
+    _goldLabelNode->setString(std::to_string(totalGold));
+
+    // 添加一个微小的动画反馈：变大再回弹
+    _goldLabelNode->stopAllActions();
+    auto scaleUp = cocos2d::ScaleTo::create(0.05f, 1.3f);
+    auto scaleDown = cocos2d::ScaleTo::create(0.1f, 1.0f);
+    _goldLabelNode->runAction(cocos2d::Sequence::create(scaleUp, scaleDown, nullptr));
 }
 void Player::setupHPBar()
 {

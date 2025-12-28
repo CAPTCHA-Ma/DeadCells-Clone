@@ -31,7 +31,6 @@ private:
     cocos2d::Label* _loadingLabel = nullptr; 
 	cocos2d::Sprite* _loadingSprite = nullptr;
     PlayerLayer* _player = nullptr;
-	cocos2d::Vector<MonsterLayer*> _monsters;
     cocos2d::Vector<WeaponNode*> _weapons;
     cocos2d::Node* _currentInteractNode = nullptr;
 };
