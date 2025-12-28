@@ -3,6 +3,8 @@
 #include "Shield.h"
 #include "Bow.h"
 #include "Sword.h"
+
+// 定义玩家尺寸和物理属性的常量
 const float pictureWidth = 250.0f;
 const float pictureHeight = 250.0f;
 const float bodyWidth = 100.0f;
@@ -11,31 +13,37 @@ const float runSpeed = 200.0f;
 const float jumpSpeed = 500.0f;
 const float rollSpeed = 500.0f;
 const float climbSpeed = 100.0f;
-const BasicAttributes basicAttribute = { 100,0,90 };
+const BasicAttributes basicAttribute = { 100, 0, 90 };
+
 USING_NS_CC;
+
 const float GRAVITY = 980.0f;
-//*******************************************************************
-//*******************************************************************
-//*******************************************************************
-//初始化a
+
+// -----------------------------------------------------------------------------
+// 初始化与 UI 设置
+// -----------------------------------------------------------------------------
+
+/**
+ * 初始化玩家实例，包括默认精灵、属性和初始武器。
+ * @return 如果初始化成功返回 true。
+ */
 bool Player::init()
 {
     if (!Sprite::initWithFile("Graph/Player/idle_00-=-0-=-.png", Rect(0, 0, pictureWidth, pictureHeight)))
         return false;
+
     _runSpeed = runSpeed;
     _jumpSpeed = jumpSpeed;
     _rollSpeed = rollSpeed;
-	_climbSpeed = climbSpeed;
+    _climbSpeed = climbSpeed;
     _state = ActionState::idle;
     _direction = MoveDirection::RIGHT;
     this->setCurrentAttributes(basicAttribute);
     this->setMaxHealth(basicAttribute.health);
 
-
     this->_mainWeapon = new Shield(Shield::ShieldType::ParryShield);
     this->_subWeapon = new Bow(Bow::BowType::dualBow);
     this->createNormalBody();
-
 
     playAnimation(ActionState::idle, true);
     this->setupGoldLabel();
@@ -43,6 +51,10 @@ bool Player::init()
     this->scheduleUpdate();
     return true;
 }
+
+/**
+ * 创建并配置金币数量显示的标签。
+ */
 void Player::setupGoldLabel()
 {
     if (_goldLabelNode) return;
@@ -52,12 +64,17 @@ void Player::setupGoldLabel()
 
     _goldLabelNode->setColor(cocos2d::Color3B::YELLOW);
     _goldLabelNode->enableOutline(cocos2d::Color4B::BLACK, 1);
-    this->addChild(_goldLabelNode, 11); 
+    this->addChild(_goldLabelNode, 11);
 }
+
+/**
+ * 更新金币显示文字，并触发缩放动画反馈。
+ * @param totalGold 当前持有的总金币数。
+ */
 void Player::updateGoldDisplay(int totalGold)
 {
     if (!_goldLabelNode) {
-        setupGoldLabel(); 
+        setupGoldLabel();
     }
 
     _goldLabelNode->setString(std::to_string(totalGold));
@@ -66,18 +83,25 @@ void Player::updateGoldDisplay(int totalGold)
     auto scaleDown = cocos2d::ScaleTo::create(0.1f, 1.0f);
     _goldLabelNode->runAction(cocos2d::Sequence::create(scaleUp, scaleDown, nullptr));
 }
+
+/**
+ * 初始化血条绘图节点。
+ */
 void Player::setupHPBar()
 {
     if (_hpBarNode) return;
 
     _hpBarNode = cocos2d::DrawNode::create();
     float spriteHeight = bodyHeight * 1;
-    _hpBarNode->setPosition(cocos2d::Vec2(pictureWidth/2, spriteHeight+50));
+    _hpBarNode->setPosition(cocos2d::Vec2(pictureWidth / 2, spriteHeight + 50));
 
     this->addChild(_hpBarNode, 10);
     updateHPBar();
 }
 
+/**
+ * 根据当前生命值百分比重新绘制血条。
+ */
 void Player::updateHPBar()
 {
     if (!_hpBarNode) return;
@@ -87,11 +111,15 @@ void Player::updateHPBar()
     float height = 5.0f;  // 血条高度
     float percent = _currentAttributes.health / _maxHealth;
     percent = std::max(0.0f, std::min(1.0f, percent));
+
+    // 绘制血条背景（半透明黑色）
     _hpBarNode->drawSolidRect(
         cocos2d::Vec2(-width / 2, -height / 2),
         cocos2d::Vec2(width / 2, height / 2),
         cocos2d::Color4F(0, 0, 0, 0.5f)
     );
+
+    // 根据血量决定填充颜色（低于30%显示红色，否则绿色）
     cocos2d::Color4F barColor = (percent > 0.3f) ? cocos2d::Color4F::GREEN : cocos2d::Color4F::RED;
     _hpBarNode->drawSolidRect(
         cocos2d::Vec2(-width / 2, -height / 2),
@@ -99,6 +127,15 @@ void Player::updateHPBar()
         barColor
     );
 }
+
+// -----------------------------------------------------------------------------
+// 物理引擎与碰撞处理
+// -----------------------------------------------------------------------------
+
+/**
+ * 配置玩家物理刚体的掩码和基本属性。
+ * @param body 需要配置的物理刚体指针。
+ */
 void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
 {
     body->setDynamic(true);
@@ -108,6 +145,12 @@ void Player::setupBodyProperties(cocos2d::PhysicsBody* body)
     body->setCollisionBitmask(GROUND | PLATFORM | LADDER | MIX | INTERACTABLE);
     body->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB | PLATFORM | LADDER | MIX | GROUND | WEAPON | INTERACTABLE);
 }
+
+/**
+ * 更新或创建玩家的多边形物理形状。
+ * @param size 身体尺寸。
+ * @param offset 形状相对于锚点的偏移量。
+ */
 void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& offset)
 {
     auto currentBody = this->getPhysicsBody();
@@ -120,60 +163,88 @@ void Player::updatePhysicsBody(const cocos2d::Size& size, const cocos2d::Vec2& o
     currentBody->removeAllShapes();
 
     float skin = 1.5f;
-
     float w = (size.width / 2.0f) - skin;
     float h = (size.height / 2.0f) - skin;
 
     if (w < 0.1f) w = 0.1f;
     if (h < 0.1f) h = 0.1f;
 
-    float chamfer = 5.0f;
-
+    float chamfer = 5.0f; // 倒角大小
     if (chamfer > w) chamfer = w;
     if (chamfer > h) chamfer = h;
 
+    // 定义 8 个顶点组成的八边形以优化斜坡移动和减少卡顿
     Vec2 points[8] = {
-        Vec2(-w + chamfer, -h), 
-        Vec2(w - chamfer, -h),  
-        Vec2(w, -h + chamfer), 
-        Vec2(w, h - chamfer),  
-        Vec2(w - chamfer, h), 
-        Vec2(-w + chamfer, h), 
-        Vec2(-w, h - chamfer), 
-        Vec2(-w, -h + chamfer)  
+        Vec2(-w + chamfer, -h),
+        Vec2(w - chamfer, -h),
+        Vec2(w, -h + chamfer),
+        Vec2(w, h - chamfer),
+        Vec2(w - chamfer, h),
+        Vec2(-w + chamfer, h),
+        Vec2(-w, h - chamfer),
+        Vec2(-w, -h + chamfer)
     };
 
     auto material = PhysicsMaterial(0.1f, 0.0f, 0.0f);
     auto shape = PhysicsShapePolygon::create(points, 8, material, offset);
 
     currentBody->addShape(shape);
-
     setupBodyProperties(currentBody);
 }
+
+/**
+ * 创建正常站立/移动状态下的物理形状。
+ */
 void Player::createNormalBody()
 {
     updatePhysicsBody(Size(bodyWidth / 3, bodyHeight / 3), Vec2(0, bodyWidth / 4));
 }
+
+/**
+ * 创建翻滚状态下的物理形状（高度减半，重心降低）。
+ */
 void Player::createRollBody()
 {
-    // 翻滚状态：高度减半，重心降低
     updatePhysicsBody(Size(bodyWidth / 3, bodyHeight / 6), Vec2(0, bodyHeight / 12));
 }
+
+// -----------------------------------------------------------------------------
+// 移动与速度控制
+// -----------------------------------------------------------------------------
+
+/**
+ * 根据当前朝向赋予水平速度。
+ * @param speed 速度数值。
+ */
 void Player::giveVelocityX(float speed)
 {
     int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
     this->getPhysicsBody()->setVelocity(Vec2(speed * dir, this->getPhysicsBody()->getVelocity().y));
 }
+
+/**
+ * 根据爬墙方向赋予垂直速度。
+ * @param speed 速度数值。
+ */
 void Player::giveVelocityY(float speed)
 {
-	int dir = (_directionY == UpDownDirection::UP) ? 1 : -1;
+    int dir = (_directionY == UpDownDirection::UP) ? 1 : -1;
     this->getPhysicsBody()->setVelocity(Vec2(0, speed * dir));
 }
+
+/**
+ * 改变水平朝向并镜像精灵。
+ * @param dir 新的移动方向。
+ */
 void Player::changeDirection(MoveDirection dir)
 {
     _direction = dir;
     this->setFlippedX(_direction == MoveDirection::LEFT);
 }
+
+/**
+ * 将水平速度置零。
+ */
 void Player::set0VelocityX()
 {
     auto body = this->getPhysicsBody();
@@ -183,6 +254,10 @@ void Player::set0VelocityX()
     currentVel.x = 0;
     body->setVelocity(Vec2(0, currentVel.y));
 }
+
+/**
+ * 将垂直速度置零。
+ */
 void Player::set0VelocityY()
 {
     auto body = this->getPhysicsBody();
@@ -192,38 +267,49 @@ void Player::set0VelocityY()
     currentVel.y = 0;
     body->setVelocity(Vec2(currentVel.x, 0));
 }
+
+/**
+ * 通过垂直速度判断玩家是否在地面。
+ */
 bool Player::isOnGround() const
 {
     return abs(this->getPhysicsBody()->getVelocity().y) < 1.0f;
 }
+
+/**
+ * 每帧更新逻辑。
+ */
 void Player::update(float dt)
 {
     auto body = this->getPhysicsBody();
+    // 处理着地状态切换
     if (this->isOnGround() && (_state == ActionState::jumpDown || _state == ActionState::jumpUp))
         this->changeState(ActionState::idle);
     else if (!this->isOnGround() && _state != ActionState::rollStart)
         this->changeState(ActionState::jumpDown);
-
 }
-//*******************************************************************
-//*******************************************************************
-//*******************************************************************
-//动作
+
+// -----------------------------------------------------------------------------
+// 动作指令实现
+// -----------------------------------------------------------------------------
+
 void Player::idle()
 {
     this->set0VelocityX();
 }
+
 void Player::run()
 {
-
     auto body = this->getPhysicsBody();
     if (!body)
         return;
     this->giveVelocityX(_runSpeed);
 }
+
 void Player::jumpDown()
 {
 }
+
 void Player::jumpUp()
 {
     if (!this->isOnGround()) {
@@ -236,6 +322,7 @@ void Player::jumpUp()
     Vec2 impulse(0, body->getMass() * _jumpSpeed);
     body->applyImpulse(impulse);
 }
+
 void Player::rollStart()
 {
     this->createRollBody();
@@ -248,13 +335,11 @@ void Player::rollStart()
 
 void Player::hanging()
 {
-
     auto body = this->getPhysicsBody();
     if (!body) return;
 
-	body->setVelocity(Vec2(0, 0));
+    body->setVelocity(Vec2(0, 0));
     body->setGravityEnable(false);
-
 }
 
 void Player::climbing()
@@ -264,30 +349,31 @@ void Player::climbing()
 
 void Player::climbedge()
 {
-
     CCLOG("CHANGE!\n");
-
     auto body = this->getPhysicsBody();
     if (!body) return;
 
     body->setVelocity(Vec2(0, _climbSpeed));
     body->setGravityEnable(false);
-
 }
 
 void Player::crouch()
 {
 }
+
 void Player::closeCombatBow()
 {
     this->idle();
 }
+
 void Player::dualBow()
 {
 }
+
 void Player::crossbowShoot()
 {
 }
+
 void Player::dead()
 {
     this->unscheduleUpdate();
@@ -296,29 +382,41 @@ void Player::dead()
     this->getPhysicsBody()->setVelocity(Vec2(this->getPhysicsBody()->getVelocity().x * 0.5f, 0));
     this->changeState(ActionState::lethalFall);
 }
+
 void Player::lethalHit()
 {
     this->set0VelocityX();
 }
-void Player::swapWeapon() // 交换主副武器
+
+/**
+ * 交换主副武器。
+ */
+void Player::swapWeapon()
 {
     auto mid = _mainWeapon;
-    _mainWeapon = _subWeapon; 
+    _mainWeapon = _subWeapon;
     _subWeapon = mid;
     this->changeState(ActionState::idle);
     CCLOG("Swapped Main and Sub weapons");
 }
 
+/**
+ * 装备新武器并清除动画缓存。
+ */
 void Player::getNewWeapon(Weapon* newWeapon)
 {
     _mainWeapon = newWeapon;
     _animationCache.clear();
     this->changeState(ActionState::idle);
 }
+
+/**
+ * 箭矢射击逻辑计算。
+ */
 void Player::shootArrow()
 {
     float weaponPower = 0.0f;
-    if (_currentAttackingWeapon) 
+    if (_currentAttackingWeapon)
     {
         weaponPower = _currentAttackingWeapon->getWeaponAttackPower();
     }
@@ -329,34 +427,34 @@ void Player::shootArrow()
     float totalAttack = this->getCurrentAttributes().attack + weaponPower;
     int dir = (_direction == MoveDirection::RIGHT) ? 1 : -1;
     auto arrow = Arrow::create(true, totalAttack);
-    if (arrow) 
+    if (arrow)
     {
         arrow->setPosition(this->getPosition() + Vec2(0, 50));
         this->getParent()->addChild(arrow);
         arrow->run(Vec2(dir, 0));
     }
 }
-//*******************************************************************
-//*******************************************************************
-//*******************************************************************
-//动画
+
+// -----------------------------------------------------------------------------
+// 状态机与动画管理
+// -----------------------------------------------------------------------------
+
+/**
+ * 核心状态切换函数。
+ * @param newState 需要进入的新动作状态。
+ */
 void Player::changeState(ActionState newState)
 {
     if (_state == ActionState::lethalSlam)
         return;
     if (_state == ActionState::lethalFall && newState != ActionState::lethalSlam)
         return;
-    //if (_state == ActionState::rollStart)
-    //{
-    //    _invincible = false;
-    //    this->setOpacity(255);
-    //    this->stopActionByTag(2001); // 停止无敌时间计时器
-    //    this->createNormalBody();    // 强制恢复正常受击框
-    //}
+
     if (_state == newState)
         return;
     if (!whetherCanChangeToNewState(newState))
         return;
+
     switch (newState)
     {
         case ActionState::jumpDown:; break;
@@ -366,8 +464,8 @@ void Player::changeState(ActionState newState)
         case ActionState::rollStart:this->rollStart(); break;
         case ActionState::crouch:this->crouch(); break;
         case ActionState::dead:this->dead(); break;
-		case ActionState::hanging:this->hanging(); break;
-		case ActionState::climbing:this->climbing(); break;
+        case ActionState::hanging:this->hanging(); break;
+        case ActionState::climbing:this->climbing(); break;
         case ActionState::climbedge:this->climbedge();  break;
 
         case ActionState::atkA:this->createAttackBox(); break;
@@ -400,6 +498,11 @@ void Player::changeState(ActionState newState)
     bool loop = StateTable[newState].loop;
     playAnimation(newState, loop);
 }
+
+/**
+ * 根据武器类型决定具体进入哪种攻击状态。
+ * @param weapon 当前持有的武器指针。
+ */
 void Player::changeStateByWeapon(Weapon* weapon)
 {
     if (isAttackState(_state))
@@ -442,15 +545,17 @@ void Player::changeStateByWeapon(Weapon* weapon)
             changeState(ActionState::blockEndParryShield);
         return;
     }
-
 }
+
+/**
+ * 判断是否允许从当前状态切换到新状态。
+ */
 bool Player::whetherCanChangeToNewState(ActionState newState) const
 {
-
     if (newState == ActionState::hanging)
         return true;
     if (_state == ActionState::hanging && newState == ActionState::jumpUp)
-		return true;
+        return true;
     if (newState == ActionState::idle)
         return true;
     if (isAttackState(_state) && isAttackState(newState))
@@ -465,6 +570,10 @@ bool Player::whetherCanChangeToNewState(ActionState newState) const
 
     return true;
 }
+
+/**
+ * 播放指定状态的动画，并处理循环或结束回调。
+ */
 void Player::playAnimation(ActionState state, bool loop)
 {
     this->stopActionByTag(1001);
@@ -492,6 +601,10 @@ void Player::playAnimation(ActionState state, bool loop)
     action->setTag(1001);
     this->runAction(action);
 }
+
+/**
+ * 从文件路径批量创建动画帧。
+ */
 cocos2d::Animation* Player::createAnim(const std::string& name, int frameCount, float time) const
 {
     auto anim = Animation::create();
@@ -512,6 +625,10 @@ cocos2d::Animation* Player::createAnim(const std::string& name, int frameCount, 
     anim->setRestoreOriginalFrame(false);
     return anim;
 }
+
+/**
+ * 获取动画缓存，若不存在则创建。
+ */
 cocos2d::Animation* Player::getAnimation(ActionState state)
 {
     auto iter = _animationCache.find(state);
@@ -521,19 +638,16 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
     Animation* anim = nullptr;
     switch (state)
     {
-        case ActionState::idle:             anim = createAnim("idle", 46, 0.5f); break;
-        case ActionState::run:              anim = createAnim("run", 20, 0.5f); break;
-        case ActionState::jumpDown:         anim = createAnim("jumpDown", 4, 0.3f); break;
-        case ActionState::jumpUp:           anim = createAnim("jumpUp", 6, 0.3f); break;
-        case ActionState::crouch:           anim = createAnim("crouch", 1, 0.3f); break;
-
-        case ActionState::climbing:         anim = createAnim("climbB", 12, 0.3f); break;
-        case ActionState::climbedge:        anim = createAnim("climbB", 12, 0.3f); break;
-
-
-        case ActionState::rollStart:        anim = createAnim("rollStart", 4, 0.3f); break;
-        case ActionState::atkA:             anim = createAnim("atkA", 14, 0.3f); break;
-        case ActionState::atkB:             anim = createAnim("atkB", 10, 0.3f); break;
+        case ActionState::idle:                 anim = createAnim("idle", 46, 0.5f); break;
+        case ActionState::run:                  anim = createAnim("run", 20, 0.5f); break;
+        case ActionState::jumpDown:             anim = createAnim("jumpDown", 4, 0.3f); break;
+        case ActionState::jumpUp:               anim = createAnim("jumpUp", 6, 0.3f); break;
+        case ActionState::crouch:               anim = createAnim("crouch", 1, 0.3f); break;
+        case ActionState::climbing:             anim = createAnim("climbB", 12, 0.3f); break;
+        case ActionState::climbedge:            anim = createAnim("climbB", 12, 0.3f); break;
+        case ActionState::rollStart:            anim = createAnim("rollStart", 4, 0.3f); break;
+        case ActionState::atkA:                 anim = createAnim("atkA", 14, 0.3f); break;
+        case ActionState::atkB:                 anim = createAnim("atkB", 10, 0.3f); break;
         case ActionState::atkBackStabber:   anim = createAnim("atkBackStabberA", 13, 0.3f); break;
         case ActionState::AtkBaseballBatA:  anim = createAnim("AtkBaseballBatA", 11, 0.3f); break;
         case ActionState::AtkBaseballBatB:  anim = createAnim("AtkBaseballBatB", 12, 0.3f); break;
@@ -546,8 +660,8 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::AtkOvenAxeA:      anim = createAnim("AtkOvenAxeA", 38, 1.0f); break;
         case ActionState::AtkOvenAxeB:      anim = createAnim("AtkOvenAxeB", 40, 1.0f); break;
         case ActionState::AtkOvenAxeC:      anim = createAnim("AtkOvenAxeC", 48, 1.0f); break;
-        case ActionState::closeCombatBow   :anim = createAnim("closeCombatBow", 25, 0.3f); break;
-        case ActionState::dualBow:       anim = createAnim("dualBow", 25, 0.3f); break;
+        case ActionState::closeCombatBow:anim = createAnim("closeCombatBow", 25, 0.3f); break;
+        case ActionState::dualBow:          anim = createAnim("dualBow", 25, 0.3f); break;
         case ActionState::crossbowShoot:    anim = createAnim("crossbowShoot", 11, 0.3f); break;
         case ActionState::lethalHit:        anim = createAnim("lethalHit", 1, 0.25f); break;
         case ActionState::lethalFall:       anim = createAnim("lethalFall", 11, 1.0f); break;
@@ -560,15 +674,20 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
     _animationCache[state] = anim;
     return anim;
 }
-//*******************************************************************
-//*******************************************************************
-//*******************************************************************
-//攻击受击判定
+
+// -----------------------------------------------------------------------------
+// 攻击受击判定
+// -----------------------------------------------------------------------------
+
+/**
+ * 处理按下攻击键的逻辑。
+ * @param w 触发攻击的武器。
+ */
 void Player::whenOnAttackKey(Weapon* w)
 {
     if (isAttackState(_state))
     {
-        if (w == _currentAttackingWeapon) 
+        if (w == _currentAttackingWeapon)
         {
             _comboInput = true;
         }
@@ -583,9 +702,12 @@ void Player::whenOnAttackKey(Weapon* w)
     this->changeStateByWeapon(w);
 }
 
+/**
+ * 当非循环动画结束时触发的行为。
+ */
 void Player::actionWhenEnding(ActionState state)
 {
-    if (state == ActionState::lethalFall){
+    if (state == ActionState::lethalFall) {
         if (this->getPhysicsBody()) {
             this->getPhysicsBody()->setVelocity(Vec2::ZERO);
             this->getPhysicsBody()->setGravityEnable(false);
@@ -593,15 +715,15 @@ void Player::actionWhenEnding(ActionState state)
         this->changeState(ActionState::lethalSlam);
         return;
     }
-    if (state == ActionState::lethalSlam){
+    if (state == ActionState::lethalSlam) {
         gameEnding = true;
         return;
     }
 
-    if (state == ActionState::crossbowShoot || state == ActionState::closeCombatBow || state == ActionState::dualBow){
+    if (state == ActionState::crossbowShoot || state == ActionState::closeCombatBow || state == ActionState::dualBow) {
         this->shootArrow();
     }
-    //连招衔接判定
+    // 连招衔接判定逻辑
     if (_comboInput) {
         ActionState nextState = ActionState::idle;
 
@@ -612,8 +734,8 @@ void Player::actionWhenEnding(ActionState state)
         else if (state == ActionState::AtkBaseballBatD) nextState = ActionState::AtkBaseballBatE;
         else if (state == ActionState::atkBroadSwordA)  nextState = ActionState::atkBroadSwordB;
         else if (state == ActionState::atkBroadSwordB)  nextState = ActionState::atkBroadSwordC;
-        else if (state == ActionState::AtkOvenAxeA)     nextState = ActionState::AtkOvenAxeB;
-        else if (state == ActionState::AtkOvenAxeB)     nextState = ActionState::AtkOvenAxeC;
+        else if (state == ActionState::AtkOvenAxeA)      nextState = ActionState::AtkOvenAxeB;
+        else if (state == ActionState::AtkOvenAxeB)      nextState = ActionState::AtkOvenAxeC;
         if (nextState != ActionState::idle) {
             _comboStep++;
             _comboInput = false;
@@ -645,6 +767,10 @@ void Player::actionWhenEnding(ActionState state)
         this->changeState(ActionState::idle);
     }
 }
+
+/**
+ * 判断当前状态是否属于攻击行为状态。
+ */
 bool Player::isAttackState(ActionState s) const
 {
     return s == ActionState::atkA ||
@@ -661,9 +787,13 @@ bool Player::isAttackState(ActionState s) const
         s == ActionState::AtkOvenAxeC ||
         s == ActionState::AtkBaseballBatE;
 }
+
+/**
+ * 计算玩家基础属性与当前武器加成后的总攻击力。
+ */
 float Player::getFinalAttack() const
 {
-    float baseAtk = this->getCurrentAttributes().attack; 
+    float baseAtk = this->getCurrentAttributes().attack;
     float weaponAtk = 0.0f;
     if (_currentAttackingWeapon)
     {
@@ -676,6 +806,11 @@ float Player::getFinalAttack() const
 
     return baseAtk + weaponAtk;
 }
+
+/**
+ * 玩家受击处理。
+ * @param attackPower 敌方的原始攻击力。
+ */
 void Player::struck(float attackPower)
 {
     if (_isParrying) {
@@ -688,7 +823,7 @@ void Player::struck(float attackPower)
     attributes.health -= damage;
     this->setCurrentAttributes(attributes);
 
-    if (_currentAttributes.health <= 0) 
+    if (_currentAttributes.health <= 0)
     {
         _currentAttributes.health = 0;
         this->dead();
@@ -696,8 +831,12 @@ void Player::struck(float attackPower)
     else {
         this->changeState(ActionState::lethalHit);
     }
-    updateHPBar(); 
+    updateHPBar();
 }
+
+/**
+ * 启动翻滚期间的无敌状态。
+ */
 void Player::startRollInvincible(float time)
 {
     this->stopActionByTag(2001);
@@ -718,9 +857,13 @@ void Player::startRollInvincible(float time)
 
 void Player::createRollBox()
 {
-    float duration = 0.3f; 
+    float duration = 0.3f;
     startRollInvincible(duration);
 }
+
+/**
+ * 创建临时的攻击物理检测盒。
+ */
 void Player::createAttackBox()
 {
     removeAttackBox();
@@ -732,8 +875,8 @@ void Player::createAttackBox()
     auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 3, pictureHeight / 6), PhysicsMaterial(0, 0, 0));
     attackBody->setDynamic(false);
     attackBody->setCategoryBitmask(PLAYER_ATTACK);
-    attackBody->setCollisionBitmask(0); 
-    attackBody->setContactTestBitmask(ENEMY_BODY); 
+    attackBody->setCollisionBitmask(0);
+    attackBody->setContactTestBitmask(ENEMY_BODY);
 
     _attackNode->setPhysicsBody(attackBody);
     _attackNode->runAction(Sequence::create(
@@ -742,7 +885,10 @@ void Player::createAttackBox()
         nullptr
     ));
 }
-//盾反框
+
+/**
+ * 创建盾反（招架）物理检测盒。
+ */
 void Player::createShieldParryBox()
 {
     removeAttackBox();
@@ -754,7 +900,7 @@ void Player::createShieldParryBox()
     _attackNode->setPosition(Vec2(pictureWidth / 2 + dir * pictureWidth / 6, pictureHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
-    auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 6, pictureHeight / 6), PhysicsMaterial(0, 0, 0),Size(-1*pictureWidth / 12,0));
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 6, pictureHeight / 6), PhysicsMaterial(0, 0, 0), Size(-1 * pictureWidth / 12, 0));
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
     attackBody->setCategoryBitmask(SHIELD);
@@ -763,15 +909,19 @@ void Player::createShieldParryBox()
     _attackNode->setPhysicsBody(attackBody);
 
     _attackNode->runAction(Sequence::create(
-        DelayTime::create(0.5f), 
+        DelayTime::create(0.5f),
         CallFunc::create([this]() {
             this->removeAttackBox();
-            this->_isParrying = false; 
+            this->_isParrying = false;
             CCLOG("Parry Ended: Invincible OFF");
             }),
         nullptr
     ));
 }
+
+/**
+ * 移除当前的攻击/检测盒节点。
+ */
 void Player::removeAttackBox()
 {
     if (_attackNode)
