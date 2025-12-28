@@ -101,9 +101,9 @@ void GameScene::RenderMap()
     _mapContainer->addChild(_player, 100);
     _mapContainer->setPosition(Director::getInstance()->getVisibleSize() / 2 - Size(startDir));
 
-    auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
-    monster.pushBack(monster3);
-    _mapContainer->addChild(monster3, 100);
+    //auto monster3 = MonsterLayer::create(MonsterCategory::Grenadier, startDir);
+    //monster.pushBack(monster3);
+    //_mapContainer->addChild(monster3, 100);
 
     for (auto roomData : rooms)
     {
@@ -211,7 +211,50 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     auto nodeB = bodyB->getNode();
 
     if (!nodeA || !nodeB) return true;
+    if (maskA == SHIELD || maskB == SHIELD) 
+    {
+        auto otherBody = (maskA == SHIELD) ? bodyB : bodyA;
+        int otherMask = otherBody->getCategoryBitmask();
 
+        if (otherMask == ENEMY_ARROW)
+        {
+            auto oldArrow = dynamic_cast<Arrow*>(otherBody->getNode());
+            if (oldArrow && !oldArrow->hasHit())
+            {
+                Vec2 pos = oldArrow->getPosition();
+                float oldPower = oldArrow->getAttackPower();
+                Vec2 oldVelocity = oldArrow->getPhysicsBody()->getVelocity();
+
+                // 计算反弹方向（取反并加强速度）
+                Vec2 reflectDir = -oldVelocity.getNormalized();
+
+                // 2. 创建一个属于玩家的新箭矢 (fromPlayer = true)
+                // 假设伤害翻倍作为格挡奖励
+                auto newArrow = Arrow::create(true, oldPower * 1.5f);
+                newArrow->setPosition(pos);
+
+                // 将新箭矢添加到地图容器中（注意：不是添加给玩家，是添加给地图）
+                this->_mapContainer->addChild(newArrow, oldArrow->getLocalZOrder());
+
+                // 3. 让新箭矢飞回去
+                newArrow->run(reflectDir);
+
+                // 4. 销毁旧箭矢
+                oldArrow->hit(); // 或者直接 oldArrow->removeFromParent();
+
+                CCLOG("Arrow Parried: Re-spawned as Player Arrow!");
+            }
+        }
+        else if (otherMask == ENEMY_BOMB) 
+        {
+            // 炸弹直接提前引爆或消失
+            auto bomb = dynamic_cast<Bomb*>(otherBody->getNode());
+            if (bomb) 
+                bomb->explode();
+        }
+
+        return false; // 盾牌框不需要产生真实的物理排斥，只做判定
+    }
     if ((maskA == INTERACTABLE && maskB == PLAYER_BODY) || (maskB == INTERACTABLE && maskA == PLAYER_BODY))
     {
         auto targetNode = (maskA == INTERACTABLE) ? nodeA : nodeB;

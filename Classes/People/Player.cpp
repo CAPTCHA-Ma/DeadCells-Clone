@@ -32,7 +32,7 @@ bool Player::init()
     this->setMaxHealth(basicAttribute.health);
 
 
-    this->_mainWeapon = new Sword(Sword::SwordType::OvenAxe);
+    this->_mainWeapon = new Shield(Shield::ShieldType::ParryShield);
     this->_subWeapon = new Bow(Bow::BowType::dualBow);
     this->createNormalBody();
 
@@ -46,30 +46,21 @@ bool Player::init()
 void Player::setupGoldLabel()
 {
     if (_goldLabelNode) return;
-
-    // 创建 Label，使用你项目中已有的字体
     _goldLabelNode = cocos2d::Label::createWithTTF("0", "fonts/fusion-pixel.ttf", 18);
-
-    // 获取血条的位置作为参考
     float spriteHeight = bodyHeight * 1;
-    // 设在血条上方（血条在 spriteHeight+50，金币设在 +70）
     _goldLabelNode->setPosition(cocos2d::Vec2(pictureWidth / 2, spriteHeight + 70));
 
-    _goldLabelNode->setColor(cocos2d::Color3B::YELLOW); // 金币用黄色
-    // 加上简单的黑色轮廓，防止在亮色背景下看不清
+    _goldLabelNode->setColor(cocos2d::Color3B::YELLOW);
     _goldLabelNode->enableOutline(cocos2d::Color4B::BLACK, 1);
-
-    this->addChild(_goldLabelNode, 11); // 层级略高于血条
+    this->addChild(_goldLabelNode, 11); 
 }
 void Player::updateGoldDisplay(int totalGold)
 {
     if (!_goldLabelNode) {
-        setupGoldLabel(); // 如果还没初始化则初始化
+        setupGoldLabel(); 
     }
 
     _goldLabelNode->setString(std::to_string(totalGold));
-
-    // 添加一个微小的动画反馈：变大再回弹
     _goldLabelNode->stopAllActions();
     auto scaleUp = cocos2d::ScaleTo::create(0.05f, 1.3f);
     auto scaleDown = cocos2d::ScaleTo::create(0.1f, 1.0f);
@@ -207,7 +198,6 @@ bool Player::isOnGround() const
 }
 void Player::update(float dt)
 {
-    // 应用重力
     auto body = this->getPhysicsBody();
     if (this->isOnGround() && (_state == ActionState::jumpDown || _state == ActionState::jumpUp))
         this->changeState(ActionState::idle);
@@ -536,6 +526,11 @@ cocos2d::Animation* Player::getAnimation(ActionState state)
         case ActionState::jumpDown:         anim = createAnim("jumpDown", 4, 0.3f); break;
         case ActionState::jumpUp:           anim = createAnim("jumpUp", 6, 0.3f); break;
         case ActionState::crouch:           anim = createAnim("crouch", 1, 0.3f); break;
+
+        case ActionState::climbing:         anim = createAnim("climbB", 12, 0.3f); break;
+        case ActionState::climbedge:        anim = createAnim("climbB", 12, 0.3f); break;
+
+
         case ActionState::rollStart:        anim = createAnim("rollStart", 4, 0.3f); break;
         case ActionState::atkA:             anim = createAnim("atkA", 14, 0.3f); break;
         case ActionState::atkB:             anim = createAnim("atkB", 10, 0.3f); break;
@@ -683,6 +678,11 @@ float Player::getFinalAttack() const
 }
 void Player::struck(float attackPower)
 {
+    if (_isParrying) {
+        CCLOG("Damage Blocked by Shield!");
+        this->runAction(Sequence::create(TintTo::create(0.1f, Color3B::BLUE), TintTo::create(0.1f, Color3B::WHITE), nullptr));
+        return;
+    }
     auto attributes = this->getCurrentAttributes();
     float damage = attackPower * (100 - attributes.defense) / 100;
     attributes.health -= damage;
@@ -696,7 +696,6 @@ void Player::struck(float attackPower)
     else {
         this->changeState(ActionState::lethalHit);
     }
-
     updateHPBar(); 
 }
 void Player::startRollInvincible(float time)
@@ -747,23 +746,29 @@ void Player::createAttackBox()
 void Player::createShieldParryBox()
 {
     removeAttackBox();
+    _isParrying = true;
+    CCLOG("Parry Started: Invincible ON");
+
     _attackNode = Node::create();
     float dir = (_direction == MoveDirection::RIGHT) ? 1.0f : -1.0f;
     _attackNode->setPosition(Vec2(pictureWidth / 2 + dir * pictureWidth / 6, pictureHeight * 2 / 3));
     this->addChild(_attackNode, 10);
 
-    auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 3, pictureHeight / 6), PhysicsMaterial(0, 0, 0));
+    auto attackBody = PhysicsBody::createBox(cocos2d::Size(pictureWidth / 6, pictureHeight / 6), PhysicsMaterial(0, 0, 0),Size(-1*pictureWidth / 12,0));
     attackBody->setDynamic(false);
     attackBody->setGravityEnable(false);
-    attackBody->setCategoryBitmask(PLAYER_ATTACK);
+    attackBody->setCategoryBitmask(SHIELD);
     attackBody->setCollisionBitmask(0);
-    attackBody->setContactTestBitmask(ENEMY_BODY);
+    attackBody->setContactTestBitmask(ENEMY_ATTACK | ENEMY_ARROW | ENEMY_BOMB);
     _attackNode->setPhysicsBody(attackBody);
 
-
     _attackNode->runAction(Sequence::create(
-        DelayTime::create(0.5f),
-        CallFunc::create([this]() { this->removeAttackBox(); }),
+        DelayTime::create(0.5f), 
+        CallFunc::create([this]() {
+            this->removeAttackBox();
+            this->_isParrying = false; 
+            CCLOG("Parry Ended: Invincible OFF");
+            }),
         nullptr
     ));
 }

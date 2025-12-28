@@ -49,6 +49,7 @@ enum PhysicsCategory
 
     PLAYER_BODY = 1 << 0,  // 玩家物理身体
     PLAYER_ATTACK = 1 << 1,  // 玩家攻击判定框
+    SHIELD = 1 << 16,
     PLAYER_ARROW = 1 << 3,  // 玩家射出的箭
 
     ENEMY_BODY = 1 << 4,  // 敌人物理身体

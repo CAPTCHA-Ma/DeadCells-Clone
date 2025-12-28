@@ -40,7 +40,7 @@ bool Arrow::init(bool fromPlayer, float attackPower)
     {
         hurtbody->setCategoryBitmask(ENEMY_ARROW);
         hurtbody->setCollisionBitmask(PhysicsCategory::GROUND);
-        hurtbody->setContactTestBitmask(PLAYER_BODY | GROUND);
+        hurtbody->setContactTestBitmask(PLAYER_BODY | GROUND | SHIELD);
     }
 	this->setAttackPower(attackPower);
     this->setPhysicsBody(hurtbody);

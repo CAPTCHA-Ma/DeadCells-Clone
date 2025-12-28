@@ -28,7 +28,7 @@ bool Bomb::init(float attackPower)
 
     body->setCategoryBitmask(PhysicsCategory::ENEMY_BOMB);
     body->setCollisionBitmask(PhysicsCategory::GROUND); 
-    body->setContactTestBitmask(PhysicsCategory::PLAYER_BODY | PhysicsCategory::GROUND);
+    body->setContactTestBitmask(PhysicsCategory::PLAYER_BODY | PhysicsCategory::GROUND | SHIELD);
     this->setAttackPower(attackPower);
     this->setPhysicsBody(body);
     return true;

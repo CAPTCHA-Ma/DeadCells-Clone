@@ -107,7 +107,7 @@ void Grenadier::ai(float dt, cocos2d::Vec2 playerWorldPos)
     float distY = abs(toPlayer.y);
 
  
-    if (_aiTickTimer >= 0.2f)
+    if (_aiTickTimer >= 0.5f)
     {
         _aiTickTimer = 0.0f;
         if (distX <= _attackRange && distY < 2.0f)

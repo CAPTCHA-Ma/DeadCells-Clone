@@ -161,7 +161,9 @@ public:
     bool isInvincible() const { return _invincible; };
     void setupHPBar();
     void updateHPBar();
+    bool isParrying() const { return _isParrying; }
 protected:
+
 	CC_SYNTHESIZE(BasicAttributes, _currentAttributes, CurrentAttributes);//最终属性与装备有关
     CC_SYNTHESIZE(float, _maxHealth, MaxHealth);//最大生命值
     
@@ -207,8 +209,7 @@ private:
     void createAttackBox();
     void createShieldParryBox();
     void removeAttackBox();
-
-
+    bool _isParrying = false; // 是否处于格挡判定中
 };
 
 #endif // __PLAYER_H__

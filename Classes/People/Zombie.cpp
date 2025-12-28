@@ -111,7 +111,7 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
     Vec2 toPlayer = playerWorldPos - myWorldPos;
     float distX = abs(toPlayer.x);
     float distY = abs(toPlayer.y);
-    if (_aiTickTimer >= 0.2f)
+    if (_aiTickTimer >= 0.5f)
     {
         _aiTickTimer = 0.0f;
         if (distX <= _attackRange && distY < 1.0f)
@@ -121,7 +121,6 @@ void Zombie::ai(float dt, cocos2d::Vec2 playerWorldPos)
             _sprite->setFlippedX(dir == -1);
             this->changeState(ZombieState::atkA);
         }
-        // 判断 B: 是否在追踪范围内
         else if (distX <= DetectionRange && distY < 1.0f)
         {
             MoveDirection newDir = (toPlayer.x > 0) ? MoveDirection::RIGHT : MoveDirection::LEFT;
@@ -170,7 +169,7 @@ cocos2d::Animation* Zombie::getAnimation(ZombieState state)
     switch (state)
     {
         case ZombieState::idle:            anim = createAnim("idle", 36, 1.0f); break;
-        case ZombieState::atkA:             anim = createAnim("atkA", 9, 1.0f); break;
+        case ZombieState::atkA:             anim = createAnim("atkA", 9, 1.5f); break;
         case ZombieState::walk:            anim = createAnim("walk", 28, 1.0f); break;
         case ZombieState::run:            anim = createAnim("run", 25, 1.0f); break;
         default:return nullptr;
@@ -189,17 +188,11 @@ cocos2d::Animation* Zombie::createAnim(const std::string& name, int frameCount, 
     for (int i = 0; i < frameCount; ++i)
     {
         std::string framePath = StringUtils::format("Graph/Zombie/%s-=-%d-=-.png", name.c_str(), i);
-
-        // 先创建一个临时Sprite获取图片原始尺寸
         auto tempSprite = Sprite::create(framePath);
-        if (!tempSprite) continue; // 图片不存在则跳过
+        if (!tempSprite) continue; 
 
         auto originalSize = tempSprite->getContentSize();
-
-        // 计算截取偏移，使目标区域居中
         float offsetX = (originalSize.width - targetWidth) / 2.0f;
-
-        // 构建SpriteFrame并添加到动画
         auto frame = SpriteFrame::create(framePath, Rect(offsetX, 0, targetWidth, targetHeight));
         anim->addSpriteFrame(frame);
     }

@@ -109,7 +109,7 @@ void DeadArcher::ai(float dt, cocos2d::Vec2 playerWorldPos)
     float distY = abs(toPlayer.y);
 
 
-    if (_aiTickTimer >= 0.2f)
+    if (_aiTickTimer >= 0.5f)
     {
         _aiTickTimer = 0.0f;
         if (distX <= _attackRange && distY < 2.0f)
@@ -169,7 +169,7 @@ cocos2d::Animation* DeadArcher::getAnimation(DeadArcherState state)
     switch (state)
     { 
         case DeadArcherState::idle:              anim = createAnim("idle", 46, 1.0f); break;
-        case DeadArcherState::shoot:             anim = createAnim("shoot", 22, 1.0f); break;
+        case DeadArcherState::shoot:             anim = createAnim("shoot", 22, 1.5f); break;
         case DeadArcherState::walk:              anim = createAnim("walkA", 11, 1.0f); break;
         default:return nullptr;
     }
