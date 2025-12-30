@@ -23,6 +23,7 @@ public:
     bool isDead() const { return _isDead; }
     bool isReadyToRemove() const { return _isReadyToRemove; }
     bool isStunned() const { return _stunTimer > 0.0f; } // 是否处于受击硬直状态
+    void setReadyToRemove(bool val) { _isReadyToRemove = val; }
 
     // --- 子类必须实现的虚函数 (纯虚函数) ---
     virtual bool init() = 0;

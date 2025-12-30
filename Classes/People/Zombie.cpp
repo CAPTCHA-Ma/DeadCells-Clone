@@ -60,9 +60,14 @@ void Zombie::onDead()
         body->setAngularVelocity(0);
     }
 
+    // Í¨Öª GameScene É¾³ýÖ¸Õë
+    auto finishAction = CallFunc::create([this]() {
+        this->setReadyToRemove(true);
+        });
+
     runAction(Sequence::create(
         FadeOut::create(0.5f),
-        RemoveSelf::create(true),
+        finishAction,
         nullptr
     ));
 }

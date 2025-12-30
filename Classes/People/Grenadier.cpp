@@ -100,22 +100,21 @@ void Grenadier::walk()
 void Grenadier::onDead()
 {
     changeState(GrenadierState::dead);
-    this->unscheduleUpdate(); // Í£Ö¹ AI Âß¼­
 
     if (auto body = this->getPhysicsBody())
     {
         body->setVelocity(Vec2::ZERO);
-        body->setContactTestBitmask(0);      // Í£Ö¹Åö×²¼ì²â
-        body->setCollisionBitmask(GROUND);   // ½ö±£ÁôÓëµØÃæµÄÅö×²£¨·ÀÖ¹µô³öµØÍ¼£©
+        body->setAngularVelocity(0);
     }
 
-    this->stopAllActions();
-    if (_sprite) _sprite->stopAllActions();
+    // Í¨Öª GameScene É¾³ýÖ¸Õë
+    auto finishAction = CallFunc::create([this]() {
+        this->setReadyToRemove(true);
+        });
 
-    // ²¥·Åµ­³ö¶¯»­²¢´Ó³¡¾°ÒÆ³ý
     runAction(Sequence::create(
         FadeOut::create(0.5f),
-        RemoveSelf::create(true),
+        finishAction,
         nullptr
     ));
 }

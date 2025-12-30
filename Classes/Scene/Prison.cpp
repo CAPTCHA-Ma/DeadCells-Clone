@@ -115,6 +115,7 @@ void PrisonMapGen::GenRoomPos()
 // 地图生成函数
 void PrisonMapGen::Generate()
 {
+
     mDM = MapDataManager::getInstance();
     std::vector<std::vector<int>> MapArray;
     std::vector<std::vector<AStarNode>> AStarGraph;

@@ -53,12 +53,17 @@ void DeadArcher::onDead()
     if (auto body = this->getPhysicsBody())
     {
         body->setVelocity(Vec2::ZERO);
-        body->setAngularVelocity(0); // 防止滚动
+        body->setAngularVelocity(0);
     }
+
+    // 通知 GameScene 删除指针
+    auto finishAction = CallFunc::create([this]() {
+        this->setReadyToRemove(true);
+        });
 
     runAction(Sequence::create(
         FadeOut::create(0.5f),
-        RemoveSelf::create(true),
+        finishAction,
         nullptr
     ));
 }
